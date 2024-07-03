@@ -1,0 +1,1364 @@
+<!-- Insurers/templates/Insurers/insurer_info.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Information</title>
+    <link href="{% static 'Insurers/css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'Insurers/css/question.css' %}" rel="stylesheet" />
+    <link href="{% static 'Insurers/css/user.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.bootstrap5.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.56/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.56/vfs_fonts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.bootstrap5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.colVis.min.js"></script>
+   
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="{% static 'Insurers/css/client.questions.css' %}" rel="stylesheet" />
+    <link href="{% static 'Insurers/css/tools.css' %}" rel="stylesheet" />
+    <link href="{% static 'Insurers/css/insurer_info.css' %}" rel="stylesheet" />
+    <link href="{% static 'Insurers/css/sidebar.css' %}" rel="stylesheet" />
+    <link href="{% static 'Insurers/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link rel="icon" href="/static/questions/img/xxx.png" >
+</head>
+<body>
+    <nav class="sidebar sidebar-bg" id="sidebar">
+        <div class="sidebar-content">
+          <div class="perfect-scrollbar">
+            <div class="ps">
+              <div class="ps-content">
+                <div class="sidebar-logo">
+                  <img
+                    src="{% static 'Insurers/img/dark_logo.png' %}"
+                    class="img-responsive2"
+                    alt=""
+                  />
+                  <p>DIGITALIZE EVERYTHING, NOW.</p>
+                </div>
+                <div class="sidebar-profile">
+                  <div class="user-pic">
+                    <img
+                      src="{% static 'Insurers/img/xIcon.png' %}"
+                      class="img-responsive"
+                      alt=""
+                    />
+                  </div>
+                  <div class="user-info">
+                    <span class="user-name">
+                      {{ user.first_name }} <strong>{{ user.last_name }}</strong>
+                    </span>
+                    <span class="user-role">
+                      {% if user.groups.exists %}
+                {% for group in user.groups.all %}
+                    <p class="groupP">{{ group.name }}<p>
+               {% endfor %}
+               {% else %}
+               <p class="">Grupsuz</p>
+               {% endif %}
+                    </span>
+                    <span class="user-status">
+                      <i class="bi bi-circle-fill"></i>
+                      <span>Online</span>
+                    </span>
+                  </div>
+                  
+                </div>
+                <div class="sidebar-menu">
+                  <ul>
+                    <li>
+                      <a href="">
+                        <i class="bi bi-layers-fill"></i>
+                        <span>Home</span>
+                      </a>
+                    </li>
+                    <li><span class="generalText">General</span></li>
+                    <li>
+                        <a href="{% url 'questions:index' %}">
+                          <i class="bi bi-layers-fill"></i>
+                          <span>Send Questionnaire Form</span>
+                        </a>
+                      </li>
+                    <li style="background: #d6d6d62e">
+                        <a href="{% url 'Insurers:index' %}">
+                          <i class="bi bi-ui-checks" style="color: #fff"></i>
+                          <span style="color: #fff">Insurers</span>
+                        </a>
+                      </li>
+                      <li style="    background: #afebff2e;
+                      padding-left: 33px;">
+                        <a href="#">
+                          <i class="bi bi-info-lg" style="color: #fff"></i>
+                          <span style="color: #fff">Client Information</span>
+                        </a>
+                      </li>
+                     <li>
+                      <a href="{% url 'companies:index' %}">
+                        <i class="bi bi-brilliance"></i>
+                        <span>Insurers</span>
+                      </a>
+                    </li>
+
+                    <li><span class="generalText">Extra</span></li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-journal-text"></i>
+                        <span>Documentation</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-calendar-fill"></i>
+                        <span>Calendar</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-folder-fill"></i>
+                        <span>Examples</span>
+                      </a>
+                    </li>
+                   
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="notifications" id="sidebar-notifications">
+              <div class="notifications-header">
+                <i class="bi bi-bell-fill"></i>
+                <p>Notifications</p>
+                <img
+                  src="/static/Insurers/img/dark_logo.png"
+                  alt=""
+                  id="sidebar-img-notifications"
+                />
+              </div>
+              <div class="notification-row" id="notificationBack">
+                <i class="bi bi-info-circle"></i>
+                <div class="notifications-info">
+                  <p>Questionnaire form received from Kaan Ören.</p>
+                  <p class="notification-time">6 minutes ago</p>
+                </div>
+              </div>
+           
+             
+              <div class="notification-bottom">
+                <p>View all notifications.</p>
+              </div>
+            </div>
+            <div class="notifications" id="sidebar-messages">
+              <div class="notifications-header">
+                <i class="bi bi-envelope-open-fill"></i>
+                <p>Messages</p>
+                <img
+                  src="/static/Insurers/img/dark_logo.png"
+                  alt=""
+                  id="sidebar-img-messages"
+                />
+              </div>
+              <div class="messages-row">
+                <img src="/static/Insurers/img/user.jpg" alt="">
+                <div class="notifications-info">
+                  <p class="messages-name">Ali Furkan İNAN</p>
+                  <p class="notification-time">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <div class="messages-row">
+                <img src="/static/Insurers/img/user.jpg" alt="">
+                <div class="notifications-info">
+                  <p class="messages-name">İbrahim YAŞAR</p>
+                  <p class="notification-time">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <div class="messages-row">
+                <img src="/static/Insurers/img/user.jpg" alt="">
+                <div class="notifications-info">
+                  <p class="messages-name">Osman Kaan ÖREN</p>
+                  <p class="notification-time">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <div class="notification-bottom">
+                <p>View all messages.</p>
+              </div>
+            </div>
+            <div class="sidebar-settings-div" id="sidebar-settings">
+              <div class="notifications-header">
+                <i class="bi bi-gear-fill"></i>
+                <p>Settings</p>
+                <img
+                  src="/static/Insurers/img/dark_logo.png"
+                  alt=""
+                  id="sidebar-img-messages"
+                />
+              </div>
+              <div class="messages-row">
+                
+                <div class="notifications-info">
+                  <p class="">My Profile</p>
+                </div>
+              </div>
+              <div class="messages-row">
+                
+                <div class="notifications-info">
+                  <p class="">Help</p>
+                </div>
+              </div>
+              <div class="messages-row">
+                
+                <div class="notifications-info">
+                  <p class="">Settings</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-footer">
+          <div class="dropdown" id="sidebar-icon-notifications">
+            <a href="#">
+              <i class="bi bi-bell-fill"></i>
+              <span class="notification__span">1</span>
+            </a>
+          </div>
+          <div class="dropdown" id="sidebar-icon-messages">
+            <a href="#">
+              <i class="bi bi-envelope-fill"></i>
+              <span class="message__span">3</span>
+            </a>
+          </div>
+          <div class="dropdown" id="sidebar-icon-settings">
+            <a href="#">
+              <i class="bi bi-gear-fill"></i>
+              <span class="settings__span"></span>
+            </a>
+          </div>
+          <div class="dropdown" id="logoutDropdown">
+            <a href="#">
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" id="logoutButton"><i class="bi bi-door-closed-fill"></i></button>
+            </form>
+            
+            </a>
+          </div>
+        </div>
+        {% include 'Insurers/tools.html' %}
+      </nav>
+<div class="topContainer" style="">
+<div class="cardContainer" style=" ">
+  <div class="cardContainerLeft" style="zoom: 0.8;">
+
+        {% if company.name == "Mutlu Akü" %}
+        <img src="{% static 'Insurers/img/mutlu.jpg' %}" style="width: 134px;" alt="Mutlu Akü" class="img-fluid">
+    {% elif company.name == "Bera Holding" %}
+        <img src="{% static 'Insurers/img/bera.png' %}" style="width: 179px;" alt="Bera Holding" class="img-fluid">
+    {% elif company.name == "Company" %}
+        <img src="{% static 'Insurers/img/lockton.png' %}" alt="Lockton" class="img-fluid">
+    {% elif company.name == "DigiBroX" %}
+        <img src="{% static 'Insurers/img/dark_logo.png' %}" style="width: 127px;" alt="DigiBroX" class="img-fluid">
+    {% elif company.name == "Cosmos Yatırım Holding" %}
+        <img src="{% static 'Insurers/img/cosmos.jpeg' %}" style="width: 105px; padding-bottom: 5px;" alt="Cosmos" class="img-fluid">
+    {% elif company.name == "Iz Yatırım Holding" %}
+        <img src="{% static 'Insurers/img/izyatirim.jpeg' %}" style="width: 200px; margin-bottom: 6px;" alt="İz Yatırım" class="img-fluid">
+    {% elif company.name == "EnerjiSA Enerji" %}
+        <img src="{% static 'Insurers/img/enerjisa.png' %}" style="width: 124px;" alt="EnerjiSA" class="img-fluid">
+    {% elif company.name == "Mazhar Zorlu Holding" %}
+        <img src="{% static 'Insurers/img/mazhar.png' %}" style="width: 131px;" alt="Mazhar Zorlu Holding" class="img-fluid">
+    {% else %}
+        <img src="{% static 'Insurers/img/default_logo.png' %}" style="    width: 65px;" alt="Default Logo" class="img-fluid">   
+    {% endif %}
+    <h1 class="rubik">{{ company.name }}</h1>
+  </div>
+  <div class="cardContainerRight" style=" ">
+
+    <div class="cardRight">
+      <div class="iconDivCard">
+        <i class="bi bi-info-square-fill"></i>
+        <h5>Company Information</h5>
+      </div>
+      <hr class="filterCardHr" style="    margin: 6.5px;">
+        <p><span class="boldSpan">Industry:</span></p>
+        <p><span class="boldSpan">Scope:</span></p>
+        <p><span class="boldSpan">Turnover:</span></p>
+    </div>
+
+    <div class="cardRight">
+      <div class="iconDivCard">
+        <i class="bi bi-person-lines-fill"></i>
+        <h5>Contact Person Popup</h5>
+      </div>
+      <hr class="filterCardHr" style="    margin: 6.5px;">
+        <p><span class="boldSpan">Contact Name:</span> Kaan Mutlu</p>
+        <p><span class="boldSpan">Contact Title:</span> Mutlu</p>
+        <p><span class="boldSpan">Contact Mail:</span> <a href="mailto:kaan@mutluholding.com">kaan@mutluholding.com</a></p>
+        <p><span class="boldSpan">Contact Number:</span> +90 505 555 55 55</p>
+    </div>
+</div>
+</div>
+<div class="docContainer" id="generalDocumentDiv" style="z-index: 2;">
+   <h3 class="generalH5">General Documents</h3>
+   <main>
+    <div class="accordion" style="padding:0;">
+   
+      <div class="accordion-item" id="masakAccordionItem">
+        <div class="accordion-item-header">
+          <span class="accordion-item-header-title" style="    display: flex;
+          width: 100%;
+          justify-content: space-around;">
+            <p>Masak</p>
+            <p>11.12.2023</p>
+          </span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down accordion-item-header-icon">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </div>
+        <div class="accordion-item-description-wrapper">
+          <div class="accordion-item-description" style="display: flex;
+          flex-direction: column;
+          align-items: self-start;
+          padding-left: 47px;">
+            <div class="accordionRow" >
+                <a href="#">Masak 3</a>
+                <p>11.12.2023</p>
+                
+          </div>
+          <div class="accordionRow" >
+            <a href="#">Masak 2</a>
+            <p>17.11.2023</p>
+      </div>
+      <div class="accordionRow" >
+        <a href="#">Masak 1</a>
+        <p>28.09.2023</p>
+  </div>
+        </div>
+        </div>
+      </div>
+      <div>
+      
+
+      <div class="accordion-item" id="authAccordionItem" style="margin-top: 0;">
+        <div class="accordion-item-header">
+          <span class="accordion-item-header-title" style="    display: flex;
+          width: 100%;
+          justify-content: space-around;">
+            <p>Authority Letter</p>
+            <p>11.12.2023</p>
+          </span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down accordion-item-header-icon">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </div>
+        <div class="accordion-item-description-wrapper">
+          <div class="accordion-item-description" style="display: flex;
+          flex-direction: column;
+          align-items: self-start;
+          padding-left: 33px;">
+            <div class="accordionRow2" >
+                <a href="#">Authority Letter 3</a>
+                <p>11.12.2023</p>
+                
+          </div>
+          <div class="accordionRow2" >
+            <a href="#">Authority Letter 2</a>
+            <p>17.11.2023</p>
+      </div>
+      <div class="accordionRow2" >
+        <a href="#">Authority Letter 1</a>
+        <p>28.09.2023</p>
+  </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="" style="    display: flex;
+    zoom: 0.8;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;" >
+      <button class="Documents-btn uploadButton masakButton" id="uploadButton ">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125" stroke="#fffffff" stroke-width="2"></path>
+      <path d="M17 15V18M17 21V18M17 18H14M17 18H20" stroke="#fffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      Add Masak
+      </button>
+     
+      <button class="Documents-btn uploadButton authorityButton" id="uploadButton ">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125" stroke="#fffffff" stroke-width="2"></path>
+      <path d="M17 15V18M17 21V18M17 18H14M17 18H20" stroke="#fffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      Add Authority Letter
+      </button>
+   
+    </div>
+  </main>
+</div>
+</div>
+</div>
+{% comment %} ////////// {% endcomment %}
+
+<div class="cardContainer2" style=" ">
+  <div class="filterDivContainer2" style=" ">
+    <i class="bi bi-filter"></i>
+   <p>Filters</p>
+   <div id="filterIcons">
+   <i class="bi bi-dash-circle" id="closeFilters"></i>
+   <i class="bi bi-plus-circle" id="openFilters" style="display:none;"></i>
+  </div>
+  </div>
+<hr id="filtersHr">
+  <div id="filtersBottom" style="    display: flex;
+  gap: 22px;
+  align-items: center;     zoom: 0.9;">
+
+  <div class="docContainer" style="">
+    <div class="iconDivCard">
+      <i class="bi bi-building-fill-check"></i>
+      <h5>Group Companies</h5>
+    </div>
+    <hr class="filterCardHr" style="    margin: 6.5px;">
+    <div class="optionDiv1" data-filter="group-companies">
+       <label class="checkbox-container">
+            <input class="custom-checkbox" type="checkbox" checked="" data-filter="all">
+            <span class="checkmark"></span>
+            <p>All</p>
+        </label>
+        <label class="checkbox-container">
+            <input class="custom-checkbox" type="checkbox" data-filter="mutlu-aku">
+            <span class="checkmark"></span>
+            <p>Mutlu Akü</p>
+        </label>
+        <label class="checkbox-container">
+            <input class="custom-checkbox" type="checkbox" data-filter="mutlu-insaat">
+            <span class="checkmark"></span>
+            <p>Mutlu İnşaat</p>
+        </label>
+    </div>
+
+</div>
+
+<div class="docContainer" >
+  <div class="iconDivCard">
+    <i class="bi bi-file-earmark-text-fill"></i>
+    <h5>Policy Type</h5>
+  </div>
+    
+<hr class="filterCardHr">
+    <div class="optionDiv2" data-filter="policy-type"> 
+      <div class="button-borders">
+        <button id="policyAll" class="primary-button2 policyButton" data-filter="all"> All
+        </button>
+      </div>
+        <div class="button-borders">
+          <button id="policyPC"  class="primary-button2 policyButton" data-filter="pandc"> P&C
+          </button>
+        </div>
+        <div class="button-borders">
+          <button id="policyHealth"  class="primary-button2 policyButton" data-filter="health"> Health
+          </button>
+        </div>
+        
+    </div>
+</div>
+
+<div class="docContainer" >
+  <div class="iconDivCard">
+    <i class="bi bi-calendar-check-fill"></i>
+    <h5>Year</h5>
+  </div>
+    <hr class="filterCardHr">
+    <div class="optionDiv2" data-filter="year"> 
+  
+       
+        <div class="button-borders">
+          <button id="yearAll"  class="primary-button2 year-button" data-filter="all"> All
+          </button>
+        </div>
+        <div class="button-borders">
+          <button id="year2022" class="primary-button2 year-button" data-filter="2022"> 2022
+          </button>
+        </div>
+        <div class="button-borders">
+          <button id="year2023"  class="primary-button2 year-button" data-filter="2023"> 2023
+          </button>
+        </div>
+      
+    </div>
+</div>
+ 
+</div>
+
+</div>
+<div class="docContainerUpload" id="masakDoc" style=" ">
+  <i class="bi bi-x-circle" id="closeMasak"></i>
+  <!-- Upload Area -->
+<div id="uploadArea" class="upload-area">
+  <!-- Header -->
+  <div class="upload-area__header">
+    <h1 class="upload-area__title">Upload Masak</h1>
+    
+  </div>
+  <!-- End Header -->
+
+  <!-- Drop Zoon -->
+  <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
+    <span class="drop-zoon__icon">
+      <i class='bx bxs-file-image'></i>
+    </span>
+    <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+    <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
+    <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
+    <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
+  </div>
+  <!-- End Drop Zoon -->
+
+  <!-- File Details -->
+  <div id="fileDetails" class="upload-area__file-details file-details">
+    <h3 class="file-details__title">Uploaded File</h3>
+
+    <div id="uploadedFile" class="uploaded-file">
+      <div class="uploaded-file__icon-container">
+        <i class='bx bxs-file-blank uploaded-file__icon'></i>
+        <span class="uploaded-file__icon-text"></span> <!-- Data Will be Comes From Js -->
+      </div>
+
+      <div id="uploadedFileInfo" class="uploaded-file__info">
+        <span class="uploaded-file__name">Proejct 1</span>
+        <span class="uploaded-file__counter">0%</span>
+      </div>
+    </div>
+  </div>
+  <!-- End File Details -->
+</div>
+<!-- End Upload Area -->
+ </div>
+ {% comment %} <div class="docContainerUpload " id="authorityDoc" style="">
+  <!-- Upload Area -->
+  <i class="bi bi-x-circle" id="closeAuth"></i>
+<div id="uploadArea" class="upload-area">
+  <!-- Header -->
+  <div class="upload-area__header">
+    <h1 class="upload-area__title">Upload Authority Letter</h1>
+    
+  </div>
+  <!-- End Header -->
+
+  <!-- Drop Zoon -->
+  <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
+    <span class="drop-zoon__icon">
+      <i class='bx bxs-file-image'></i>
+    </span>
+    <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+    <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
+    <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
+    <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
+  </div>
+  <!-- End Drop Zoon -->
+
+  <!-- File Details -->
+  <div id="fileDetails" class="upload-area__file-details file-details">
+    <h3 class="file-details__title">Uploaded File</h3>
+
+    <div id="uploadedFile" class="uploaded-file">
+      <div class="uploaded-file__icon-container">
+        <i class='bx bxs-file-blank uploaded-file__icon'></i>
+        <span class="uploaded-file__icon-text"></span> <!-- Data Will be Comes From Js -->
+      </div>
+
+      <div id="uploadedFileInfo" class="uploaded-file__info">
+        <span class="uploaded-file__name">Proejct 1</span>
+        <span class="uploaded-file__counter">0%</span>
+      </div>
+    </div>
+  </div>
+  <!-- End File Details -->
+</div>
+<!-- End Upload Area -->
+ </div> {% endcomment %}
+ <div class="policiesTableDiv">
+  
+  
+ <div class="offerHistoryTop">
+  <div style="display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;">
+    <p>Policies</p>
+  </div>
+  
+</div>
+ <table id="mainTable" class="table table-striped" style="width:100%">
+  
+
+  <thead>
+   
+      <tr>
+        <th>#</th>
+        <th>Company</th>
+        <th>Policy ID</th>
+        <th>Policy Type</th>
+        <th class="trThCenter">Policy Begin</th>
+        <th class="trThCenter">Policy End</th>
+        <th>Reinsurers</th>
+        <th>Short Address</th>
+        <th class="trThCenter">Limit</th>
+        <th>Premium</th>
+        <th>Day to Renewal</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr data-year="2022" data-policy="health" data-company="mutlu-aku">
+      <td><div class="checkbox-wrapper-13">
+        <input type="checkbox" id="c1-13"> 
+      </div></td>
+    
+      <td>Mutlu Akü</td>
+      <td>0957746KJLY</td>
+      <td>Health</td>
+      <td class="tcenter">2022-04-25</td>
+      <td class="tcenter">2023-04-25</td>
+      <td>Allianz</td>
+      <td>Levent İstanbul</td>
+      <td class="tcenter">300,000,000$</td>
+      <td>775,000$</td>
+      <td>365</td>
+  </tr>
+  <tr data-year="2022" data-policy="pandc" data-company="mutlu-insaat">
+    <td><div class="checkbox-wrapper-13">
+      <input type="checkbox" id="c1-13"> 
+    </div></td>
+      <td>Mutlu İnşaat</td>
+      <td>0457746KJLY</td>
+      <td>P&C</td>
+      <td class="tcenter">2022-05-22</td>
+      <td class="tcenter">2023-07-22</td>
+      <td>Anadolu</td>
+      <td>Tuzla İstanbul</td>
+      <td class="tcenter">400,000,000$</td>
+      <td>506,000$</td>
+      <td>137</td>
+  </tr>
+  <tr data-year="2023" data-policy="health" data-company="mutlu-aku">
+    <td><div class="checkbox-wrapper-13">
+      <input type="checkbox" id="c1-13"> 
+    </div></td>
+      <td>Mutlu Akü</td>
+      <td>0957746K4LY</td>
+      <td>Health</td>
+      <td class="tcenter">2023-04-02</td>
+      <td class="tcenter">2024-01-12</td>
+      <td>Generali</td>
+      <td>Levent İstanbul</td>
+      <td class="tcenter">500,000,000$</td>
+      <td>653,000$</td>
+      <td>99</td>
+  </tr>
+  <tr data-year="2023" data-policy="pandc" data-company="mutlu-aku">
+    <td><div class="checkbox-wrapper-13">
+      <input type="checkbox" id="c1-13"> 
+    </div></td>
+      <td>Mutlu Akü</td>
+      <td>0957546KJLY</td>
+      <td>P&C</td>
+      <td class="tcenter">2023-03-15</td>
+      <td class="tcenter">2024-03-29</td>
+      <td>Axa</td>
+      <td>Levent İstanbul</td>
+      <td class="tcenter">320,000,000$</td>
+      <td>258,000$</td>
+      <td>534</td>
+  </tr>
+  <tr data-year="2022" data-policy="pandc" data-company="mutlu-aku">
+    <td><div class="checkbox-wrapper-13">
+      <input type="checkbox" id="c1-13"> 
+    </div></td>
+      <td>Mutlu Akü</td>
+      <td>0957746KJ3Y</td>
+      <td>P&C</td>
+      <td class="tcenter">2022-04-25</td>
+      <td class="tcenter">2023-04-25</td>
+      <td>Axa</td>
+      <td>Levent İstanbul</td>
+      <td class="tcenter">95,000,000$</td>
+      <td>322,000$</td>
+      <td>234</td>
+  </tr>
+  <tr data-year="2023" data-policy="pandc" data-company="mutlu-insaat">
+      <td><div class="checkbox-wrapper-13">
+        <input type="checkbox" id="c1-13"> 
+      </div></td>
+      <td>Mutlu İnşaat</td>
+      <td>0957346KJLY</td>
+      <td>P&C</td>
+      <td class="tcenter">2023-01-21</td>
+      <td class="tcenter">2024-01-21</td>
+      <td>Anadolu</td>
+      <td>Tuzla İstanbul</td>
+      <td class="tcenter">110,000,000$</td>
+      <td>871,000$</td>
+      <td>775</td>
+  </tr>
+  <tr data-year="2022" data-policy="health" data-company="mutlu-insaat">
+    <td><div class="checkbox-wrapper-13">
+      <input type="checkbox" id="c1-13"> 
+    </div></td>
+      <td>Mutlu İnşaat</td>
+      <td>0157746KJLY</td>
+      <td>Health</td>
+      <td class="tcenter">2022-03-09</td>
+      <td class="tcenter">2023-03-09</td>
+      <td>Anadolu</td>
+      <td>Tuzla İstanbul</td>
+      <td class="tcenter">125,000,000$</td>
+      <td>751,000$</td>
+      <td>53</td>
+  </tr>
+  <tr data-year="2023" data-policy="pandc" data-company="mutlu-insaat">
+    <td><div class="checkbox-wrapper-13">
+      <input type="checkbox" id="c1-13"> 
+    </div></td>
+      <td>Mutlu İnşaat</td>
+      <td>09577462JLY</td>
+      <td>P&C</td>
+      <td class="tcenter">2023-05-25</td>
+      <td class="tcenter">2024-05-25</td>
+      <td>Anadolu</td>
+      <td>Tuzla İstanbul</td>
+      <td class="tcenter">260,000,000$</td>
+      <td>344,000$</td>
+      <td>234</td>
+  </tr>
+  <tr data-year="2022" data-policy="pandc" data-company="mutlu-aku">
+    <td><div class="checkbox-wrapper-13">
+      <input type="checkbox" id="c1-13"> 
+    </div></td>
+      <td>Mutlu Akü</td>
+      <td>095774644LY</td>
+      <td>P&C</td>
+      <td class="tcenter">2022-07-25</td>
+      <td class="tcenter">2023-07-25</td>
+      <td>Generali</td>
+      <td>Levent İstanbul</td>
+      <td class="tcenter">150,000,000$</td>
+      <td>410,000$</td>
+      <td>72</td>
+  </tr>
+  <tr data-year="2022" data-policy="pandc" data-company="mutlu-insaat">
+    <td><div class="checkbox-wrapper-13">
+      <input type="checkbox" id="c1-13"> 
+    </div></td>
+      <td>Mutlu İnşaat</td>
+      <td>0S5A746KJLY</td>
+      <td>P&C</td>
+      <td class="tcenter">2022-06-25</td>
+      <td class="tcenter">2024-09-15</td>
+      <td>Anadolu</td>
+      <td>Tuzla İstanbul</td>
+      <td class="tcenter">160,000,000$</td>
+      <td>678,000$</td>
+      <td>557</td>
+  </tr>
+  <tr data-year="2023" data-policy="health" data-company="mutlu-aku">
+    <td><div class="checkbox-wrapper-13">
+      <input type="checkbox" id="c1-13"> 
+    </div></td>
+    <td>Mutlu Akü</td>
+    <td>0917746KJLY</td>
+    <td>Health</td>
+    <td class="tcenter">2023-02-25</td>
+    <td class="tcenter">2024-12-19</td>
+    <td>Generali</td>
+    <td>Levent İstanbul</td>
+    <td class="tcenter">80,000,000$</td>
+    <td>356,000$</td>
+    <td>98</td>
+</tr>
+
+  
+      
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>#</th>
+      <th>Company</th>
+      <th>Policy ID</th>
+      <th>Policy Type</th>
+      <th class="trThCenter">Policy Begin</th>
+      <th class="trThCenter">Policy End</th>
+      <th>Reinsurers</th>
+      <th>Short Address</th>
+      <th class="trThCenter">Limit</th>
+      <th>Premium</th>
+      <th>Day to Renewal</th>
+  </tr>
+  </tfoot>
+</table>
+</div>
+<br>
+<div class="container folderContainer">
+
+  <div class="card card-folders">
+    <div class="card-header">
+      <div class="row align-items-center">
+          <div class="col mr-auto folderCard">
+            <h4 class="card-title m-0">User Folders</h4>
+            <button class="button" type="button" id="addItemFolder" style="    width: 145px;">
+              <span class="button__text">Add Folder  </span>
+              <span class="button__icon"><svg class="svg" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg></span>
+            </button>
+          </div>
+          <div class="col col-auto pr-2">
+            <div class="btn-group">
+              {% comment %} <button class="btn btn-sm btn-outline-secondary" id="btn-list"><i class="fa fa-th-list fa-lg"></i></button> {% endcomment %}
+              <button class="btn btn-sm btn-outline-secondary outline-none active" id="btn-grid"><i class="fa fa-th-large fa-lg"></i></button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- Folders Container -->
+    <div class="card-body" id="foldersGroup">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><i class="far fa-folder"></i>&nbsp; Folders</li>
+      </ol>
+      <div id="main-folders" class="d-flex align-items-stretch flex-wrap">
+          
+          <div class="d-inline-flex" id="questionnaireDivFlex">
+            <button class="folder-container">
+              <div class="folder-icon">
+                <i class="fa fa-folder folder-icon-color"></i>
+              </div>
+              <div class="folder-name">Questionnaire</div>
+              <div class="folder-name2"><span></span>2 Items</div>
+              
+            </button>
+            <div id="dropZoon" class="upload-area__drop-zoon drop-zoon dropQuestionnaire">
+              <span class="drop-zoon__icon">
+                <i class='bx bxs-file-image'></i>
+              </span>
+              <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+              <span id="loadingText" class="drop-zoon__loading-text"></span>
+              <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
+              <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
+            </div>
+          </div>
+          <div class="d-inline-flex" id="tecnicalInfoDivFlex">
+            <button class="folder-container">
+              <div class="folder-icon">
+                <i class="fa fa-folder folder-icon-color"></i>
+              </div>
+              <div class="folder-name">Technical Info</div>
+              <div class="folder-name2"><span></span>4 Items</div>
+            </button>
+            <div id="dropZoon" class="upload-area__drop-zoon drop-zoon dropQuestionnaire">
+              <span class="drop-zoon__icon">
+                <i class='bx bxs-file-image'></i>
+              </span>
+              <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+              <span id="loadingText" class="drop-zoon__loading-text"></span>
+              <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
+              <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
+            </div>
+          </div>
+          <div class="d-inline-flex" id="conversationDivFlex">
+            <button class="folder-container">
+              <div class="folder-icon">
+                <i class="fa fa-folder folder-icon-color"></i>
+              </div>
+              <div class="folder-name">Conversation</div>
+              <div class="folder-name2"><span></span>6 Items</div>
+            </button>
+            <div id="dropZoon" class="upload-area__drop-zoon drop-zoon dropQuestionnaire">
+              <span class="drop-zoon__icon">
+                <i class='bx bxs-file-image'></i>
+              </span>
+              <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+              <span id="loadingText" class="drop-zoon__loading-text"></span>
+              <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
+              <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
+            </div>
+          </div>
+          <div class="d-inline-flex" id="quotationsDivFlex">
+            <button class="folder-container">
+              <div class="folder-icon">
+                <i class="fa fa-folder folder-icon-color"></i>
+              </div>
+              <div class="folder-name">Quotations</div>
+              <div class="folder-name2"><span></span>1 Item</div>
+            </button>
+            <div id="dropZoon" class="upload-area__drop-zoon drop-zoon dropQuestionnaire">
+              <span class="drop-zoon__icon">
+                <i class='bx bxs-file-image'></i>
+              </span>
+              <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+              <span id="loadingText" class="drop-zoon__loading-text"></span>
+              <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
+              <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
+            </div>
+          </div>
+          
+          <div class="d-inline-flex" id="othersDivFlex">
+            <button class="folder-container">
+              <div class="folder-icon">
+                <i class="fa fa-folder folder-icon-color"></i>
+              </div>
+              <div class="folder-name">Others</div>
+              <div class="folder-name3"><span></span>0 Item</div>
+            </button>
+            <div id="dropZoon" class="upload-area__drop-zoon drop-zoon dropQuestionnaire">
+              <span class="drop-zoon__icon">
+                <i class='bx bxs-file-image'></i>
+              </span>
+              <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+              <span id="loadingText" class="drop-zoon__loading-text"></span>
+              <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
+              <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
+            </div>
+          </div>
+          
+        </div>
+    </div>
+    <!-- End Folders Container -->
+    <!-- Files Container -->
+    <div class="card-body d-none" id="filesGroup">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#" id="backToFolders"><i class="far fa-folder"></i>&nbsp; Folders</a></li>
+        <li class="breadcrumb-item active" id="folderNameActive">Folder_name_active</li>
+      </ol>
+      <div id="main-files" class="d-flex align-items-stretch flex-wrap foldersDetail">
+          <div class="d-inline-flex" data-company="mutlu-aku">
+            <button class="folder-container" style=" margin: auto !important;">
+              <img src="{% static 'Insurers/img/pdf.svg' %}" alt="">
+              <div class="folder-name5"></div>
+              <div class="folder-name4">Mutlu Akü</div>
+              <div class="folder-name4">P&C</div>
+              <div class="folder-name4">11-12-2023</div>
+            </button>
+            <div class="folderButtons">
+              <button type="button" class="btn btn-primary" id="previewPdfButton2">Preview</button>
+              <button type="button" class="btn btn-primary">Download</button>
+            </div>
+          </div>
+          <div class="d-inline-flex">
+            <button class="folder-container" style=" margin: auto !important;">
+              <img src="{% static 'Insurers/img/pdf.svg' %}" alt="">
+              <div class="folder-name5"></div>
+              <div class="folder-name4">Mutlu İnşaat</div>
+              <div class="folder-name4">P&C</div>
+              <div class="folder-name4">11-12-2023</div>
+            </button>
+          <div class="folderButtons">
+            <button type="button" class="btn btn-primary" id="previewPdfButton">Preview</button>
+            <button type="button" class="btn btn-primary">Download</button>
+          </div>
+          </div>
+          <div class="d-inline-flex">
+            <button class="folder-container" style=" margin: auto !important;">
+              <img src="{% static 'Insurers/img/xls.svg' %}" alt="">
+              <div class="folder-name5"></div>
+              <div class="folder-name4">Mutlu Akü</div>
+              <div class="folder-name4">P&C</div>
+              <div class="folder-name4">11-12-2023</div>
+            </button>
+            <div class="folderButtons">
+              <button type="button" style="width:100%;"  class="btn btn-primary">Download</button>
+            </div>
+          </div>
+          <div class="d-inline-flex">
+            <button class="folder-container" style=" margin: auto !important;">
+              <img src="{% static 'Insurers/img/xls.svg' %}" alt="">
+              <div class="folder-name5"></div>
+              <div class="folder-name4">Mutlu İnşaat</div>
+              <div class="folder-name4">P&C</div>
+              <div class="folder-name4">11-12-2023</div>
+            </button>
+            <div class="folderButtons">
+              <button type="button" style="width:100%;"  class="btn btn-primary">Download</button>
+            </div>
+          </div>
+          <div class="d-inline-flex">
+            <button class="folder-container" style=" margin: auto !important;">
+              <img src="{% static 'Insurers/img/txt.svg' %}" alt="">
+              <div class="folder-name5"></div>
+              <div class="folder-name4">Mutlu Akü</div>
+              <div class="folder-name4">P&C</div>
+              <div class="folder-name4">11-12-2023</div>
+            </button>
+            <div class="folderButtons">
+              <button type="button" style="width:100%;" class="btn btn-primary">Download</button>
+            </div>
+          </div>
+          <div class="d-inline-flex">
+            <button class="folder-container" style=" margin: auto !important;">
+              <img src="{% static 'Insurers/img/txt.svg' %}" alt="">
+              <div class="folder-name5"></div>
+              <div class="folder-name4">Mutlu İnşaat</div>
+              <div class="folder-name4">P&C</div>
+              <div class="folder-name4">11-12-2023</div>
+            </button>
+            <div class="folderButtons">
+              <button type="button" style="width:100%;"  class="btn btn-primary">Download</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- End Files Container -->
+  </div>
+  
+</div>
+<br>
+<div class="offerHistoryDiv">
+  <div class="offerHistoryTop">
+    <div style="display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;">
+      <p>Quotations</p>
+      <button class="button" type="button" id="addItemOffer">
+        <span class="button__text">Add Item</span>
+        <span class="button__icon"><svg class="svg" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg></span>
+      </button>
+    </div>
+ 
+
+  <form id="addRowForm">
+    <div class="row">
+      <div style="display: flex;
+      justify-content: space-between;
+      align-items: center;">
+        <p style="font-weight: 500;
+        font-size: 17px;">Add Offer History Row</p>
+        <i class="bi bi-x-circle" id="closeAddOffer"></i>
+      </div>
+      <hr style="    width: 98.5%;
+      margin: 4px auto;"> 
+      <div class="col-md-2 mb-3">
+        <label for="company" class="form-label">Company</label>
+        <input type="text" class="form-control" id="company" required>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="offerID" class="form-label">Offer ID</label>
+        <input type="text" class="form-control" id="offerID" required>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="policyType" class="form-label">Policy Type</label>
+        <select class="form-select" id="policyType" required>
+            <option value="" selected>Select Policy Type</option>
+            <option value="P&C">P&C</option>
+            <option value="Health">Health</option>
+        </select>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="quoteDate" class="form-label">Quote Date</label>
+        <input type="date" class="form-control" id="quoteDate" required>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="quoteValidUntil" class="form-label">Quote Valid Until</label>
+        <input type="date" class="form-control" id="quoteValidUntil" required>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="reinsurers" class="form-label">Reinsurers</label>
+        <select class="form-select" id="reinsurers" required>
+            <option value="" selected>Select Reinsurers</option>
+            <option value="Axa">Axa</option>
+            <option value="Allianz">Allianz</option>
+            <option value="Generali">Generali</option>
+        </select>
+    </div>
+      <div class="col-md-2 mb-3">
+        <label for="shortAddress" class="form-label">Short Address</label>
+        <input type="text" class="form-control" id="shortAddress" required>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="limit" class="form-label">Limit</label>
+        <input type="text" class="form-control" id="limitInput" placeholder="$">
+      </div>
+      
+      <div class="col-md-2 mb-3">
+        <label for="premium" class="form-label">Premium</label>
+        <input type="text" class="form-control" id="premiumInput" required placeholder="$">
+      </div>
+      
+      <div class="col-md-2 mb-3">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-select" id="status" required>
+          <option value="In quotation">In quotation</option>
+          <option value="Quotation Assesment">Quotation Assesment</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+      </div>
+      <div class="col-md-2 mb-3" id="rejectReasonWrapper" style="display:none;">
+        <label for="rejectReason" class="form-label">Reject Reason</label>
+        <select class="form-select" id="rejectReason">
+          <option value="" selected>Reject Reason</option>
+          <option value="Competition">Competition</option>
+          <option value="Price">Price</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+      <div class="col-md-2 mb-3" id="otherRejectReasonWrapper" style="display:none;">
+        <label for="otherRejectReason" class="form-label">Other Reject Reason</label>
+        <input type="text" class="form-control" id="otherRejectReason">
+      </div>
+      <div class="col-md-2 mb-3" id="rejectCommentWrapper" style="display:none;">
+        <label for="rejectComment" class="form-label">Comment</label>
+        <input type="text" class="form-control" id="rejectComment">
+      </div>
+      
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
+<table id="example2" class="table table-striped" style="width:100%">
+  <thead>
+      <tr>
+        <th>#</th>
+        <th>Company</th>
+        <th>Offer ID</th>
+        <th>Policy Type</th>
+        <th class="trThCenter">Quote Date</th>
+        <th class="trThCenter">Quote Valid Until</th>
+        <th>Reinsurers</th>
+        <th>Short Address</th>
+        <th class="trThCenter">Limit</th>
+        <th>Premium</th>
+        <th>Status</th>
+        <th class="tcenter">Reject Reason </th>
+        <th class="rejectReasonTd">Reject</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><div class="checkbox-wrapper-13">
+        <input type="checkbox" id="c1-13"> 
+      </div></td>
+      <td>Mutlu Akü</td>
+      <td>0957746KJLY1</td>
+      <td>P&C</td>
+      <td class="tcenter">2023-07-15</td>
+      <td class="tcenter">2024-07-25</td>
+      <td>Axa</td>
+      <td>Levent İstanbul</td>
+      <td class="tcenter">250,000,000$</td>
+      <td>334,000$</td>
+      <td>Rejected</td>
+      <td class="tcenter">Price <i class="bi bi-info-square-fill rejectIcon" data-comment="Your specific comment here" id="rejectSpecID2"></i></td>
+      <td class="rejectReasonTd" id="rejectCommentData" style="display:none;">Your specific comment here</td>
+  </tr>
+  <tr>
+    <td><div class="checkbox-wrapper-13">
+      <input type="checkbox" id="c1-13"> 
+    </div></td>
+    <td>Mutlu Akü</td>
+    <td>0957746KJLY2</td>
+    <td>Health</td>
+    <td class="tcenter">2022-05-25</td>
+    <td class="tcenter">2023-07-25</td>
+    <td>Allianz</td>
+    <td>Levent İstanbul</td>
+    <td class="tcenter">200,000,000$</td>
+    <td>360,000$</td>
+    <td>In quotation</td>
+    <td class="tcenter">-</td>
+    <td class="rejectReasonTd"></td>
+</tr>
+<tr>
+  <td><div class="checkbox-wrapper-13">
+    <input type="checkbox" id="c1-13"> 
+  </div></td>
+  <td>Mutlu İnşaat</td>
+  <td>0957746KJLY3</td>
+  <td>Health</td>
+  <td class="tcenter">2022-05-11</td>
+  <td class="tcenter">2023-05-11</td>
+  <td>Allianz</td>
+  <td>Levent İstanbul</td>
+  <td class="tcenter">360,000,000$</td>
+  <td>775,000$</td>
+  <td>Quotation Assesment</td>
+  <td class="tcenter">-</td>
+  <td class="rejectReasonTd"></td>
+</tr>
+<tr>
+  <td><div class="checkbox-wrapper-13">
+    <input type="checkbox" id="c1-13"> 
+  </div></td>
+  <td>Mutlu İnşaat</td>
+  <td>0957746KJLY4</td>
+  <td>Health</td>
+  <td class="tcenter">2022-08-25</td>
+  <td class="tcenter">2023-09-25</td>
+  <td>Generali</td>
+  <td>Levent İstanbul</td>
+  <td class="tcenter">280,000,000$</td>
+  <td>670,000$</td>
+  <td>In quotation</td>
+  <td class="tcenter">-</td>
+  <td class="rejectReasonTd"></td>
+</tr>
+
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>#</th>
+      <th>Company</th>
+      <th>Offer ID</th>
+      <th>Policy Type</th>
+      <th class="trThCenter">Quote Date</th>
+      <th class="trThCenter">Quote Valid Until</th>
+      <th>Reinsurers</th>
+      <th>Short Address</th>
+      <th class="trThCenter">Limit</th>
+      <th>Premium</th>
+      <th>Status</th>
+      <th class="tcenter">Reject Reason</th>
+      <th class="rejectReasonTd" id="rejectCommentData">Reject</th>
+  </tr>
+  </tfoot>
+</table>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="commentModalLabel">Reject Comment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="modalCommentText"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="folderModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="commentModalLabel" style="    font-family: Rubik !important;
+    font-size: 18px;">Create Folder</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body folderAddModal" >
+        <p id="modalCommentText"></p>
+        
+        <div >
+          <div class="folder-icon" style="display: flex;
+    justify-content: center;">
+            <i class="fa fa-folder folder-icon-color"></i>
+          </div>
+        <div class="col-md-12 mb-3">
+         
+          <label for="company" class="form-label">Folder Name</label>
+          <input type="text" class="form-control" id="folderNameAdd" required oninput="updateFolderName(this.value)">
+        </div>
+        <div class="col-md-12 mb-3" style="    display: flex;
+    flex-direction: column;">
+          <label for="company" class="form-label">Add Option</label>
+          <input type="text" class="form-control" id="folderOptionAdd" required>
+          <button type="button" class="btn btn-secondary" id="saveOptionButton" >Add</button>
+        </div>
+      </div>
+        <div class="d-inline-flex2" style="height: 234px;
+    width: 215px;">
+          <button class="folder-container2" style=" margin: auto !important;">
+            <img src="{% static 'Insurers/img/pdf.svg' %}" alt="">
+            <div id="folder-nameAdd">Folder Name</div>
+            <div class="col-md-12 mb-2 mt-2 folderOptionsClass" >
+              <select class="form-select" id="" required>
+                  <option value="" selected>Select Item</option>
+                  <option value="">Company</option>
+                  <option value="">Policy Type</option>
+                  <option value="">Date</option>
+              </select>
+            </div>
+            <div class="col-md-12 mb-2 mt-2 folderOptionsClass" >
+              <select class="form-select" id="" required>
+                  <option value="" selected>Select Item</option>
+                  <option value="">Company</option>
+                  <option value="">Policy Type</option>
+                  <option value="">Date</option>
+              </select>
+            </div>
+            <div class="col-md-12 mb-2 mt-2 folderOptionsClass" >
+              <select class="form-select" id="" required>
+                  <option value="" selected>Select Item</option>
+                  <option value="">Company</option>
+                  <option value="">Policy Type</option>
+                  <option value="">Date</option>
+              </select>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Save</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="pdfPreviewModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="    width: fit-content;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="commentModalLabel" style="font-family: Rubik !important; font-size: 18px;">Preview PDF</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="{% static 'Insurers/img/questionForm.png' %}" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% comment %} <div id="infoSpecDiv">
+  <p style="border-bottom: 1px solid;
+    width: 100%;
+    padding-bottom: 3px;"><i class="bi bi-chat-square-text-fill"></i> Explanation</p>
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel beatae natus eveniet.
+
+</div> {% endcomment %}
+
+<script src="{% static 'Insurers/js/folders.js' %}"></script>
+<script>
+
+  
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="{% static 'Insurers/js/insurer_info.js' %}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

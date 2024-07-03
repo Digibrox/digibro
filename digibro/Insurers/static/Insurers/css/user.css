@@ -1,0 +1,57 @@
+.product {
+	margin-bottom: 30px;
+}
+.product-inner {
+	box-shadow: 0 0 10px rgba(0,0,0,.2);
+	padding: 10px;
+}
+.product img {
+	margin-bottom: 10px;
+}
+.company-card{
+	width: 32.35% !important;
+}
+.card{
+	width: 100% !important;
+}
+#users{
+	gap: 21px;
+	
+}
+.company-card p{
+	color: #424249;
+}
+.card-body{
+	justify-content: center;
+    display: flex;
+    flex-direction: column;
+	gap: 4px;
+}
+.card-body{
+	justify-content: center;
+    display: flex;
+    flex-direction: column;
+	gap: 4px;
+}
+.card-body img{
+	width: 80px;
+    align-self: center;
+}
+.card-body button{
+	padding: 4px;
+    border: 1px solid;
+	margin-top: auto;
+}
+.card{
+	min-height: 248px !important;
+}
+#defImg{
+	width: 140px !important;
+}
+.card-title{
+	font-weight: 600;
+}
+#digiImg{
+	width: 100px;
+	    margin-bottom: 4px;
+}

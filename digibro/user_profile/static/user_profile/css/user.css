@@ -1,0 +1,83 @@
+.product {
+	margin-bottom: 30px;
+}
+.product-inner {
+	box-shadow: 0 0 10px rgba(0,0,0,.2);
+	padding: 10px;
+}
+.product img {
+	margin-bottom: 10px;
+}
+.user-card{
+	width: 32% !important;
+}
+.card{
+	width: 100% !important;
+    
+}
+#users{
+	gap: 21px;
+}
+.user-card p{
+	color: #424249;
+}
+.card-body{
+	justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.card-body img{
+	width: 80px;
+    align-self: center;
+}
+.card-body button{
+	padding: 4px;
+    border: 1px solid;
+}
+.profileDiv{
+	position: absolute;
+    left: 938px;
+    top: 111px;
+}
+form{
+    gap: 16px;
+    background: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+
+}
+form input{
+    min-width: 268px !important;
+    max-width: fit-content;
+    padding: 2px 5px;
+    outline: none;
+    border: 1px solid #80808085;
+}
+.formDiv1{
+	display: flex;
+	gap: 59px;
+	justify-content: space-between;
+}
+.profileDiv{
+    position: absolute;
+    left: 411px;
+    top: 111px;
+    align-items: center;
+    background: #f4f4f4;
+    display: flex;
+	padding: 48px;
+    gap: 62px;
+}
+.profileDiv img{
+	border: 1px solid gray;
+}
+.forProfile{
+	display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+.forProfile p{
+	font-size: 16px;
+	font-weight: 600;
+	text-align: center;
+}

@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="{% static 'account/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <link href="{% static 'account/css/style.css' %}" rel="stylesheet" />
+    <title>Register</title>
+    <link rel="icon" href="/static/questions/img/xxx.png" >
+  </head>
+  <body>
+    <div class="container mt-3">
+        <div class="col register_col">
+            <img src="{% static 'questions/img/dark_logo.png' %}" class="" alt="" />
+            <div class="pic2" id="pic2"></div>
+          
+            <div class="col">
+              <h1>Register</h1>
+             <hr>
+     
+             <form method="POST">
+                 {% csrf_token %}
+                 {% if error %}
+                     <div class="alert alert-danger">
+                         {{error}}
+                     </div>
+                 {% endif %}
+                 <div class="mb-3 edit_div">
+                     <label for="username" class="form-label">Username</label>
+                     <input type="text" class="form-control" placeholder="Username" name="username" value="{{ username }}">
+                 </div>
+                 <div class="mb-3">
+                     <label for="email" class="form-label" value="{{ email }}">Email</label>
+                     <input type="email" class="form-control" name="email" value="{{ email }}">
+                 </div>
+                 <div class="row mb-3">
+                     <div class="col">
+                          <label for="firstname" class="form-label">Firstname</label>
+                         <input type="text" class="form-control" name="firstname" value="{{ firstname }}">
+                     </div>
+                     <div class="col">
+                         <label for="lastname" class="form-label">Lastname</label>
+                     <input type="text" class="form-control" name="lastname" value="{{ lastname }}"> 
+                     </div>
+                 </div>
+     
+                 <div class="row mb-3">
+                     <div class="col">
+                          <label for="password" class="form-label">Password</label>
+                         <input type="password" class="form-control" name="password">    
+                     </div>
+                     <div class="col">
+                         <label for="repassword" class="form-label">Re-Password</label>
+                         <input type="password" class="form-control" name="repassword">
+                     </div>
+                 </div>
+                 
+               
+                 <div class="mb-3"></div>
+                 <div class="mb-3 registerDiv">
+                  <a  onclick="myFunction()" href="{% url "login" %}">Do you have an account? Log in!</a>
+                </div>
+                <div class="buttonDiv2">
+              <button><input type="submit" value="Register" class="btn btn-primary loginButton"></button>
+            </div>
+             </form>
+     
+         </div>
+     </div>
+
+    <script src="{% static 'account/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'account/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>

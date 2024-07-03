@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="{% static 'account/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <link href="{% static 'account/css/style.css' %}" rel="stylesheet" />
+    <title>Login</title>
+    <link rel="icon" href="/static/questions/img/xxx.png" >
+  </head>
+  <body>
+    <div class="container">
+     
+      
+      
+      
+  </div>
+  </div>
+    <div class="container mt-3 container-div">
+      <div class="pic2"></div>
+      <img src="{% static 'questions/img/dark_logo.png' %}" class="imgg" alt="" />
+        <div class="col">
+          <h1>LOG IN</h1>
+            <hr>
+    
+            <form method="POST">
+                {% csrf_token %}
+                {% if error %}
+                    <div class="alert alert-danger">
+                        {{error}}
+                    </div>
+                {% endif %}
+                <div class="mb-3 inp">
+                  <p class="username">Username</p>
+                    <label for="username" class="form-label"></label>
+                    <input type="text" class="form-control" name="username" value="" >
+                </div>
+                <div class="mb-3 inp">
+                  <p class="username">Password</p>
+                    <label for="password" class="form-label"></label>
+                    <input type="password" class="form-control" name="password" value="">
+                </div>
+                <div class="mb-3 sign-up">
+                  <a  onclick="myFunction()" href="{% url "register" %}">Do not have an account? Register!</a>
+                </div>
+                <button> <input type="submit" value="Login" class="btn btn-primary loginButton"> </button>
+              
+               
+            </form>
+    
+        </div>
+    </div>
+
+    <script src="{% static 'account/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'account/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>

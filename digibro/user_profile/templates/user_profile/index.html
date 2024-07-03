@@ -1,0 +1,387 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'user_profile/css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'user_profile/css/question.css' %}" rel="stylesheet" />
+    <link href="{% static 'user_profile/css/user.css' %}" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.56/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.56/vfs_fonts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="{% static 'user_profile/css/client.questions.css' %}" rel="stylesheet" />
+    <link href="{% static 'user_profile/css/tools.css' %}" rel="stylesheet" />
+    <link href="{% static 'user_profile/css/sidebar.css' %}" rel="stylesheet" />
+    <link href="{% static 'user_profile/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <title>Clients</title>
+  </head>
+  <body>
+      <nav class="sidebar sidebar-bg" id="sidebar">
+        <div class="sidebar-content">
+          <div class="perfect-scrollbar">
+            <div class="ps">
+              <div class="ps-content">
+                <div class="sidebar-logo">
+                  <img
+                    src="{% static 'user_profile/img/dark_logo.png' %}"
+                    class="img-responsive2"
+                    alt=""
+                  />
+                  <p>DIGITALIZE EVERYTHING, NOW.</p>
+                </div>
+                <div class="sidebar-profile">
+                  <div class="user-pic">
+                    <img
+                      src="{% static 'user_profile/img/xIcon.png' %}"
+                      class="img-responsive"
+                      alt=""
+                    />
+                  </div>
+                  <div class="user-info">
+                    <span class="user-name">
+                      {{ user.first_name }} <strong>{{ user.last_name }}</strong>
+                    </span>
+                    <span class="user-role">
+                      {% if user.groups.exists %}
+                {% for group in user.groups.all %}
+                    <p class="groupP">{{ group.name }}<p>
+               {% endfor %}
+               {% else %}
+               <p class="">Grupsuz</p>
+               {% endif %}
+                    </span>
+                    <span class="user-status">
+                      <i class="bi bi-circle-fill"></i>
+                      <span>Online</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="sidebar-menu">
+                  <ul>
+                    <li style="background: #d6d6d62e">
+                      <a href="{% url 'user_profile:index' %}">
+                        <i class="bi bi-layers-fill"></i>
+                        <span  style="color: #fff">Profile</span>
+                      </a>
+                    </li>
+                    <li><span class="generalText">General</span></li>
+                    <li>
+                        <a href="{% url 'questions:index' %}">
+                          <i class="bi bi-layers-fill" style="color: #fff"></i>
+                          <span>Question Forms</span>
+                        </a>
+                      </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-diagram-3-fill"></i>
+                        <span>Question Panel</span>
+                      </a>
+                    </li>
+                   
+                    <li >
+                        <a href="{% url 'clients:index' %}">
+                          <i class="bi bi-ui-checks" ></i>
+                          <span>Clients</span>
+                        </a>
+                      </li>
+                     <li>
+                      <a href="{% url 'companies:index' %}">
+                        <i class="bi bi-brilliance"></i>
+                        <span>Client Panel</span>
+                      </a>
+                    </li>
+
+                    <li><span class="generalText">Extra</span></li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-journal-text"></i>
+                        <span>Documentation</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-calendar-fill"></i>
+                        <span>Calendar</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-folder-fill"></i>
+                        <span>Examples</span>
+                      </a>
+                    </li>
+                    <li><span class="generalText">Tools</span></li>
+                    <li>
+                      <a href="#" id="calculatorOpen">
+                        <i class="bi bi-calculator-fill"></i>
+                        <span>Calculator</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" id="notesOpen">
+                        <i class="bi bi-card-list"></i>
+                        <span>Notes</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="notifications" id="sidebar-notifications">
+              <div class="notifications-header">
+                <i class="bi bi-bell-fill"></i>
+                <p>Notifications</p>
+                <img
+                  src="/static/user_profile/img/dark_logo.png"
+                  alt=""
+                  id="sidebar-img-notifications"
+                />
+              </div>
+              <div class="notification-row" id="notificationBack">
+                <i class="bi bi-info-circle"></i>
+                <div class="notifications-info">
+                  <p>Questionnaire form received from Kaan Ören.</p>
+                  <p class="notification-time">6 minutes ago</p>
+                </div>
+              </div>
+           
+             
+              <div class="notification-bottom">
+                <p>View all notifications.</p>
+              </div>
+            </div>
+            <div class="notifications" id="sidebar-messages">
+              <div class="notifications-header">
+                <i class="bi bi-envelope-open-fill"></i>
+                <p>Messages</p>
+                <img
+                  src="/static/user_profile/img/dark_logo.png"
+                  alt=""
+                  id="sidebar-img-messages"
+                />
+              </div>
+              <div class="messages-row">
+                <img src="/static/user_profile/img/user.jpg" alt="">
+                <div class="notifications-info">
+                  <p class="messages-name">Ali Furkan İNAN</p>
+                  <p class="notification-time">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <div class="messages-row">
+                <img src="/static/user_profile/img/user.jpg" alt="">
+                <div class="notifications-info">
+                  <p class="messages-name">İbrahim YAŞAR</p>
+                  <p class="notification-time">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <div class="messages-row">
+                <img src="/static/user_profile/img/user.jpg" alt="">
+                <div class="notifications-info">
+                  <p class="messages-name">Osman Kaan ÖREN</p>
+                  <p class="notification-time">Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              <div class="notification-bottom">
+                <p>View all messages.</p>
+              </div>
+            </div>
+            <div class="sidebar-settings-div" id="sidebar-settings">
+              <div class="notifications-header">
+                <i class="bi bi-gear-fill"></i>
+                <p>Settings</p>
+                <img
+                  src="/static/user_profile/img/dark_logo.png"
+                  alt=""
+                  id="sidebar-img-messages"
+                />
+              </div>
+              <div class="messages-row">
+                
+                <div class="notifications-info">
+                  <p class="">My Profile</p>
+                </div>
+              </div>
+              <div class="messages-row">
+                
+                <div class="notifications-info">
+                  <p class="">Help</p>
+                </div>
+              </div>
+              <div class="messages-row">
+                
+                <div class="notifications-info">
+                  <p class="">Settings</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-footer">
+          <div class="dropdown" id="sidebar-icon-notifications">
+            <a href="#">
+              <i class="bi bi-bell-fill"></i>
+              <span class="notification__span">1</span>
+            </a>
+          </div>
+          <div class="dropdown" id="sidebar-icon-messages">
+            <a href="#">
+              <i class="bi bi-envelope-fill"></i>
+              <span class="message__span">3</span>
+            </a>
+          </div>
+          <div class="dropdown" id="sidebar-icon-settings">
+            <a href="#">
+              <i class="bi bi-gear-fill"></i>
+              <span class="settings__span"></span>
+            </a>
+          </div>
+          <div class="dropdown" id="logoutDropdown">
+            <a href="#">
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" id="logoutButton"><i class="bi bi-door-closed-fill"></i></button>
+            </form>
+            
+            </a>
+          </div>
+        </div>
+        {% include 'user_profile/tools.html' %}
+      </nav>
+      
+      <div class="profileDiv"> 
+        {% if user.groups.exists %}
+        {% for group in user.groups.all %}
+            {% if user.userprofile.company  == "Mutlu Akü" %}
+            <div class="forProfile"> 
+                <img src="{% static 'clients/img/mutlu.jpg' %}" alt="Mutlu Akü" class="img-fluid">
+                <p>{{ user.userprofile.company }}</p>
+                <p>{{ user.userprofile.industry }}</p>
+              </div>
+             
+            {% elif user.userprofile.company  == "Bera Holding" %}
+            <div class="forProfile"> 
+                <img src="{% static 'clients/img/bera.png' %}" alt="Bera Holding" class="img-fluid">
+                <p>{{ user.userprofile.company }}</p>
+                <p>{{ user.userprofile.industry }}</p>
+              </div>
+            {% elif user.userprofile.company  == "DigiBroX" %}
+              <div class="forProfile"> 
+                <img src="{% static 'clients/img/bera.png' %}" alt="Bera Holding" class="img-fluid">
+                <p>{{ user.userprofile.company }}</p>
+                <p>{{ user.userprofile.industry }}</p>
+              </div>
+                
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+      <form method="post" action="{% url 'user_profile:update_profile' %}">
+        {% csrf_token %}
+        <div class="formDiv1"> 
+        <div class="inputDiv">
+        <label for="username">Username</label><br>
+        <input type="text" id="username" name="username" value="{{ user.username }}" disabled><br> </div>
+        <div class="inputDiv">
+        <label for="first_name">Full Name</label><br>
+        <input type="text" id="first_name" name="first_name" value="{{ user.first_name }} {{ user.last_name }}"><br></div>
+        <div class="inputDiv">
+        <label for="last_name">Email</label><br>
+        <input type="text" id="last_name" name="last_name" value="{{ user.email }}"><br></div>
+       </div>
+       <div class="formDiv1"> 
+        
+        <div class="inputDiv">
+        <label for="company">Company</label><br>
+        <input type="text" id="company" name="company" value="{{ user.userprofile.company }}"><br></div>
+        <div class="inputDiv">
+        <label for="industry">Industry</label><br>
+        <input type="text" id="industry" name="industry" value="{{ user.userprofile.industry }}"><br></div>
+        <div class="inputDiv">
+          <label for="scope">Scope</label><br>
+          <input type="text" id="scope" name="scope" value="{{ user.userprofile.scope }}"><br></div>
+      </div>
+      <div class="formDiv1"> 
+        <div class="inputDiv">
+          <label for="email">Date Joined</label><br>
+          <input type="email" id="email" name="email" value="{{ user.date_joined }}" disabled><br></div>
+      </div>
+        <input type="submit" value="Update">
+        <a href="{% url 'user_profile:update_profile' %}">Profilinizi Güncelleyin</a>
+    </form>
+  </div>
+    
+          
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'user_profile/js/questions.js' %}"></script>
+    <script src="{% static 'user_profile/js/tools.js' %}"></script>
+    <script src="{% static 'user_profile/js/user.js' %}"></script>
+
+    <script src="{% static 'user_profile/js/client.questions.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tinysort/3.2.5/jquery.tinysort.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var checkboxes = document.querySelectorAll(".form-check-input");
+        checkboxes.forEach(function (checkbox) {
+          checkbox.addEventListener("change", function () {
+            if (checkbox.checked) {
+              checkbox.closest(".item").style.border = "2px solid #6fa6fd";
+            } else {
+              checkbox.closest(".item").style.border = "none";
+            }
+          });
+        });
+      });
+    </script>
+
+    <script>
+      $(".btn").click(function () {
+        var attr = $(this).attr("data-li");
+
+        // İlk buton grubu
+        if (attr !== "all") {
+          $(".btn").removeClass("active");
+          $(this).addClass("active");
+
+          $(".item").each(function () {
+            var itemClasses = $(this).attr("class").split(" ");
+            if (itemClasses.includes(attr)) {
+              $(this).show();
+            } else {
+              $(this).hide();
+            }
+          });
+        } else {
+          $(".btn").removeClass("active");
+          $(this).addClass("active");
+          $(".item").show();
+        }
+
+        // İkinci buton grubu
+        $(".filter-btn").click(function () {
+          var filterAttr = $(this).attr("data-li");
+
+          // İlk buton grubundan seçilen sınıfı ve ikinci buton grubundan seçilen sınıfı birleştir
+          var combinedClasses = attr + " " + filterAttr;
+
+          // Tüm öğeleri gizle
+          $(".item").hide();
+
+          // İki sınıfa da sahip olan öğeleri göster
+          $(".item")
+            .filter("." + combinedClasses)
+            .show();
+        });
+      });
+    </script>
+    <script src="{% static 'user_profile/js/script.js' %}"></script>
+    <script src="{% static 'user_profile/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'user_profile/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'user_profile/js/sidebar.js' %}"></script>
+  </body>
+</html>

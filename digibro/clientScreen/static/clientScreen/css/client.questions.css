@@ -1,0 +1,170 @@
+.user-search {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: auto;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.user-search img {
+  width: 30px;
+  vertical-align: middle;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+.user-search__input {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 3px;
+  width: 400px;
+}
+.user-search__input-wrapper {
+  position: relative;
+}
+.user-search__close {
+  appearance: none;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.user-search__list {
+  background: white;
+  max-height: 175px;
+  margin-top: 5px;
+  border-top: 1px solid #efefef;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.user-search .hidden {
+  display: none;
+}
+.user-search__option {
+  padding: 5px;
+  font-size: 12px;
+  display: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.user-search__option:hover {
+  background: #ddd;
+}
+.user-search__option img {
+  width: 35px;
+  height: auto;
+  border-radius: 0%;
+  margin-right: 5px;
+}
+.customer-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1;
+  width: 143px;
+  cursor: pointer;
+}
+
+.customer-button.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+.company__info {
+  z-index: 1;
+  color: #fff;
+}
+.card {
+  width: 32.5em;
+  max-height: 151px;
+  color: #fff;
+  height: 17.5em;
+  background: #171717;
+  transition: 1s ease-in-out;
+  clip-path: polygon(
+    30px 0%,
+    100% 0,
+    100% calc(100% - 30px),
+    calc(100% - 30px) 100%,
+    0 100%,
+    0% 30px
+  );
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card span {
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  display: block;
+  font-size: 1em;
+}
+
+.card .info {
+  font-weight: 400;
+  color: white;
+  display: block;
+  text-align: center;
+  font-size: 0.72em;
+  margin: 1em;
+}
+
+.card .img {
+  width: 4.8em;
+  height: 4.8em;
+  background: white;
+  border-radius: 15px;
+  margin: auto;
+}
+
+.card .share {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.card a {
+  color: white;
+  transition: 0.4s ease-in-out;
+}
+
+.card a:hover {
+  color: red;
+}
+
+.card button {
+  padding: 0.8em 1.7em;
+  display: block;
+  margin: auto;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  transition: 0.4s ease-in-out;
+}
+
+.card button:hover {
+  background: red;
+  color: white;
+  cursor: pointer;
+}
+#client_info_p {
+  padding: 8px;
+  color: #424249;
+  background: #e0e8ff;
+}
+.card__left__side{
+    display: flex;
+
+}
+.card span{
+    color: #424249;
+}
+#client__card{
+    display: none;
+}
