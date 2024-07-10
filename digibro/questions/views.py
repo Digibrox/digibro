@@ -46,8 +46,10 @@ def index(request):
         'users_with_emails': users_with_emails,
         'data' : {
             'Categories' : ['P&C','Health','Cagro'],
-            'Subcategories' : ['Bilgilendirme Metni','Ön Bilgi','Hasar','Yangın Önlemleri','Elektronik Cihaz','Makine Kırılması',\
-                               'İşveren Mali Mesuliyet','Şahıs Mali Mesuliyet','Hırsızlık Önlemleri','Fotoğraflar'],
+            'Subcategories' : {
+                'default' : ['Bilgilendirme Metni','Ön Bilgi','Hasar','Hırsızlık Önlemleri','Fotoğraflar'],
+                'additional' : ['Yangın Önlemleri','Elektronik Cihaz','Makine Kırılması','İşveren Mali Mesuliyet','Şahıs Mali Mesuliyet']
+            },
             'Bilgilendirme Metni' : {
                 'default' : {
                     'qsdc_text' : '''İş bu form rizikoya ait bilgilerin temin edilmesi ve Ön Risk Analizi çalışmasının gerçekleştirilebilmesi \
