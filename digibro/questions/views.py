@@ -43,7 +43,68 @@ def index(request):
     context = {
         "is_admin": is_admin,  # is_admin'i context'e ekle
         'groups': groups,  # grupları context'e ekle
-        'users_with_emails': users_with_emails
+        'users_with_emails': users_with_emails,
+        'data' : {
+            'Categories' : ['P&C','Health','Cagro'],
+            'Subcategories' : ['Bilgilendirme Metni','Ön Bilgi','Hasar','Yangın Önlemleri','Elektronik Cihaz','Makine Kırılması',\
+                               'İşveren Mali Mesuliyet','Şahıs Mali Mesuliyet','Hırsızlık Önlemleri','Fotoğraflar'],
+            'Bilgilendirme Metni' : {
+                'default' : {
+                    'qsdc_text' : '''İş bu form rizikoya ait bilgilerin temin edilmesi ve Ön Risk Analizi çalışmasının gerçekleştirilebilmesi \
+                        adına talep edilmektedir.Formda yer alan rizikoya ait bilgi, fotoğraf ve önlemlerin eksik, yanlış veya tahrif edilmiş \
+                        şekilde beyanı ve ibrazı sebebiyle oluşabilecek beyana aykırılık kaynaklı zararlar, formu dolduran kişi ve kurumun \
+                        sorumluluğunda olacak olup AXA Sigorta A.Ş. bu gibi konularda sorumluluk kabul etmemektedir.\
+                        \nRisk Bilgi Formu hazırlanması sürecinde ve sigorta teminatlarını kapsayacak teknik konularda şirketimizin her türlü \
+                        yardım ve desteğe hazır olduğunu ayrıca belirtiriz.''',
+                    'qsdc_check' : False
+                }
+            },
+            'Ön Bilgi' : {
+                'default' : {
+                    'qsdc_text' : 'Risk Bilgi Formu hazırlanması sürecinde ve sigorta teminatlarını kapsayacak teknik konularda şirketimizin her \
+                        türlü yardım ve desteğe hazır olduğunu ayrıca belirtiriz.',
+                    'qsdc_check' : True
+                },
+                'Tarih' : 'date',
+                'Poliçe / Teklif No' : 'input',
+                'Sigortalı Bilgileri' : {
+                    'Sigortalı Adı' : 'input',
+                    'VKN' : 'input'
+                },
+                'Adres Bilgileri' : {
+                    'İl' : 'input',
+                    'İlçe' : 'input',
+                    'Mahalle' : 'input',
+                    'Açık Adres' : 'textarea',
+                },
+                'Faaliyet Bilgisi' : {
+                    'Faaliyet' : 'input',
+                    'Bina içerisindeki diğer faaliyetler' : 'input'
+                },
+                'Personel/Vardiya' : {
+                    'Personel Sayısı' : 'input',
+                    'Vardiya Sayısı' : 'input'
+                },
+                'Koordinatlar' : {
+                    'N' : 'input',
+                    'E' : 'input'
+                },
+                'Gerekli Durumda İletişime Geçilecek Yetkili Kişi' : 'input',
+                'İletişim' : {
+                    'Telefon' : 'phone',
+                    'E-Mail' : 'mail'
+                },
+                'Önceki Sigorta Şirketi' : 'input',
+                'Hasar Geçmişi' : {
+                    'Tarih' : 'date',
+                    "Tutar" : {
+                        "currency": ["TL","USD","EUR"],
+                        "currency_text" : "Para Birimi Seçin"
+                    }
+                },
+                'Olayı Yazınız.' : 'textarea'
+            }
+        }
     }
 
     return render(request, 'questions/index.html', context)
