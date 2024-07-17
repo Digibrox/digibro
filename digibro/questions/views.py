@@ -254,70 +254,26 @@ def index(request):
             }
         }
     }
-    data2 = {
-        "data2": [
-            {
-                "id": 1,
-                "title": "komple web geliştirme1",
 
-                "description": "çok iyi bir kurs"
-            },
+    onbilgi = [
             {
                 "id": 2,
-                "title": "python kursu",
-
-                "description": "çok iyi bir kurs"
-            },
-            {
-                "id": 3,
-                "title": "django kursu",
-
-                "description": "çok iyi bir kurs"
-            }
-        ]
-    }
-    yangin = {
-         "yangin": [
-            {
-                "id": 1,
-                "question": "Kısa soru,",
-                "input_type": "text",
-                "inputName2": "Deneme Adet :",
-                "input_type2": "number",
-                "inputName3": "Deneme Tarih :",
-                "input_type3": "date"
-            },
-            {
-                "id": 2,
-                "question": "Orta uzunluktaki soru,",
-                "input_type": "text",
-                "inputName2": "Adet :",
-                "input_type2": "number"
-            },
-            {
-                "id": 3,
-                "question": "Bu bir uzun yazılabilecek  soru denemesidir,",
-                "inputName": "Tarih :",
-                "input_type": "date"
-            },
-            {
-                "id": 4,
                 "question": "Tarih :",
                 "input_type": "date"
             },
             {
-                "id": 5,
+                "id": 3,
                 "question": "Poliçe / Teklif No :",
                 "input_type": "text"
             },
             {
-                "id": 6,
+                "id": 4,
                 "question": "Sigortalı Adı :",
                 "input_type": "text"
             },
             {
-                "id": 7,
-                "question": "Adres Bilgileri,",
+                "id": 5,
+                "question": "Adres Bilgileri :",
                 "inputName": "İl :",
                 "input_type": "text",
                 "inputName2": "İlçe :",
@@ -326,21 +282,21 @@ def index(request):
                 "input_type3": "text"
             },
             {
-                "id": 8,
+                "id": 6,
                 "question": "Faaliyet :",
                 "input_type": "text",
                 "inputName2": "Bina içerisindeki diğer faaliyetler :",
                 "input_type2": "text"
             },
             {
-                "id": 9,
+                "id": 7,
                 "question": "Personel Sayısı :",
                 "input_type": "text",
                 "inputName2": "Vardiya Sayısı :",
                 "input_type2": "number"
             },
             {
-                "id": 10,
+                "id": 8,
                 "question": "Koordinatlar,",
                 "inputName": "N :",
                 "input_type": "text",
@@ -348,31 +304,31 @@ def index(request):
                 "input_type2": "text"
             },
             {
-                "id": 11,
+                "id": 9,
                 "question": "Gerekli Durumda İletişime Geçilecek Yetkili Kişi :",
                 "input_type": "text"
             },
             {
-                "id": 12,
+                "id": 10,
                 "question": "Telefon :",
                 "input_type": "text",
                 "inputName2": "E-Mail :",
                 "input_type2": "text"
             },
             {
-                "id": 13,
+                "id": 11,
                 "question": "Önceki Sigorta Şirketi :",
                 "input_type": "text"
             },
             {
-                "id": 14,
-                "question": "Hasar Geçmişi, ",
+                "id": 12,
+                "question": "Hasar Geçmişi :",
                 "inputName": "Tarih ve Tutar :",
                 "input_type": "date",
                 "currentSelection": " "
             }
-                ]
-            }
+        ]
+
     textarea = {
          "textarea": [
             {
@@ -382,13 +338,395 @@ def index(request):
                 ]
             }
             
+    basliklar = [
+        {
+            'qsc_id' : 1,
+            'qsc_name' : 'Bilgilendirme Metni',
+            'qsc_json_title' : 'bilgilendirme'
+        },
+        {
+            'qsc_id' : 2,
+            'qsc_name' : 'Ön Bilgi',
+            'qsc_json_title' : 'onbilgi'
+        },
+        # {
+        #     'qsc_id' : 3,
+        #     'qsc_name' : 'Hasar',
+        #     'qsc_json_title' : 'hasar'
+        # },
+        # {
+        #     'qsc_id' : 4,
+        #     'qsc_name' : 'Yangın Önlemleri',
+        #     'qsc_json_title' : 'yangin'
+        # },
+        # {
+        #     'qsc_id' : 5,
+        #     'qsc_name' : 'Elektronik Cihaz',
+        #     'qsc_json_title' : 'elektronik'
+        # },
+        # {
+        #     'qsc_id' : 6,
+        #     'qsc_name' : 'Makine Kırılması',
+        #     'qsc_json_title' : 'makine'
+        # },
+        # {
+        #     'qsc_id' : 7,
+        #     'qsc_name' : 'İşveren Mali Mesuliyet',
+        #     'qsc_json_title' : 'imm'
+        # },
+        # {
+        #     'qsc_id' : 8,
+        #     'qsc_name' : 'Şahıs Mali Mesuliyet',
+        #     'qsc_json_title' : 'smm'
+        # },
+        # {
+        #     'qsc_id' : 9,
+        #     'qsc_name' : 'Hırsızlık Önlemleri',
+        #     'qsc_json_title' : 'hirsiz'
+        # },
+        # {
+        #     'qsc_id' : 10,
+        #     'qsc_name' : 'Fotoğraflar',
+        #     'qsc_json_title' : 'foto'
+        # },
+    ]
+
+    bilgilendirme = [
+        {
+            "id": 1,
+            "question": "Bilgilendirme Metni'ni okudum ve onaylıyorum.",
+            "input_type": "checkbox"
+        }
+    ]
+
+    hasar = [
+        {
+            "id": 14,
+            "question": "Hasar Ücreti:",
+            "input_type": "selectbox",
+            "inputName2": "Hasar Teminatı ve Hasar Bedeli Tutar:",
+            "input_type2": "text",
+            "currentSelection": " "
+        }
+    ]
+
+    yangin = [
+        {
+            "id": 16,
+            "question": "Yangın Tüpleri:",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Var",
+            "input_type2": "radio",
+            "input_name3" : "Adet:",
+            "input_type3": "text"
+        },
+        {
+            "id": 17,
+            "question": "Yangın Dolapları::",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Var",
+            "input_type2": "radio",
+            "input_name3" : "Adet:",
+            "input_type3": "text"
+        },
+        {
+            "id": 18,
+            "question": "Yangın Hidrantları:",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Var",
+            "input_type2": "radio",
+            "input_name3" : "Adet:",
+            "input_type3": "text"
+        },
+        {
+            "id": 19,
+            "question": "Duman Dedektörleri:",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Var",
+            "input_type2": "radio",
+            "input_name3" : "Tesisin % kaçını kapsıyor?:",
+            "input_type3": "text"
+        },
+        {
+            "id": 20,
+            "question": "Yangın Suyu Deposu:",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Var",
+            "input_type2": "radio",
+            "input_name3" : "Ton:",
+            "input_type3": "text"
+        },
+        {
+            "id": 21,
+            "question": "Yangın Pompa Grubu:",
+            "input_name" : "Elektrikli",
+            "input_type": "radio",
+            "input_name2" : "Dizel",
+            "input_type2": "radio",
+            "input_name3" : "Dizel-Elektrikli",
+            "input_type3": "radio",
+            "input_name4" : "Yok",
+            "input_type4": "radio",
+            "input_name5" : "Açıklama:",
+            "input_type5": "text"
+        },
+        {
+            "id": 22,
+            "question": "Yangın Pompası İçin Otomatik Jeneratör:",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Var",
+            "input_type2": "radio"
+        },
+        {
+            "id": 23,
+            "question": "Sprinkler Tesisatı:",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Var",
+            "input_type2": "radio",
+            "input_name3" : "Tesisin % kaçını kapsıyor?:",
+            "input_type3": "text"
+        },
+        {
+            "id": 24,
+            "question": "Lokal Söndürme Sistemleri:",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Var",
+            "input_type2": "radio"
+        },
+        {
+            "id": 25,
+            "question" : "Bina Bedeli Tutarı:",
+            "currentSelection": " "
+        },
+        {
+            "id": 26,
+            "question" : "Bina Alanı (m²):",
+            "input_type": "number"
+        },
+        {
+            "id": 27,
+            "question" : "Demirbaş Bedeli:",
+            "currentSelection": " "
+        },
+        {
+            "id": 28,
+            "question" : "Dekorasyon Bedeli:",
+            "currentSelection": " "
+        },
+        {
+            "id": 29,
+            "question" : "Makina Bedeli:",
+            "currentSelection": " "
+        },
+        {
+            "id": 30,
+            "question" : "Emtia:",
+            "currentSelection": " "
+        }
+    ]
+    
+    elektronik = [
+        {
+            "id": 31,
+            "question": "Bedel:",
+            "currentSelection": " "
+        },
+        {
+            "id" : 32,
+            "question" : "Model:",
+            "input_type": "text"
+        },
+        {
+            "id" : 33,
+            "question" : "Marka:",
+            "input_type": "text"
+        },
+        {
+            "id" : 34,
+            "question" : "Seri No:",
+            "input_type": "text"
+        },
+        {
+            "id" : 35,
+            "question" : "Yaşı:",
+            "input_type": "number"
+        }
+    ]
+
+    makine = [
+        {
+            "id": 36,
+            "question": "Bedel:",
+            "currentSelection": " "
+        },
+        {
+            "id" : 37,
+            "question" : "Model:",
+            "input_type": "text"
+        },
+        {
+            "id" : 38,
+            "question" : "Marka:",
+            "input_type": "text"
+        },
+        {
+            "id" : 39,
+            "question" : "Seri No:",
+            "input_type": "text"
+        },
+        {
+            "id" : 40,
+            "question" : "Yaşı:",
+            "input_type": "number"
+        }
+    ]
+    
+    imm = [
+        {
+            "id": 41,
+            "question": "Mavi Yaka Çalışan Sayısı:",
+            "input_type": "text"
+        },
+        {
+            "id": 42,
+            "question": "Beyaz Yaka Çalışan Sayısı",
+            "input_type": "text"
+        },
+        {
+            "id": 43,
+            "question": "Yıllık Brüt İşçilik Ücretleri Toplamı:",
+            "currentSelection": " "
+        },
+        {
+            "id": 44,
+            "question": "Ek Olarak İstenen Limit 1. Alternatif:",
+            "currentSelection": " "
+        },
+        {
+            "id": 45,
+            "question": "Ek Olarak İstenen Limit 2. Alternatif:",
+            "currentSelection": " "
+        },
+        {
+            "id": 46,
+            "question": "Ek Olarak İstenen Limit 3. Alternatif:",
+            "currentSelection": " "
+        }
+    ]
+    
+    smm = [
+       {
+            "id": 47,
+            "question": "Ciro:",
+            "currentSelection": " "
+        },
+        {
+            "id": 48,
+            "question": "Ek Olarak İstenen Limit 1. Alternatif:",
+            "currentSelection": " "
+        },
+        {
+            "id": 49,
+            "question": "Ek Olarak İstenen Limit 2. Alternatif:",
+            "currentSelection": " "
+        },
+        {
+            "id": 50,
+            "question": "Ek Olarak İstenen Limit 3. Alternatif:",
+            "currentSelection": " "
+        }
+    ]
+
+    hirsiz = [
+        {
+            "id": 51,
+            "question": "Tesis çevresi çevrili mi?",
+            "input_name" : "Evet",
+            "input_type": "radio",
+            "input_name2" : "Hayır",
+            "input_type2": "radio"
+        },
+        {
+            "id": 52,
+            "question": "Bekçi köpeği var mı?",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Yok",
+            "input_type2": "radio"
+        },
+        {
+            "id": 53,
+            "question": "Çevre Aydınlatması var mı?",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Yok",
+            "input_type2": "radio"
+        },
+        {
+            "id": 54,
+            "question": "Kepenk var mı?",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Yok",
+            "input_type2": "radio"
+        },
+        {
+            "id": 55,
+            "question": "24 saat güvenlik var mı?",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Yok",
+            "input_type2": "radio"
+        },
+        {
+            "id": 56,
+            "question": "Kayıt alabilen kamera sistemi var mı?",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Yok",
+            "input_type2": "radio"
+        },
+        {
+            "id": 57,
+            "question": "Güvenlik şirketi ve/veya karakola bağlı alarm sistemi var mı?",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Yok",
+            "input_type2": "radio"
+        },
+        {
+            "id": 58,
+            "question": "Karakola bağlı alarm sistemi var mı?",
+            "input_name" : "Var",
+            "input_type": "radio",
+            "input_name2" : "Yok",
+            "input_type2": "radio"
+        }
+    ]
+
+    foto = [
+        {
+            "id": 60,
+            "question": "Fotoğraf yüklemek için tıklayın veya sürükleyip bırakın",
+            "input_type": "file"
+        }
+    ]
+
     context = {
         'is_admin': is_admin,
         'groups': groups,
         'users_with_emails': users_with_emails,
-        "data": data["Hasar"],
-        "data2": data2["data2"],
-        "yangin": yangin["yangin"],
+        'basliklar' : basliklar,
+        'bilgilendirme' : bilgilendirme,
+        "onbilgi": onbilgi,
         "textarea": textarea["textarea"]
     }
 
