@@ -132,6 +132,7 @@
                 </div>
               </div>
             </div>
+            
             <div class="notifications" id="sidebar-notifications">
               <div class="notifications-header">
                 <i class="bi bi-bell-fill"></i>
@@ -253,6 +254,28 @@
         {% include 'questions/tools.html' %}
       </nav>
       <div class="companiesDiv">
+        <div class="container mt-3">
+          <div class="row">
+              <div class="col-3">
+                  <!-- Sol tarafta sidebar veya başka bir içerik eklemek isterseniz buraya ekleyebilirsiniz -->
+              </div>
+              <div class="col-9">
+                  <h1>Homepage</h1>
+              </div>
+      
+              <div>
+                  <h2>Kurslar1</h2>
+                  <ul>
+                      {% for item in data2 %}
+                          <li>
+                              <h3>{{ item.title }}</h3>
+                              <p>{{ item.description }}</p>
+                          </li>
+                      {% endfor %}
+                  </ul>
+              </div>
+          </div>
+      </div>
         <h2 style="margin-top: 10px;">Clients Panel</h2>
         <form method="POST" class="companiesAdd" enctype="multipart/form-data">
           {% csrf_token %}

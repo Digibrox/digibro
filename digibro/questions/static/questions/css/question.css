@@ -596,13 +596,15 @@ textarea:focus {
   margin: 7px 0 !important;
 }
 .checkbox-container_info {
-  display: inline-block;
+  display: flex;
   position: relative;
-  padding-left: 22px;
+  /* padding-left: 22px; */
   margin-top: 4px;
   cursor: pointer;
+  gap: 7px;
   font-size: 14px;
   user-select: none;
+  align-items: center;
 }
 .checkbox-container_info p {
   font-size: 14px;
@@ -617,7 +619,7 @@ textarea:focus {
 
 .checkmark_info {
   zoom: 0.83;
-  position: absolute;
+
   top: 1.5px;
   left: 2px;
   height: 20px;
@@ -632,7 +634,7 @@ textarea:focus {
   position: absolute;
   display: none;
   left: 7px;
-  top: 3.3px;
+  top: 7.3px;
   width: 5px;
   height: 10px;
   border: solid white;
@@ -780,7 +782,7 @@ textarea:focus {
   pointer-events: none;
 }
 .applyButton {
-  display: none;
+  display: block;
   background-color: #007bff;
   color: #fff;
   position: relative;

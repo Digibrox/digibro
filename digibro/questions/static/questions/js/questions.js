@@ -651,7 +651,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   for(var e of idList){
     var elem = document.getElementById(e)
-    console.log(elem)
     const controlElements = elem.querySelectorAll('input[type="checkbox"], input[type="text"]');
     controlElements.forEach(item => {
         item.addEventListener('change', () => {

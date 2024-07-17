@@ -528,6 +528,7 @@
   }
 }
 .buttonUpload {
+  
   --bg: linear-gradient(180deg, hsla(0, 0%, 100%, .1), hsla(0, 0%, 100%, 0)), hsl(128, 52%, 45%);
   box-shadow: 0 1px 2px #25114f66, 0 0 0 1px hsla(128, 50%, 45%, 0.761);
   background-color: transparent;
@@ -547,8 +548,9 @@
   color: #fff;
   background: var(--bg);
   white-space: nowrap;
-  border-radius: 6px;
+
   border: 1px solid #fff3;
+  height: 33px;
 }
 
 
@@ -683,4 +685,65 @@
 }
 #customUploadContainer{
   display: none;
+}
+.button2 {
+  position: absolute;
+  bottom: 11px;
+  left: 162px;
+  width: 157px;
+  zoom: 0.7;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #347d97;
+  background-color: #347d97;
+}
+
+.button2, .button2__icon, .button2__text {
+  transition: all 0.3s;
+}
+
+.button2 .button2__text {
+  transform: translateX(11px);
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.button2 .button2__icon {
+  position: absolute;
+  transform: translateX(115px);
+  height: 100%;
+  width: 39px;
+  background-color: #347d97;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button2 .svg {
+  width: 30px;
+  stroke: #fff;
+}
+
+.button2:hover {
+  background: #34974d;
+}
+
+.button2:hover .button2__text {
+  color: transparent;
+}
+
+.button2:hover .button2__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.button2:active .button2__icon {
+  background-color: #347d97;
+}
+
+.button2:active {
+  border: 1px solid #347d97;
 }
