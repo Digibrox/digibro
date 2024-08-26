@@ -11,10 +11,14 @@
      <div id="sigortaCardP">
       <p class="sigortaCardTitle">Allianz Sigorta</p>
       <hr class="sigortaCardHr" style="color: #424248 !important;" />
-      <p>Info</p>
+
+    
+    <div class="buttonDivMail"> 
+      <button class="btn btn-primary" id="" style="background:#5c82b8;">View Profile</button>
+    <button class="btn btn-primary" id="">Select</button>
+    
     </div>
-<button class="sendMailButton6" id="">Select</button>
-     
+     </div>
   </div>
   <div class="sigortaCard">
     <img
@@ -25,9 +29,12 @@
      <div id="sigortaCardP">
       <p class="sigortaCardTitle">AVIVASA Sigorta</p>
       <hr class="sigortaCardHr" style="color: #424248 !important;" />
-      <p>Info</p>
+<div class="buttonDivMail"> 
+  <button class="btn btn-primary" id="" style="background:#5c82b8;">View Profile</button>
+<button class="btn btn-primary" id="">Select</button>
+
+</div>
     </div>
-<button class="sendMailButton6" id="">Select</button>
      
   </div>
   <div class="sigortaCard" id="axaCard">
@@ -39,11 +46,16 @@
      <div id="sigortaCardP">
       <p class="sigortaCardTitle">AXA Sigorta</p>
       <hr class="sigortaCardHr" style="color: #424248 !important;" />
-      <p>Info</p>
+
+    
+    <div class="buttonDivMail"> 
+      <button class="btn btn-primary" id="" style="background:#5c82b8;">View Profile</button>
+      <button class="btn btn-primary" id="axaButton" onclick="axaSelect()">
+        Select
+    </button>
     </div>
-    <button class="sendMailButton6" id="axaButton" onclick="axaSelect()">
-      Select
-  </button>
+    </div>
+   
      
   </div>
   <div class="sigortaCard">
@@ -55,10 +67,14 @@
      <div id="sigortaCardP">
       <p class="sigortaCardTitle">AGESA Sigorta</p>
       <hr class="sigortaCardHr" style="color: #424248 !important;" />
-      <p>Info</p>
+
+    
+    <div class="buttonDivMail"> 
+      <button class="btn btn-primary" id="" style="background:#5c82b8;">View Profile</button>
+    <button class="btn btn-primary" id="">Select</button>
+    
     </div>
-<button class="sendMailButton6" id="">Select</button>
-     
+     </div>
   </div>
   <div class="sigortaCard">
     <img
@@ -69,10 +85,14 @@
      <div id="sigortaCardP">
       <p class="sigortaCardTitle">Arkas Sigorta</p>
       <hr class="sigortaCardHr" style="color: #424248 !important;" />
-      <p>Info</p>
+   
+    
+    <div class="buttonDivMail"> 
+      <button class="btn btn-primary" id="" style="background:#5c82b8;">View Profile</button>
+    <button class="btn btn-primary" id="">Select</button>
+    
     </div>
-<button class="sendMailButton6" id="">Select</button>
-     
+     </div>
   </div>
 </div>
 
@@ -167,7 +187,7 @@
   
 <hr>
 <div class="dropdown">
-  <button  class="dropbtn sendMailButton61" style="padding: 10px;
+  <button  class="dropbtn btn btn-primary1" style="padding: 10px;
   width: 57px !important;">To:</button>
   <div id="myDropdown5" class="dropdown-content">
     <div class="dropdownSearchDiv">
@@ -181,7 +201,7 @@
   </div>
 </div>
 <div class="dropdown">
-  <button onclick="myFunction2()" class="dropbtn sendMailButton61" style="padding: 10px;
+  <button onclick="myFunction2()" class="dropbtn btn btn-primary1" style="padding: 10px;
   width: 57px !important;">Cc:</button>
   <div id="myDropdown2" class="dropdown-content">
     <div class="dropdownSearchDiv">
@@ -235,26 +255,51 @@
 </div>
 <hr>
 <div id="popupSubject">
-<p id="Subject">Subject: </p>
+<p id="Subject">Subject:</p>
 <input class="" type="text" id="popupAxaInput" />
 </div>
 <hr>
-<textarea name="" id="popupTextarea" cols="30" rows="10">
+<div id="mailDiv">
+  <div id="editor">
+    <p>Karşılama mesajı</p>
+    <div  id="editorSub">
+      
+      
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p>Saygılarımla,</p>
+      <p>Melis Deniz</p>
+      <p>Broker</p>
+      <p>Lockton | Omni</p>
+      <br>
+      <p>Telefon: +90 555 444 33 22</p>
+      <p>E-posta: example@locktonomni.com</p>
+      <p>Web: <a href"www.digibrox.com">www.locktonomni.com</a></p>
 
-</textarea>
+    <img
+    src="{% static 'questions/img/lockton.png' %}"
+    class="mailImg"
+    alt=""
+  /> 
+</div>
+  </div>
+</div>
+{% comment %} <textarea name="" id="popupTextarea" cols="30" rows="10">
+  http://127.0.0.1:8000/questions/index/
+</textarea> {% endcomment %}
 </hr>
-<button class="button">
-  <svg class="btn-layer">
-    <path d="M136,77.5c0,0-11.7,0-12,0c-90,0-94.2,0-94.2,0s-10.8,0-25.1,0c-0.2,0-0.8,0-0.8,0c-2.2,0-4-1.8-4-4v-47  c0-2.2,1.8-4,4-4c0,0,0.6,0,0.9,0c39.1,0,61.1,0,61.1,0s3,0,69.1,0c0.2,0,0.9,0,0.9,0c2.2,0,4,1.8,4,4v47  C140,75.7,138.2,77.5,136,77.5z"/>
-  </svg>
-  <svg class="plane">
-    <use xlink:href="#plane" />
-  </svg>
-  <ul>
-    <li>Send</li>
-    <li>Done</li>
-  </ul>
-</button>
+<button class="btn btn-primary" id="save_answers_placement">
+  Send
+ </button>
 
 
 <!-- SVG -->
@@ -355,7 +400,7 @@
   <div class="dropdownButtons">
     <h5 style="margin: 0;">Create Mail</h5>
     <div class="dropdown">
-      <button onclick="myFunction5()" class="dropbtn sendMailButton61" style="padding: 10px;
+      <button onclick="myFunction5()" class="dropbtn btn btn-primary1" style="padding: 10px;
       width: auto !important;" id="dropdownMenuButton11" >Select Client Group</button>
       <div id="myDropdown" class="dropdown-content">
         <a class="dropdown-item" href="#" id="beraButton" onclick="selectCurrency(event, 'Bera Holding', 'dropdownMenuButton11')">Bera Holding</a>
@@ -363,7 +408,7 @@
       </div>
     </div>
     {% comment %} <div class="dropdown" id="selectGroupButton">
-      <button class="btn btn-secondary dropdown-toggle sendMailButton61" type="button" id="dropdownMenuButton11" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="btn btn-secondary dropdown-toggle btn btn-primary1" type="button" id="dropdownMenuButton11" data-bs-toggle="dropdown" aria-expanded="false">
           Select Client Group
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton11" >
@@ -372,7 +417,7 @@
       </ul>
     </div> {% endcomment %}
     <div class="dropdown">
-      <button onclick="myFunction3()" class="dropbtn sendMailButton61" style="padding: 10px;
+      <button onclick="myFunction3()" class="dropbtn btn btn-primary1" style="padding: 10px;
       width: 57px !important;">To:</button>
       <div id="myDropdown3" class="dropdown-content">
         <div class="dropdownSearchDiv">
@@ -386,7 +431,7 @@
       </div>
     </div>
     {% comment %} <div class="dropdown" id="selectMailButton">
-      <button class="btn btn-secondary dropdown-toggle sendMailButton61" type="button" id="dropdownMenuButton13" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="btn btn-secondary dropdown-toggle btn btn-primary1" type="button" id="dropdownMenuButton13" data-bs-toggle="dropdown" aria-expanded="false">
           To:
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton13" >
@@ -396,7 +441,7 @@
       </ul>
     </div> {% endcomment %}
     <div class="dropdown">
-      <button onclick="myFunction4()" class="dropbtn sendMailButton61" style="padding: 10px;
+      <button onclick="myFunction4()" class="dropbtn btn btn-primary1" style="padding: 10px;
       width: 57px !important;">Cc:</button>
       <div id="myDropdown4" class="dropdown-content">
         <div class="dropdownSearchDiv">
@@ -410,7 +455,7 @@
       </div>
     </div>
     {% comment %} <div class="dropdown" id="selectMailButtonCc">
-      <button class="btn btn-secondary dropdown-toggle sendMailButton61" type="button" id="dropdownMenuButton12" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="btn btn-secondary dropdown-toggle btn btn-primary1" type="button" id="dropdownMenuButton12" data-bs-toggle="dropdown" aria-expanded="false">
           Cc:
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton12" >
@@ -443,21 +488,40 @@
 <input class="" type="text" id="mutluAkuInput" />
 </div>
 <hr>
-<textarea name="" id="popupTextarea" cols="30" rows="10">
+<div id="mailDiv">
+  <div id="editor2">
+    <p>Karşılama mesajı</p>
+      
+      
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p>Saygılarımla,</p>
+      <p>Melis Deniz</p>
+      <p>Broker</p>
+      <p>Lockton | Omni</p>
+      <br>
+      <p>Telefon: +90 555 444 33 22</p>
+      <p>E-posta: example@locktonomni.com</p>
+      <p>Web: <a href"www.digibrox.com">www.locktonomni.com</a></p>
 
-</textarea>
+    <img
+    src="{% static 'questions/img/lockton.png' %}"
+    alt=""
+  /> 
+</div>
+</div>
 </hr>
-<button class="button" id="sendQF">
-  <svg class="btn-layer">
-    <path d="M136,77.5c0,0-11.7,0-12,0c-90,0-94.2,0-94.2,0s-10.8,0-25.1,0c-0.2,0-0.8,0-0.8,0c-2.2,0-4-1.8-4-4v-47  c0-2.2,1.8-4,4-4c0,0,0.6,0,0.9,0c39.1,0,61.1,0,61.1,0s3,0,69.1,0c0.2,0,0.9,0,0.9,0c2.2,0,4,1.8,4,4v47  C140,75.7,138.2,77.5,136,77.5z"/>
-  </svg>
-  <svg class="plane">
-    <use xlink:href="#plane" />
-  </svg>
-  <ul>
-    <li>Send</li>
-    <li>Done</li>
-  </ul>
+<button class="btn btn-primary" id="save_answers_client">
+ Send
 </button>
 
 

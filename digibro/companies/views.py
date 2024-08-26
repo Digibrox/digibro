@@ -20,7 +20,26 @@ def index(request):
             return redirect('companies:index')
 
     companies = Company.objects.all()
-    return render(request, 'companies/index.html', {'companies': companies})
+    
+    data2 = [
+        {
+            "id": 1,
+            "title": "komple web geliştirme1",
+            "description": "çok iyi bir kurs"
+        },
+        {
+            "id": 2,
+            "title": "python kursu",
+            "description": "çok iyi bir kurs"
+        },
+        {
+            "id": 3,
+            "title": "django kursu",
+            "description": "çok iyi bir kurs"
+        }
+    ]
+
+    return render(request, 'companies/index.html', {'companies': companies, 'data2': data2})
 def delete_company(request, company_id):
     company = Company.objects.get(id=company_id)
     company.delete()
