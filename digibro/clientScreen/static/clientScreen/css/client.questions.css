@@ -32,9 +32,11 @@
   background: white;
   max-height: 175px;
   margin-top: 5px;
+  position: relative;
   border-top: 1px solid #efefef;
   overflow-x: hidden;
   overflow-y: auto;
+  z-index: 2;
 }
 .user-search .hidden {
   display: none;
@@ -57,12 +59,12 @@
 }
 .customer-button {
   background-color: #007bff;
+  width: auto;
   color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   z-index: 1;
-  width: 143px;
   cursor: pointer;
 }
 
@@ -76,19 +78,11 @@
 }
 .card {
   width: 32.5em;
-  max-height: 151px;
+  max-height: 181px;
   color: #fff;
   height: 17.5em;
   background: #171717;
   transition: 1s ease-in-out;
-  clip-path: polygon(
-    30px 0%,
-    100% 0,
-    100% calc(100% - 30px),
-    calc(100% - 30px) 100%,
-    0 100%,
-    0% 30px
-  );
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
   display: flex;
@@ -136,35 +130,100 @@
   color: red;
 }
 
-.card button {
-  padding: 0.8em 1.7em;
-  display: block;
-  margin: auto;
-  border-radius: 25px;
-  border: none;
-  font-weight: bold;
-  background: #ffffff;
-  color: rgb(0, 0, 0);
-  transition: 0.4s ease-in-out;
-}
 
-.card button:hover {
-  background: red;
-  color: white;
-  cursor: pointer;
-}
 #client_info_p {
-  padding: 8px;
+  padding: 4px;
   color: #424249;
-  background: #e0e8ff;
+  margin: 0 7px;
+  border-radius: 4px;
+  resize: none;
+  border: 1px solid #80808063;
+  pointer-events: none;
 }
-.card__left__side{
-    display: flex;
+.card__left__side {
+  display: flex;
+  order: 2;
+  margin-left: auto;
+}
+.card__right__side p {
+  display: flex;
+  gap: 5px;
+}
+.card__right__side span {
+  font-weight: 600;
+}
+.card span {
+  color: #424249;
+}
+#client__card {
+  display: none;
+  justify-content: center;
+  padding: 8px 3px;
+}
+.question_p{
+  max-width: max-content !important;
+  width: 210px;
+  min-width: 210px !important;
+}
+#HirsizlikAccordion2 .questionInputDiv .question_p{
+  max-width: max-content !important;
+  width: 270px;
+  min-width: 270px !important;
+}
+.inputSize_py{
+  position: relative !important;
+  padding: 0 !important;
+  width: 180px !important;
+  border: none !important;
+}
+.label_py{
+  width: auto;
+  max-width: 250px;
+  min-width: 50px;
+  display: block; 
+}
+.wrapper2 {
+  zoom: 0.87;
+  padding-bottom: 0;
+}
 
+.currency-selector {
+  position: absolute;
+  left: 0;
+  font-family: Rubik !important;
+    font-size: 16px;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: 0.5rem;
+  border: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1024' height='640'><path d='M1017 68L541 626q-11 12-26 12t-26-12L13 68Q-3 49 6 24.5T39 0h952q24 0 33 24.5t-7 43.5z'></path></svg>") 90%/12px 6px no-repeat;
+  font-family: inherit;
+  color: inherit;
 }
-.card span{
-    color: #424249;
+
+.currency-amount {
+  text-align: right;
 }
-#client__card{
-    display: none;
+
+.currency-addon {
+  width: 6em;
+  text-align: left;
+  position: relative;
+}
+#currencySubAmountDiv{
+  display: flex;
+  font-size: 16px;
+
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+ background: #e4e4e469;
+}
+#currentSelection_py {
+  clear: both; /* İki element arasındaki yer kaplamasını engeller */
 }

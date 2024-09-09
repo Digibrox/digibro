@@ -1,0 +1,1274 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'questions/css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/question.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/py.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/user.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/dashboard.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@1.13.12/iconfont/material-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ion-rangeslider@2.3.1/css/ion.rangeSlider.min.css"/>
+
+    <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.56/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.56/vfs_fonts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous" />
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="{% static 'questions/css/sidebar.css' %}" rel="stylesheet" />
+    <link
+      href="{% static 'questions/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <title>Dashboard</title>
+    <link rel="icon" href="/static/questions/img/xxx.png" >
+  </head>
+  <body>
+    
+    <div class="mainDiv">
+      <nav class="sidebar sidebar-bg" id="sidebar">
+        <div class="sidebar-content">
+          <div class="perfect-scrollbar">
+            <div class="ps">
+              <div class="ps-content">
+                <div class="sidebar-logo">
+                  <img
+                    src="{% static 'questions/img/white_logo.png' %}"
+                    class="img-responsive2"
+                    alt=""
+                  />
+                  <p>DIGITALIZE EVERYTHING, NOW.</p>
+                </div>
+                <div class="sidebar-profile">
+                  <div class="user-pic">
+                    <img
+                      src="https://cdn3.pixelcut.app/1/3/profile_picture_1728ecf2bd.jpg"
+                      class="img-responsive"
+                      alt=""
+                    />
+                  </div>
+                  <div class="user-info">
+                    <span class="user-name">
+                      Melis<strong> Deniz</strong>
+                    </span>
+                    <span class="user-role">
+      
+                    <p class="groupP">Broker<p>
+        
+                    </span>
+                    <span class="user-status">
+                      <i class="bi bi-circle-fill"></i>
+                      <span>Online</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="sidebar-menu">
+                  <ul>
+                    <li style="background: #3a3b3d">
+                      <a href="{% url 'questions:dashboard' %}">
+                        <i class="bi bi-ui-checks" style="color: #fff"></i>
+                        <span style="color: #fff">Dashboard</span>
+                      </a>
+                    </li>
+                    
+                    <li><span class="generalText">General</span></li>
+                    <li>
+                      <a href="{% url 'questions:index' %}">
+                        <i class="bi bi-layers-fill"></i>
+                        <span>Questionnaire Form</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'clients:index' %}">
+                        <i class="bi bi-layers-fill"></i>
+                        <span>Clients</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="{% url 'insurers:index' %}">
+                        <i class="bi bi-brilliance"></i>
+                        <span>Insurers</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'insurers:index' %}">
+                        <i class="bi bi-symmetry-horizontal"></i>
+                        <span>Risk Reports</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'insurers:index' %}">
+                        <i class="bi bi-award"></i>
+                        <span>Claims</span>
+                      </a>
+                    </li>
+
+                    <li><span class="generalText">Extra</span></li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-journal-text"></i>
+                        <span>Documentation</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-calendar-fill"></i>
+                        <span>Calendar</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="bi bi-folder-fill"></i>
+                        <span>Examples</span>
+                      </a>
+                    </li>
+                         
+                  </ul>
+                  
+                 
+                <ul>
+                  <hr>
+                  <li>
+                    <a href="#">
+                      <i class="bi bi-door-open-fill"></i>
+                      <span>Logout</span>
+                    </a>
+                  </li>
+           
+                  
+                </ul>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+    
+      </nav>
+
+      <div class="accordion">
+        <div class="accordion-item" style="border-radius: 0px;">
+          <input type="checkbox" id="accordion1" />
+          <label for="accordion1" class="accordion-item-title">
+            <svg
+              width="134"
+              height="25"
+              id="locktonSvg"
+              viewBox="0 0 134 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M118.906 9.04643V11.9296C122.942 11.1853 126.349 11.3177 129.088 11.8248C128.807 9.79064 127.617 8.77631 125.505 8.77631C124.259 8.77631 123.195 9.35514 122.324 10.5183V9.04091H118.906V9.04643Z"
+                fill="white"
+              />
+              <path
+                d="M129.805 9.48187V11.9681C131.255 12.2823 132.506 12.7013 133.543 13.1313V12.2768L129.805 9.48187Z"
+                fill="white"
+              />
+              <path
+                d="M129.805 9.04639L133.543 11.8578V9.04639H129.805Z"
+                fill="white"
+              />
+              <path
+                d="M90.0419 7.0122C88.8071 8.21947 88.1896 9.84571 88.1896 11.8854C88.1896 12.7509 88.2889 13.5447 88.4818 14.2669C89.9813 14.5756 91.602 14.8181 93.3385 14.9835C93.1841 14.8181 93.0518 14.6252 92.9361 14.4047C92.5998 13.7707 92.4344 12.9438 92.4344 11.924C92.4344 10.9648 92.6053 10.1654 92.9581 9.53148C93.3881 8.74317 94.0496 8.34626 94.9372 8.34626C95.8247 8.34626 96.5138 8.73766 96.9713 9.51495C97.3407 10.1489 97.5281 10.9538 97.5281 11.924C97.5281 13.5282 97.1698 14.6142 96.4587 15.182C97.9526 15.2316 99.5127 15.2206 101.139 15.1379C101.558 14.2062 101.767 13.1368 101.767 11.924C101.767 11.5987 101.751 11.2845 101.718 10.9813C102.071 10.2261 102.451 9.85122 102.864 9.85122C103.206 9.85122 103.372 10.0993 103.372 10.5899C103.372 10.7994 103.35 10.9979 103.311 11.1908L102.49 15.0497C103.344 14.989 104.215 14.9064 105.097 14.8016C105.417 13.7597 105.759 12.8556 106.133 12.0839C106.916 10.4631 107.716 9.65276 108.526 9.65276C109.094 9.65276 109.38 9.96699 109.38 10.5899C109.38 10.8435 109.303 11.3452 109.143 12.0894L108.669 14.2889C109.59 14.1291 110.516 13.9471 111.464 13.7432C111.685 13.1368 111.911 12.5855 112.153 12.0894C112.942 10.4686 113.741 9.65828 114.546 9.65828C115.097 9.65828 115.378 9.9725 115.378 10.5954C115.378 10.8656 115.301 11.3617 115.147 12.0783L114.976 12.8832C115.224 12.817 115.472 12.7509 115.72 12.6792C116.359 12.4973 116.982 12.343 117.6 12.2051C117.677 11.731 117.721 11.3672 117.721 11.1026C117.721 10.408 117.506 9.85673 117.076 9.43777C116.652 9.01329 116.084 8.80382 115.362 8.80382C113.862 8.80382 112.605 9.95596 111.58 12.2547C111.585 12.1941 111.596 12.139 111.602 12.1004C111.674 11.6318 111.707 11.2955 111.707 11.1026C111.707 10.3915 111.497 9.82366 111.084 9.4102C110.676 8.99675 110.119 8.78728 109.413 8.78728C107.897 8.78728 106.619 9.94494 105.577 12.2603C105.659 11.7035 105.703 11.2459 105.703 10.8766C105.703 10.2261 105.544 9.71341 105.224 9.33855C104.904 8.95817 104.474 8.76522 103.934 8.76522C103.443 8.76522 102.953 8.94714 102.467 9.31649C102.131 9.56456 101.845 9.87328 101.613 10.2426C101.354 8.9692 100.786 7.90525 99.9041 7.03976C98.6582 5.80492 97.0209 5.1875 94.9868 5.1875H94.9702C92.9361 5.1875 91.2988 5.79941 90.0529 7.02322L90.0419 7.0122Z"
+                fill="white"
+              />
+              <path
+                d="M129.805 18.848H133.543V13.5117C132.506 13.0817 131.255 12.6682 129.805 12.3485V18.848Z"
+                fill="white"
+              />
+              <path
+                d="M99.9095 17.2989C100.422 16.7752 100.83 16.1798 101.133 15.5128C99.5071 15.5955 97.947 15.6065 96.453 15.5569C96.0671 15.8656 95.571 16.02 94.9701 16.02C94.2976 16.02 93.7518 15.7994 93.3439 15.3584C91.6074 15.1931 89.9867 14.9505 88.4872 14.6418C88.7739 15.6947 89.27 16.5878 89.9701 17.332C91.1664 18.5668 92.8367 19.1842 94.9701 19.1842C97.1035 19.1842 98.6802 18.5558 99.915 17.2989H99.9095Z"
+                fill="white"
+              />
+              <path
+                d="M105.102 15.182C104.215 15.2867 103.344 15.3694 102.489 15.4301L101.706 19.107C102.181 18.8535 102.605 18.7211 102.985 18.7211C103.41 18.7211 103.801 18.8424 104.16 19.085C104.441 17.6241 104.749 16.3176 105.097 15.182H105.102Z"
+                fill="white"
+              />
+              <path
+                d="M111.464 14.118C110.516 14.322 109.584 14.5039 108.669 14.6638L107.716 19.107C108.184 18.8534 108.614 18.7211 108.995 18.7211C109.419 18.7211 109.805 18.8424 110.158 19.085C110.533 17.1445 110.968 15.4907 111.464 14.118Z"
+                fill="white"
+              />
+              <path
+                d="M117.423 13.4951C117.44 13.4234 117.451 13.3683 117.456 13.3297C117.511 13.0541 117.561 12.806 117.599 12.58C116.988 12.7178 116.359 12.8777 115.72 13.0596C115.472 13.1313 115.224 13.1974 114.975 13.2636L114.501 15.4907L114.452 15.7608C114.319 16.4003 114.253 16.8468 114.253 17.1004C114.253 17.7288 114.419 18.2305 114.749 18.5998C115.086 18.9692 115.532 19.1511 116.1 19.1511C117.291 19.1511 118.178 18.462 118.763 17.0839C118.818 16.9571 118.862 16.8413 118.906 16.731V18.8534H122.644V14.0519C122.644 12.7564 123.129 12.1114 124.099 12.1114C124.975 12.1114 125.411 12.7013 125.411 13.8755V18.8589H129.149V13.214C129.149 12.8611 129.127 12.5249 129.088 12.2162C126.348 11.709 122.941 11.5712 118.906 12.3209V15.5624C118.796 15.612 118.708 15.7663 118.636 16.0199C118.614 16.0916 118.603 16.1467 118.592 16.1853C118.195 17.4256 117.726 18.0486 117.181 18.0486C116.839 18.0486 116.673 17.8115 116.673 17.3319C116.673 17.1996 116.695 17.0177 116.734 16.7807L117.418 13.5061L117.423 13.4951Z"
+                fill="white"
+              />
+              <path
+                d="M35.3732 6.28998L35.3842 6.29549V6.28998H35.3787H35.3732Z"
+                fill="white"
+              />
+              <path
+                d="M4.46913 7.75635H0.5V17.7123H7.35777V15.2756H4.46913V7.75635Z"
+                fill="white"
+              />
+              <path
+                d="M12.3579 7.54138C9.31491 7.54138 6.83972 9.65274 6.83972 12.7674C6.83972 15.8821 9.32594 17.8556 12.38 17.8556C15.434 17.8556 17.9202 15.9537 17.9202 12.7674C17.9202 9.58108 15.4009 7.54138 12.3579 7.54138ZM12.38 15.2646C11.2774 15.2646 10.9522 13.7983 10.9522 12.6682C10.9522 11.6153 11.2223 10.1158 12.38 10.1158C13.5376 10.1158 13.8077 11.6097 13.8077 12.6682C13.8077 13.7983 13.488 15.2646 12.38 15.2646Z"
+                fill="white"
+              />
+              <path
+                d="M24.3641 9.95043C25.2847 9.83466 25.8966 10.1158 26.4754 10.5899V7.81151C25.6044 7.5469 24.7665 7.54138 23.8404 7.54138C20.5273 7.54138 17.9969 9.93389 17.9969 12.8336C17.9969 15.7332 20.5162 17.8666 23.7356 17.8666C24.4688 17.8666 25.8084 17.7454 26.4699 17.4697V14.8732C25.8084 15.3087 25.213 15.4245 24.3641 15.3143C23.2064 15.215 22.0598 14.0298 22.0598 12.6847C22.0598 11.3396 22.8426 10.1379 24.3586 9.94491L24.3641 9.95043Z"
+                fill="white"
+              />
+              <path
+                d="M37.3136 7.74533H32.8594C32.8594 7.74533 30.7205 11.5932 30.6433 11.7365V7.74533H26.6521V17.7288H30.6433V13.6549L32.7822 17.7122H37.4184L34.1824 12.5083L37.3191 7.73981L37.3136 7.74533Z"
+                fill="white"
+              />
+              <path
+                d="M45.8636 7.74536H37.3685V10.3694H39.5846L39.5957 17.7178H43.5979L43.6089 10.3694H45.8636V7.74536Z"
+                fill="white"
+              />
+              <path
+                d="M63.6419 12.7233L61.2825 7.78949H56.9275V17.7509L61.0069 17.7619V12.9769L63.1954 17.7509H67.589V7.78949H63.5978L63.6419 12.7233Z"
+                fill="white"
+              />
+              <path
+                d="M51.134 7.53589C48.0194 7.53589 45.4615 9.61968 45.4615 12.7399C45.4615 15.86 47.9146 17.8722 51.0458 17.8722H51.0569C54.1825 17.8722 56.8121 15.9207 56.8121 12.7399C56.8121 9.55904 54.2542 7.53589 51.1395 7.53589H51.134ZM51.134 15.2095C50.0039 15.2095 49.6732 13.7873 49.6732 12.6627C49.6732 11.6098 49.9488 10.0827 51.134 10.0827C52.3193 10.0827 52.5949 11.6042 52.5949 12.6627C52.5949 13.7928 52.2641 15.2095 51.134 15.2095Z"
+                fill="white"
+              />
+              <path d="M78.835 25H77.6333V0H78.835V12.4972V25Z" fill="white" />
+            </svg>
+
+            <span class="infoSpan" id="mainTitleP" style="    font-size: 16px !important;
+    padding: 6px;
+    font-weight: 700;
+           ">DASHBOARD</span>
+          </label>
+        </div>
+      <div class="mainDivDashboard">
+        <div class="mainDivDashboard-top">
+        <div class="rowDiv">
+        <div class="row">
+          <div class="col-lg-12">
+              <div class="card job-filter">
+                  <div class="card-body p-3">
+                      <form action="javascript:void(0);">
+                          <div class="row g-3 rowG3">
+                              <div class="col-xxl-2 col-lg-4">
+                                  <div class="position-relative">
+                                     <p class="filterDashboardTitle"><i class="bi bi-person-vcard"></i>Account List</p>
+                                  </div>
+                              </div>
+                              <!--end col-->
+                              <div class="col-xxl-2 col-lg-4">
+                                  <div class="position-relative">
+                                      <input type="text" class="form-control" id="locationInput" autocomplete="off" placeholder="Search">
+                                  </div>
+                              </div>
+                              <!--end col-->
+                              <div class="col-xxl-2 col-lg-4">
+                                  <div class="position-relative">
+                                      <select class="form-select" id="idType" aria-label="Default select example">
+                                          <option value="all">Select for</option>
+                                          <option value="Freelance">Freelance</option>
+                                          <option value="Full Time">Full Time</option>
+                                          <option value="Part Time">Part Time</option>
+                                          <option value="Internship">Internship</option>
+                                      </select>
+                                  </div>
+                              </div>
+                              <!--end col-->
+                              <div class="col-xxl-2 col-lg-6">
+                                  <div class="position-relative">
+                                      <div id="datepicker1">
+                                          <input type="text" class="form-control" placeholder="Select date" data-date-format="dd M, yyyy" data-date-container="#datepicker1" data-date-autoclose="true" data-provide="datepicker">
+                                      </div><!-- input-group -->
+                                  </div>
+                              </div>
+                              <!--end col-->
+      
+                              <div class="col-xxl-4 col-lg-6">
+                                  <div class="position-relative h-100 hstack gap-3">
+                                      <button type="submit" class="btn btn-primary h-100 w-100" "><i class="bx bx-search-alt align-middle"></i>Search</button>
+                                      <button type="submit" class="btn btn-primary h-100 w-100" "><i class="bx bx-search-alt align-middle"></i>Add Item</button>
+                                      <button type="submit" class="btn btn-primary h-100 w-100" "><i class="bx bx-search-alt align-middle"></i>See All</button>
+                                    
+                                  </div>
+                              </div>
+                              <!--end col-->
+                              <div class="collapse" id="collapseExample">
+                                  <div class="pt-4">
+                                      <div class="row g-3">
+                                          <div class="col-xxl-4 col-lg-6">
+                                              <div>
+                                                  <label for="experience" class="form-label">Experience</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                                  <label class="form-check-label" for="inlineCheckbox1">All</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1">
+                                                  <label class="form-check-label" for="inlineCheckbox2">Fresher</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option2">
+                                                  <label class="form-check-label" for="inlineCheckbox3">1-2</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2">
+                                                  <label class="form-check-label" for="inlineCheckbox4">2-3</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option3">
+                                                  <label class="form-check-label" for="inlineCheckbox5">4+</label>
+                                              </div>
+                                          </div>
+                                          <div class="col-xxl-4 col-lg-6">
+                                              <div>
+                                                  <label for="jobType" class="form-label">Job Type</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option3">
+                                                  <label class="form-check-label" for="inlineCheckbox6">Full Time</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option3">
+                                                  <label class="form-check-label" for="inlineCheckbox7">Part Time</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox8" value="option3">
+                                                  <label class="form-check-label" for="inlineCheckbox8">Freelance</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox9" value="option3">
+                                                  <label class="form-check-label" for="inlineCheckbox9">Internship</label>
+                                              </div>
+                                          </div>
+                                          <div class="col-xxl-4 col-lg-4">
+                                              <div class="position-relative">
+                                                  <label for="qualificationInput" class="form-label">Qualification</label>
+                                                  <input type="text" class="form-control" id="qualificationInput" autocomplete="off" placeholder="Qualification">
+                                                  <i class="ri-government-line filter-icon"></i>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <!--end row-->
+                      </form>
+                  </div>
+              </div>
+          </div>
+          <!--end col-->
+      </div>
+      <div class="row" id="candidate-list">
+        <div class="col-xl-3 col-md-6 rowPadd">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-start mb-1">
+                        
+                  
+                    </div>
+                    <div class="textLeft">
+                        <img src="{% static 'questions/img/mutlu.jpg' %}" alt="" class="avatar-sm ">
+                        <h6 class="font-size-15 mt-1 mb-1">Mutlu Akü</h6>
+                        <p class="mb-0 text-muted">Industry: Energy</p>
+                        <p class="mb-0 text-muted">Scope: Battery Manufacturing</p>
+                        <p class="mb-0 text-muted">Policies: P&C</p>
+                        <p class="mb-0 text-muted"> Quote: Health</p>
+                       
+                    </div>
+                    <div class=" pt-1">
+                        <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-xl-3 col-md-6 rowPadd">
+          <div class="card">
+              <div class="card-body">
+                  <div class="d-flex align-start mb-1">
+                      
+                
+                  </div>
+                  <div class="textLeft">
+                      <img src="{% static 'questions/img/bera.jpg' %}" alt="" class="avatar-sm ">
+                      <h6 class="font-size-15 mt-1 mb-1">Bera Holding</h6>
+                      <p class="mb-0 text-muted">Industry: Holding</p>
+                      <p class="mb-0 text-muted">Scope: Finance</p>
+                      <p class="mb-0 text-muted">Policies: P&C</p>
+                      <p class="mb-0 text-muted"> Quote: Health</p>
+                     
+                  </div>
+                  <div class=" pt-1">
+                      <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+    
+      <div class="col-xl-3 col-md-6 rowPadd">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-start mb-1">
+                    
+              
+                </div>
+                <div class="textLeft">
+                    <img src="{% static 'questions/img/white_logo.png' %}" alt="" class="avatar-sm " style="padding: 3px;">
+                    <h6 class="font-size-15 mt-1 mb-1">DigiBroX</h6>
+                    <p class="mb-0 text-muted">Industry: IT/Technology Services</p>
+                    <p class="mb-0 text-muted">Scope: Insurance</p>
+                    <p class="mb-0 text-muted">Policies: P&C</p>
+                    <p class="mb-0 text-muted"> Quote: Health</p>
+                   
+                </div>
+                <div class=" pt-1">
+                    <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 rowPadd">
+      <div class="card">
+          <div class="card-body">
+              <div class="d-flex align-start mb-1">
+                  
+            
+              </div>
+              <div class="textLeft">
+                  <img src="{% static 'questions/img/cosmos.jpeg' %}" alt="" class="avatar-sm " style="padding: 3px;">
+                  <h6 class="font-size-15 mt-1 mb-1">Cosmos Yatırım Holding</h6>
+                  <p class="mb-0 text-muted">Industry: Holding</p>
+                  <p class="mb-0 text-muted">Scope: Construction</p>
+                  <p class="mb-0 text-muted">Policies: P&C</p>
+                  <p class="mb-0 text-muted"> Quote: Health</p>
+                 
+              </div>
+              <div class=" pt-1">
+                  <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+    
+  <div class="col-xl-3 col-md-6 rowPadd">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex align-start mb-1">
+                
+          
+            </div>
+            <div class="textLeft">
+                <img src="{% static 'questions/img/enerjisa.png' %}" alt="" class="avatar-sm ">
+                <h6 class="font-size-15 mt-1 mb-1">EnerjiSA Enerji</h6>
+                <p class="mb-0 text-muted">Industry: Holding</p>
+                <p class="mb-0 text-muted">Scope: Finance</p>
+                <p class="mb-0 text-muted">Policies: P&C</p>
+                <p class="mb-0 text-muted"> Quote: Health</p>
+               
+            </div>
+            <div class=" pt-1">
+                <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+<div class="col-xl-3 col-md-6 rowPadd">
+  <div class="card">
+      <div class="card-body">
+          <div class="d-flex align-start mb-1">
+              
+        
+          </div>
+          <div class="textLeft">
+              <img src="{% static 'questions/img/mutlu.jpg' %}" alt="" class="avatar-sm ">
+              <h6 class="font-size-15 mt-1 mb-1">Iz Yatırım Holding</h6>
+              <p class="mb-0 text-muted">Industry: Holding</p>
+              <p class="mb-0 text-muted">Scope: Finance</p>
+              <p class="mb-0 text-muted">Policies: P&C</p>
+              <p class="mb-0 text-muted"> Quote: Health</p>
+             
+          </div>
+          <div class=" pt-1">
+              <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="col-xl-3 col-md-6 rowPadd">
+  <div class="card">
+      <div class="card-body">
+          <div class="d-flex align-start mb-1">
+              
+        
+          </div>
+          <div class="textLeft">
+              <img src="{% static 'questions/img/mazhar.png' %}" alt="" class="avatar-sm ">
+              <h6 class="font-size-15 mt-1 mb-1">Mazhar Zorlu Holding</h6>
+              <p class="mb-0 text-muted">Industry: Holding</p>
+              <p class="mb-0 text-muted">Scope: Finance</p>
+              <p class="mb-0 text-muted">Policies: P&C</p>
+              <p class="mb-0 text-muted"> Quote: Health</p>
+             
+          </div>
+          <div class=" pt-1">
+              <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="col-xl-3 col-md-6 rowPadd">
+  <div class="card">
+      <div class="card-body">
+          <div class="d-flex align-start mb-1">
+              
+        
+          </div>
+          <div class="textLeft">
+              <img src="{% static 'questions/img/default_logo.png' %}" alt="" class="avatar-sm ">
+              <h6 class="font-size-15 mt-1 mb-1">Coligo</h6>
+              <p class="mb-0 text-muted">Industry: Consultanting</p>
+              <p class="mb-0 text-muted">Scope: HR Consulting</p>
+              <p class="mb-0 text-muted">Policies: P&C</p>
+              <p class="mb-0 text-muted"> Quote: Health</p>
+             
+          </div>
+          <div class=" pt-1">
+              <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
+          </div>
+      </div>
+  </div>
+</div>
+    </div>
+      </div>
+      <div class="todoListDiv">
+        <div class="todoListDivTop">
+          <h6><i class="bi bi-check-all"></i>To Do List</h6>
+          <button type="submit" class="btn btn-primary" onclick=""><i class="bx bx-search-alt align-middle"></i>Add Item</button>
+         </div>
+         <div class="col-xxl-12 col-lg-4">
+          <div class="position-relative">
+              <input type="text" class="form-control" id="searchInput" autocomplete="off" placeholder="Search">
+              <table id="example" class="table table-striped table-bordered">
+                <thead>
+                    <tr class="titleRubik">
+                        <th>No</th>
+                        <th>Title</th>
+                        <th>Status</th>
+                        <th class="sorting_disable">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td class="leftTitle">Example Title 1</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td>
+    <ul class="list-unstyled hstack gap-1 mb-0">
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
+            <a href="#" class="btn btn-sm btn-soft-primary">
+                <i class="bi bi-eye"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+            <a href="#" class="btn btn-sm btn-soft-info">
+                <i class="bi bi-pencil"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+            <a href="#jobDelete" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger">
+                <i class="bi bi-trash"></i>
+            </a>
+        </li>
+    </ul>
+</td>
+
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="leftTitle">Example Title 2</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td>
+                          <ul class="list-unstyled hstack gap-1 mb-0">
+                              <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
+                                  <a href="#" class="btn btn-sm btn-soft-primary">
+                                      <i class="bi bi-eye"></i>
+                                  </a>
+                              </li>
+                              <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+                                  <a href="#" class="btn btn-sm btn-soft-info">
+                                      <i class="bi bi-pencil"></i>
+                                  </a>
+                              </li>
+                              <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+                                  <a href="#jobDelete" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger">
+                                      <i class="bi bi-trash"></i>
+                                  </a>
+                              </li>
+                          </ul>
+                      </td>
+                      
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="leftTitle">Example Title 3</td>
+                        <td><span class="badge bg-danger">Close</span></td>
+                        <td>
+    <ul class="list-unstyled hstack gap-1 mb-0">
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
+            <a href="#" class="btn btn-sm btn-soft-primary">
+                <i class="bi bi-eye"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+            <a href="#" class="btn btn-sm btn-soft-info">
+                <i class="bi bi-pencil"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+            <a href="#jobDelete" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger">
+                <i class="bi bi-trash"></i>
+            </a>
+        </li>
+    </ul>
+</td>
+
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="leftTitle">Example Title 4</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td>
+    <ul class="list-unstyled hstack gap-1 mb-0">
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
+            <a href="#" class="btn btn-sm btn-soft-primary">
+                <i class="bi bi-eye"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+            <a href="#" class="btn btn-sm btn-soft-info">
+                <i class="bi bi-pencil"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+            <a href="#jobDelete" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger">
+                <i class="bi bi-trash"></i>
+            </a>
+        </li>
+    </ul>
+</td>
+
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td class="leftTitle">Example Title 5</td>
+                      <td><span class="badge bg-success">Active</span></td>
+                      <td>
+  <ul class="list-unstyled hstack gap-1 mb-0">
+      <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
+          <a href="#" class="btn btn-sm btn-soft-primary">
+              <i class="bi bi-eye"></i>
+          </a>
+      </li>
+      <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+          <a href="#" class="btn btn-sm btn-soft-info">
+              <i class="bi bi-pencil"></i>
+          </a>
+      </li>
+      <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+          <a href="#jobDelete" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger">
+              <i class="bi bi-trash"></i>
+          </a>
+      </li>
+  </ul>
+</td>
+
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td class="leftTitle">Example Title 6</td>
+                    <td><span class="badge bg-success">Active</span></td>
+                    <td>
+<ul class="list-unstyled hstack gap-1 mb-0">
+    <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
+        <a href="#" class="btn btn-sm btn-soft-primary">
+            <i class="bi bi-eye"></i>
+        </a>
+    </li>
+    <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+        <a href="#" class="btn btn-sm btn-soft-info">
+            <i class="bi bi-pencil"></i>
+        </a>
+    </li>
+    <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+        <a href="#jobDelete" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger">
+            <i class="bi bi-trash"></i>
+        </a>
+    </li>
+</ul>
+</td>
+
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td class="leftTitle">Example Title 7</td>
+                  <td><span class="badge bg-success">Active</span></td>
+                  <td>
+<ul class="list-unstyled hstack gap-1 mb-0">
+  <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
+      <a href="#" class="btn btn-sm btn-soft-primary">
+          <i class="bi bi-eye"></i>
+      </a>
+  </li>
+  <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+      <a href="#" class="btn btn-sm btn-soft-info">
+          <i class="bi bi-pencil"></i>
+      </a>
+  </li>
+  <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+      <a href="#jobDelete" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger">
+          <i class="bi bi-trash"></i>
+      </a>
+  </li>
+</ul>
+</td>
+
+              </tr>
+                </tbody>
+            </table>
+          </div>
+      </div>
+        
+      </div>
+    </div>
+
+    <div class="mainDivDashboard-bottom">
+      <div class="rowDiv">
+        <div class="row">
+          <div class="col-lg-12">
+              <div class="card job-filter">
+                  <div class="card-body p-3">
+                      <form action="javascript:void(0);">
+                          <div class="row g-3 rowG3">
+                              <div class="col-xxl-2 col-lg-4">
+                                  <div class="position-relative">
+                                     <p class="filterDashboardTitle"><i class="bi bi-sliders2-vertical"></i>Opportunities</p>
+                                  </div>
+                              </div>
+                              <!--end col-->
+                              <div class="col-xxl-2 col-lg-4">
+                                  <div class="position-relative">
+                                      <input type="text" class="form-control" id="locationInput" autocomplete="off" placeholder="Search">
+                                  </div>
+                              </div>
+                              <!--end col-->
+                              <div class="col-xxl-2 col-lg-4">
+                                  <div class="position-relative">
+                                      <select class="form-select" id="idType" aria-label="Default select example">
+                                          <option value="all">Select for</option>
+                                          <option value="Freelance">Freelance</option>
+                                          <option value="Full Time">Full Time</option>
+                                          <option value="Part Time">Part Time</option>
+                                          <option value="Internship">Internship</option>
+                                      </select>
+                                  </div>
+                              </div>
+                              <!--end col-->
+                              <div class="col-xxl-2 col-lg-6">
+                                  <div class="position-relative">
+                                      <div id="datepicker1">
+                                          <input type="text" class="form-control" placeholder="Select date" data-date-format="dd M, yyyy" data-date-container="#datepicker1" data-date-autoclose="true" data-provide="datepicker">
+                                      </div><!-- input-group -->
+                                  </div>
+                              </div>
+                              <!--end col-->
+      
+                              <div class="col-xxl-4 col-lg-6">
+                                  <div class="position-relative h-100 hstack gap-3">
+                                      <button type="submit" class="btn btn-primary h-100 w-100" "><i class="bx bx-search-alt align-middle"></i>Search</button>
+                                      <button type="submit" class="btn btn-primary h-100 w-100" "><i class="bx bx-search-alt align-middle"></i>Add Item</button>
+                                      <button type="submit" class="btn btn-primary h-100 w-100" "><i class="bx bx-search-alt align-middle"></i>See All</button>
+                                    
+                                  </div>
+                              </div>
+                              <!--end col-->
+                              <div class="collapse" id="collapseExample">
+                                  <div class="pt-4">
+                                      <div class="row g-3">
+                                          <div class="col-xxl-4 col-lg-6">
+                                              <div>
+                                                  <label for="experience" class="form-label">Experience</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                                  <label class="form-check-label" for="inlineCheckbox1">All</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1">
+                                                  <label class="form-check-label" for="inlineCheckbox2">Fresher</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option2">
+                                                  <label class="form-check-label" for="inlineCheckbox3">1-2</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2">
+                                                  <label class="form-check-label" for="inlineCheckbox4">2-3</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option3">
+                                                  <label class="form-check-label" for="inlineCheckbox5">4+</label>
+                                              </div>
+                                          </div>
+                                          <div class="col-xxl-4 col-lg-6">
+                                              <div>
+                                                  <label for="jobType" class="form-label">Job Type</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option3">
+                                                  <label class="form-check-label" for="inlineCheckbox6">Full Time</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option3">
+                                                  <label class="form-check-label" for="inlineCheckbox7">Part Time</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox8" value="option3">
+                                                  <label class="form-check-label" for="inlineCheckbox8">Freelance</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox9" value="option3">
+                                                  <label class="form-check-label" for="inlineCheckbox9">Internship</label>
+                                              </div>
+                                          </div>
+                                          <div class="col-xxl-4 col-lg-4">
+                                              <div class="position-relative">
+                                                  <label for="qualificationInput" class="form-label">Qualification</label>
+                                                  <input type="text" class="form-control" id="qualificationInput" autocomplete="off" placeholder="Qualification">
+                                                  <i class="ri-government-line filter-icon"></i>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <!--end row-->
+                      </form>
+                  </div>
+              </div>
+          </div>
+          <!--end col-->
+      </div>
+
+      <div class="row" id="candidate-list">
+
+
+  <table id="example2" class="table table-striped table-bordered">
+                <thead>
+                    <tr class="titleRubik">
+                        <th>No</th>
+                        <th>Client Name</th>
+                        <th>Policy Type</th>
+                        <th>Turnover</th>
+                        <th>Website</th>
+                        <th>Status</th>
+                        <th class="sorting_disable">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td class="leftTitle">Mutlu Akü</td>
+                        <td class="leftTitle">P&C</td>
+                        <td class="leftTitle">350,000$</td>
+                        <td class="leftTitle"><a href="https://www.mutluaku.com" target="_blank">www.mutluaku.com</a></td>
+                        <td><span class="badge bg-client">Client</span></td>
+                        <td>
+    <ul class="list-unstyled hstack gap-1 mb-0">
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
+            <a href="#" class="btn btn-sm btn-soft-primary">
+                <i class="bi bi-eye"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+            <a href="#" class="btn btn-sm btn-soft-info">
+                <i class="bi bi-pencil"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+            <a href="#jobDelete" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger">
+                <i class="bi bi-trash"></i>
+            </a>
+        </li>
+    </ul>
+</td>
+
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td class="leftTitle">Bera Holding</td>
+                      <td class="leftTitle">P&C</td>
+                      <td class="leftTitle">550,000$</td>
+                      <td class="leftTitle"><a href="https://www.beraholding.com" target="_blank">www.beraholding.com</a></td>
+
+                      <td><span class="badge bg-questionnaire">Questionnaire</span></td>
+                      <td>
+                          <ul class="list-unstyled hstack gap-1 mb-0">
+                              <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
+                                  <a href="#" class="btn btn-sm btn-soft-primary">
+                                      <i class="bi bi-eye"></i>
+                                  </a>
+                              </li>
+                              <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+                                  <a href="#" class="btn btn-sm btn-soft-info">
+                                      <i class="bi bi-pencil"></i>
+                                  </a>
+                              </li>
+                              <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+                                  <a href="#jobDelete" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger">
+                                      <i class="bi bi-trash"></i>
+                                  </a>
+                              </li>
+                          </ul>
+                      </td>
+                      
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td class="leftTitle">EnerjiSA Enerji</td>
+                      <td class="leftTitle">P&C</td>
+                      <td class="leftTitle">950,000$</td>
+                      <td class="leftTitle"><a href="https://www.enerjisa.com" target="_blank">www.enerjisa.com</a></td>
+                      <td><span class="badge bg-quotations">Quotations</span></td>
+                      <td>
+    <ul class="list-unstyled hstack gap-1 mb-0">
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
+            <a href="#" class="btn btn-sm btn-soft-primary">
+                <i class="bi bi-eye"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+            <a href="#" class="btn btn-sm btn-soft-info">
+                <i class="bi bi-pencil"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+            <a href="#jobDelete" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger">
+                <i class="bi bi-trash"></i>
+            </a>
+        </li>
+    </ul>
+</td>
+
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td class="leftTitle">Cosmos Yatırım Holding</td>
+                      <td class="leftTitle">Health</td>
+                      <td class="leftTitle">1,350,000$</td>
+                      <td class="leftTitle"><a href="https://www.cosmosholding.com" target="_blank">www.cosmosholding.com</a></td>
+                      <td><span class="badge bg-questionnaire">Questionnaire</span></td>
+                      <td>
+    <ul class="list-unstyled hstack gap-1 mb-0">
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
+            <a href="#" class="btn btn-sm btn-soft-primary">
+                <i class="bi bi-eye"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+            <a href="#" class="btn btn-sm btn-soft-info">
+                <i class="bi bi-pencil"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+            <a href="#jobDelete" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger">
+                <i class="bi bi-trash"></i>
+            </a>
+        </li>
+    </ul>
+</td>
+
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td class="leftTitle">İz Yatırım Holding</td>
+                      <td class="leftTitle">Health</td>
+                      <td class="leftTitle">850,000$</td>
+                      <td class="leftTitle"><a href="https://www.izholding.com" target="_blank">www.izholding.com</a></td>
+                      <td><span class="badge bg-quotations">Quotations</span></td>
+                      <td>
+    <ul class="list-unstyled hstack gap-1 mb-0">
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
+            <a href="#" class="btn btn-sm btn-soft-primary">
+                <i class="bi bi-eye"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+            <a href="#" class="btn btn-sm btn-soft-info">
+                <i class="bi bi-pencil"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+            <a href="#jobDelete" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger">
+                <i class="bi bi-trash"></i>
+            </a>
+        </li>
+    </ul>
+</td>
+
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td class="leftTitle">Mazhar Zorlu Holding</td>
+                      <td class="leftTitle">P&C</td>
+                      <td class="leftTitle">3,350,000$</td>
+                      <td class="leftTitle"><a href="https://www.zorluholding.com" target="_blank">www.zorluholding.com</a></td>
+                      <td><span class="badge bg-quotations">Quotations</span></td>
+                      <td>
+    <ul class="list-unstyled hstack gap-1 mb-0">
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
+            <a href="#" class="btn btn-sm btn-soft-primary">
+                <i class="bi bi-eye"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+            <a href="#" class="btn btn-sm btn-soft-info">
+                <i class="bi bi-pencil"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+            <a href="#jobDelete" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger">
+                <i class="bi bi-trash"></i>
+            </a>
+        </li>
+    </ul>
+</td>
+
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td class="leftTitle">Coligo </td>
+                      <td class="leftTitle">Health</td>
+                      <td class="leftTitle">765,000$</td>
+                      <td class="leftTitle"><a href="https://www.Coligo.com" target="_blank">www.Coligo.com</a></td>
+                      <td><span class="badge bg-client">Client</span></td>
+                      <td>
+    <ul class="list-unstyled hstack gap-1 mb-0">
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
+            <a href="#" class="btn btn-sm btn-soft-primary">
+                <i class="bi bi-eye"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+            <a href="#" class="btn btn-sm btn-soft-info">
+                <i class="bi bi-pencil"></i>
+            </a>
+        </li>
+        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+            <a href="#jobDelete" data-bs-toggle="modal" class="btn btn-sm btn-soft-danger">
+                <i class="bi bi-trash"></i>
+            </a>
+        </li>
+    </ul>
+</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+    
+
+
+
+
+
+    </div>
+      </div>
+        <div class="todoListDiv">
+         <div class="todoListDivTop">
+          <h6><i class="bi bi-calculator"></i>Premium Calculator</h6>
+
+         </div>
+         <div class="optionsDivToDoList">
+         <div class="col-xxl-5 col-lg-4">
+          <div class="position-relative">
+              <select class="form-select" id="idType" aria-label="Default select example">
+                  <option value="all">Region</option>
+                  <option value="Freelance">America</option>
+                  <option value="Full Time" id="europeOpen">Europe</option>
+                  <option value="Part Time">Asia</option>
+                  <option value="Internship">Africa</option>
+              </select>
+          </div>
+      </div>
+      <div class="col-xxl-5 col-lg-4">
+        <div class="position-relative">
+            <select class="form-select" id="idType" aria-label="Default select example">
+                <option value="all">Policy Type</option>
+                <option value="Freelance">Freelance</option>
+                <option value="Full Time">Full Time</option>
+                <option value="Part Time">Part Time</option>
+                <option value="Internship">Internship</option>
+            </select>
+        </div>
+    </div>
+    </div>
+    <div class="optionsDivToDoList">
+      <div class="col-xxl-5 col-lg-4">
+       <div class="position-relative">
+           <select class="form-select" id="idType" aria-label="Default select example">
+               <option value="all">Industry</option>
+               <option value="Freelance">Freelance</option>
+               <option value="Full Time">Full Time</option>
+               <option value="Part Time">Part Time</option>
+               <option value="Internship">Internship</option>
+           </select>
+       </div>
+   </div>
+   <div class="col-xxl-5 col-lg-4">
+     <div class="position-relative">
+         <select class="form-select" id="idType" aria-label="Default select example">
+             <option value="all">Installment</option>
+             <option value="Freelance">Freelance</option>
+             <option value="Full Time">Full Time</option>
+             <option value="Part Time">Part Time</option>
+             <option value="Internship">Internship</option>
+         </select>
+     </div>
+ </div>
+ </div>
+         <div class="range_container">
+        <p class="sumInsured">Sum Insured</p>
+        <p class="sumInsuredSub">Select the insurance amount range</p>
+       
+        <div class="sliders_control">
+          <div id="fromSliderTooltip" class="slider-tooltip">10,000,000</div>
+          <input id="fromSlider" type="range" value="10000000" min="10000000" max="50000000" step="1000000" />
+          <div id="toSliderTooltip" class="slider-tooltip">50,000,000</div>
+          <input id="toSlider" type="range" value="50000000" min="10000000" max="50000000" step="1000000" />
+      </div>
+          
+          <!--scale steps defined by data-steps value -->
+          <div id="scale"></div>
+        </div>
+        <button type="submit" class="btn btn-primary calculateButton" id="calculateDivButton"><i class="bx bx-search-alt align-middle"></i>Calculate</button>
+
+        <div class="resultCalculate"  id="calculateDiv">
+          <div class="resultCalculateLeft">
+          <p class="resultPcalculate">Result</p>
+          </div>
+          <div class="resultCalculateRight">
+            <img
+            src="{% static 'questions/img/europe.png' %}"
+            class="img-responsive2"
+            alt=""
+          />
+          </div>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+      </div>
+
+ 
+    </div>
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+      window.onload = function() {
+        window.scrollTo(0, 0); // Sayfanın en üst kısmında kalmasını sağlar
+     
+    };
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const calculateDiv = document.getElementById('calculateDiv');
+      const calculateDivButton = document.getElementById('calculateDivButton');
+  
+      // Olay dinleyici ekliyoruz
+      calculateDivButton.addEventListener('click', () => {
+        calculateDiv.style.display = 'flex';
+      });
+  });
+    </script>   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tinysort/3.2.5/jquery.tinysort.min.js"></script>
+
+    <script src="{% static 'questions/js/sidebar.js' %}"></script>
+    <script src="{% static 'questions/js/slider.js' %}"></script>
+    <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // DataTable'ı başlat
+    var table = $('#example').DataTable();
+
+
+});
+
+  </script>
+  <script>
+    $(document).ready(function() {
+      // DataTable'ı başlat
+      var table = $('#example2').DataTable();
+  
+  
+  });
+  
+    </script>
+  </body>
+</html>

@@ -12,14 +12,11 @@
 #ECAccordion,
 #MKAccordion,
 #IMMAccordion,
-#TPLAccordion,
-#HasarAccordion,
-#HirsizlikAccordion,
-#FotografAccordion,
-#informationAccordion,
-#informationAccordion2,
-#productRadios {
+#TPLAccordion{
   display: none;
+}
+#productRadios{
+  display: flex;
 }
 .accordion-button {
   border: none;
@@ -59,7 +56,7 @@
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  border: 8px solid #ececec;
+  border: 8px solid #dedede;
   outline: none;
   display: flex;
   justify-content: center;
@@ -71,8 +68,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: aliceblue;
-  border-radius: 44px;
+  background: #eeeeee;
+  border-radius: 4px;
   gap: 10px;
   font-weight: 600;
   padding-right: 53px;
@@ -82,24 +79,24 @@
   transition: 0.5s;
   font-family: monospace;
   content: "";
-  border: solid #e4e4e4;
+  border: solid #dedede;
   font-size: 25px;
   left: 0.45em;
   top: 0.25em;
   width: 0.25em;
   height: 0.5em;
-  border: solid #e4e4e4;
   border-width: 0 0.15em 0.15em 0;
   transform: rotate(45deg);
 }
 
 .checkbox-wrapper .container input:checked {
   transition: 0.5s;
+  border: 8px solid #556ee6;
 }
 
 .checkbox-wrapper .container input:checked::after {
   transition: 0.5s;
-  border: solid #15bae3;
+  border: solid #556ee6;
   border-width: 0 0.15em 0.15em 0;
   transform: rotate(45deg);
 }
@@ -113,22 +110,22 @@
 .checkmark {
   cursor: pointer;
 }
+.checkBoxRightDiv button{
+  padding: 3px 5px !important;
+}
 .mainDescBg {
-  background: url(https://assets-global.website-files.com/6422a763afcb83060f2c7173/64649e811dca6b9d8dead93c_642bff1411c982644d290736_GettyImages-170096512.jpeg);
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-size: cover;
-  padding: 10px 20px 20px;
-  box-sizing: border-box;
-  backdrop-filter: blur(5px);
-  filter: brightness(70%) contrast(90%) grayscale(10%);
-  background-repeat: no-repeat;
-  width: 100%;
-  margin-left: -20px;
-  margin-top: -10px;
-  height: 100%;
+  background: #eeeeee;
+    position: absolute;
+    background-size: cover;
+    padding: 10px 20px 20px;
+    box-sizing: border-box;
+    backdrop-filter: blur(5px);
+    /* filter: brightness(70%) contrast(90%) grayscale(10%); */
+    width: calc(100%);
+    background-repeat: no-repeat;
+    margin-left: -20px;
+    margin-top: -10px;
+    height: 100%;
 }
 .input {
   color: #fff;
@@ -136,11 +133,7 @@
   background-color: transparent;
   width: 100%;
   box-sizing: border-box;
-  padding-inline: 0.3em;
-  padding-block: 0.3em;
-  border: none;
-  border-bottom: var(--border-height) solid var(--border-before-color) !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 .input-border {
@@ -221,6 +214,8 @@
 }
 .mainQuestionDiv {
   margin: 6.7px 0;
+  border-bottom: 1px solid #b1b1b199;
+  padding-bottom: 5px;
 }
 
 .accordionBg hr {
@@ -265,13 +260,26 @@ textarea:focus {
 }
 
 .questionInputDiv p {
-  font-size: 15px;
+  font-size: inherit;
+  font-weight: 500;
   min-width: max-content;
 }
 .input-alt {
   font-size: 14px;
-  color: #424249;
-  box-shadow: rgba(91, 91, 96, 0.1) 0px 7px 29px 0px !important;
+  color: #495057;
+  background: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  appearance: none;
+  padding: .37rem .45rem;
+  border-radius: 0.25rem;
+  font-size: .8125rem;
+  font-weight: 400;
+  line-height: 1.5;
+
+}
+.first_title_p{
+  font-weight: 400;
 }
 
 .input-border-alt {
@@ -438,7 +446,12 @@ textarea:focus {
     background: var(--b, var(--background));
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
   }
-
+  .locktonSvgAdd{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   .checkbox-wrapper-13 input[type="checkbox"]:after {
     content: "";
     display: block;
@@ -596,13 +609,15 @@ textarea:focus {
   margin: 7px 0 !important;
 }
 .checkbox-container_info {
-  display: inline-block;
+  display: flex;
   position: relative;
-  padding-left: 22px;
+  /* padding-left: 22px; */
   margin-top: 4px;
   cursor: pointer;
+  gap: 7px;
   font-size: 14px;
   user-select: none;
+  align-items: center;
 }
 .checkbox-container_info p {
   font-size: 14px;
@@ -617,7 +632,7 @@ textarea:focus {
 
 .checkmark_info {
   zoom: 0.83;
-  position: absolute;
+
   top: 1.5px;
   left: 2px;
   height: 20px;
@@ -632,7 +647,7 @@ textarea:focus {
   position: absolute;
   display: none;
   left: 7px;
-  top: 3.3px;
+  top: 7.3px;
   width: 5px;
   height: 10px;
   border: solid white;
@@ -672,12 +687,31 @@ textarea:focus {
   display: flex;
   gap: 15px;
   align-items: end;
+
+}
+#bilgilendirmeDiv{
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #40424c;
+}
+.uploadHr{
+  color: #007bff !important;
+  margin: 1px auto;
+  width: 90%;
 }
 .buttonIcon {
   width: 47px;
 }
 #mainDesc {
   display: block;
+overflow: hidden;
+}
+#PCRadio{
+  background: #556ee6 !important;
+}
+#PCRadio span{
+  color: #fff !important;
 }
 #specHrr {
   display: none;
@@ -746,18 +780,44 @@ textarea:focus {
   display: flex;
   padding: 0 7px;
   align-items: center;
-  color: #424249;
+  color: #495057;
+  gap: 20px;
 }
 .card__left__side {
   display: flex;
   flex-direction: column;
 }
-#client__card a span {
-  text-decoration: underline;
+.badge-soft-info{
+  width: 55px;
+  background: #dfeffc;
+  position: absolute;
+  color: #2e77e1 !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  text-align: center !important;
+}
+.btn-soft-primary{
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  color: #556ee6 !important;
+  background-color: rgba(85, 110, 230, .1) !important;
+  border-color: transparent !important;
+  -webkit-transition: all .5s ease !important;
+  transition: all .5s ease !important;
+}
+.btn-soft-primary:hover{
+  color: #fff !important;
+  background-color: #556ee6 !important;
+  border-color: transparent !important;
+  -webkit-transition: all .5s ease !important;
+  transition: all .5s ease !important;
+}
+.client__card a{
+  pointer-events: none;
 }
 .card__left__side img {
   width: 82px;
-  padding: 12px;
+  padding: 8px;
   height: auto;
   border-radius: 5px;
   border: 1px solid #80808063;
@@ -770,8 +830,11 @@ textarea:focus {
   display: none;
   gap: 10px;
   position: absolute;
-  top: 145px;
-  left: 40%;
+  bottom: 0;
+  left: 311px;
+}
+.question__topside menu{
+  position: relative;
 }
 #resetCustomerButton {
   width: 80px;
@@ -780,17 +843,20 @@ textarea:focus {
   pointer-events: none;
 }
 .applyButton {
-  display: none;
-  background-color: #007bff;
+  display: flex;
+  justify-content: center;
+  background-color: #556ee6;
   color: #fff;
   position: relative;
   border: none;
   padding: 8px 10px;
-  border-radius: 5px;
   z-index: 1;
-  width: 88px;
+  font-size: 14px;
+  width: 100%;
+  font-weight: 600;
   cursor: pointer;
 }
+
 
 .createQuestionButton{
   font-size: 14px !important;
@@ -806,9 +872,8 @@ textarea:focus {
   margin-top: 10px;
 }
 .question__botside {
-  position: absolute;
+  position: relative;
   bottom: 0px;
-  position: absolute;
     bottom: 10px;
     width: 98%;
   width: 100%;
@@ -826,14 +891,13 @@ textarea:focus {
 }
 .bottom__svg {
   display: flex;
-  justify-content: space-between;
-  margin: 0 3px;
-  width: 97.2%;
+  width: 100%;
   align-items: center;
+  justify-content: flex-end;
 }
 .check__questions {
   position: relative;
-  height: 100%;
+  height: 83%;
   top: 7px;
   z-index: 1;
   width: 100%;
@@ -875,7 +939,7 @@ textarea:focus {
   width: 250px !important;
 }
 .questionCheckTopDiv {
-  height: 50px;
+  height: 5%;
   background: #e6e6e6;
   margin-bottom: -7px;
   position: relative;
@@ -900,18 +964,18 @@ textarea:focus {
   z-index: 2;
   position: absolute;
   width: 100%;
-  height: 722px;
+  height: 100vh;
   margin-left: -20px;
   top: 0px;
 }
 .questionCheckBottomDiv {
-  height: 50px;
+  height: 6%;
   gap: 16px;
   position: relative;
   background: #e6e6e6;
   z-index: 1;
   display: flex;
-  padding: 10px;
+  padding: 10px 22px 10px 10px;
   align-items: center;
 }
 .questionCheckBottomDiv button {
@@ -923,11 +987,11 @@ textarea:focus {
 }
 #topDivP__check {
   font-weight: 600;
-  font-family: sans-serif !important;
+
 }
 #mainTitleP{
   font-size: 15px;
-  font-family: sans-serif !important;
+
 }
 #closeCheckPanel{
   cursor: pointer;
@@ -1000,4 +1064,36 @@ textarea:focus {
 #digiImg{
 	width: 100px;
 	    margin-bottom: 4px;
+}
+.wrapperButton{
+  background: #556ee6 !important;
+  color: #fff !important;
+  padding: 6px !important;
+  font-size: 14px !important;
+}
+.broker-check-input{
+  margin: 0 16px;
+}
+.client-check-input{
+  margin: 0 19px;
+}
+.sigortaCard .btn-primary{
+  font-size: 14px;
+  font-family: Rubik !important;
+}
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #556ee6 !important;
+  --bs-btn-border-color: #556ee6 !important;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #556ee6 !important;
+  --bs-btn-hover-border-color: #556ee6 !important;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #556ee6 !important;
+  --bs-btn-active-border-color: #556ee6 !important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #556ee6 !important;
+  --bs-btn-disabled-border-color: #556ee6 !important;
 }
