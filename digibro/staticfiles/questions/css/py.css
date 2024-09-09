@@ -1,0 +1,140 @@
+#textarea_py textarea{
+    resize: none;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 100%;
+    height: 58px;
+    color: #495057;
+    border: 1px solid #10182033;
+    box-sizing: border-box;
+    padding-inline: 0.5em;
+
+    padding-block: 0.3em;
+    font-size: 14px;
+}
+.radio_input_py{
+    cursor: pointer;
+}
+.radio_label_py{
+    width: 110px;
+    cursor: pointer;
+}
+.form_check_py{
+    width: auto !important;
+}
+.form_check_py label{
+    pointer-events: none;
+}
+.dynamic_question_py{
+    display: flex;
+    gap: 10px;
+}
+.dynamic_question_py .p1{
+    font-family: Rubik !important;
+    font-weight: 500;
+}
+.container_py div {
+    display: flex;
+    border-bottom: 1px solid #00000038;
+    padding: 5px 0;
+    flex-wrap: wrap;
+}
+.container_py div p{
+
+}
+.pnull_py{
+    display: none;
+}
+.p0_py{
+    font-size: 16.5px;
+    font-weight: 500;
+    color: #4d51a8;
+    font-family: Rubik !important;
+    padding: 5px 0px;
+}
+.p1_py{
+    order: 1;
+    font-size: 15px;
+    font-weight: 500;
+    min-width: 261px;
+    color: #424249;
+    margin-right: 10px;
+}
+.p2_py{
+    order: 2;
+    margin-right: 10px;
+    font-weight: 400;
+}
+.p3_py{
+    order: 3;
+    margin-right: 10px;
+    font-weight: 400;
+}
+.p4_py{
+    order: 4;
+    margin-right: 10px;
+    font-weight: 400;
+}
+.p5_py{
+    order: 5;
+    margin-right: 10px;
+    font-weight: 400;
+}
+.p6_py{
+    order: 6;
+    margin-right: 10px;
+    font-weight: 400;
+}
+.p7_py{
+    order: 7;
+    font-size: 14px;
+    margin-right: 10px;
+    font-weight: 600;
+    color: #424249;
+}
+.p8_py{
+    order: 8;
+    margin-right: 20px;
+    font-weight: 400;
+}
+.p9_py{
+    order: 9;
+    font-size: 14px;
+    margin-right: 10px;
+    font-weight: 600;
+    color: #424249;
+}
+.p10_py{
+    order: 10;
+    margin-right: 20px;
+    font-weight: 400;
+}
+.p11_py{
+    order: 11;
+    font-size: 14px;
+    margin-right: 10px;
+    font-weight: 600;
+    color: #424249;
+}
+.p12_py{
+    order: 12;
+    margin-right: 20px;
+    font-weight: 400;
+}
+.currency_1_py{
+    order: 13;    
+    margin-right: 20px;
+    font-weight: 400;
+}
+.textarea_13_py{
+    order: 13;
+    display: block;
+    resize: none;
+    border: 1px solid #8080806b;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 5px;
+    padding: 6px;
+
+    font-weight: 400;
+}

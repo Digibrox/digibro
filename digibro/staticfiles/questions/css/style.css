@@ -6,17 +6,20 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Helvetica !important;
+  font-family: "Poppins", sans-serif !important;
+
 }
 body {
-  background-color: #424249 !important;
+  background-color: #495057 !important;
   margin: 0;
   height: 100vh;
-overflow-x: hidden;
   font-size: 0.9rem;
 }
 @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap);
-
+.mainDiv{
+  display: flex;
+  justify-content: flex-end;
+}
 /*
 * https://remixicon.com
 * https://github.com/Remix-Design/RemixIcon
@@ -218,262 +221,6 @@ select {
   background-color: #ccc;
 }
 
-.accordion {
-  display: flex;
-  flex-direction: column;
-  font-family: "Sora", sans-serif;
-  max-width: 1615px;
-  position: relative;
-  min-width: 320px;
-  margin: 2px auto;
-  padding: 0 50px;
-  zoom: 1.08;
-  left: 120px;
-}
-/* display: flex;
-flex-direction: column;
-font-family: "Sora", sans-serif;
-max-width: 1550px;
-position: relative;
-min-width: 320px;
-margin: 17px auto;
-padding: 0 50px;
-zoom: 1.08;
-left: 120px; */
-.accordion h1 {
-  font-size: 32px;
-  text-align: center;
-}
-.accordion-item {
-  margin-top: 16px;
-  border: none !important;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  background: #ffffff;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-}
-.accordion-item2 {
-  margin-top: 16px;
-  border: none !important;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  background: #ffffff;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-}
-.accordion-item .accordion-item-title {
-  position: relative;
-  gap: 32px;
-  margin: 0;
-  display: flex;
-  font-weight: 600;
-  width: 100%;
-  font-size: 18px;
-  cursor: pointer;
-  justify-content: space-between;
-  flex-direction: row-reverse;
-  padding: 14px 20px;
-  box-sizing: border-box;
-  align-items: center;
-}
-.accordion-item2 .accordion-item-title {
-  position: relative;
-  gap: 32px;
-  margin: 0;
-  display: flex;
-  font-weight: 600;
-  width: 100%;
-  font-size: 18px;
-  cursor: pointer;
-  justify-content: space-between;
-  flex-direction: row-reverse;
-  padding: 14px 20px;
-  box-sizing: border-box;
-  align-items: center;
-}
-.accordion-item .accordion-item-desc {
-  display: none;
-  background: gainsboro;
-  font-size: 14px;
-  position: relative;
-  line-height: 22px;
-  font-weight: 500;
-  color: #424249;
-  border-top: 1px dashed #ddd;
-  padding: 10px 20px 20px;
-  box-sizing: border-box;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-.accordion-item2 .accordion-item-desc {
-  display: none;
-  background: gainsboro;
-  font-size: 14px;
-  position: relative;
-  line-height: 22px;
-  font-weight: 500;
-  color: #424249;
-  border-top: 1px dashed #ddd;
-  padding: 10px 20px 20px;
-  box-sizing: border-box;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-#accordion1,
-#accordion2,
-#accordion3,
-#accordion4,
-#accordionYangin,
-#accordionEC,
-#accordionMK,
-#accordionIMM,
-#accordionHasar,
-#accordionHirsizlik,
-#accordionFotograf,
-#accordionTPL {
-  position: absolute;
-  height: 0;
-  width: 0;
-  opacity: 0;
-}
-.accordion3Label,
-.accordion4Label,
-.accordionYanginLabel,
-.accordionECLabel,
-.accordionMKLabel,
-.accordionIMMLabel,
-.accordionHasarLabel,
-.accordionHirsizlikLabel,
-.accordionFotografLabel,
-.accordionTPLLabel {
-  background: #101820;
-  color: #fff;
-  font-weight: 400;
-  padding-left: 30px !important;
-}
-.accordion3LabelDiv,
-.accordion4LabelDiv {
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-  background: #fee715;
-}
-.accordionYanginDiv {
-  background: #fe1515;
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-}
-#HirsizlikAccordion .inputSize1{
-  width: 110px !important;
-}
-.accordionECDiv {
-  background: #fe6e15;
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-}
-.accordionMKDiv {
-  background: #86fe15;
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-}
-.accordionIMMDiv {
-  background: #15fe86;
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-}
-.accordionTPLDiv {
-  background: #158dfe;
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-}
-.accordionHasarDiv {
-  background: #4815fe;
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-}
-.accordionHirsizlikDiv {
-  background: #fe5b15;
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-}
-.accordionFotografDiv {
-  background: #fe15b0;
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-}
-.accordionBg {
-  background: #fbfbfb !important;
-}
-/* .accordionBg2 {
-  background: #eeeeee !important;
-  display: flex !important;
-  flex-direction: column;
-  gap: 8px;
-} */
-.accordion-item input[type="checkbox"]:checked ~ .accordion-item-desc {
-  display: block;
-  
-}
-.accordion-item2 input[type="checkbox"]:checked ~ .accordion-item-desc {
-  display: none;
-  
-}
-.accordion-item
-  input[type="checkbox"]:checked
-  ~ .accordion-item-title
-  .icon:after {
-  content: "-";
-  font-size: 20px;
-}
-.accordion-item2
-  input[type="checkbox"]:checked
-  ~ .accordion-item-title
-  .icon:after {
-  content: "+";
-  font-size: 20px;
-}
-.accordion-item input[type="checkbox"] ~ .accordion-item-title .icon:after {
-  content: "+";
-  font-size: 20px;
-}
-.accordion-item2 input[type="checkbox"] ~ .accordion-item-title .icon:after {
-  content: "-";
-  font-size: 20px;
-}
-.accordion-item:first-child {
-  margin-top: 0;
-}
-.accordion-item .icon {
-  margin-left: 14px;
-}
-.accordion-item2:first-child {
-  margin-top: 0;
-}
-.accordion-item2 .icon {
-  margin-left: 14px;
-}
-@media screen and (max-width: 767px) {
-  .accordion {
-    padding: 0 16px;
-  }
-  .accordion h1 {
-    font-size: 22px;
-  }
-}
 .wrapper {
   width: 1200px;
   margin: 50px auto;
@@ -566,13 +313,13 @@ left: 120px; */
 }
 
 #locktonSvg path {
-  fill: #424249;
+  fill: #495057;
 }
 #locktonSvg5 path {
   fill: #b8b8b8;
 }
 #locktonSvg3 path{
-  fill: #424249;
+  fill: #495057;
 }
 #locktonSvg3{
   position: absolute;
@@ -599,7 +346,7 @@ form-group input {
   position: relative;
   cursor: pointer;
   font-size: 19px;
-  color: #424249;
+  color: #495057;
   font-weight: 500;
 }
 
@@ -648,8 +395,10 @@ section.results {
   margin-left: auto;
   margin-right: auto;
   margin-top: 11px;
+  display: flex;
   position: relative;
-  margin-bottom: 50px;
+  flex-direction: column;
+  gap: 14px;
 }
 section.results::after {
   clear: both;
@@ -750,9 +499,10 @@ section.results .item .price {
   display: flex;
   flex-wrap: wrap;
   border-radius: 0.5rem;
-  background-color: #eee;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 .75rem 1.5rem rgba(18, 38, 63, .03);
+  box-shadow: 0 .75rem 1.5rem rgba(18, 38, 63, .03);
   box-sizing: border-box;
-  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
   padding: 0.25rem;
   width: 358px;
   font-size: 14px;
@@ -781,17 +531,17 @@ section.results .item .price {
 }
 
 .radio-inputs .radio input:checked + .name {
-  background-color: #fff;
+  background-color: #eeeeee;
   font-weight: 600;
 }
 .dropdown button{
   width: auto;
-  font-size: 12px;
-  background: #d8d8d8;
+  font-size: 13px;
+  background: #d8d8d83b;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: black !important;
+  color: #495057 !important;
 }
 .dropdown ul{
   position: absolute;
@@ -804,4 +554,293 @@ section.results .item .price {
 #bedelFormEC,#ciro,#bedel3,#brut22{
   display: flex;
   gap: 5px;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 86.5%;
+}
+/* display: flex;
+flex-direction: column;
+font-family: "Sora", sans-serif;
+max-width: 1550px;
+position: relative;
+min-width: 320px;
+margin: 17px auto;
+padding: 0 50px;
+zoom: 1.08;
+left: 120px; */
+.accordion h1 {
+  font-size: 32px;
+  text-align: center;
+}
+.accordion-item {
+  border-radius: 0px;
+  border: none !important;
+  background: #ffffff;
+  -webkit-box-shadow: 0 .75rem 1.5rem rgba(18, 38, 63, .03);
+  box-shadow: 0 .75rem 1.5rem rgba(18, 38, 63, .03);
+}
+.accordion-item2 {
+  margin-top: 16px;
+  border: none !important;
+  margin-bottom: 10px;
+  border-radius: 0px !important;
+  background: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+.accordion-item .accordion-item-title {
+  position: relative;
+  border-bottom: 1px solid #8080804d;
+  height: 56px;
+  gap: 32px;
+  margin: 0;
+  display: flex;
+  font-weight: 600;
+  width: 100%;
+  font-size: 18px;
+  cursor: pointer;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  padding: 14px 20px;
+  box-sizing: border-box;
+  align-items: center;
+}
+.mainDescBg svg{
+  position: fixed;
+  top: 48%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+}
+.accordion-item2 .accordion-item-title {
+  position: relative;
+  gap: 32px;
+  margin: 0;
+  display: flex;
+  font-weight: 600;
+  width: 100%;
+  font-size: 18px;
+  cursor: pointer;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  padding: 14px 20px;
+  box-sizing: border-box;
+  align-items: center;
+}
+.accordion-item .accordion-item-desc {
+  display: none;
+  height: calc(100% - 65px);
+  font-size: 14.4px;
+  position: relative;
+  line-height: 22px;
+  font-weight: 500;
+  color: #495057;
+  padding: 10px 20px 45px;
+  box-sizing: border-box;
+}
+.accordion-item2 .accordion-item-desc {
+  display: none;
+
+  font-size: 14px;
+  position: relative;
+  line-height: 22px;
+  font-weight: 500;
+  color: #495057;
+
+  padding: 10px 20px 20px;
+  box-sizing: border-box;
+
+}
+
+.form-check-input[type="radio"] {
+  border-radius: 5% !important;
+}
+#accordion1,
+#accordion2,
+#accordion3,
+#accordion4,
+#accordion42,
+#accordionYangin,
+#accordionYangin2,
+#accordionEC,
+#accordionEC2,
+#accordionMK,
+#accordionMK2,
+#accordionIMM,
+#accordionIMM2,
+#accordionHasar,#accordionHasar2,
+#accordionHirsizlik,
+#accordionHirsizlik2,
+#accordionFotograf,
+#accordionTPL,
+#accordionTPL2 {
+  position: absolute;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+.accordion3Label,
+.accordion4Label,
+.accordion4Label2,
+.accordionYanginLabel,
+.accordionYanginLabel2,
+.accordionECLabel,
+.accordionECLabel2,
+.accordionMKLabel,
+.accordionMKLabel2,
+.accordionIMMLabel,
+.accordionIMMLabel2,
+.accordionHasarLabel,
+.accordionHasarLabel2,
+.accordionHirsizlikLabel,
+.accordionHirsizlikLabel2,
+.accordionFotografLabel,
+.accordionTPLLabel,
+.accordionTPLLabel2 {
+  background: #fff;
+  color: #495057;
+  font-weight: 400;
+  padding-left: 30px !important;
+}
+.accordion3LabelDiv,
+.accordion4LabelDiv2,
+.accordion4LabelDiv {
+  position: absolute;
+  left: 0;
+  width: 17px;
+  height: 100%;
+  background: #556ee6;
+}
+.accordionYanginDiv {
+  background: #556ee6;
+  position: absolute;
+  left: 0;
+  width: 17px;
+  height: 100%;
+}
+.accordionYanginDiv2 {
+  background: #556ee6;
+  position: absolute;
+  left: 0;
+  width: 17px;
+  height: 100%;
+}
+#HirsizlikAccordion .inputSize1{
+  width: 110px !important;
+}
+.accordionECDiv {
+  background: #556ee6;
+  position: absolute;
+  left: 0;
+  width: 17px;
+  height: 100%;
+}
+
+.accordionMKDiv {
+  background: #556ee6;
+  position: absolute;
+  left: 0;
+  width: 17px;
+  height: 100%;
+}
+
+.accordionIMMDiv {
+  background: #556ee6;
+  position: absolute;
+  left: 0;
+  width: 17px;
+  height: 100%;
+}
+
+.accordionTPLDiv {
+  background: #556ee6;
+  position: absolute;
+  left: 0;
+  width: 17px;
+  height: 100%;
+}
+
+.accordionHasarDiv {
+  background: #556ee6;
+  position: absolute;
+  left: 0;
+  width: 17px;
+  height: 100%;
+}
+
+.accordionHirsizlikDiv {
+  background: #556ee6;
+  position: absolute;
+  left: 0;
+  width: 17px;
+  height: 100%;
+}
+
+.accordionFotografDiv {
+  background: #556ee6;
+  position: absolute;
+  left: 0;
+  width: 17px;
+  height: 100%;
+}
+.accordionBg {
+  background: #fff !important;
+}
+/* .accordionBg2 {
+  background: #eeeeee !important;
+  display: flex !important;
+  flex-direction: column;
+  gap: 8px;
+} */
+.accordion-item input[type="checkbox"]:checked ~ .accordion-item-desc {
+  display: block;
+  
+}
+.accordion-item2 input[type="checkbox"]:checked ~ .accordion-item-desc {
+  display: none;
+  
+}
+.accordion-item
+  input[type="checkbox"]:checked
+  ~ .accordion-item-title
+  .icon:after {
+  content: "-";
+  font-size: 20px;
+}
+.accordion-item2
+  input[type="checkbox"]:checked
+  ~ .accordion-item-title
+  .icon:after {
+  content: "+";
+  font-size: 20px;
+}
+.accordion-item input[type="checkbox"] ~ .accordion-item-title .icon:after {
+  content: "+";
+  font-size: 20px;
+}
+.accordion-item2 input[type="checkbox"] ~ .accordion-item-title .icon:after {
+  content: "-";
+  font-size: 20px;
+}
+.accordion-item:first-child {
+  margin-top: 0;
+}
+.accordion-item .icon {
+  margin-left: 14px;
+}
+.accordion-item2:first-child {
+  margin-top: 0;
+}
+.accordion-item2 .icon {
+  margin-left: 14px;
+}
+@media screen and (max-width: 767px) {
+  .accordion {
+    padding: 0 16px;
+  }
+  .accordion h1 {
+    font-size: 22px;
+  }
 }
