@@ -1,19 +1,30 @@
 .sidebar {
+  background-image: url(https://azouaoui-med.github.io/angular-pro-sidebar/demo/assets/img/bg1.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 13.5%;
-  height: 100vh;
-  max-height: 100%;
-  transition: left 0.3s ease;
-  background-color: #131417;
-  position: fixed;
-  left: 0;
-  z-index: 2;
-}
-
-.sidebar-content {
+  width: 260px;
   height: 100%;
+  max-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  transition: left 0.3s ease;
+  background-color: #1d1d1d;
+}
+.sidebar-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(29, 29, 29, 0.8);
+}
+.sidebar-content {
+  max-height: calc(100% - 30px);
+  height: calc(100% - 30px);
   overflow-y: auto;
   position: relative;
 }
@@ -38,11 +49,6 @@
   padding: 20px;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  height: 127px;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 13px;
 }
 .user-pic {
   float: left;
@@ -83,10 +89,7 @@
   color: #5cb85c;
 }
 .sidebar-menu {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding-bottom: 10px;
 }
 .sidebar-menu ul {
   list-style-type: none;
@@ -94,27 +97,20 @@
   margin: 0;
 }
 .sidebar-menu ul li .generalText {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
-  padding: 5px 10px 5px;
+  padding: 5px 20px 5px;
   display: inline-block;
-  color: #77accd;
-}
-.sidebar-menu ul li{
-  width: 90%;
-    margin: 5px auto;
-    margin: auto;
-    border-radius: 9px;
+  color: #6c7b88;
 }
 .sidebar-menu ul li a {
   display: inline-block;
-  border-radius: 13px;
+  width: 100%;
   text-decoration: none;
   position: relative;
-  padding: 8px 8px 8px 8px;
+  padding: 8px 30px 8px 20px;
   display: flex;
   align-items: center;
-  width: 100%;
 }
 .sidebar-menu a:hover i,
 .sidebar-menu a:hover span {
@@ -139,9 +135,7 @@
 }
 .sidebar-menu ul li a span {
   color: #bdbdbd;
-  font-size: 0.85rem;
-  font-weight: 500;
-
+  font-size: 0.9rem;
 }
 .sidebar-footer {
   background-color: rgba(43, 43, 43, 0.5);
@@ -330,13 +324,4 @@
 .messages-name{
   font-weight: 600;
   font-family: sans-serif !important;
-}
-.sidebar-menu ul hr {
-  margin: 5px 0;
-  color: aliceblue;
-}
-.ps-content{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
 }

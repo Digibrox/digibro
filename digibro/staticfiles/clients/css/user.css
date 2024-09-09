@@ -9,14 +9,13 @@
 	margin-bottom: 10px;
 }
 .company-card{
-	width: 31.35% !important;
+	width: 32.35% !important;
 }
 .card{
 	width: 100% !important;
 }
 #users{
 	gap: 21px;
-	justify-content: center;
 	
 }
 .company-card p{
