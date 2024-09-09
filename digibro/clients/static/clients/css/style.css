@@ -6,7 +6,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Helvetica !important;
+  font-family: "Poppins", sans-serif !important;
 }
 body {
   margin: 0;
@@ -525,10 +525,14 @@ select {
 #mainClients{
   display: flex;
   flex-direction: column;
+  position: relative;
+  width: 86.5% !important;
+  margin: 0 0 0 auto;
   gap: 18px;
-  max-width: 1427px;
-  margin-left: 357px;
-  margin-top: 47px;
+  max-width: max-content !important;
+  padding: 30px;
+
+
 }
 .button1 {
   font-weight: bold;

@@ -140,185 +140,285 @@ def index(request):
     #             "input_type": "textarea"
     #         },
     #         'Q22':{
-    #             "inputRadio": "radio_3-1",
+    #             "inputRadioClass": "yanginAccordion_radio_Q1_1",
     #             "labelRadio": "label_3-1",
-    #             "inputRadio2": "radio_3-1",
-    #             "labelRadio2": "label_3-1",
     #         },
-    #         'Q23':{
-    #             "question": "textarea_1-11",
-    #             "input_type": "textarea"
-    #         },
-    #         'Q24':{
-    #             "question": "textarea_1-11",
-    #             "input_type": "textarea"
-    #         },
-    #         'Q25':{
-    #             "question": "textarea_1-11",
-    #             "input_type": "textarea"
-    #         },
-    #         'Q26':{
-    #             "question": "textarea_1-11",
-    #             "input_type": "textarea"
-    #         },
-    #         'Q27':{
-    #             "question": "textarea_1-11",
-    #             "input_type": "textarea"
-    #         },
-    #         'Q28':{
-    #             "question": "textarea_1-11",
-    #             "input_type": "textarea"
-    #         },
-    #         'Q29':{
-    #             "question": "textarea_1-11",
-    #             "input_type": "textarea"
-    #         },
-    #         'Q30':{
-    #             "question": "textarea_1-11",
-    #             "input_type": "textarea"
-    #         },
-    #         'Q31':{
-    #             "question": "textarea_1-11",
-    #             "input_type": "textarea"
-    #         },
-    #         'Q32':{
-    #             "question": "textarea_1-11",
-    #             "input_type": "textarea"
-    #         },
-    #         'Q33':{
-    #             "question": "textarea_1-11",
-    #             "input_type": "textarea"
-    #         },
-    #         'Q34':{
-    #             "question": "textarea_1-11",
-    #             "input_type": "textarea"
-    #         },
-    
-    #     {
-    #         "qsc_id": 2,
-    #         "qsc_name": "Hasar2",
-    #         "qsc_json_title": "Hasar",
-    #         "accordion_id": "HasarAccordion2",
-    #         "accordion_input": "accordionHasar2",
-    #         "accordion_label": "accordionHasarLabel2",
-    #         "accordion_divClass": "accordionHasarDiv2",
-    #         'Q0': {
-    #             'title_pyx': 'Hasar'
-                
-    #         },
-    #         "Q1": {
-    #             "question": "Hasar Teminatı ve Tutarı:",
-    #             "inputName": "",
-    #             "input_type": "text",
-    #             "currentSelection": " ",
-    #             "textarea": "Hasar nedenini ve ilgili iyileştirmeleri yazınız."
-    #         }
-    #     },
-    #      {
-    #         "qsc_id": 3,
-    #         "qsc_name": "Yangın2",
-    #         "qsc_json_title": "Yangın Önlemleri",
-    #         "accordion_id": "yanginAccordion2",
-    #         "accordion_input": "accordionYangin2",
-    #         "accordion_label": "accordionYanginLabel2",
-    #         "accordion_divClass": "accordionYanginDiv2",
-    #         'Q0': {
-    #             'title_pyx': 'Yangın Önlemleri'
-                
-    #         },
-    #         "Q1": {
-    #             "question": "Yangın Tüpleri:",
-    #             "radio": " ",
-    #             "radio_option1": "Var",
-    #             "radio_option2": "Yok",
-    #             "inputName": "Adet :",
-    #             "input_type": "text",
-    #         },
-    #         "Q2": {
-    #             "question": "Yangın Dolapları:",
-    #             "radio": " ",
-    #             "radio_option1": "Var",
-    #             "radio_option2": "Yok",
-    #             "inputName": "Adet :",
-    #             "input_type": "text",
-    #         },
-    #         "Q3": {
-    #             "question": "Yangın Hidrantları:",
-    #             "radio": " ",
-    #             "radio_option1": "Var",
-    #             "radio_option2": "Yok",
-    #             "inputName": "Adet :",
-    #             "input_type": "text",
-    #         },
-    #         "Q4": {
-    #             "question": "Duman Dedektörleri:",
-    #             "radio": " ",
-    #             "radio_option1": "Var",
-    #             "radio_option2": "Yok",
-    #             "inputName": "Tesisin % kaçını kapsıyor? :",
-    #             "input_type": "text",
-    #             "placeholder": "%"
-    #         },
-    #         "Q5": {
-    #             "question": "Yangın Suyu Deposu:",
-    #             "radio": " ",
-    #             "radio_option1": "Var",
-    #             "radio_option2": "Yok",
-    #             "inputName": "Depo Hacmi :",
-    #             "input_type": "text",
-    #             "placeholder": "m³"
-    #         },
-    #         "Q6": {
-    #             "question": "Yangın Pompa Grubu:",
-    #             "radio": " ",
-    #             "radio_option1": "Elektrikli",
-    #             "radio_option2": "Dizel",
-    #             "radio_option3": "Dizel-Elektrikli",
-    #             "radio_option4": "Yok",
-    #             "inputName": "Açıklama :",
+    #          'Q23':{
+    #             "inputRadioClass": "yanginAccordion_radio_Q1_2",
+    #             "labelRadio": "label_3-2",  
+    #                }
+    #          'Q24':{
+    #             "question":"1-3_input_type_answer",
+    #             "input_type":"number"
+    #                }
+    #          'Q25':{
+    #             "inputRadioClass": "yanginAccordion_radio_Q2_1",
+    #             "labelRadio": "label_3-2",
+    #                }
+    #          'Q26':{
+    #             "inputRadio2": "yanginAccordion_radio_Q2_2",
+    #             "labelRadio2": "label_3-2_2", 
+    #                }
+    #          'Q27':{
+    #             "question":"2-3_input_type_answer",
+    #             "input_type":"number"
+    #                }
+    #          'Q28':{
+    #             "inputRadioClass": "yanginAccordion_radio_Q3_1",
+    #             "labelRadio": "label_3-3", 
+    #                }
+    #          'Q29':{
+    #             "inputRadio2": "yanginAccordion_radio_Q3_2",
+    #             "labelRadio2": "label_3-3_2", 
+    #                }
+    #          'Q30:{
+    #             "question":"3-3_input_type_answer",
+    #             "input_type":"number"   
+    #                }
+    #          'Q31':{
+    #             "inputRadioClass": "yanginAccordion_radio_Q4_1",
+    #             "labelRadio": "label_3-4",
+    #                }
+    #          'Q32':{
+    #             "inputRadio2": "yanginAccordion_radio_Q3_2",
+    #             "labelRadio2": "label_3-4_2",  
+    #                }
+    #          'Q33':{
+    #             "question":"4-3_input_type_answer",
+    #             "input_type":"text"
+    #                }
+    #          'Q34':{
+    #             "inputRadioClass": "yanginAccordion_radio_Q5_1",
+    #             "labelRadio": "label_3-5", 
+    #                }
+    #          'Q35':{
+    #             "inputRadio2": "yanginAccordion_radio_Q3_2",
+    #             "labelRadio2": "label_3-5_2", 
+    #                }
+    #          'Q36':{
+    #             "question":"5-3_input_type_answer",
+    #             "input_type":"text"
+    #                }
+    #          'Q37':{
+    #             "inputRadioClass": "yanginAccordion_radio_Q6_1",
+    #             "labelRadio": "label_3-6",
+    #                }
+    #           'Q38':{
+    #             "inputRadio2": "yanginAccordion_radio_Q6_2",
+    #             "labelRadio2": "label_3-6_2",
+    #                },
+    #           'Q39':{
+    #             "inputRadio3": "yanginAccordion_radio_Q6_3",
+    #             "labelRadio3": "label_3-6_3",
+    #                },
+    #           'Q40':{
+    #             "inputRadio4": "yanginAccordion_radio_Q6_4",
+    #             "labelRadio4": "label_3-6_4",
+    #                },
+    #           'Q41':{
+    #             "question":"6-3_input_type_answer",
+    #             "input_type":"text"
+    #                },
+    #           'Q42':{
+    #             "inputRadioClass": "yanginAccordion_radio_Q7_1",
+    #             "labelRadio": "label_3-7",
+    #                },
+    #           'Q43':{
+    #             "inputRadio2": "yanginAccordion_radio_Q7_2",
+    #             "labelRadio2": "label_3-7_2",
+    #                },
+    #           'Q44':{
+    #             "question":"7-3_input_type_answer",
+    #             "input_type":"text"
+    #                },
+    #           'Q45':{
+    #             "inputRadioClass": "yanginAccordion_radio_Q8_1",
+    #             "labelRadio": "label_3-8",
+    #                },
+    #           'Q46':{
+    #             "inputRadio2": "yanginAccordion_radio_Q8_2",
+    #             "labelRadio2": "label_3-8_2",
+    #                },
+    #           'Q47':{
+    #             "question": "9-3_current_selection",
+    #             "input_type": "number"
+    #             "currencyClass": "9-3_currency"
+    #                },
+    #           'Q48':{
+    #             "question": "10-3_input_type_answer",
     #             "input_type": "text"
-    #         },
-    #         "Q7": {
-    #             "question": "Yangın Pompası İçin Otomatik Jeneratör:",
-    #             "radio": " ",
-    #             "radio_option1": "Var",
-    #             "radio_option2": "Yok",
-    #             "inputName": "Tesisin % kaçını kapsıyor? :",
-    #             "input_type": "text",
-    #             "placeholder": "%"
-    #         },
-    #         "Q8": {
-    #             "question": "Lokal Söndürme Sistemleri:",
-    #             "radio": " ",
-    #             "radio_option1": "Var",
-    #             "radio_option2": "Yok"
-    #         },
-    #         "Q9": {
-    #             "question": "Bina Bedeli Tutarı:",
-    #             "currentSelection": " "
-    #         },
-    #         "Q10": {
-    #             "question": "Bina Alanı (m²):",
-    #             "inputName": "",
-    #             "input_type": "number",
-    #             "placeholder": "m²"
-    #         },
-    #         "Q11": {
-    #             "question": "Demirbaş Bedeli Tutarı:",
-    #             "currentSelection": " "
-    #         },
-    #         "Q12": {
-    #             "question": "Dekorasyon Bedeli Tutarı:",
-    #             "currentSelection": " "
-    #         },
-    #         "Q13": {
-    #             "question": "Makina Bedeli Tutarı:",
-    #             "currentSelection": " "
-    #         },
-    #         "Q14": {
-    #             "question": "Emtia Tutarı:",
-    #             "currentSelection": " "
-    #         },
+    #                },
+    #           'Q49':{
+    #             "question": "11-3_current_selection",
+    #             "input_type": "number"
+    #             "currencyClass": "11-3_currency"
+    #                },
+    #           'Q50':{
+    #             "question": "12-3_current_selection",
+    #             "input_type": "number"
+    #             "currencyClass": "12-3_currency"
+    #                },
+    #           'Q51':{
+    #             "question": "13-3_current_selection",
+    #             "input_type": "number"
+    #             "currencyClass": "13-3_currency"
+    #                },
+    #           'Q52':{
+    #             "question": "14-3_current_selection",
+    #             "input_type": "number"
+    #             "currencyClass": "14-3_currency"
+    #                },
+    #           'Q53':{
+    #             "question": "1-4_current_selection",
+    #             "input_type": "number"
+    #             "currencyClass": "1-4_currency"
+    #                },
+    #           'Q54':{
+    #             "question": "2-4_input_type_answer",
+    #             "input_type": "text"
+    #                },
+    #           'Q55':{
+    #             "question": "3-4_input_type_answer",
+    #             "input_type": "text"
+    #                },
+    #           'Q56':{
+    #             "question": "4-4_input_type_answer",
+    #             "input_type": "text"
+    #                },
+    #           'Q57':{
+    #             "question": "5-4_input_type_answer",
+    #             "input_type": "text"
+    #                },
+    #           'Q58':{
+    #             "question": "1-5_current_selection",
+    #             "input_type": "number"
+    #             "currencyClass": "1-5_currency"
+    #                },
+    #           'Q59':{
+    #             "question": "2-5_input_type_answer",
+    #             "input_type": "text"
+    #                },
+    #           'Q60':{
+    #             "question": "3-5_input_type_answer",
+    #             "input_type": "text"
+    #                },
+    #           'Q61':{
+    #             "question": "4-5_input_type_answer",
+    #             "input_type": "text"
+    #                },
+    #           'Q62':{
+    #             "question": "5-5_input_type_answer",
+    #             "input_type": "text"
+    #                },
+    #           'Q63':{
+    #             "question": "1-6_current_selection",
+    #             "input_type": "number"
+    #             "currencyClass": "1-6_currency"
+    #                },
+    #           'Q64':{
+    #             "question": "2-6_input_type_answer",
+    #             "input_type": "text"
+    #                },
+    #           'Q65':{
+    #             "question": "3-6_input_type_answer",
+    #             "input_type": "text"
+    #                },
+    #           'Q66':{
+    #             "question": "4-6_input_type_answer",
+    #             "input_type": "text"
+    #                },
+    #           'Q67':{
+    #             "question": "5-6_input_type_answer",
+    #             "input_type": "text"
+    #                },
+    #           'Q68':{
+    #             "question": "1-7_current_selection",
+    #             "input_type": "number"
+    #             "currencyClass": "1-7_currency"
+    #                },
+    #           'Q69':{
+    #             "question": "2-7_current_selection",
+    #             "input_type": "number"
+    #             "currencyClass": "2-7_currency"
+    #                },
+    #           'Q70':{
+    #             "question": "3-7_current_selection",
+    #             "input_type": "number"
+    #             "currencyClass": "3-7_currency"
+    #                },
+    #           'Q71':{
+    #             "question": "4-7_current_selection",
+    #             "input_type": "number"
+    #             "currencyClass": "4-7_currency"
+    #                },
+    #           'Q72':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q1_1",
+    #             "labelRadio": "label_8-1",
+    #                },
+    #           'Q73':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q1_2",
+    #             "labelRadio": "label_8-1_2",
+    #                },
+    #           'Q74':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q2_1",
+    #             "labelRadio": "label_8-2",
+    #                },
+    #           'Q75':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q2_2",
+    #             "labelRadio": "label_8-2_2",
+    #                },
+    #           'Q76':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q3_1",
+    #             "labelRadio": "label_8-3",
+    #                },
+    #           'Q77':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q3_2",
+    #             "labelRadio": "label_8-3_2",
+    #                },
+    #           'Q78':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q4_1",
+    #             "labelRadio": "label_8-4",
+    #                },
+    #           'Q79':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q4_2",
+    #             "labelRadio": "label_8-4_2",
+    #               },
+    #           'Q80':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q5_1",
+    #             "labelRadio": "label_8-5",
+    #                },
+    #           'Q81':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q5_2",
+    #             "labelRadio": "label_8-5_2",
+    #               },
+    #           'Q82':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q6_1",
+    #             "labelRadio": "label_8-6",
+    #                },
+    #           'Q83':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q6_2",
+    #             "labelRadio": "label_8-6_2",
+    #               },
+    #           'Q84':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q7_1",
+    #             "labelRadio": "label_8-7",
+    #                },
+    #           'Q85':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q7_2",
+    #             "labelRadio": "label_8-7_2",
+    #               },
+    #           'Q86':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q8_1",
+    #             "labelRadio": "label_8-8",
+    #                },
+    #           'Q87':{
+    #             "inputRadioClass": "HirsizlikAccordion_radio_Q8_2",
+    #             "labelRadio": "label_8-8_2",
+    #               },
+    #           'Q88':{
+    #             "question": "textarea_8-8",
+    #             "input_type": "textarea"
+    #               },
     # ]
     basliklar = generate_questionnsire_forms()
 

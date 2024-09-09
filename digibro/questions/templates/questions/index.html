@@ -588,7 +588,7 @@
                                 <label class="sr-only" for="inlineFormInputGroup">Amount</label>
                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0" data-index="1">
                                   <div class="input-group-addon currency-symbol  {{ x.qfq_sort_number }}-{{ x.qsc_id }}_currency" id="currencySubAmountDiv">$</div>
-                                  <input type="number" class="form-control currency-amount input-alt {{ accordion.accordion_id }}_currentSelection_{{ key }}" style="width: 156px; font-family: 'Rubik' !important;" id="{{ x.qfq_sort_number }}-{{ x.qsc_id }}_current_selection" name="{{ x.qfq_sort_number }}-{{ x.qsc_id }}_current_selection" placeholder="0" size="8" oninput=" ('{{ accordion.accordion_id }}', {{ forloop.counter }})">
+                                  <input type="number" class="form-control currency-amount input-alt {{ accordion.accordion_id }}_currentSelection_{{ key }}" style="width: 156px; font-family: 'Rubik' !important; color: #495057;" id="{{ x.qfq_sort_number }}-{{ x.qsc_id }}_current_selection" name="{{ x.qfq_sort_number }}-{{ x.qsc_id }}_current_selection" placeholder="0" size="8" oninput=" ('{{ accordion.accordion_id }}', {{ forloop.counter }})">
                                   <div style="background: #e4e4e469;" class="input-group-addon currency-addon">
                                     <select class="currency-selector" id="current_selector_content" onchange=" ('{{ accordion.accordion_id }}', {{ forloop.counter }})">
                                       <option data-symbol="$" data-placeholder="0" selected>USD</option>
@@ -701,6 +701,7 @@
     
     </script>
     <script src="{% static 'questions/js/script.js' %}"></script>      
+    <script src="{% static 'questions/js/static-codes.js' %}"></script>      
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'questions/js/questions.js' %}"></script>

@@ -27,11 +27,8 @@
 .accordion-button:hover {
   background-color: #dcdcdc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-}
-.form-check-input[type="radio"] {
-    border-radius: 5% !important;
-}
 .accordion-button.active {
   background-color: #007bff;
   color: #fff;
@@ -724,9 +721,4 @@ textarea:focus {
 .userJPG{
   border: 3px solid #6cbe45;
     border-radius: 25px;
-}
-.mainQuestionDiv {
-  margin: 6.7px 0;
-  border-bottom: 1px solid #b1b1b199;
-  padding-bottom: 5px;
 }

@@ -36,7 +36,6 @@ overflow-x: hidden;
       url(fff4059ea68c531ccbfedacb0fbc9813.svg#remixicon) format("svg"); /* iOS 4.1- */
   font-display: swap;
 }
-
 .wrapper {
   margin: 80px 0;
 }
@@ -223,8 +222,13 @@ select {
   display: flex;
   flex-direction: column;
   font-family: "Sora", sans-serif;
+  max-width: 1550px;
   position: relative;
-  width: 86.5%;
+  min-width: 320px;
+  margin: 17px auto;
+  padding: 0 50px;
+  zoom: 1.1;
+  left: 119px;
 }
 .accordion h1 {
   font-size: 32px;
@@ -232,7 +236,6 @@ select {
 }
 .accordion-item {
   margin-top: 16px;
-  border-radius: 0 !important;
   border: none !important;
   margin-bottom: 10px;
   border-radius: 6px;
@@ -260,14 +263,13 @@ select {
 .accordion-item .accordion-item-desc {
   display: block;
   background: gainsboro;
-  height: calc(100% - 65px);
-  font-size: 14.4px;
+  font-size: 14px;
   position: relative;
   line-height: 22px;
   font-weight: 500;
   color: #424249;
   border-top: 1px dashed #ddd;
-  padding: 10px 20px 45px;
+  padding: 10px 20px 20px;
   box-sizing: border-box;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -278,21 +280,11 @@ select {
 #accordion2,
 #accordion3,
 #accordion4,
-#accordion42,
 #accordionYangin,
-#accordionYangin2,
 #accordionEC,
-#accordionEC2,
 #accordionMK,
-#accordionMK2,
 #accordionIMM,
-#accordionIMM2,
-#accordionHasar,#accordionHasar2,
-#accordionHirsizlik,
-#accordionHirsizlik2,
-#accordionFotograf,
-#accordionTPL,
-#accordionTPL2 {
+#accordionTPL {
   position: absolute;
   height: 0;
   width: 0;
@@ -300,29 +292,17 @@ select {
 }
 .accordion3Label,
 .accordion4Label,
-.accordion4Label2,
 .accordionYanginLabel,
-.accordionYanginLabel2,
 .accordionECLabel,
-.accordionECLabel2,
 .accordionMKLabel,
-.accordionMKLabel2,
 .accordionIMMLabel,
-.accordionIMMLabel2,
-.accordionHasarLabel,
-.accordionHasarLabel2,
-.accordionHirsizlikLabel,
-.accordionHirsizlikLabel2,
-.accordionFotografLabel,
-.accordionTPLLabel,
-.accordionTPLLabel2 {
+.accordionTPLLabel {
   background: #101820;
   color: #fff;
   font-weight: 400;
   padding-left: 30px !important;
 }
 .accordion3LabelDiv,
-.accordion4LabelDiv2,
 .accordion4LabelDiv {
   position: absolute;
   left: 0;
@@ -337,16 +317,6 @@ select {
   width: 17px;
   height: 100%;
 }
-.accordionYanginDiv2 {
-  background: #fe1515;
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-}
-#HirsizlikAccordion .inputSize1{
-  width: 110px !important;
-}
 .accordionECDiv {
   background: #fe6e15;
   position: absolute;
@@ -354,7 +324,6 @@ select {
   width: 17px;
   height: 100%;
 }
-
 .accordionMKDiv {
   background: #86fe15;
   position: absolute;
@@ -362,7 +331,6 @@ select {
   width: 17px;
   height: 100%;
 }
-
 .accordionIMMDiv {
   background: #15fe86;
   position: absolute;
@@ -370,33 +338,8 @@ select {
   width: 17px;
   height: 100%;
 }
-
 .accordionTPLDiv {
   background: #158dfe;
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-}
-
-.accordionHasarDiv {
-  background: #4815fe;
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-}
-
-.accordionHirsizlikDiv {
-  background: #fe5b15;
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-}
-
-.accordionFotografDiv {
-  background: #fe15b0;
   position: absolute;
   left: 0;
   width: 17px;
@@ -611,7 +554,7 @@ section.results {
   margin-right: auto;
   position: relative;
   margin-bottom: 50px;
-  display: block;
+  display: none;
 }
 section.results::after {
   clear: both;
@@ -745,783 +688,4 @@ section.results .item .price {
 .radio-inputs .radio input:checked + .name {
   background-color: #fff;
   font-weight: 600;
-}
-.sendMailButton {
-  align-self: flex-end;
-  background-color: #007bff;
-  color: #fff;
-  position: relative;
-  border: none;
-  padding: 8px 10px;
-  border-radius: 5px;
-  z-index: 1;
-  width: 88px;
-  cursor: pointer;
-  margin-top: auto;
-}
-.select__userDiv {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-#closeMailer {
-  font-size: 23px;
-  position: absolute;
-  z-index: 2;
-  cursor: pointer;
-  right: 15px;
-  top: 15px;
-}
-.hide {
-  display: none !important;
-}
-/* Dropdown button */
-.dropbtn {
-  color: black;
-  padding: 4px;
-  border: 1px solid black;
-  width: 113px;
-  font-size: 13px;
-  border: none;
-  cursor: pointer;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  background: #fafbfc;
-}
-
-/* Dropdown button on hover & focus */
-.dropbtn:hover,
-.dropbtn:focus {
-  background-color: #878787;
-}
-
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 140px; /* Dropdown içeriğinin genişliğini azalttık */
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 8px 10px; /* İçeriklerin paddingini küçülttük */
-  font-size: 12px; /* İçeriklerin font büyüklüğünü küçülttük */
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  background-color: #bbbbbb;
-}
-#dropdownUser {
-  position: absolute;
-  left: 272px;
-}
-#popupSigorta {
-  display: none;
-  position: absolute;
-  top: 151px;
-  left: 204px;
-}
-#sigortaDiv {
-  position: relative;
-  display: flex;
-  z-index: 3;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 4px;
-  flex-direction: column;
-  min-width: 430px;
-  border: 1px solid #808080a1;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  overflow-y: auto;
-  min-height: 518.11px;
-  margin-right: 0px;
-  max-height: 485.24px;
-}
-#popupMail {
-  display: block;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 4px;
-  width: 644px;
-  min-height: 485.24px;
-  padding: 28px 28px 54px 28px;
-  z-index: 9;
-  background: white;
-  border: 1px solid #808080a3;
-  height: auto;
-  margin: auto;
-}
-#popup {
-  display: none;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  width: 569px;
-  padding: 28px 28px 54px 28px;
-  z-index: 9;
-  background: white;
-  border: 1px solid #808080a3;
-  height: auto;
-  margin: auto;
-  position: absolute;
-  top: 171px;
-  left: 433px;
-}
-#popup h1,
-#popupMail h1 {
-  font-size: 23px;
-  text-align: left;
-  margin: 0;
-}
-#popup hr,
-#popupMail hr {
-  color: black !important;
-  margin: 5px 0;
-  width: 100%;
-}
-#popup textarea,
-#popupMail textarea {
-  outline: none;
-  border: 1px solid #80808085;
-  resize: none;
-  width: 100%;
-  padding: 5px;
-}
-#popup .sendMailButton2,
-#popupMail .sendMailButton4,
-.sendMailButton3 {
-  align-self: flex-end;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  z-index: 1;
-  width: 88px;
-  cursor: pointer;
-  margin-top: auto;
-  zoom: 0.9;
-  padding: 5px;
-  position: absolute;
-  right: 31px;
-  bottom: 19px;
-}
-.sendMailButton6 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-  cursor: pointer;
-  width: 75px !important;
-  height: 31px !important;
-  background-image: linear-gradient(to top, #d8d9db 0%, #fff 80%, #fdfdfd 100%) !important;
-  border-radius: 6px !important;
-  border: 1px solid #8f909259 !important;
-  transition: all 0.2s ease !important;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 13px !important;
-  font-weight: 500;
-  letter-spacing: 0.6px !important;
-  color: #424249 !important;
-  text-shadow: 0 1px #fff !important;
-}
-.sendMailButton61 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-  cursor: pointer;
-  width: 75px !important;
-  height: 31px !important;
-  background-image: linear-gradient(to top, #d8d9db 0%, #fff 80%, #fdfdfd 100%) !important;
-  border-radius: 6px !important;
-  border: 1px solid #8f909259 !important;
-  transition: all 0.2s ease !important;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 13px !important;
-  font-weight: 500;
-  letter-spacing: 0.6px !important;
-  color: #424249 !important;
-  text-shadow: 0 1px #fff !important;
-}
-.sendMailButton6:hover,.sendMailButton61:hover {
-  box-shadow: 0 4px 3px 1px #fcfcfc00, 0 6px 8px #d6d7d900, 0 -4px 4px #cecfd100,
-    0 -6px 4px #fefefe00, inset 0 0 5px 1px #9999996b, inset 0 0 6px #aaa;
-}
-.sendMailButton6:active {
-  box-shadow: 0 4px 3px 1px #fcfcfc00, 0 6px 8px #d6d7d900, 0 -4px 4px #cecfd100,
-    0 -6px 4px #fefefe00, inset 0 0 5px 1px #9999996b, inset 0 0 6px #aaa;
-}
-.sendMailButton6:focus {
-  box-shadow: 0 4px 3px 1px #fcfcfc00, 0 6px 8px #d6d7d900, 0 -4px 4px #cecfd100,
-    0 -6px 4px #fefefe00, inset 0 0 5px 1px #9999996b, inset 0 0 6px #aaa;
-}
-.dropdownButtons {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-#closePopup,
-#closePopupSigorta {
-  position: absolute;
-  right: 15px;
-  top: 14px;
-  font-size: 20px;
-  cursor: pointer;
-}
-#popupSubject {
-  display: flex;
-  gap: 10px;
-}
-#popupSubject input {
-  width: 100%;
-  border: none;
-  outline: none;
-}
-#logoutDropdown {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.selectedMail {
-  background-color: lightgreen;
-}
-.popupSubject2 {
-  display: flex;
-  gap: 10px;
-  height: auto;
-  max-width: 585px;
-  min-height: 33px;
-  overflow: auto;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-}
-.popupMailItem {
-  display: none;
-  padding: 2px 6px;
-  gap: 5px;
-  border: 1px solid #80808061;
-  background: #ffffff;
-  border-radius: 4px;
-}
-.popupSubject2 i {
-  cursor: pointer;
-  color: #ab0000;
-}
-.sigortaCard {
-  border-bottom: 1px solid #80808080;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-  gap: 9px;
-  padding: 20px;
-  background: white;
-}
-.sigortaCard img {
-  width: 72px;
-  border: 1px solid #8080807d;
-  padding: 2px;
-}
-#sigortaCardP {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 54%;
-  height: 72px;
-  align-items: center;
-  justify-content: flex-start;
-}
-#sigortaCardP h4 {
-  font-size: 18px;
-  font-weight: 600;
-}
-#sigortaCardP h5 {
-  font-size: 16px;
-  font-weight: 600;
-}
-.sigortaCardHr {
-  height: 2px;
-  color: #424248 !important;
-  width: 100%;
-  margin: 4px;
-}
-.sigortaCardTitle {
-  font-weight: 700;
-  font-size: 16px;
-  color: #424249;
-}
-.popupMailToDiv {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-.bottom__svgMail {
-  position: absolute;
-  bottom: 20px;
-  left: 459px;
-}
-.bottom__svgMailPopup{
-  position: absolute;
-  bottom: 19px;
-}
-#locktonSvgMail path,#locktonSvgMailPopup path{
-  fill: #5a5a5a;
-}
-.dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.rubik{
-  font-family: "Rubik", sans-serif !important;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  padding: 10px;
-  width: auto !important; 
-  max-width: 141px;min-width: 
-  max-content;font-size: 13px !important;
-  letter-spacing: 0px !important;
-}
-#myInput5,#myInput2,#myInput3,#myInput4  {
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 13px;
-  padding: 10px 26px 10px 31px;
-  border: none;
-  border-bottom: 1px solid #ddd;
-}
-
-#myInput5:focus,#myInput2:focus,#myInput3:focus,#myInput4:focus {outline: 3px solid #ddd;}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  position: absolute;
-  background-color: #f6f6f6;
-  overflow: auto;
-  border: 1px solid #ddd;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 7px 9px;
-  text-decoration: none;
-  display: block;
-  font-size: 13px;
-}
-
-.dropdown a:hover {background-color: #ddd;}
-
-.show {display: block;}
-.dropdownSearchDiv .bi-search{
-  position: absolute;
-  left: 9px;
-  top: 10px;
-  cursor: pointer;
-}
-.dropdownSearchDiv .bi-x-circle{
-  color: red;
-    right: 10px !important;
-    position: absolute;
-    cursor: pointer;
-    top: 10px;
-}
-#myDropdown a, #myDropdown2 a, #myDropdown3 a, #myDropdown4 a{
-  background-color: white;
-}
-
-.button {
-  --text: #000000;
-  --plane: #007bff;
-  --background: #f3f3f3;
-  display: flex;
-  align-items: center;
-  zoom: 0.84;
-  justify-content: center;
-  position: absolute;
-  border: 0;
-  right: 32px;
-  padding: 0;
-  width: 98px;
-  height: 60px;
-  background: none;
-  color: var(--text);
-  cursor: pointer;
-  outline: none;
-  bottom: 6px;
-}
-
-.button svg.btn-layer {
-  display: block;
-  position: absolute;
-  top: -20px;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  z-index: 2;
-  pointer-events: none;
-  fill: var(--background);
-}
-
-.button svg.plane {
-  z-index: 3;
-  position: absolute;
-  left: 17px;
-  display: block;
-  width: 26px;
-  height: 28px;
-  fill: var(--plane);
-  transform: translate3d(0, 0, 0);
-  perspective: 500px;
-}
-
-.button > ul {
-  list-style: none;
-  padding: 0 5px 0 0;
-  position: relative;
-  margin: 0;
-  overflow: hidden;
-}
-
-.button > ul > li {
-  display: inline-block;
-  padding-bottom: 4px;
-  position: relative;
-  z-index: 2;
-  padding-left: 33px;
-  font: 400 16px 'Varela Round', sans-serif;
-  transition: transform .3s ease 0s, opacity .3s ease 0s;
-}
-
-.button > ul > li:first-child {
-  opacity: 1;
-}
-
-.button > ul > li:last-child {
-  position: absolute;
-  left: 0;
-  top: 100%;
-  opacity: 0;
-}
-
-.button.active svg.plane {
-  animation: 1.5s orbit alternate linear;
-}
-
-.button.active > ul > li {
-  transform: translateY(-100%);
-  transition: transform .3s ease 1.2s, opacity .3s ease 1.2s;
-}
-
-.button.active > ul > li:first-child {
-  opacity: 0;
-}
-
-.button.active > ul > li:last-child {
-  opacity: 1;
-}
-
-@keyframes orbit {
-  0% {
-    transform: rotate3d(1,0,0,0deg) translateZ(60px) scale3d(1,1,1);
-    animation-timing-function: ease-in;
-  }
-  10% {
-    z-index: 3;
-    transform: rotate3d(1,.6,0,-10deg) translateZ(60px) scale3d(1,1,1);
-    animation-timing-function: ease-out;
-  }
-  20% {
-    z-index: 3;
-    transform: rotate3d(1,.6,0,30deg) translateZ(60px) scale3d(1,1,1);
-    animation-timing-function: ease-out;
-  }
-  30% {
-    z-index: 3;
-    transform: rotate3d(1,.6,0,35deg) translateZ(60px) scale3d(1,1,1);
-  }
-  40% {
-    z-index: 1;
-    transform: rotate3d(1,.6,0,120deg) translateZ(60px)  scale3d(.7,.7,1);
-  }
-  70% {
-    z-index: 1;
-    transform: rotate3d(1,.6,0,240deg) translateZ(60px)  scale3d(.7,.7,1);
-    animation-timing-function: ease-out;
-  }
-  100% {
-    z-index: 3;
-    transform: rotate3d(1,0,0,360deg) translateZ(60px)  scale3d(1,1,1);
-  }
-}
-.buttonUpload {
-  --bg: #101820;
-  box-shadow: 0 1px 2px #25114f66, 0 0 0 1px hsl(210deg 33.33% 9.41%);
-  background-color: transparent;
-  border: none;
-  line-height: 1;
-  position: absolute;
-  bottom: 10px;
-  left: 26px;
-  zoom: 0.8;
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .25rem .5rem;
-  cursor: pointer;
-  padding-right: 1rem;
-  font-weight: 600;
-  color: #fff;
-  background: var(--bg);
-  white-space: nowrap;
-  border: 1px solid #fff3;
-  height: 33px;
-}
-.buttonUpload span{
-  font-family: Rubik !important;
-}
-.buttonAddQuestion {
-  --bg: #101820;
-  box-shadow: 0 1px 2px #25114f66, 0 0 0 1px hsl(210deg 33.33% 9.41%);
-  background-color: transparent;
-  border: none;
-  line-height: 1;
-  position: absolute;
-  bottom: 10px;
-  left: 147px;
-  zoom: 0.8;
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .25rem .5rem;
-  cursor: pointer;
-  padding-right: 1rem;
-  font-weight: 600;
-  color: #fff;
-  background: var(--bg);
-  white-space: nowrap;
-  border: 1px solid #fff3;
-  height: 33px;
-}
-.buttonAddQuestion span{
-  font-family: Rubik !important;
-}
-
-
-
-
-
-
-
-#customerButton {
-  appearance: none;
-  background-color: #FAFBFC;
-  border: 1px solid rgba(27, 31, 35, 0.15);
-  border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
-  box-sizing: border-box;
-  color: #24292E;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  list-style: none;
-  padding: 6px 16px;
-  position: relative;
-  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  white-space: nowrap;
-  word-wrap: break-word;
- }
- 
- #customerButton:hover {
-  background-color: #F3F4F6;
-  text-decoration: none;
-  transition-duration: 0.1s;
- }
- 
- #customerButton:disabled {
-  background-color: #FAFBFC;
-  border-color: rgba(27, 31, 35, 0.15);
-  color: #959DA5;
-  cursor: default;
- }
- 
- #customerButton:active {
-  background-color: #EDEFF2;
-  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
-  transition: none 0s;
- }
- 
- #customerButton:focus {
-  outline: 1px transparent;
- }
- 
- #customerButton:before {
-  display: none;
- }
- 
- #customerButton:-webkit-details-marker {
-  display: none;
- }
-.containerUp{
-  display: flex;
-  flex-wrap: wrap;
-  width: 100% !important;
-  min-width: 100%;
-  gap: 10px;
-  margin: 0 !important;
-  justify-content: space-around;
-}
- .upload-container {
-  width: 150px;
-  height: 200px;
-  border: 2px dashed #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  cursor: pointer;
-  position: relative;
-}
-.upload-container img {
-  max-width: 100%;
-  max-height: 100%;
-  display: none;
-}
-.upload-container span {
-  position: absolute;
-  width: 86%;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #aaa;
-}
-
-.custom-upload-container {
-  width: 300px;
-  height: 130px;
-  border: 2px dashed #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  cursor: pointer;
-  position: relative;
-  flex-direction: column;
-  text-align: center;
-  padding: 10px;
-}
-.custom-upload-container img, .custom-upload-container .custom-file-name {
-  max-width: 100%;
-  max-height: 80%;
-  display: none;
-}
-.custom-upload-container span {
-  color: #424249;
-  font-family: Rubik !important;
-  font-weight: 400;
-}
-.custom-file-name {
-  word-wrap: break-word;
-}
-.custom-icon {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 10px;
-}
-#customUploadContainer{
-  display: none;
-}
-.button2 {
-  position: absolute;
-  bottom: 11px;
-  left: 162px;
-  width: 157px;
-  zoom: 0.7;
-  height: 40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  border: 1px solid #347d97;
-  background-color: #347d97;
-}
-
-.button2, .button2__icon, .button2__text {
-  transition: all 0.3s;
-}
-
-.button2 .button2__text {
-  transform: translateX(11px);
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.button2 .button2__icon {
-  position: absolute;
-  transform: translateX(115px);
-  height: 100%;
-  width: 39px;
-  background-color: #347d97;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.button2 .svg {
-  width: 30px;
-  stroke: #fff;
-}
-
-.button2:hover {
-  background: #34974d;
-}
-
-.button2:hover .button2__text {
-  color: transparent;
-}
-
-.button2:hover .button2__icon {
-  width: 148px;
-  transform: translateX(0);
-}
-
-.button2:active .button2__icon {
-  background-color: #347d97;
-}
-
-.button2:active {
-  border: 1px solid #347d97;
-}
-.mainDiv{
-  display: flex;
-  justify-content: flex-end;
 }

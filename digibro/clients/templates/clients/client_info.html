@@ -35,6 +35,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="{% static 'clients/css/client.questions.css' %}" rel="stylesheet" />
     <link href="{% static 'clients/css/tools.css' %}" rel="stylesheet" />
     <link href="{% static 'clients/css/client_info.css' %}" rel="stylesheet" />
@@ -43,226 +44,136 @@
     <link rel="icon" href="/static/questions/img/xxx.png" >
 </head>
 <body>
-    <nav class="sidebar sidebar-bg" id="sidebar">
-        <div class="sidebar-content">
-          <div class="perfect-scrollbar">
-            <div class="ps">
-              <div class="ps-content">
-                <div class="sidebar-logo">
-                  <img
-                    src="{% static 'clients/img/dark_logo.png' %}"
-                    class="img-responsive2"
-                    alt=""
-                  />
-                  <p>DIGITALIZE EVERYTHING, NOW.</p>
-                </div>
-                <div class="sidebar-profile">
-                  <div class="user-pic">
-                    <img
-                      src="{% static 'clients/img/xIcon.png' %}"
-                      class="img-responsive"
-                      alt=""
-                    />
-                  </div>
-                  <div class="user-info">
-                    <span class="user-name">
-                      {{ user.first_name }} <strong>{{ user.last_name }}</strong>
-                    </span>
-                    <span class="user-role">
-                      {% if user.groups.exists %}
-                {% for group in user.groups.all %}
-                    <p class="groupP">{{ group.name }}<p>
-               {% endfor %}
-               {% else %}
-               <p class="">Grupsuz</p>
-               {% endif %}
-                    </span>
-                    <span class="user-status">
-                      <i class="bi bi-circle-fill"></i>
-                      <span>Online</span>
-                    </span>
-                  </div>
+  <nav class="sidebar sidebar-bg" id="sidebar">
+    <div class="sidebar-content">
+      <div class="perfect-scrollbar">
+        <div class="ps">
+          <div class="ps-content">
+            <div class="sidebar-logo">
+              <img
+                src="{% static 'questions/img/white_logo.png' %}"
+                class="img-responsive2"
+                alt=""
+              />
+              <p>DIGITALIZE EVERYTHING, NOW.</p>
+            </div>
+            <div class="sidebar-profile">
+              <div class="user-pic">
+                <img
+                  src="https://cdn3.pixelcut.app/1/3/profile_picture_1728ecf2bd.jpg"
+                  class="img-responsive"
+                  alt=""
+                />
+              </div>
+              <div class="user-info">
+                <span class="user-name">
+                  Melis<strong> Deniz</strong>
+                </span>
+                <span class="user-role">
+  
+                <p class="groupP">Broker<p>
+    
+                </span>
+                <span class="user-status">
+                  <i class="bi bi-circle-fill"></i>
+                  <span>Online</span>
+                </span>
+              </div>
+            </div>
+            <div class="sidebar-menu">
+              <ul>
+                <li>
+                  <a href="{% url 'questions:dashboard' %}">
+                    <i class="bi bi-layers-fill"></i>
+                    <span>Dashboard</span>
+                  </a>
+                </li>
+                <li><span class="generalText">General</span></li>
+                
+                <li>
                   
-                </div>
-                <div class="sidebar-menu">
-                  <ul>
-                    <li>
-                      <a href="">
-                        <i class="bi bi-layers-fill"></i>
-                        <span>Home</span>
-                      </a>
-                    </li>
-                    <li><span class="generalText">General</span></li>
-                    <li>
-                        <a href="{% url 'questions:index' %}">
-                          <i class="bi bi-layers-fill"></i>
-                          <span>Send Questionnaire Form</span>
-                        </a>
-                      </li>
-                    <li style="background: #d6d6d62e">
-                        <a href="{% url 'clients:index' %}">
-                          <i class="bi bi-ui-checks" style="color: #fff"></i>
-                          <span style="color: #fff">Clients</span>
-                        </a>
-                      </li>
-                      <li style="    background: #afebff2e;
-                      padding-left: 33px;">
-                        <a href="#">
-                          <i class="bi bi-info-lg" style="color: #fff"></i>
-                          <span style="color: #fff">Client Information</span>
-                        </a>
-                      </li>
-                     <li>
-                      <a href="{% url 'companies:index' %}">
-                        <i class="bi bi-brilliance"></i>
-                        <span>Insurers</span>
-                      </a>
-                    </li>
+                    <a href="{% url 'questions:index' %}">
+                    <i class="bi bi-ui-checks"></i>
+                    <span>Questionnaire Form</span>
+                  </a>
+                </li>
+                <li style="background: #3a3b3d">
+                  <a href="{% url 'clients:index' %}">
+                    <i class="bi bi-layers-fill" style="color: #fff"></i>
+                    <span style="color: #fff">Clients</span>
+                  </a>
+                </li>
+                <li style="background: #383c45;
+    zoom: 0.9;
+    margin: 3px 33px;
+    width: 83%;">
+                  <a href="">
+                    <i class="bi bi-arrows-fullscreen" style="color: #fff"></i>
+                    <span style="color: #fff">Client Info</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'insurers:index' %}">
+                    <i class="bi bi-brilliance"></i>
+                    <span>Insurers</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'insurers:index' %}">
+                    <i class="bi bi-symmetry-horizontal"></i>
+                    <span>Risk Reports</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'insurers:index' %}">
+                    <i class="bi bi-award"></i>
+                    <span>Claims</span>
+                  </a>
+                </li>
 
-                    <li><span class="generalText">Extra</span></li>
-                    <li>
-                      <a href="#">
-                        <i class="bi bi-journal-text"></i>
-                        <span>Documentation</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="bi bi-calendar-fill"></i>
-                        <span>Calendar</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="bi bi-folder-fill"></i>
-                        <span>Examples</span>
-                      </a>
-                    </li>
-                   
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="notifications" id="sidebar-notifications">
-              <div class="notifications-header">
-                <i class="bi bi-bell-fill"></i>
-                <p>Notifications</p>
-                <img
-                  src="/static/clients/img/dark_logo.png"
-                  alt=""
-                  id="sidebar-img-notifications"
-                />
-              </div>
-              <div class="notification-row" id="notificationBack">
-                <i class="bi bi-info-circle"></i>
-                <div class="notifications-info">
-                  <p>Questionnaire form received from Kaan Ören.</p>
-                  <p class="notification-time">6 minutes ago</p>
-                </div>
-              </div>
-           
+                <li><span class="generalText">Extra</span></li>
+                <li>
+                  <a href="#">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Documentation</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="bi bi-calendar-fill"></i>
+                    <span>Calendar</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="bi bi-folder-fill"></i>
+                    <span>Examples</span>
+                  </a>
+                </li>
+                     
+              </ul>
+              
              
-              <div class="notification-bottom">
-                <p>View all notifications.</p>
-              </div>
-            </div>
-            <div class="notifications" id="sidebar-messages">
-              <div class="notifications-header">
-                <i class="bi bi-envelope-open-fill"></i>
-                <p>Messages</p>
-                <img
-                  src="/static/clients/img/dark_logo.png"
-                  alt=""
-                  id="sidebar-img-messages"
-                />
-              </div>
-              <div class="messages-row">
-                <img src="/static/clients/img/user.jpg" alt="">
-                <div class="notifications-info">
-                  <p class="messages-name">Ali Furkan İNAN</p>
-                  <p class="notification-time">Lorem ipsum dolor sit amet.</p>
-                </div>
-              </div>
-              <div class="messages-row">
-                <img src="/static/clients/img/user.jpg" alt="">
-                <div class="notifications-info">
-                  <p class="messages-name">İbrahim YAŞAR</p>
-                  <p class="notification-time">Lorem ipsum dolor sit amet.</p>
-                </div>
-              </div>
-              <div class="messages-row">
-                <img src="/static/clients/img/user.jpg" alt="">
-                <div class="notifications-info">
-                  <p class="messages-name">Osman Kaan ÖREN</p>
-                  <p class="notification-time">Lorem ipsum dolor sit amet.</p>
-                </div>
-              </div>
-              <div class="notification-bottom">
-                <p>View all messages.</p>
-              </div>
-            </div>
-            <div class="sidebar-settings-div" id="sidebar-settings">
-              <div class="notifications-header">
-                <i class="bi bi-gear-fill"></i>
-                <p>Settings</p>
-                <img
-                  src="/static/clients/img/dark_logo.png"
-                  alt=""
-                  id="sidebar-img-messages"
-                />
-              </div>
-              <div class="messages-row">
-                
-                <div class="notifications-info">
-                  <p class="">My Profile</p>
-                </div>
-              </div>
-              <div class="messages-row">
-                
-                <div class="notifications-info">
-                  <p class="">Help</p>
-                </div>
-              </div>
-              <div class="messages-row">
-                
-                <div class="notifications-info">
-                  <p class="">Settings</p>
-                </div>
-              </div>
+            <ul>
+              <hr>
+              <li>
+                <a href="#">
+                  <i class="bi bi-door-open-fill"></i>
+                  <span>Logout</span>
+                </a>
+              </li>
+       
+              
+            </ul>
             </div>
           </div>
         </div>
-        <div class="sidebar-footer">
-          <div class="dropdown" id="sidebar-icon-notifications">
-            <a href="#">
-              <i class="bi bi-bell-fill"></i>
-              <span class="notification__span">1</span>
-            </a>
-          </div>
-          <div class="dropdown" id="sidebar-icon-messages">
-            <a href="#">
-              <i class="bi bi-envelope-fill"></i>
-              <span class="message__span">3</span>
-            </a>
-          </div>
-          <div class="dropdown" id="sidebar-icon-settings">
-            <a href="#">
-              <i class="bi bi-gear-fill"></i>
-              <span class="settings__span"></span>
-            </a>
-          </div>
-          <div class="dropdown" id="logoutDropdown">
-            <a href="#">
-              <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit" id="logoutButton"><i class="bi bi-door-closed-fill"></i></button>
-            </form>
-            
-            </a>
-          </div>
-        </div>
-        {% include 'clients/tools.html' %}
-      </nav>
+
+
+      </div>
+    </div>
+
+  </nav>
 <div class="topContainer" style="">
 <div class="cardContainer" style=" ">
   <div class="cardContainerLeft" style="zoom: 0.8;">
@@ -604,6 +515,7 @@
   align-items: center;
   gap: 15px;
   justify-content: space-between;">
+  <div class="tableLeftUi"></div>
     <p>Policies</p>
   </div>
   
@@ -617,14 +529,14 @@
         <th>#</th>
         <th>Company</th>
         <th>Policy ID</th>
-        <th>Policy Type</th>
+        <th class="trThCenter">Policy Type</th>
         <th class="trThCenter">Policy Begin</th>
         <th class="trThCenter">Policy End</th>
         <th>Reinsurers</th>
         <th>Short Address</th>
         <th class="trThCenter">Limit</th>
-        <th>Premium</th>
-        <th>Day to Renewal</th>
+        <th style="text-align: center !important;">Premium</th>
+        <th style="text-align: center !important;">Day to Renewal</th>
       </tr>
   </thead>
   <tbody>
@@ -635,14 +547,14 @@
     
       <td>Mutlu Akü</td>
       <td>0957746KJLY</td>
-      <td>Health</td>
+      <td class="tcenter"><span class="healthSpan">Health</span></td>
       <td class="tcenter">2022-04-25</td>
       <td class="tcenter">2023-04-25</td>
       <td>Allianz</td>
       <td>Levent İstanbul</td>
       <td class="tcenter">300,000,000$</td>
-      <td>775,000$</td>
-      <td>365</td>
+      <td style="text-align: center !important;">775,000$</td>
+      <td style="text-align: center !important;"><span class="span100plus">364</span></td>
   </tr>
   <tr data-year="2022" data-policy="pandc" data-company="mutlu-insaat">
     <td><div class="checkbox-wrapper-13">
@@ -650,14 +562,14 @@
     </div></td>
       <td>Mutlu İnşaat</td>
       <td>0457746KJLY</td>
-      <td>P&C</td>
+      <td class="tcenter"><span class="PCSpan">P&C</span></td>
       <td class="tcenter">2022-05-22</td>
       <td class="tcenter">2023-07-22</td>
       <td>Anadolu</td>
       <td>Tuzla İstanbul</td>
       <td class="tcenter">400,000,000$</td>
-      <td>506,000$</td>
-      <td>137</td>
+      <td style="text-align: center !important;">506,000$</td>
+      <td style="text-align: center !important;"><span class="span100plus">198</span></td>
   </tr>
   <tr data-year="2023" data-policy="health" data-company="mutlu-aku">
     <td><div class="checkbox-wrapper-13">
@@ -665,14 +577,14 @@
     </div></td>
       <td>Mutlu Akü</td>
       <td>0957746K4LY</td>
-      <td>Health</td>
+      <td class="tcenter"><span class="healthSpan">Health</span></td>
       <td class="tcenter">2023-04-02</td>
       <td class="tcenter">2024-01-12</td>
       <td>Generali</td>
       <td>Levent İstanbul</td>
       <td class="tcenter">500,000,000$</td>
-      <td>653,000$</td>
-      <td>99</td>
+      <td style="text-align: center !important;">653,000$</td>
+      <td style="text-align: center !important;"><span class="span100plus">398</span></td>
   </tr>
   <tr data-year="2023" data-policy="pandc" data-company="mutlu-aku">
     <td><div class="checkbox-wrapper-13">
@@ -680,14 +592,14 @@
     </div></td>
       <td>Mutlu Akü</td>
       <td>0957546KJLY</td>
-      <td>P&C</td>
+      <td class="tcenter"><span class="PCSpan">P&C</span></td>
       <td class="tcenter">2023-03-15</td>
       <td class="tcenter">2024-03-29</td>
       <td>Axa</td>
       <td>Levent İstanbul</td>
       <td class="tcenter">320,000,000$</td>
-      <td>258,000$</td>
-      <td>534</td>
+      <td style="text-align: center !important;">258,000$</td>
+      <td style="text-align: center !important;"><span class="span50">38</span></td>
   </tr>
   <tr data-year="2022" data-policy="pandc" data-company="mutlu-aku">
     <td><div class="checkbox-wrapper-13">
@@ -695,14 +607,14 @@
     </div></td>
       <td>Mutlu Akü</td>
       <td>0957746KJ3Y</td>
-      <td>P&C</td>
+      <td class="tcenter"><span class="PCSpan">P&C</span></td>
       <td class="tcenter">2022-04-25</td>
       <td class="tcenter">2023-04-25</td>
       <td>Axa</td>
       <td>Levent İstanbul</td>
       <td class="tcenter">95,000,000$</td>
-      <td>322,000$</td>
-      <td>234</td>
+      <td style="text-align: center !important;">322,000$</td>
+      <td style="text-align: center !important;"><span class="span50">27</span></td>
   </tr>
   <tr data-year="2023" data-policy="pandc" data-company="mutlu-insaat">
       <td><div class="checkbox-wrapper-13">
@@ -710,14 +622,14 @@
       </div></td>
       <td>Mutlu İnşaat</td>
       <td>0957346KJLY</td>
-      <td>P&C</td>
+      <td class="tcenter"><span class="PCSpan">P&C</span></td>
       <td class="tcenter">2023-01-21</td>
       <td class="tcenter">2024-01-21</td>
       <td>Anadolu</td>
       <td>Tuzla İstanbul</td>
       <td class="tcenter">110,000,000$</td>
-      <td>871,000$</td>
-      <td>775</td>
+      <td style="text-align: center !important;">871,000$</td>
+      <td style="text-align: center !important;"><span class="span50">41</span></td>
   </tr>
   <tr data-year="2022" data-policy="health" data-company="mutlu-insaat">
     <td><div class="checkbox-wrapper-13">
@@ -725,14 +637,14 @@
     </div></td>
       <td>Mutlu İnşaat</td>
       <td>0157746KJLY</td>
-      <td>Health</td>
+      <td class="tcenter"><span class="healthSpan">Health</span></td>
       <td class="tcenter">2022-03-09</td>
       <td class="tcenter">2023-03-09</td>
       <td>Anadolu</td>
       <td>Tuzla İstanbul</td>
       <td class="tcenter">125,000,000$</td>
-      <td>751,000$</td>
-      <td>53</td>
+      <td style="text-align: center !important;">751,000$</td>
+      <td style="text-align: center !important;"><span class="span100">53</span></td>
   </tr>
   <tr data-year="2023" data-policy="pandc" data-company="mutlu-insaat">
     <td><div class="checkbox-wrapper-13">
@@ -740,14 +652,14 @@
     </div></td>
       <td>Mutlu İnşaat</td>
       <td>09577462JLY</td>
-      <td>P&C</td>
+      <td class="tcenter"><span class="PCSpan">P&C</span></td>
       <td class="tcenter">2023-05-25</td>
       <td class="tcenter">2024-05-25</td>
       <td>Anadolu</td>
       <td>Tuzla İstanbul</td>
       <td class="tcenter">260,000,000$</td>
-      <td>344,000$</td>
-      <td>234</td>
+      <td style="text-align: center !important;">344,000$</td>
+      <td style="text-align: center !important;"><span class="span100plus">275</span></td>
   </tr>
   <tr data-year="2022" data-policy="pandc" data-company="mutlu-aku">
     <td><div class="checkbox-wrapper-13">
@@ -755,14 +667,14 @@
     </div></td>
       <td>Mutlu Akü</td>
       <td>095774644LY</td>
-      <td>P&C</td>
+      <td class="tcenter"><span class="PCSpan">P&C</span></td>
       <td class="tcenter">2022-07-25</td>
       <td class="tcenter">2023-07-25</td>
       <td>Generali</td>
       <td>Levent İstanbul</td>
       <td class="tcenter">150,000,000$</td>
-      <td>410,000$</td>
-      <td>72</td>
+      <td style="text-align: center !important;">410,000$</td>
+      <td style="text-align: center !important;"><span class="span100">72</span></td>
   </tr>
   <tr data-year="2022" data-policy="pandc" data-company="mutlu-insaat">
     <td><div class="checkbox-wrapper-13">
@@ -770,14 +682,14 @@
     </div></td>
       <td>Mutlu İnşaat</td>
       <td>0S5A746KJLY</td>
-      <td>P&C</td>
+      <td class="tcenter"><span class="PCSpan">P&C</span></td>
       <td class="tcenter">2022-06-25</td>
       <td class="tcenter">2024-09-15</td>
       <td>Anadolu</td>
       <td>Tuzla İstanbul</td>
       <td class="tcenter">160,000,000$</td>
-      <td>678,000$</td>
-      <td>557</td>
+      <td style="text-align: center !important;">678,000$</td>
+      <td style="text-align: center !important;"><span class="span100plus">354</span></td>
   </tr>
   <tr data-year="2023" data-policy="health" data-company="mutlu-aku">
     <td><div class="checkbox-wrapper-13">
@@ -785,14 +697,14 @@
     </div></td>
     <td>Mutlu Akü</td>
     <td>0917746KJLY</td>
-    <td>Health</td>
+    <td class="tcenter"><span class="healthSpan">Health</span></td>
     <td class="tcenter">2023-02-25</td>
     <td class="tcenter">2024-12-19</td>
     <td>Generali</td>
     <td>Levent İstanbul</td>
     <td class="tcenter">80,000,000$</td>
-    <td>356,000$</td>
-    <td>98</td>
+    <td style="text-align: center !important;">356,000$</td>
+    <td style="text-align: center !important;"><span class="span100">98</span></td>
 </tr>
 
   
@@ -803,14 +715,14 @@
       <th>#</th>
       <th>Company</th>
       <th>Policy ID</th>
-      <th>Policy Type</th>
+      <th class="trThCenter">Policy Type</th>
       <th class="trThCenter">Policy Begin</th>
       <th class="trThCenter">Policy End</th>
       <th>Reinsurers</th>
       <th>Short Address</th>
       <th class="trThCenter">Limit</th>
-      <th>Premium</th>
-      <th>Day to Renewal</th>
+      <th style="text-align: center !important;">Premium</th>
+      <th style="text-align: center !important;">Day to Renewal</th>
   </tr>
   </tfoot>
 </table>
@@ -1154,7 +1066,7 @@
       </div></td>
       <td>Mutlu Akü</td>
       <td>0957746KJLY1</td>
-      <td>P&C</td>
+      <td class="tcenter"><span class="PCSpan">P&C</span></td>
       <td class="tcenter">2023-07-15</td>
       <td class="tcenter">2024-07-25</td>
       <td>Axa</td>
@@ -1171,7 +1083,7 @@
     </div></td>
     <td>Mutlu Akü</td>
     <td>0957746KJLY2</td>
-    <td>Health</td>
+    <td class="tcenter"><span class="healthSpan">Health</span></td>
     <td class="tcenter">2022-05-25</td>
     <td class="tcenter">2023-07-25</td>
     <td>Allianz</td>
@@ -1188,7 +1100,7 @@
   </div></td>
   <td>Mutlu İnşaat</td>
   <td>0957746KJLY3</td>
-  <td>Health</td>
+  <td class="tcenter"><span class="healthSpan">Health</span></td>
   <td class="tcenter">2022-05-11</td>
   <td class="tcenter">2023-05-11</td>
   <td>Allianz</td>
@@ -1205,7 +1117,7 @@
   </div></td>
   <td>Mutlu İnşaat</td>
   <td>0957746KJLY4</td>
-  <td>Health</td>
+  <td class="tcenter"><span class="healthSpan">Health</span></td>
   <td class="tcenter">2022-08-25</td>
   <td class="tcenter">2023-09-25</td>
   <td>Generali</td>
