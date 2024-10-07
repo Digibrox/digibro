@@ -81,3 +81,43 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// Filter function to apply filters based on user input
+function filter() {
+  let searchInput = document.getElementById('searchCompany').value.toLowerCase();
+  let companyCards = document.querySelectorAll('.company-card');
+  
+  let companyFilter = document.querySelector('.filter-company').value;
+  let industryFilter = document.querySelector('.filter-industry').value;
+  let scopeFilter = document.querySelector('.filter-scope').value;
+  let policiesFilter = document.querySelector('.filter-policies').value;
+  let quoteFilter = document.querySelector('.filter-quote').value;
+
+  companyCards.forEach(function(card) {
+      let companyName = card.getAttribute('data-company').toLowerCase();
+      let industry = card.getAttribute('data-industry');
+      let scope = card.getAttribute('data-scope');
+      let policies = card.getAttribute('data-policies');
+      let quote = card.getAttribute('data-quote');
+      
+      let matchesSearch = companyName.includes(searchInput);
+      let matchesCompany = (companyFilter === '' || companyFilter === companyName);
+      let matchesIndustry = (industryFilter === '' || industryFilter === industry);
+      let matchesScope = (scopeFilter === '' || scopeFilter === scope);
+      let matchesPolicies = (policiesFilter === '' || policiesFilter === policies);
+      let matchesQuote = (quoteFilter === '' || quoteFilter === quote);
+
+      if (matchesSearch && matchesCompany && matchesIndustry && matchesScope && matchesPolicies && matchesQuote) {
+          card.style.display = 'block';
+      } else {
+          card.style.display = 'none';
+      }
+  });
+}
+
+// Event listeners for filter inputs
+document.querySelectorAll('.filter').forEach(select => {
+  select.addEventListener('change', filter);
+});
+
+// Run filter when search input changes
+document.getElementById('searchCompany').addEventListener('input', filter);

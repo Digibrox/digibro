@@ -24,15 +24,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hiv2o_!6yxuyq31$k)0olm=y^zpitp_gsyt+2--5&m35f05p6*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # settings.py
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0','185.87.252.236']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0','9858-94-54-30-249.ngrok-free.app']
 
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'questions',
     'Insurers',
     'insurerScreen',
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'digibro.urls'
@@ -146,3 +148,4 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CORS_ALLOW_ALL_ORIGINS = True

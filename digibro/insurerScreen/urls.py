@@ -4,5 +4,5 @@ app_name = 'insurerScreen'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    # Diğer URL tanımlamaları buraya eklenebilir
+    path('dashboard/', views.dashboard_view, name='dashboard')
 ]

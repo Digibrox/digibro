@@ -235,3 +235,35 @@ var quill = new Quill('#editor', {
 var quill2 = new Quill('#editor2', {
   theme: 'snow'
 });
+
+const saveButton = document.getElementById('save_answers_client');
+const saveSvg = document.getElementById('save_answers_clientSvg');
+const saveSpan = document.getElementById('save_answers_clientSpan');
+
+saveButton.addEventListener('click', () => {
+  // Butonu devre dışı bırak
+  saveButton.style.pointerEvents = 'none';
+  saveButton.style.backgroundColor = '#009f39'; // Arka planı güncelle
+  
+  // SVG'yi gizle
+  saveSvg.style.display = 'none';
+  
+  // Span içeriğini 'Successful' yap
+  saveSpan.textContent = 'Successful';
+});
+
+const saveButton2 = document.getElementById('save_answers_placement');
+const saveSvg2 = document.getElementById('save_answers_placementSvg');
+const saveSpan2 = document.getElementById('save_answers_placementSpan');
+
+saveButton2.addEventListener('click', () => {
+  // Butonu devre dışı bırak
+  saveButton2.style.pointerEvents = 'none';
+  saveButton2.style.backgroundColor = '#009f39'; // Arka planı güncelle
+  
+  // SVG'yi gizle
+  saveSvg2.style.display = 'none';
+  
+  // Span içeriğini 'Successful' yap
+  saveSpan2.textContent = 'Successful';
+});

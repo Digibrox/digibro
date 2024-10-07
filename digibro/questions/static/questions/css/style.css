@@ -10,7 +10,7 @@
 
 }
 body {
-  background-color: #495057 !important;
+  background-color: #f8f8f8 !important;
   margin: 0;
   height: 100vh;
   font-size: 0.9rem;
@@ -511,12 +511,26 @@ section.results .item .price {
 .radio-inputs .radio {
   flex: 1 1 auto;
   text-align: center;
+  border-radius: 10px !important;
 }
 
 .radio-inputs .radio input {
   display: none;
 }
-
+.viewProfile{
+  width: 190px;
+  border-radius: 5px !important;
+  background: #ffffff;
+  color: #101010 !important;
+  font-size: 12px !important;
+  padding: 5px;
+  font-weight: 500 !important;
+  position: absolute;
+  bottom: 12px;
+  border: 1px solid #80808047 !important;
+  bottom: 5px;
+  right: 5px;
+}
 .radio-inputs .radio .name {
   display: flex;
   cursor: pointer;
@@ -577,9 +591,10 @@ left: 120px; */
   text-align: center;
 }
 .accordion-item {
-  border-radius: 0px;
+  border-radius: 10px;
   border: none !important;
   background: #ffffff;
+  position: relative;
   -webkit-box-shadow: 0 .75rem 1.5rem rgba(18, 38, 63, .03);
   box-shadow: 0 .75rem 1.5rem rgba(18, 38, 63, .03);
 }
@@ -592,21 +607,25 @@ left: 120px; */
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 }
 .accordion-item .accordion-item-title {
-  position: relative;
-  border-bottom: 1px solid #8080804d;
+
   height: 56px;
+  position: relative;
   gap: 32px;
   margin: 0;
   display: flex;
+  background: #eff2f7;
+  color: #495057;
   font-weight: 600;
+  font-size: 16px;
+  margin: 0;
   width: 100%;
-  font-size: 18px;
   cursor: pointer;
   justify-content: space-between;
   flex-direction: row-reverse;
-  padding: 14px 20px;
+  padding: 14px;
   box-sizing: border-box;
   align-items: center;
+  border-radius: 10px !important;
 }
 .mainDescBg svg{
   position: fixed;
@@ -632,13 +651,15 @@ left: 120px; */
 .accordion-item .accordion-item-desc {
   display: none;
   height: calc(100% - 65px);
-  font-size: 14.4px;
+  font-size: 13px;
   position: relative;
   line-height: 22px;
   font-weight: 500;
   color: #495057;
   padding: 10px 20px 45px;
   box-sizing: border-box;
+  border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .accordion-item2 .accordion-item-desc {
   display: none;
@@ -702,31 +723,8 @@ left: 120px; */
   background: #fff;
   color: #495057;
   font-weight: 400;
-  padding-left: 30px !important;
 }
-.accordion3LabelDiv,
-.accordion4LabelDiv2,
-.accordion4LabelDiv {
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-  background: #556ee6;
-}
-.accordionYanginDiv {
-  background: #556ee6;
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-}
-.accordionYanginDiv2 {
-  background: #556ee6;
-  position: absolute;
-  left: 0;
-  width: 17px;
-  height: 100%;
-}
+
 #HirsizlikAccordion .inputSize1{
   width: 110px !important;
 }
@@ -798,6 +796,7 @@ left: 120px; */
   display: block;
   
 }
+
 .accordion-item2 input[type="checkbox"]:checked ~ .accordion-item-desc {
   display: none;
   
@@ -843,4 +842,22 @@ left: 120px; */
   .accordion h1 {
     font-size: 22px;
   }
+}
+.position-relative input:focus, .position-relative select:focus{
+  box-shadow: none !important;
+}
+.mailModalButton{
+  width: 129px !important;
+  border-radius: 5px !important;
+  background: #ffffff !important;
+  color: #101010 !important;
+  font-size: 12px !important;
+  padding: 5px !important;
+  font-weight: 500 !important;
+  bottom: 12px !important;
+  border: 1px solid #80808047 !important;
+}
+.mailModalButton:hover{
+  background: #424249 !important;
+  color: #fff !important;
 }

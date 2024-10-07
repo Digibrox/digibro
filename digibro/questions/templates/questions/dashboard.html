@@ -82,7 +82,7 @@
                     <li style="background: #3a3b3d">
                       <a href="{% url 'questions:dashboard' %}">
                         <i class="bi bi-ui-checks" style="color: #fff"></i>
-                        <span style="color: #fff">Dashboard</span>
+                        <span style="color: #fff">Home</span>
                       </a>
                     </li>
                     
@@ -90,7 +90,7 @@
                     <li>
                       <a href="{% url 'questions:index' %}">
                         <i class="bi bi-layers-fill"></i>
-                        <span>Questionnaire Form</span>
+                        <span>Send Questionnaire</span>
                       </a>
                     </li>
                     <li>
@@ -138,7 +138,25 @@
                         <span>Examples</span>
                       </a>
                     </li>
-                         
+                    <li><span class="generalText">Demo Links</span></li>
+                    <li>
+                      <a href="{% url 'questions:dashboard' %}">
+                        <i class="bi bi-activity"></i>
+                        <span>Broker Dashboard</span>
+                      </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'clientScreen:dashboard' %}">
+                          <i class="bi bi-activity"></i>
+                          <span>Client Home</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{% url 'insurerScreen:dashboard' %}">
+                          <i class="bi bi-activity"></i>
+                          <span>Insurer Home</span>
+                        </a>
+                      </li>  
                   </ul>
                   
                  
@@ -296,9 +314,9 @@
       
                               <div class="col-xxl-4 col-lg-6">
                                   <div class="position-relative h-100 hstack gap-3">
-                                      <button type="submit" class="btn btn-primary h-100 w-100" "><i class="bx bx-search-alt align-middle"></i>Search</button>
-                                      <button type="submit" class="btn btn-primary h-100 w-100" "><i class="bx bx-search-alt align-middle"></i>Add Item</button>
-                                      <button type="submit" class="btn btn-primary h-100 w-100" "><i class="bx bx-search-alt align-middle"></i>See All</button>
+                                      <button type="submit" class="btn btn-primary h-100 w-100" ><i class="bx bx-search-alt align-middle"></i>Search</button>
+                                      <button type="submit" class="btn btn-primary h-100 w-100" ><i class="bx bx-search-alt align-middle"></i>Add Item</button>
+                                      <button type="submit" class="btn btn-primary h-100 w-100" ><i class="bx bx-search-alt align-middle"></i>See All</button>
                                     
                                   </div>
                               </div>
@@ -372,12 +390,9 @@
       </div>
       <div class="row" id="candidate-list">
         <div class="col-xl-3 col-md-6 rowPadd">
-            <div class="card">
+            <div class="card" style="height:180px;">
                 <div class="card-body">
-                    <div class="d-flex align-start mb-1">
-                        
-                  
-                    </div>
+                 
                     <div class="textLeft">
                         <img src="{% static 'questions/img/mutlu.jpg' %}" alt="" class="avatar-sm ">
                         <h6 class="font-size-15 mt-1 mb-1">Mutlu Akü</h6>
@@ -387,22 +402,17 @@
                         <p class="mb-0 text-muted"> Quote: Health</p>
                        
                     </div>
-                    <div class=" pt-1">
-                        <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
-                    </div>
+                    <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
                 </div>
             </div>
         </div>
     
         <div class="col-xl-3 col-md-6 rowPadd">
-          <div class="card">
+          <div class="card" style="height:180px;">
               <div class="card-body">
-                  <div class="d-flex align-start mb-1">
-                      
-                
-                  </div>
+                 
                   <div class="textLeft">
-                      <img src="{% static 'questions/img/bera.jpg' %}" alt="" class="avatar-sm ">
+                      <img src="{% static 'questions/img/beraa.jpg' %}" alt="" class="avatar-sm ">
                       <h6 class="font-size-15 mt-1 mb-1">Bera Holding</h6>
                       <p class="mb-0 text-muted">Industry: Holding</p>
                       <p class="mb-0 text-muted">Scope: Finance</p>
@@ -410,21 +420,16 @@
                       <p class="mb-0 text-muted"> Quote: Health</p>
                      
                   </div>
-                  <div class=" pt-1">
-                      <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
-                  </div>
+                  <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
               </div>
           </div>
       </div>
   
     
       <div class="col-xl-3 col-md-6 rowPadd">
-        <div class="card">
+        <div class="card" style="height:180px;">
             <div class="card-body">
-                <div class="d-flex align-start mb-1">
-                    
-              
-                </div>
+               
                 <div class="textLeft">
                     <img src="{% static 'questions/img/white_logo.png' %}" alt="" class="avatar-sm " style="padding: 3px;">
                     <h6 class="font-size-15 mt-1 mb-1">DigiBroX</h6>
@@ -434,20 +439,15 @@
                     <p class="mb-0 text-muted"> Quote: Health</p>
                    
                 </div>
-                <div class=" pt-1">
-                    <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
-                </div>
+                <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
             </div>
         </div>
     </div>
 
     <div class="col-xl-3 col-md-6 rowPadd">
-      <div class="card">
+      <div class="card" style="height:180px;">
           <div class="card-body">
-              <div class="d-flex align-start mb-1">
-                  
-            
-              </div>
+             
               <div class="textLeft">
                   <img src="{% static 'questions/img/cosmos.jpeg' %}" alt="" class="avatar-sm " style="padding: 3px;">
                   <h6 class="font-size-15 mt-1 mb-1">Cosmos Yatırım Holding</h6>
@@ -457,21 +457,16 @@
                   <p class="mb-0 text-muted"> Quote: Health</p>
                  
               </div>
-              <div class=" pt-1">
-                  <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
-              </div>
+              <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
           </div>
       </div>
   </div>
 
     
   <div class="col-xl-3 col-md-6 rowPadd">
-    <div class="card">
+    <div class="card" style="height:180px;">
         <div class="card-body">
-            <div class="d-flex align-start mb-1">
-                
-          
-            </div>
+            
             <div class="textLeft">
                 <img src="{% static 'questions/img/enerjisa.png' %}" alt="" class="avatar-sm ">
                 <h6 class="font-size-15 mt-1 mb-1">EnerjiSA Enerji</h6>
@@ -481,23 +476,18 @@
                 <p class="mb-0 text-muted"> Quote: Health</p>
                
             </div>
-            <div class=" pt-1">
-                <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
-            </div>
+            <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
         </div>
     </div>
 </div>
 
     
 <div class="col-xl-3 col-md-6 rowPadd">
-  <div class="card">
+  <div class="card" style="height:180px;">
       <div class="card-body">
-          <div class="d-flex align-start mb-1">
-              
-        
-          </div>
+         
           <div class="textLeft">
-              <img src="{% static 'questions/img/mutlu.jpg' %}" alt="" class="avatar-sm ">
+              <img src="{% static 'questions/img/izyatirim.jpeg' %}" alt="" class="avatar-sm ">
               <h6 class="font-size-15 mt-1 mb-1">Iz Yatırım Holding</h6>
               <p class="mb-0 text-muted">Industry: Holding</p>
               <p class="mb-0 text-muted">Scope: Finance</p>
@@ -505,20 +495,15 @@
               <p class="mb-0 text-muted"> Quote: Health</p>
              
           </div>
-          <div class=" pt-1">
-              <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
-          </div>
+          <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
       </div>
   </div>
 </div>
 
 <div class="col-xl-3 col-md-6 rowPadd">
-  <div class="card">
+  <div class="card" style="height:180px;">
       <div class="card-body">
-          <div class="d-flex align-start mb-1">
-              
         
-          </div>
           <div class="textLeft">
               <img src="{% static 'questions/img/mazhar.png' %}" alt="" class="avatar-sm ">
               <h6 class="font-size-15 mt-1 mb-1">Mazhar Zorlu Holding</h6>
@@ -528,20 +513,15 @@
               <p class="mb-0 text-muted"> Quote: Health</p>
              
           </div>
-          <div class=" pt-1">
-              <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
-          </div>
+          <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
       </div>
   </div>
 </div>
 
 <div class="col-xl-3 col-md-6 rowPadd">
-  <div class="card">
+  <div class="card" style="height:180px;">
       <div class="card-body">
-          <div class="d-flex align-start mb-1">
-              
-        
-          </div>
+          
           <div class="textLeft">
               <img src="{% static 'questions/img/default_logo.png' %}" alt="" class="avatar-sm ">
               <h6 class="font-size-15 mt-1 mb-1">Coligo</h6>
@@ -551,9 +531,7 @@
               <p class="mb-0 text-muted"> Quote: Health</p>
              
           </div>
-          <div class=" pt-1">
-              <a href="candidate-overview.html" class="btn btn-soft-primary d-block">View Profile</a>
-          </div>
+          <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
       </div>
   </div>
 </div>
@@ -573,14 +551,15 @@
                         <th>No</th>
                         <th>Title</th>
                         <th>Status</th>
-                        <th class="sorting_disable">Action</th>
+                        <th class="sorting_disable" style="    text-align: center;
+    color: #495057;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
                         <td class="leftTitle">Example Title 1</td>
-                        <td><span class="badge bg-success">Active</span></td>
+                        <td class="daytoTD"><div class="activeTdDivFlex"><div class="activeTdDiv"></div>Active</div></td>
                         <td>
     <ul class="list-unstyled hstack gap-1 mb-0">
         <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
@@ -605,7 +584,7 @@
                     <tr>
                         <td>2</td>
                         <td class="leftTitle">Example Title 2</td>
-                        <td><span class="badge bg-success">Active</span></td>
+                        <td class="daytoTD"><div class="activeTdDivFlex"><div class="activeTdDiv"></div>Active</div></td>
                         <td>
                           <ul class="list-unstyled hstack gap-1 mb-0">
                               <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
@@ -630,7 +609,7 @@
                     <tr>
                         <td>3</td>
                         <td class="leftTitle">Example Title 3</td>
-                        <td><span class="badge bg-danger">Close</span></td>
+                        <td class="daytoTD"><div class="activeTdDivFlex"><div class="closeTdDiv"></div>Close</div></td>
                         <td>
     <ul class="list-unstyled hstack gap-1 mb-0">
         <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
@@ -655,7 +634,7 @@
                     <tr>
                         <td>4</td>
                         <td class="leftTitle">Example Title 4</td>
-                        <td><span class="badge bg-success">Active</span></td>
+                        <td class="daytoTD"><div class="activeTdDivFlex"><div class="activeTdDiv"></div>Active</div></td>
                         <td>
     <ul class="list-unstyled hstack gap-1 mb-0">
         <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
@@ -680,7 +659,7 @@
                     <tr>
                       <td>5</td>
                       <td class="leftTitle">Example Title 5</td>
-                      <td><span class="badge bg-success">Active</span></td>
+                      <td class="daytoTD"><div class="activeTdDivFlex"><div class="activeTdDiv"></div>Active</div></td>
                       <td>
   <ul class="list-unstyled hstack gap-1 mb-0">
       <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
@@ -705,7 +684,7 @@
                   <tr>
                     <td>6</td>
                     <td class="leftTitle">Example Title 6</td>
-                    <td><span class="badge bg-success">Active</span></td>
+                    <td class="daytoTD"><div class="activeTdDivFlex"><div class="activeTdDiv"></div>Active</div></td>
                     <td>
 <ul class="list-unstyled hstack gap-1 mb-0">
     <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
@@ -730,7 +709,7 @@
                 <tr>
                   <td>7</td>
                   <td class="leftTitle">Example Title 7</td>
-                  <td><span class="badge bg-success">Active</span></td>
+                  <td class="daytoTD"><div class="activeTdDivFlex"><div class="activeTdDiv"></div>Active</div></td>
                   <td>
 <ul class="list-unstyled hstack gap-1 mb-0">
   <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="View">
@@ -791,7 +770,7 @@
                                       </select>
                                   </div>
                               </div>
-                              <!--end col-->
+                           
                               <div class="col-xxl-2 col-lg-6">
                                   <div class="position-relative">
                                       <div id="datepicker1">
@@ -799,13 +778,13 @@
                                       </div><!-- input-group -->
                                   </div>
                               </div>
-                              <!--end col-->
+                       
       
                               <div class="col-xxl-4 col-lg-6">
                                   <div class="position-relative h-100 hstack gap-3">
-                                      <button type="submit" class="btn btn-primary h-100 w-100" "><i class="bx bx-search-alt align-middle"></i>Search</button>
-                                      <button type="submit" class="btn btn-primary h-100 w-100" "><i class="bx bx-search-alt align-middle"></i>Add Item</button>
-                                      <button type="submit" class="btn btn-primary h-100 w-100" "><i class="bx bx-search-alt align-middle"></i>See All</button>
+                                      <button type="submit" class="btn btn-primary h-100 w-100" ><i class="bx bx-search-alt align-middle"></i>Search</button>
+                                      <button type="submit" class="btn btn-primary h-100 w-100" ><i class="bx bx-search-alt align-middle"></i>Add Item</button>
+                                      <button type="submit" class="btn btn-primary h-100 w-100" ><i class="bx bx-search-alt align-middle"></i>See All</button>
                                     
                                   </div>
                               </div>
@@ -1107,7 +1086,7 @@
           <h6><i class="bi bi-calculator"></i>Premium Calculator</h6>
 
          </div>
-         <div class="optionsDivToDoList">
+         <div class="optionsDivToDoList" style="margin-top: 17px;">
          <div class="col-xxl-5 col-lg-4">
           <div class="position-relative">
               <select class="form-select" id="idType" aria-label="Default select example">

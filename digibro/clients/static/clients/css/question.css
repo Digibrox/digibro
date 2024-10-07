@@ -877,11 +877,11 @@ textarea:focus {
 }
 #topDivP__check {
   font-weight: 600;
-  font-family: sans-serif !important;
+
 }
 #mainTitleP{
   font-size: 15px;
-  font-family: sans-serif !important;
+
 }
 #closeCheckPanel{
   cursor: pointer;

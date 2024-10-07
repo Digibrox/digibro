@@ -4,5 +4,6 @@ app_name = 'clientScreen'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('dashboard/', views.dashboard_view, name='dashboard')
     # Diğer URL tanımlamaları buraya eklenebilir
 ]

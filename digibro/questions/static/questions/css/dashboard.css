@@ -4,10 +4,10 @@
     background: #13141700;
 }
 .row .form-control{
-    font-size: 14px;
+    font-size: 13px;
 }
 .row select{
-    font-size: 14px;
+    font-size: 13px;
 
 }
 .card{
@@ -18,15 +18,15 @@
 }
 .card-body h6{
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
 }
 .card-body p{
     color: #495057 !important;
-    font-size: 14px;
+    font-size: 13px;
 }
 .rowDiv{
     width: 68%;
-    background: #eeeeee;
+    background: #fff;
     padding: 10px;
     border-radius: 4px;
     margin: 5px;
@@ -39,9 +39,20 @@
 }
 .rowPadd{
     padding: 0;
+    height: 150px;
+}
+.rowPadd .card{
+    height: 155px;
+    border: 1px solid #8080801a !important;
+}
+.rowPadd .textLeft{
+    height: 66%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 #candidate-list{
-    height: 422px !important;
+    height: 397px !important;
     overflow: auto;
     margin-right: 0px;
     margin-left: auto;
@@ -52,17 +63,11 @@
 }
 .card-body img{
     width: auto;
-    height: 25px !important;
+    height: 23px !important;
 }
-.card-body button{
-    font-size: 13px !important;
-}
-.pt-1 a{
-    font-size: 14px !important;
-}
-.row button{
-    font-size: 14px;
-}
+
+
+
 .col-xl-3{
     padding: 4px !important;
 }
@@ -73,18 +78,42 @@
     justify-content: center;
     align-items: center;
 }
-.textLeft p, .textLeft h6{
+.textLeft p{
     padding: 0 10px;
+    gap: 5px;
+    color: #74788d;
+    font-weight: 500;
+    font-size: 13px;
+    margin: 0;
 }
+.textLeft h6{
+    color: #495057;
+    font-size: 15px;
+    gap: 5px;
+    color: #74788d;
+    font-weight: 500;
+    font-size: 13px;
+    text-align: center;
+    margin: 0;
+}
+
+
+
+
+
+
+
 .textLeft img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    position: absolute;
+    left: 13px;
+    top: 9px;
 }
 .filterDashboardTitle i{
     font-size: 15px;
     color: #556ee6;
 }
+
 .rowG3{
     justify-content: center;
     align-items: center;
@@ -92,25 +121,32 @@
 .todoListDiv{
     display: flex;
     flex-direction: column;
-    width: 31%;
+    width: 29%;
     background: #ffffff;
     padding: 10px;
     border-radius: 4px;
     margin: 5px 5px 5px 1px;
-    height: 509px;
+    height: 483px;
     -webkit-box-shadow: 0 .75rem 1.5rem rgba(18, 38, 63, .03);
     box-shadow: 0 .75rem 1.5rem rgba(18, 38, 63, .03);
 }
 .todoListDiv #searchInput{
-    font-size: 14px;
+    font-size: 13px;
     margin: 5px 0;
 }
 .calculateButton{
     width: 80%;
     margin: 0 auto;
 }
-.mainDivDashboard-top,.mainDivDashboard-bottom{
+.mainDivDashboard-top{
     display: flex;
+    padding: 27px;
+    gap: 2%;
+}
+.mainDivDashboard-bottom{
+    display: flex;
+    padding: 0 27px 27px 27px;
+    gap: 2%;
 }
 .todoListDivTop{
     display: flex;
@@ -121,7 +157,7 @@
 }
 .todoListDivTop h6{
     color: #495057 !important;
-    font-size: 14px;
+    font-size: 13px;
     display: flex;
     align-items: center;
     gap: 4px;
@@ -135,7 +171,18 @@
     margin: 0;
 }
 .todoListDiv button{
-    font-size: 13px;
+    font-size: 12px !important;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    justify-content: center;
+    align-items: center;
+    width: 32%;
+    right: 10px;
+    background: #f0f4f86e !important;
+    border-color: #8b8b8b6e !important;
+    color: #102a43 !important;
+    bottom: 10px;
+    padding: 3px !important;
 }
 #example_length,#example2_length{
     display: none;
@@ -146,14 +193,15 @@
     display: none;
 }
 tr th{
-    font-size: 14px;
+    font-size: 13px;
     color: #495057;
     text-align: center;
     vertical-align: middle;
+    font-weight: 500 !important;
 }
 
 tr td{
-    font-size: 14px;
+    font-size: 13px;
     box-shadow: none;
     color: #495057;
     text-align: center;
@@ -167,8 +215,8 @@ td ul li a i{
     font-size: 13px;
 }
 tr td{
-    font-size: 13px;
-    color: #495057 ;
+    font-size: 12.5px;
+    color: #495057db !important;
     font-weight: 500;
 }
 td span{
@@ -183,15 +231,30 @@ td span{
 }
 .bg-client{
     font-weight: 500 !important;
-    background-color: #34c38f;
+    border-bottom: 2px solid #34c38f;
+    text-align: left !important;
+    background: #fff;
+    font-size: 12px !important;
+    color: #74788d !important;
+    border-radius: 0 !important;
 }
 .bg-questionnaire{
     font-weight: 500 !important;
-    background-color: #6a78f4;
+    border-bottom: 2px solid #6a78f4;
+    text-align: left !important;
+    background: #fff;
+    font-size: 12px !important;
+    color: #74788d !important;
+    border-radius: 0 !important;
 }
 .bg-quotations{
-    background: #f4946a;
+    border-bottom: 2px solid #f4946a;
     font-weight: 500 !important;
+    text-align: left !important;
+    background: #fff;
+    font-size: 12px !important;
+    color: #74788d !important;
+    border-radius: 0 !important;
 }
 
 td .bg-success{
@@ -209,9 +272,7 @@ td .bg-danger{
 #example2 td ul{
     justify-content: center;
 }
-#example th{
-    text-align: center;
-}
+
 .btn-soft-info{
     background: #edf6fe !important;
 }
@@ -240,7 +301,8 @@ td .bg-danger{
 }
 .leftTitle{
     text-align: left;
-    font-size: 13px;
+    font-size: 12.5px;
+    color: #495057db !important;
 }
 .titleRubik th{
     font-family: Rubik !important;
@@ -271,7 +333,7 @@ td .bg-danger{
     left: 0;
     width: fit-content;
     font-size: 0.8rem;
-    border-radius: 1px;
+    border-radius: 5px;
     text-align: center;
     translate: -50% 0;
     left: calc(5% + 9px);
@@ -373,8 +435,28 @@ input[type="range"] {
     padding-top: 10px;
 }
 .todoListDiv #idType{
-    font-size: 14px;
+    font-size: 12px;
 }
+.todoListDivTop button,.position-relative button{
+    font-size: 12px !important;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    justify-content: center;
+    align-items: center;
+    width: 22%;
+    right: 10px;
+    background: #f0f4f86e !important;
+    border-color: #8b8b8b6e !important;
+    color: #102a43 !important;
+    bottom: 10px;
+    padding: 3px !important;
+}
+.todoListDivTop button:hover,.position-relative button:hover{
+    background: #102a43!important;
+    border-color: #8b8b8b6e !important;
+    color: #fff !important;
+}
+
 .optionsDivToDoList{
     display: flex;
     padding: 10px;
@@ -383,7 +465,7 @@ input[type="range"] {
 }
 .sumInsured{
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
 }
 .sumInsuredSub{
@@ -425,4 +507,48 @@ input[type="range"] {
 }
 .resultCalculateRight img{
     width: 100px;
+}
+.dashboardButton{
+    font-size: 11px !important;
+    letter-spacing: 0.1px;
+    justify-content: center;
+    align-items: center;
+    width: 41%;
+    position: absolute;
+    right: 10px;
+    background: #f0f4f86e !important;
+    border-color: #8b8b8b6e !important;
+    color: #102a43 !important;
+    bottom: 10px;
+    padding: 3px !important;
+}
+.dashboardButton:hover{
+    background: #102a43 !important;
+    color: #fff !important;
+}
+.position-relative button{
+    font-size: 13px;
+    padding: 3px;
+}
+.activeTdDiv{
+    background: #13ac00;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+.closeTdDiv{
+    background: #ac0000;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+.activeTdDivFlex{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 12px;
+    color: #495057 !important;
+}
+.hstack li{
+    zoom: 0.88;
 }

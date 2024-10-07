@@ -93,11 +93,7 @@
 }
 
 .card span {
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  display: block;
-  font-size: 1em;
+  font-weight: 500;
 }
 
 .card .info {

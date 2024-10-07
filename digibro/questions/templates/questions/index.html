@@ -62,7 +62,7 @@
                     </span>
                     <span class="user-role">
       
-                    <p class="groupP">Broker<p>
+                    <p class="groupP">Lockton | Omni - Broker<p>
         
                     </span>
                     <span class="user-status">
@@ -76,14 +76,14 @@
                     <li>
                       <a href="{% url 'questions:dashboard' %}">
                         <i class="bi bi-layers-fill"></i>
-                        <span>Dashboard</span>
+                        <span>Home</span>
                       </a>
                     </li>
                     <li><span class="generalText">General</span></li>
                     <li style="background: #3a3b3d">
                       <a href="{% url 'questions:index' %}">
                         <i class="bi bi-ui-checks" style="color: #fff"></i>
-                        <span style="color: #fff">Questionnaire Form</span>
+                        <span style="color: #fff">Send Questionnaire</span>
                       </a>
                     </li>
                     <li>
@@ -131,7 +131,25 @@
                         <span>Examples</span>
                       </a>
                     </li>
-                         
+                    <li><span class="generalText">Demo Links</span></li>
+                    <li>
+                      <a href="{% url 'questions:dashboard' %}">
+                        <i class="bi bi-activity"></i>
+                        <span>Broker Dashboard</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'clientScreen:dashboard' %}">
+                        <i class="bi bi-activity"></i>
+                        <span>Client Home</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'insurerScreen:dashboard' %}">
+                        <i class="bi bi-activity"></i>
+                        <span>Insurer Home</span>
+                      </a>
+                    </li>  
                   </ul>
                   
                  
@@ -157,7 +175,7 @@
       </nav>
 
       <div class="accordion">
-        <div class="accordion-item" style="border-radius: 0px;">
+        <div class="accordion-item" style="border-radius: 0px;background: #ededed;">
           <input type="checkbox" id="accordion1" />
           <label for="accordion1" class="accordion-item-title">
             <svg
@@ -244,7 +262,7 @@
             padding: 6px;">QUESTIONNAIRE FORMS</span>
           </label>
 
-          <div class="accordion-item-desc mainDesc" id="mainDesc">
+          <div class="accordion-item-desc mainDesc" id="mainDesc" style="    padding: 10px 20px 0px !important; ">
             <div class="mainDescBg">
             
             </div>
@@ -277,9 +295,9 @@
                 <!-- <textarea class="specialLink">http://185.87.252.236:5555/clientScreen/</textarea> -->
               
                
-                <button type="button" id="mailListButton" onclick="openPopupSigorta()" class="btn btn-primary">Placement</button>
+                <button type="button" class="btn btn-primary mailModalButton" id="mailListButton" onclick="openPopupSigorta()">Placement</button>
   
-                <button type="button" class="btn btn-primary" id="sendMailPopup" onclick="openPopup()">Send Client</button>
+                <button type="button" class="btn btn-primary mailModalButton" id="sendMailPopup" onclick="openPopup()">Send Client</button>
                 
               </div>
             </div>
@@ -435,7 +453,7 @@
                 </div>
                 
                 <textarea name="" id="client_info_p" cols="30" rows="10">Mutlu Akü, müşterilerine kapsamlı ve yenilikçi çözümleri sunarak güvenilir bir hizmet sağlar.</textarea>
-                <div class="">                    <a href="" class="btn btn-soft-primary d-block">View Profile</a>                </div>
+                <div class="">                    <a href="" class="btn d-block viewProfile">View Profile</a>                </div>
               </div>
             </div>
             <hr id="specHrr" />
@@ -447,7 +465,7 @@
               <div class="accordion-item" id="informationAccordion">
                 <input type="checkbox" id="accordion3" />
                 <label for="accordion3" class="accordion-item-title accordion3Label" id="bilgilendirmeMetni">
-                  <div class="accordion3LabelDiv"></div>
+                 
                   <div class="locktonSvgAdd"></div>
                   <span class="icon"></span>Bilgilendirme Metni
                 </label>
@@ -479,16 +497,16 @@
                 <div class="accordion-item" id="{{ accordion.accordion_id }}">
                   <input type="checkbox" id="{{ accordion.accordion_input }}" />
                   <label for="{{ accordion.accordion_input }}" class="accordion-item-title {{ accordion.accordion_label }}" id="{{ accordion.accordion_label_id }}">
-                    <div class="{{ accordion.accordion_divClass }}"></div>
+                  
                     <span class="icon"></span>
-                    <div class="locktonSvgAdd"></div>
+                   
                     <p id="title_accordion_py{{ accordion.qsc_id }}">{{ accordion.qsc_name }} </p>
                   </label>
                   <div class="accordion-item-desc accordionBg" id="{{ accordion.accordion_item_desc }}">
                     <div class="topButtonDiv">
-                      <label class="container__spec" style="border: 1px solid #4790fe; font-size: 21px;">
+                      <label class="container__spec">
                         <input type="checkbox" attr="spec" id="checkmark__selectAll_{{ accordion.accordion_id }}" class="select-all-checkbox" data-target="{{ accordion.accordion_id }}" checked="checked" />
-                        <div class="checkmark__spec"></div>
+                        <div class="checkmark__spec" style="border: 1px solid #4790fe;"></div>
                       </label>
                       <p class="first_title_p">
                         Risk Bilgi Formu hazırlanması sürecinde ve sigorta
@@ -504,23 +522,8 @@
                     {% for key, x in accordion.items %}
                       {% if key|slice:":1" == "Q" %}
                         <div class="questionInputDiv mainQuestionDiv py_questionDiv">
-                          <button class="buttonUpload">
-                            <span class="btn__icon">
-                              <svg stroke-linejoin="round" stroke-linecap="round" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path fill="none" d="M0 0h24v24H0z" stroke="none"></path>
-                                <path d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-1"></path>
-                                <path d="M9 15l3 -3l3 3"></path>
-                                <path d="M12 12l0 9"></path>
-                              </svg>
-                            </span>
-                            <span class="btn__text">Upload</span>
-                          </button>
-                          <button class="buttonAddQuestion">
-                            <span class="btn__icon">
-                              <i class="bi bi-plus-circle"></i>
-                            </span>
-                            <span class="btn__text">Add a Question</span>
-                          </button>
+                        
+                         
                           <label class="container__spec">
                             <input type="checkbox" attr="spec" checked="checked" id="question__checkbox_{{ accordion.accordion_id }}_{{ key }}" class="question-checkbox" data-parent="{{ accordion.accordion_id }}" />
                             <div class="checkmark__spec"></div>
@@ -562,14 +565,14 @@
                           {% endif %}
                           {% if x.input_type %}
                             <div class="form-control inputSize_py">
-                              <input type="{{ x.input_type }}" id="{{ x.qfq_sort_number }}-{{ x.qsc_id }}_input_type_answer" name="{{ x.qfq_sort_number }}-{{ x.qsc_id }}_input_type_answer" class="input input-alt {{ accordion.accordion_id }}_input_{{ key }}_1" placeholder="{{ x.placeholder }}" oninput=" ('{{ accordion.accordion_id }}', {{ forloop.counter }})" data-related-id="question{{ accordion.accordion_id }}-{{ key }}"  order="8" />
+                              <input type="{{ x.input_type }}" id="input_{{ x.qsc_id }}-{{ x.qfq_sort_number }}-1" name="input_{{ x.qsc_id }}-{{ x.qfq_sort_number }}-1" class="input input-alt {{ accordion.accordion_id }}_input_{{ key }}_1" placeholder="{{ x.placeholder }}" oninput=" ('{{ accordion.accordion_id }}', {{ forloop.counter }})" data-related-id="question{{ accordion.accordion_id }}-{{ key }}"  order="8" />
                               <span class="input-border input-border-alt"></span>
                             </div>
                           {% endif %}
                           {% if x.inputName2 and x.input_type2 %}
                             <p data-related-id="question{{ accordion.accordion_id }}-{{ key }}" class="label_py order2" style="margin-left:15px;" order="9">{{ x.inputName2 }}</p>
                             <div class="form-control inputSize_py">
-                              <input type="{{ x.input_type2 }}"  id="{{ x.qfq_sort_number }}-{{ x.qsc_id }}_input_type_answer_2" name="{{ x.qfq_sort_number }}-{{ x.qsc_id }}_input_type_answer_2"  class="input input-alt {{ accordion.accordion_id }}_input_{{ key }}_2" placeholder="{{ x.placeholder2 }}" data-related-id="question{{ accordion.accordion_id }}-{{ key }}" order="10" />
+                              <input type="{{ x.input_type2 }}"  id="input_{{ x.qsc_id }}-{{ x.qfq_sort_number }}-2" name="input_{{ x.qsc_id }}-{{ x.qfq_sort_number }}-2"  class="input input-alt {{ accordion.accordion_id }}_input_{{ key }}_2" placeholder="{{ x.placeholder2 }}" data-related-id="question{{ accordion.accordion_id }}-{{ key }}" order="10" />
                               <span class="input-border input-border-alt"></span>
                             </div>
                           {% endif %}
@@ -577,7 +580,7 @@
                             <p data-related-id="question{{ accordion.accordion_id }}-{{ key }}" 
                             class="label_py order3" style="margin-left:15px;" order="11">{{ x.inputName3 }}</p>
                             <div class="form-control inputSize_py">
-                              <input type="{{ x.input_type3 }}"  id="{{ x.qfq_sort_number }}-{{ x.qsc_id }}_input_type_answer_3" name="{{ x.qfq_sort_number }}-{{ x.qsc_id }}_input_type_answer_3" class="input input-alt {{ accordion.accordion_id }}_input_{{ key }}_3" placeholder="{{ x.placeholder3 }}" data-related-id="question{{ accordion.accordion_id }}-{{ key }}"  order="12"/>
+                              <input type="{{ x.input_type3 }}"  id="input_{{ x.qsc_id }}-{{ x.qfq_sort_number }}-3" name="input_{{ x.qsc_id }}-{{ x.qfq_sort_number }}-3" class="input input-alt {{ accordion.accordion_id }}_input_{{ key }}_3" placeholder="{{ x.placeholder3 }}" data-related-id="question{{ accordion.accordion_id }}-{{ key }}"  order="12"/>
                               <span class="input-border input-border-alt"></span>
                             </div>
                           {% endif %}
@@ -588,7 +591,17 @@
                                 <label class="sr-only" for="inlineFormInputGroup">Amount</label>
                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0" data-index="1">
                                   <div class="input-group-addon currency-symbol  {{ x.qfq_sort_number }}-{{ x.qsc_id }}_currency" id="currencySubAmountDiv">$</div>
-                                  <input type="number" class="form-control currency-amount input-alt {{ accordion.accordion_id }}_currentSelection_{{ key }}" style="width: 156px; font-family: 'Rubik' !important; color: #495057;" id="{{ x.qfq_sort_number }}-{{ x.qsc_id }}_current_selection" name="{{ x.qfq_sort_number }}-{{ x.qsc_id }}_current_selection" placeholder="0" size="8" oninput=" ('{{ accordion.accordion_id }}', {{ forloop.counter }})">
+                                  <input type="number" class="form-control currency-amount input-alt {{ accordion.accordion_id }}_currentSelection_{{ key }}" style="  width: 156px;
+  font-size: 15px !important;
+  color: #74788d !important;
+  background: #fff !important;
+  background-clip: padding-box !important;
+  border: 1px solid #ced4da !important;
+  appearance: none !important;
+  padding: .37rem .45rem !important;
+  border-radius: 0.25rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;" id="{{ x.qsc_id }}-{{ x.qfq_sort_number }}_current_selection" name="{{ x.qsc_id }}-{{ x.qfq_sort_number }}_current_selection" placeholder="0" size="8" oninput=" ('{{ accordion.accordion_id }}', {{ forloop.counter }})">
                                   <div style="background: #e4e4e469;" class="input-group-addon currency-addon">
                                     <select class="currency-selector" id="current_selector_content" onchange=" ('{{ accordion.accordion_id }}', {{ forloop.counter }})">
                                       <option data-symbol="$" data-placeholder="0" selected>USD</option>
@@ -630,34 +643,26 @@
                         {% endif %}
                       {% endif %}
                     {% endfor %}
+                    <button type="button" class="btn wrapperButtonUpload">Upload Document</button>
+                    <button type="button" class="btn wrapperButtonAddQuestion">Add a Question</button>
                   </div>
+               
                 </div>
               {% endfor %}
             <div class="accordion-item" id="FotografAccordion">
               <input type="checkbox" id="accordionFotograf" />
               <label for="accordionFotograf" class="accordion-item-title accordionFotografLabel">
-              <div class="accordionFotografDiv"></div>
-              <div class="locktonSvgAdd"></div>
+          
+             
               <span class="icon"></span>Fotoğraflar</label>
               <div class="accordion-item-desc accordionBg">
-                <button class="buttonUpload">
-                  <span class="btn__icon">
-                      <svg stroke-linejoin="round" stroke-linecap="round" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-                          <path fill="none" d="M0 0h24v24H0z" stroke="none"></path>
-                          <path d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-1"></path>
-                          <path d="M9 15l3 -3l3 3"></path>
-                          <path d="M12 12l0 9"></path>
-                      </svg>
-                  </span>
-                  <span class="btn__text">Upload</span>
-                </button>
-                <button class="buttonAddQuestion">
-                  <span class="btn__icon">
-                    <i class="bi bi-plus-circle"></i>
-                  </span>
-                  <span class="btn__text">Add a Question</span>
-                </button>
-                <div class="topButtonDiv" style="flex-direction: column;gap: 10px;align-items: flex-start;font-size: 14px;">   
+                <button type="button" class="btn wrapperButtonUpload">Upload Document</button>
+                <button type="button" class="btn wrapperButtonAddQuestion">Add a Question</button>
+                <div class="topButtonDiv" style="    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14.2px;
+    font-weight: 400;">   
                   <p>
                     Risk Değerlendirmesi Çalışması için ihtiyaç duyacağımız fotoğraflar aşağıda maddeler halinde paylaşılmıştır. ilgili fotoğrafların aşağıda bulunan fotoğraf yükleme alanlarınayüklenmesini rica ederiz. Her bir fotoğrafın 1 MI311 geçmemesi dosyanın mail ile paylaşılabilmesi açısından önem arz etmektedir. Gerekli görülmesi halinde fotoğrafların küçültüldükten sonra yüklenmesi uygun olacaktır. 
                   </p>
@@ -683,14 +688,34 @@
                   <hr/>
                 </div>
                 <div class="containerUp" id="imageUploadGrid"></div>
-                <hr class="specHr" />
-                <br />
+                <hr class="specHr" style="margin-bottom:0;"/>
+
               </div>
             </div>
             <div class="question__botside">
             <hr id="specHrr" />
             <div class="bottom__svg"> <button class="applyButton" id="applyButton">Confirm the Questionnaire Form</button></div>
           </div>
+          <div class="modal fade" id="questionAddModal" tabindex="-1" role="dialog" aria-labelledby="questionAddModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="questionAddModalLabel">Add Question</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <!-- Modal içeriği -->
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           </section>
           
     <script>
@@ -700,6 +725,7 @@
     
     
     </script>
+    <script src="{% static 'questions/js/data.js' %}"></script>
     <script src="{% static 'questions/js/script.js' %}"></script>      
     <script src="{% static 'questions/js/static-codes.js' %}"></script>      
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

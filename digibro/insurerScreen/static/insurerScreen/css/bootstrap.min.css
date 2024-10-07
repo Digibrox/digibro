@@ -2251,6 +2251,8 @@ textarea.form-control-lg {
   margin-left: 0;
 }
 .form-check-input {
+  border-radius: 26% !important;
+  border: 1px solid #bababa !important;
   --bs-form-check-bg: var(--bs-form-control-bg);
   width: 1em;
   height: 1em;
@@ -2261,7 +2263,6 @@ textarea.form-control-lg {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  border: var(--bs-border-width) solid var(--bs-border-color);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

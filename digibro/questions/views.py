@@ -1,26 +1,224 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import JsonResponse
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
-from .models import FormVerisi
+from .models import FormVerisi,QFQAnswer
 import json
 from django.conf import settings
 import os
 from .get_qf import generate_questionnsire_forms
-def dashboard_view(request):
-    return render(request, 'questions/dashboard.html')
-def kaydet(request):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        kayit_yolu = os.path.join(settings.STATIC_ROOT, 'kayit.json')
-        with open(kayit_yolu, 'w') as file:
-            json.dump(data, file)
-        return JsonResponse({'success': True})
-    else:
-        return JsonResponse({'error': 'Yanlış istek türü'})
-
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
+from django.views.decorators.csrf import csrf_exempt
+from .send_mail import send_email
+
+def dashboard_view(request):
+    return render(request, 'questions/dashboard.html')
+
+@csrf_exempt
+def save_data(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            print("\n\n\nDataaa:\n")
+            print(data)
+            qfq_answer = QFQAnswer(
+                last_user = "broker",
+                input_1_1_1=data.get("input_1-1-1"),
+                input_1_2_1=data.get("input_1-2-1"),
+                input_1_3_1=data.get("input_1-3-1"),
+                input_1_4_1=data.get("input_1-4-1"),
+                input_1_4_2=data.get("input_1-4-2"),
+                input_1_4_3=data.get("input_1-4-3"),
+                input_1_5_1=data.get("input_1-5-1"),
+                input_1_5_2=data.get("input_1-5-2"),
+                input_1_6_1=data.get("input_1-6-1"),
+                input_1_6_2=data.get("input_1-6-2"),
+                input_1_7_1=data.get("input_1-7-1"),
+                input_1_7_2=data.get("input_1-7-2"),
+                input_1_8_1=data.get("input_1-8-1"),
+                input_1_9_1=data.get("input_1-9-1"),
+                input_1_9_2=data.get("input_1-9-2"),
+                input_1_10_1=data.get("input_1-10-1"),
+                input_1_11_1=data.get("input_1-11-1"),
+                input_1_11_2_current_selection=data.get("1-11-2_current_selection"),
+                textarea_1_11_3=data.get("textarea_1-11-3"),
+                input_2_1_1=data.get("input_2-1-1"),
+                input_2_1_2_current_selection=data.get("2-1-2_current_selection"),
+                textarea_2_1_3=data.get("textarea_2-1-3"),
+                yanginAccordion_radio_Q1_3_1_1=data.get("yanginAccordion_radio_Q1_3-1-1"),
+                input_3_1_2=data.get("input_3-1-2"),
+                yanginAccordion_radio_Q1_3_2_1=data.get("yanginAccordion_radio_Q1_3-2-1"),
+                input_3_2_2=data.get("input_3-2-2"),
+                yanginAccordion_radio_Q1_3_3_1=data.get("yanginAccordion_radio_Q1_3-3-1"),
+                input_3_3_2=data.get("input_3-3-2"),
+                yanginAccordion_radio_Q1_3_4_1=data.get("yanginAccordion_radio_Q1_3-4-1"),
+                input_3_4_2=data.get("input_3-4-2"),
+                yanginAccordion_radio_Q1_3_5_1=data.get("yanginAccordion_radio_Q1_3-5-1"),
+                input_3_5_2=data.get("input_3-5-2"),
+                yanginAccordion_radio_Q1_3_6_1=data.get("yanginAccordion_radio_Q1_3-6-1"),
+                input_3_6_2=data.get("input_3-6-2"),
+                yanginAccordion_radio_Q1_3_7_1=data.get("yanginAccordion_radio_Q1_3-7-1"),
+                input_3_7_2=data.get("input_3-7-2"),
+                yanginAccordion_radio_Q1_3_8_1=data.get("yanginAccordion_radio_Q1_3-8-1"),
+                input_3_9_1_current_selection=data.get("3-9-1_current_selection"),
+                input_3_10_1=data.get("input_3-10-1"),
+                input_3_11_1_current_selection=data.get("3-11-1_current_selection"),
+                input_3_12_1_current_selection=data.get("3-12-1_current_selection"),
+                input_3_13_1_current_selection=data.get("3-13-1_current_selection"),
+                input_3_14_1_current_selection=data.get("3-14-1_current_selection"),
+                input_4_1_1_current_selection=data.get("4-1-1_current_selection"),
+                input_4_2_1=data.get("input_4-2-1"),
+                input_4_3_1=data.get("input_4-3-1"),
+                input_4_4_1=data.get("input_4-4-1"),
+                input_4_5_1=data.get("input_4-5-1"),
+                input_5_1_1_current_selection=data.get("5-1-1_current_selection"),
+                input_5_2_1=data.get("input_5-2-1"),
+                input_5_3_1=data.get("input_5-3-1"),
+                input_5_4_1=data.get("input_5-4-1"),
+                input_5_5_1=data.get("input_5-5-1"),
+                input_6_1_1_current_selection=data.get("6-1-1_current_selection"),
+                input_6_2_1=data.get("input_6-2-1"),
+                input_6_3_1=data.get("input_6-3-1"),
+                input_6_4_1=data.get("input_6-4-1"),
+                input_6_5_1=data.get("input_6-5-1"),
+                input_7_1_1_current_selection=data.get("7-1-1_current_selection"),
+                input_7_2_1_current_selection=data.get("7-2-1_current_selection"),
+                input_7_3_1_current_selection=data.get("7-3-1_current_selection"),
+                input_7_4_1_current_selection=data.get("7-4-1_current_selection"),
+                HirsizlikAccordion_radio_Q1_8_1_1=data.get("HirsizlikAccordion_radio_Q1_8-1-1"),
+                HirsizlikAccordion_radio_Q1_8_2_1=data.get("HirsizlikAccordion_radio_Q1_8-2-1"),
+                HirsizlikAccordion_radio_Q1_8_3_1=data.get("HirsizlikAccordion_radio_Q1_8-3-1"),
+                HirsizlikAccordion_radio_Q1_8_4_1=data.get("HirsizlikAccordion_radio_Q1_8-4-1"),
+                HirsizlikAccordion_radio_Q1_8_5_1=data.get("HirsizlikAccordion_radio_Q1_8-5-1"),
+                HirsizlikAccordion_radio_Q1_8_6_1=data.get("HirsizlikAccordion_radio_Q1_8-6-1"),
+                HirsizlikAccordion_radio_Q1_8_7_1=data.get("HirsizlikAccordion_radio_Q1_8-7-1"),
+                HirsizlikAccordion_radio_Q1_8_8_1=data.get("HirsizlikAccordion_radio_Q1_8-8-1"),
+                textarea_8_8_2=data.get("textarea_8-8-2"),
+            )
+
+            # Veritabanına kaydet
+            qfq_answer.save()
+
+            # # #DB den çekilen bilgiler
+            # smtp_server = 'mail.digibrox.com'
+            # stmp_port = 465
+            # password = "FSO3yWZqM7qNS4C"  # Gönderici e-posta şifresi
+
+            # sender_email = "fatihaydin@digibrox.com"  # Gönderici e-posta adresi
+            # # receiver_emails = ['oguzhanyildirim@digibrox.com',]  # test e-posta adresleri
+            # receiver_emails = ["oguzhanyildirim@digibrox.com","ibrahimyasar@digibrox.com",]  # Alıcı e-posta adresleri
+            # # subject = 'New Questionnaire Form Notification'  # E-posta konusu
+            # # #E-posta mesajı
+            # # body = "Hello,\n\n"\
+            # #     + "I kindly request you to fill out the newly created questionnaire form.\n"\
+            # #     + "Best regards,\n"\
+            # #     + "Have a good work day."
+
+            # # send_email(sender_email, password, receiver_emails, smtp_server, stmp_port, subject, body)
+
+            return JsonResponse({'message': 'Veri başarıyla kaydedildi!'})
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON'}, status=400)
+    else:
+        return JsonResponse({'error': 'GET is not allowed DENEME'}, status=405)
+
+
+@csrf_exempt
+def update_data(request):
+    if request.method == 'POST':
+        try:
+            cevap_json = json.loads(request.body)
+            qfqa_id = cevap_json.get("qfqa_id")  # JSON'dan ID'yi alın
+            
+            # Belirtilen ID'ye sahip kaydı bulun
+            qfq_answer = get_object_or_404(QFQAnswer, qfqa_id=qfqa_id)
+
+            # JSON'dan gelen verileri model alanlarına atayın
+            qfq_answer.last_user = cevap_json.get("last_user", qfq_answer.last_user)
+            qfq_answer.input_1_1_1 = cevap_json.get("input_1-1-1", qfq_answer.input_1_1_1)
+            qfq_answer.input_1_2_1 = cevap_json.get("input_1-2-1", qfq_answer.input_1_2_1)
+            qfq_answer.input_1_3_1 = cevap_json.get("input_1-3-1", qfq_answer.input_1_3_1)
+            qfq_answer.input_1_4_1 = cevap_json.get("input_1-4-1", qfq_answer.input_1_4_1)
+            qfq_answer.input_1_4_2 = cevap_json.get("input_1-4-2", qfq_answer.input_1_4_2)
+            qfq_answer.input_1_4_3 = cevap_json.get("input_1-4-3", qfq_answer.input_1_4_3)
+            qfq_answer.input_1_5_1 = cevap_json.get("input_1-5-1", qfq_answer.input_1_5_1)
+            qfq_answer.input_1_5_2 = cevap_json.get("input_1-5-2", qfq_answer.input_1_5_2)
+            qfq_answer.input_1_6_1 = cevap_json.get("input_1-6-1", qfq_answer.input_1_6_1)
+            qfq_answer.input_1_6_2 = cevap_json.get("input_1-6-2", qfq_answer.input_1_6_2)
+            qfq_answer.input_1_7_1 = cevap_json.get("input_1-7-1", qfq_answer.input_1_7_1)
+            qfq_answer.input_1_7_2 = cevap_json.get("input_1-7-2", qfq_answer.input_1_7_2)
+            qfq_answer.input_1_8_1 = cevap_json.get("input_1-8-1", qfq_answer.input_1_8_1)
+            qfq_answer.input_1_9_1 = cevap_json.get("input_1-9-1", qfq_answer.input_1_9_1)
+            qfq_answer.input_1_9_2 = cevap_json.get("input_1-9-2", qfq_answer.input_1_9_2)
+            qfq_answer.input_1_10_1 = cevap_json.get("input_1-10-1", qfq_answer.input_1_10_1)
+            qfq_answer.input_1_11_1 = cevap_json.get("input_1-11-1", qfq_answer.input_1_11_1)
+            qfq_answer.input_1_11_2_current_selection = cevap_json.get("input_1-11-2_current_selection", qfq_answer.input_1_11_2_current_selection)
+            qfq_answer.textarea_1_11_3 = cevap_json.get("textarea_1-11-3", qfq_answer.textarea_1_11_3)
+            qfq_answer.input_2_1_1 = cevap_json.get("input_2-1-1", qfq_answer.input_2_1_1)
+            qfq_answer.input_2_1_2_current_selection = cevap_json.get("input_2-1-2_current_selection", qfq_answer.input_2_1_2_current_selection)
+            qfq_answer.textarea_2_1_3 = cevap_json.get("textarea_2-1-3", qfq_answer.textarea_2_1_3)
+            qfq_answer.yanginAccordion_radio_Q1_3_1_1 = cevap_json.get("yanginAccordion_radio_Q1_3-1-1", qfq_answer.yanginAccordion_radio_Q1_3_1_1)
+            qfq_answer.input_3_1_2 = cevap_json.get("input_3-1-2", qfq_answer.input_3_1_2)
+            qfq_answer.yanginAccordion_radio_Q1_3_2_1 = cevap_json.get("yanginAccordion_radio_Q1_3-2-1", qfq_answer.yanginAccordion_radio_Q1_3_2_1)
+            qfq_answer.input_3_2_2 = cevap_json.get("input_3-2-2", qfq_answer.input_3_2_2)
+            qfq_answer.yanginAccordion_radio_Q1_3_3_1 = cevap_json.get("yanginAccordion_radio_Q1_3-3-1", qfq_answer.yanginAccordion_radio_Q1_3_3_1)
+            qfq_answer.input_3_3_2 = cevap_json.get("input_3-3-2", qfq_answer.input_3_3_2)
+            qfq_answer.yanginAccordion_radio_Q1_3_4_1 = cevap_json.get("yanginAccordion_radio_Q1_3-4-1", qfq_answer.yanginAccordion_radio_Q1_3_4_1)
+            qfq_answer.input_3_4_2 = cevap_json.get("input_3-4-2", qfq_answer.input_3_4_2)
+            qfq_answer.yanginAccordion_radio_Q1_3_5_1 = cevap_json.get("yanginAccordion_radio_Q1_3-5-1", qfq_answer.yanginAccordion_radio_Q1_3_5_1)
+            qfq_answer.input_3_5_2 = cevap_json.get("input_3-5-2", qfq_answer.input_3_5_2)
+            qfq_answer.yanginAccordion_radio_Q1_3_6_1 = cevap_json.get("yanginAccordion_radio_Q1_3-6-1", qfq_answer.yanginAccordion_radio_Q1_3_6_1)
+            qfq_answer.input_3_6_2 = cevap_json.get("input_3-6-2", qfq_answer.input_3_6_2)
+            qfq_answer.yanginAccordion_radio_Q1_3_7_1 = cevap_json.get("yanginAccordion_radio_Q1_3-7-1", qfq_answer.yanginAccordion_radio_Q1_3_7_1)
+            qfq_answer.input_3_7_2 = cevap_json.get("input_3-7-2", qfq_answer.input_3_7_2)
+            qfq_answer.yanginAccordion_radio_Q1_3_8_1 = cevap_json.get("yanginAccordion_radio_Q1_3-8-1", qfq_answer.yanginAccordion_radio_Q1_3_8_1)
+            qfq_answer.input_3_9_1_current_selection = cevap_json.get("input_3-9-1_current_selection", qfq_answer.input_3_9_1_current_selection)
+            qfq_answer.input_3_10_1 = cevap_json.get("input_3-10-1", qfq_answer.input_3_10_1)
+            qfq_answer.input_3_11_1_current_selection = cevap_json.get("input_3-11-1_current_selection", qfq_answer.input_3_11_1_current_selection)
+            qfq_answer.input_3_12_1_current_selection = cevap_json.get("input_3-12-1_current_selection", qfq_answer.input_3_12_1_current_selection)
+            qfq_answer.input_3_13_1_current_selection = cevap_json.get("input_3-13-1_current_selection", qfq_answer.input_3_13_1_current_selection)
+            qfq_answer.input_3_14_1_current_selection = cevap_json.get("input_3-14-1_current_selection", qfq_answer.input_3_14_1_current_selection)
+            qfq_answer.input_4_1_1_current_selection = cevap_json.get("input_4-1-1_current_selection", qfq_answer.input_4_1_1_current_selection)
+            qfq_answer.input_4_2_1 = cevap_json.get("input_4-2-1", qfq_answer.input_4_2_1)
+            qfq_answer.input_4_3_1 = cevap_json.get("input_4-3-1", qfq_answer.input_4_3_1)
+            qfq_answer.input_4_4_1 = cevap_json.get("input_4-4-1", qfq_answer.input_4_4_1)
+            qfq_answer.input_4_5_1 = cevap_json.get("input_4-5-1", qfq_answer.input_4_5_1)
+            qfq_answer.input_5_1_1_current_selection = cevap_json.get("input_5-1-1_current_selection", qfq_answer.input_5_1_1_current_selection)
+            qfq_answer.input_5_2_1 = cevap_json.get("input_5-2-1", qfq_answer.input_5_2_1)
+            qfq_answer.input_5_3_1 = cevap_json.get("input_5-3-1", qfq_answer.input_5_3_1)
+            qfq_answer.input_5_4_1 = cevap_json.get("input_5-4-1", qfq_answer.input_5_4_1)
+            qfq_answer.input_5_5_1 = cevap_json.get("input_5-5-1", qfq_answer.input_5_5_1)
+            qfq_answer.input_6_1_1_current_selection = cevap_json.get("input_6-1-1_current_selection", qfq_answer.input_6_1_1_current_selection)
+            qfq_answer.input_6_2_1 = cevap_json.get("input_6-2-1", qfq_answer.input_6_2_1)
+            qfq_answer.input_6_3_1 = cevap_json.get("input_6-3-1", qfq_answer.input_6_3_1)
+            qfq_answer.input_6_4_1 = cevap_json.get("input_6-4-1", qfq_answer.input_6_4_1)
+            qfq_answer.input_6_5_1 = cevap_json.get("input_6-5-1", qfq_answer.input_6_5_1)
+            qfq_answer.input_7_1_1_current_selection = cevap_json.get("input_7-1-1_current_selection", qfq_answer.input_7_1_1_current_selection)
+            qfq_answer.input_7_2_1_current_selection = cevap_json.get("input_7-2-1_current_selection", qfq_answer.input_7_2_1_current_selection)
+            qfq_answer.input_7_3_1_current_selection = cevap_json.get("input_7-3-1_current_selection", qfq_answer.input_7_3_1_current_selection)
+            qfq_answer.input_7_4_1_current_selection = cevap_json.get("input_7-4-1_current_selection", qfq_answer.input_7_4_1_current_selection)
+            qfq_answer.HirsizlikAccordion_radio_Q1_8_1_1 = cevap_json.get("HirsizlikAccordion_radio_Q1_8-1-1", qfq_answer.HirsizlikAccordion_radio_Q1_8_1_1)
+            qfq_answer.HirsizlikAccordion_radio_Q1_8_2_1 = cevap_json.get("HirsizlikAccordion_radio_Q1_8-2-1", qfq_answer.HirsizlikAccordion_radio_Q1_8_2_1)
+            qfq_answer.HirsizlikAccordion_radio_Q1_8_3_1 = cevap_json.get("HirsizlikAccordion_radio_Q1_8-3-1", qfq_answer.HirsizlikAccordion_radio_Q1_8_3_1)
+            qfq_answer.HirsizlikAccordion_radio_Q1_8_4_1 = cevap_json.get("HirsizlikAccordion_radio_Q1_8-4-1", qfq_answer.HirsizlikAccordion_radio_Q1_8_4_1)
+            qfq_answer.HirsizlikAccordion_radio_Q1_8_5_1 = cevap_json.get("HirsizlikAccordion_radio_Q1_8-5-1", qfq_answer.HirsizlikAccordion_radio_Q1_8_5_1)
+            qfq_answer.HirsizlikAccordion_radio_Q1_8_6_1 = cevap_json.get("HirsizlikAccordion_radio_Q1_8-6-1", qfq_answer.HirsizlikAccordion_radio_Q1_8_6_1)
+            qfq_answer.HirsizlikAccordion_radio_Q1_8_7_1 = cevap_json.get("HirsizlikAccordion_radio_Q1_8-7-1", qfq_answer.HirsizlikAccordion_radio_Q1_8_7_1)
+            qfq_answer.HirsizlikAccordion_radio_Q1_8_8_1 = cevap_json.get("HirsizlikAccordion_radio_Q1_8-8-1", qfq_answer.HirsizlikAccordion_radio_Q1_8_8_1)
+            qfq_answer.textarea_8_8_2 = cevap_json.get("textarea_8-8-2", qfq_answer.textarea_8_8_2)
+
+            # Değişiklikleri kaydet
+            qfq_answer.save()
+
+            return JsonResponse({"success": True, "message": "Update successful!"})
+        
+        except Exception as e:
+            return JsonResponse({"success": False, "message": str(e)}, status=400)
+
+    return JsonResponse({"success": False, "message": "Invalid request method."}, status=405)
+
+
 
 def index(request):
     # Kullanıcı admin grubunda mı kontrol et
@@ -45,381 +243,7 @@ def index(request):
             'email': user.email
         }
         users_with_emails.append(user_with_email)
-      
-    # basliklar = [
-    #     {
-    #         'form_qsc_id': 1,
-    #         'form_qsc_name': 'Questionnaire Form',
-    #         'form_qsc_client': 'Mutlu Akü',
-    #         'form_qsc_date': '25.25.2024',
-    #         'form_last_user': 'client',
-    #         'Q1': {
-    #             'answer_id': '1-1_input_type_answer',
-    #             'input_type': 'date'
-    #         },
-    #         'Q2': {
-    #             'question': '2-1_input_type_answer',
-    #             'input_type': 'text'
-    #         },
-    #         'Q3':{
-    #             "question": "3-1_input_type_answer",
-    #             "input_type": "text"
-    #         },
-    #         'Q4':{
-    #             "question": "4-1_input_type_answer,
-    #             "input_type": "text"
-    #         },
-    #         'Q5':{
-    #             "question":"4-1_input_type_answer_2",
-    #             "input_type": "text"
-    #         },
-    #         'Q6':{
-    #             "question":"4-1_input_type_answer_3",
-    #             "input_type": "text"
-    #         },
-    #         'Q7':{
-    #             "question": "5-1_input_type_answer",
-    #             "input_type": "text"
-    #         },
-    #         'Q8':{
-    #             "question":"5-1_input_type_answer_2",
-    #             "input_type": "text"
-    #         },
-    #         'Q9':{
-    #             "question": "6-1_input_type_answer",
-    #             "input_type": "number"
-    #         },
-    #         'Q10':{
-    #             "question":"6-1_input_type_answer_2",
-    #             "input_type": "number"
-    #         },
-    #         'Q11':{
-    #             "question": "7-1_input_type_answer",
-    #             "input_type": "text"
-    #         },
-    #         'Q12':{
-    #             "question":"7-1_input_type_answer_2",
-    #             "input_type": "text"
-    #         },
-    #         'Q13':{
-    #             "question": "8-1_input_type_answer",
-    #             "input_type": "text"
-    #         },
-    #         'Q14':{
-    #             "question": "9-1_input_type_answer",
-    #             "input_type": "text"
-    #         },
-    #         'Q15':{
-    #             "question":"9-1_input_type_answer_2",
-    #             "input_type": "text"
-    #         },
-    #         'Q16':{
-    #             "question": "10-1_input_type_answer",
-    #             "input_type": "text"
-    #         },
-    #         'Q17':{
-    #             "question": "11-1_input_type_answer",
-    #             "input_type": "date"
-    #         },
-    #         'Q18':{
-    #             "question": "11-1_current_selection",
-    #             "input_type": "number",
-    #             "currencyClass": "11-1_currency"
-    #         },
-    #         'Q19':{
-    #             "question": "1-2_input_type_answer",
-    #             "input_type": "text"
-    #         },
-    #         'Q20':{
-    #             "question": "1-2_current_selection",
-    #             "input_type": "number"
-    #             "currencyClass": "1-2_currency"
-    #         },
-    #         'Q21':{
-    #             "question": "textarea_2-1",
-    #             "input_type": "textarea"
-    #         },
-    #         'Q22':{
-    #             "inputRadioClass": "yanginAccordion_radio_Q1_1",
-    #             "labelRadio": "label_3-1",
-    #         },
-    #          'Q23':{
-    #             "inputRadioClass": "yanginAccordion_radio_Q1_2",
-    #             "labelRadio": "label_3-2",  
-    #                }
-    #          'Q24':{
-    #             "question":"1-3_input_type_answer",
-    #             "input_type":"number"
-    #                }
-    #          'Q25':{
-    #             "inputRadioClass": "yanginAccordion_radio_Q2_1",
-    #             "labelRadio": "label_3-2",
-    #                }
-    #          'Q26':{
-    #             "inputRadio2": "yanginAccordion_radio_Q2_2",
-    #             "labelRadio2": "label_3-2_2", 
-    #                }
-    #          'Q27':{
-    #             "question":"2-3_input_type_answer",
-    #             "input_type":"number"
-    #                }
-    #          'Q28':{
-    #             "inputRadioClass": "yanginAccordion_radio_Q3_1",
-    #             "labelRadio": "label_3-3", 
-    #                }
-    #          'Q29':{
-    #             "inputRadio2": "yanginAccordion_radio_Q3_2",
-    #             "labelRadio2": "label_3-3_2", 
-    #                }
-    #          'Q30:{
-    #             "question":"3-3_input_type_answer",
-    #             "input_type":"number"   
-    #                }
-    #          'Q31':{
-    #             "inputRadioClass": "yanginAccordion_radio_Q4_1",
-    #             "labelRadio": "label_3-4",
-    #                }
-    #          'Q32':{
-    #             "inputRadio2": "yanginAccordion_radio_Q3_2",
-    #             "labelRadio2": "label_3-4_2",  
-    #                }
-    #          'Q33':{
-    #             "question":"4-3_input_type_answer",
-    #             "input_type":"text"
-    #                }
-    #          'Q34':{
-    #             "inputRadioClass": "yanginAccordion_radio_Q5_1",
-    #             "labelRadio": "label_3-5", 
-    #                }
-    #          'Q35':{
-    #             "inputRadio2": "yanginAccordion_radio_Q3_2",
-    #             "labelRadio2": "label_3-5_2", 
-    #                }
-    #          'Q36':{
-    #             "question":"5-3_input_type_answer",
-    #             "input_type":"text"
-    #                }
-    #          'Q37':{
-    #             "inputRadioClass": "yanginAccordion_radio_Q6_1",
-    #             "labelRadio": "label_3-6",
-    #                }
-    #           'Q38':{
-    #             "inputRadio2": "yanginAccordion_radio_Q6_2",
-    #             "labelRadio2": "label_3-6_2",
-    #                },
-    #           'Q39':{
-    #             "inputRadio3": "yanginAccordion_radio_Q6_3",
-    #             "labelRadio3": "label_3-6_3",
-    #                },
-    #           'Q40':{
-    #             "inputRadio4": "yanginAccordion_radio_Q6_4",
-    #             "labelRadio4": "label_3-6_4",
-    #                },
-    #           'Q41':{
-    #             "question":"6-3_input_type_answer",
-    #             "input_type":"text"
-    #                },
-    #           'Q42':{
-    #             "inputRadioClass": "yanginAccordion_radio_Q7_1",
-    #             "labelRadio": "label_3-7",
-    #                },
-    #           'Q43':{
-    #             "inputRadio2": "yanginAccordion_radio_Q7_2",
-    #             "labelRadio2": "label_3-7_2",
-    #                },
-    #           'Q44':{
-    #             "question":"7-3_input_type_answer",
-    #             "input_type":"text"
-    #                },
-    #           'Q45':{
-    #             "inputRadioClass": "yanginAccordion_radio_Q8_1",
-    #             "labelRadio": "label_3-8",
-    #                },
-    #           'Q46':{
-    #             "inputRadio2": "yanginAccordion_radio_Q8_2",
-    #             "labelRadio2": "label_3-8_2",
-    #                },
-    #           'Q47':{
-    #             "question": "9-3_current_selection",
-    #             "input_type": "number"
-    #             "currencyClass": "9-3_currency"
-    #                },
-    #           'Q48':{
-    #             "question": "10-3_input_type_answer",
-    #             "input_type": "text"
-    #                },
-    #           'Q49':{
-    #             "question": "11-3_current_selection",
-    #             "input_type": "number"
-    #             "currencyClass": "11-3_currency"
-    #                },
-    #           'Q50':{
-    #             "question": "12-3_current_selection",
-    #             "input_type": "number"
-    #             "currencyClass": "12-3_currency"
-    #                },
-    #           'Q51':{
-    #             "question": "13-3_current_selection",
-    #             "input_type": "number"
-    #             "currencyClass": "13-3_currency"
-    #                },
-    #           'Q52':{
-    #             "question": "14-3_current_selection",
-    #             "input_type": "number"
-    #             "currencyClass": "14-3_currency"
-    #                },
-    #           'Q53':{
-    #             "question": "1-4_current_selection",
-    #             "input_type": "number"
-    #             "currencyClass": "1-4_currency"
-    #                },
-    #           'Q54':{
-    #             "question": "2-4_input_type_answer",
-    #             "input_type": "text"
-    #                },
-    #           'Q55':{
-    #             "question": "3-4_input_type_answer",
-    #             "input_type": "text"
-    #                },
-    #           'Q56':{
-    #             "question": "4-4_input_type_answer",
-    #             "input_type": "text"
-    #                },
-    #           'Q57':{
-    #             "question": "5-4_input_type_answer",
-    #             "input_type": "text"
-    #                },
-    #           'Q58':{
-    #             "question": "1-5_current_selection",
-    #             "input_type": "number"
-    #             "currencyClass": "1-5_currency"
-    #                },
-    #           'Q59':{
-    #             "question": "2-5_input_type_answer",
-    #             "input_type": "text"
-    #                },
-    #           'Q60':{
-    #             "question": "3-5_input_type_answer",
-    #             "input_type": "text"
-    #                },
-    #           'Q61':{
-    #             "question": "4-5_input_type_answer",
-    #             "input_type": "text"
-    #                },
-    #           'Q62':{
-    #             "question": "5-5_input_type_answer",
-    #             "input_type": "text"
-    #                },
-    #           'Q63':{
-    #             "question": "1-6_current_selection",
-    #             "input_type": "number"
-    #             "currencyClass": "1-6_currency"
-    #                },
-    #           'Q64':{
-    #             "question": "2-6_input_type_answer",
-    #             "input_type": "text"
-    #                },
-    #           'Q65':{
-    #             "question": "3-6_input_type_answer",
-    #             "input_type": "text"
-    #                },
-    #           'Q66':{
-    #             "question": "4-6_input_type_answer",
-    #             "input_type": "text"
-    #                },
-    #           'Q67':{
-    #             "question": "5-6_input_type_answer",
-    #             "input_type": "text"
-    #                },
-    #           'Q68':{
-    #             "question": "1-7_current_selection",
-    #             "input_type": "number"
-    #             "currencyClass": "1-7_currency"
-    #                },
-    #           'Q69':{
-    #             "question": "2-7_current_selection",
-    #             "input_type": "number"
-    #             "currencyClass": "2-7_currency"
-    #                },
-    #           'Q70':{
-    #             "question": "3-7_current_selection",
-    #             "input_type": "number"
-    #             "currencyClass": "3-7_currency"
-    #                },
-    #           'Q71':{
-    #             "question": "4-7_current_selection",
-    #             "input_type": "number"
-    #             "currencyClass": "4-7_currency"
-    #                },
-    #           'Q72':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q1_1",
-    #             "labelRadio": "label_8-1",
-    #                },
-    #           'Q73':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q1_2",
-    #             "labelRadio": "label_8-1_2",
-    #                },
-    #           'Q74':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q2_1",
-    #             "labelRadio": "label_8-2",
-    #                },
-    #           'Q75':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q2_2",
-    #             "labelRadio": "label_8-2_2",
-    #                },
-    #           'Q76':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q3_1",
-    #             "labelRadio": "label_8-3",
-    #                },
-    #           'Q77':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q3_2",
-    #             "labelRadio": "label_8-3_2",
-    #                },
-    #           'Q78':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q4_1",
-    #             "labelRadio": "label_8-4",
-    #                },
-    #           'Q79':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q4_2",
-    #             "labelRadio": "label_8-4_2",
-    #               },
-    #           'Q80':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q5_1",
-    #             "labelRadio": "label_8-5",
-    #                },
-    #           'Q81':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q5_2",
-    #             "labelRadio": "label_8-5_2",
-    #               },
-    #           'Q82':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q6_1",
-    #             "labelRadio": "label_8-6",
-    #                },
-    #           'Q83':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q6_2",
-    #             "labelRadio": "label_8-6_2",
-    #               },
-    #           'Q84':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q7_1",
-    #             "labelRadio": "label_8-7",
-    #                },
-    #           'Q85':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q7_2",
-    #             "labelRadio": "label_8-7_2",
-    #               },
-    #           'Q86':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q8_1",
-    #             "labelRadio": "label_8-8",
-    #                },
-    #           'Q87':{
-    #             "inputRadioClass": "HirsizlikAccordion_radio_Q8_2",
-    #             "labelRadio": "label_8-8_2",
-    #               },
-    #           'Q88':{
-    #             "question": "textarea_8-8",
-    #             "input_type": "textarea"
-    #               },
-    # ]
+    
     basliklar = generate_questionnsire_forms()
 
 
@@ -459,4 +283,3 @@ def form_gonder(request):
         return JsonResponse({'success': True})
 
     return JsonResponse({'success': False})
-

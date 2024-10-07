@@ -1,3 +1,4 @@
+
 .input-group-append {
   cursor: pointer;
 }
@@ -104,7 +105,7 @@
   cursor: pointer;
 }
 .mainDescBg {
-  background: url(https://assets-global.website-files.com/6422a763afcb83060f2c7173/64649e811dca6b9d8dead93c_642bff1411c982644d290736_GettyImages-170096512.jpeg);
+  background: #eeeeee;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -112,8 +113,6 @@
   background-size: cover;
   padding: 10px 20px 20px;
   box-sizing: border-box;
-  backdrop-filter: blur(5px);
-  filter: brightness(70%) contrast(90%) grayscale(10%);
   background-repeat: no-repeat;
   width: 100%;
   margin-left: -20px;
@@ -122,16 +121,8 @@
   min-height: 758px;
 }
 .input {
-  color: #fff;
-  font-size: 0.9rem;
-  background-color: transparent;
   width: 100%;
   box-sizing: border-box;
-  padding-inline: 0.3em;
-  padding-block: 0.3em;
-  border: none;
-  border-bottom: var(--border-height) solid var(--border-before-color) !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .input-border {
@@ -199,7 +190,7 @@
 .accordionBg hr {
   margin: 0;
   margin-top: 5px;
-  border-color: #424249;
+  border-color: #495057;
 }
 textarea:focus {
   outline: none;
@@ -210,19 +201,69 @@ textarea:focus {
   border-radius: 5px;
   width: 100%;
   height: 58px;
-  border: 1px solid #10182033;
+  border: 1px solid #556ee633;
   box-sizing: border-box;
   padding-inline: 0.5em;
   padding-block: 0.3em;
 }
 .questionInputDiv p {
-  font-size: 15px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #495057;
   min-width: max-content;
 }
+.broker-check-input{
+  margin: 0 25px;
+}
+.client-check-input {
+  margin: 0 45px;
+}
+.wrapperButton{
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1px;
+  justify-content: center;
+  align-items: center;
+  right: 10px;
+  background: #f0f4f86e !important;
+  border-color: #8b8b8b6e !important;
+  color: #102a43 !important;
+  bottom: 10px;
+  padding: 4px 10px !important;
+}
+.wrapperButtonUpload{
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1px;
+  justify-content: center;
+  align-items: center;
+  background: #f9f9f9 !important;
+  border-color: #8b8b8b6e !important;
+  color: #102a43 !important;
+  bottom: 10px;
+  padding: 4px 15px !important;
+  position: absolute;
+  left: 19px;
+}
+.locktonSvgAdd {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .input-alt {
-  font-size: 14px;
-  color: #424249;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+  font-size: 13px !important;
+  color: #74788d;
+  background: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  appearance: none;
+  padding: .37rem .45rem;
+  border-radius: 0.25rem;
+  font-size: .8125rem;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .input-border-alt {
@@ -253,12 +294,12 @@ textarea:focus {
 }
 
 .checkbox-wrapper-31 .background {
-  fill: #ccc;
+  fill: #f0f4f86e;
   transition: ease all 0.6s;
   -webkit-transition: ease all 0.6s;
 }
 .checkbox-wrapper-31 .background2 {
-  fill: #ccc;
+  fill: #f0f4f86e;
   transition: ease all 0.6s;
   -webkit-transition: ease all 0.6s;
 }
@@ -302,7 +343,7 @@ textarea:focus {
 }
 
 .checkbox-wrapper-31 input[type="checkbox"]:checked + svg .background {
-  fill: #6cbe45;
+  fill: #3ea800;
 }
 .checkbox-wrapper-31 input[type="checkbox"]:checked + svg .background2 {
   fill: #457bbe;
@@ -532,11 +573,11 @@ textarea:focus {
   padding-left: 22px;
   margin-top: 5px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   user-select: none;
 }
 .checkbox-container_info p {
-  font-size: 14px;
+  font-size: 13px;
 }
 .custom-checkbox_info {
   position: absolute;
@@ -547,12 +588,12 @@ textarea:focus {
 }
 
 .checkmark_info {
-  zoom: 0.83;
+  zoom: 1;
   position: absolute;
-  top: 4.5px;
-  left: 2px;
-  height: 20px;
-  width: 20px;
+  top: 3.1px;
+  left: 0px;
+  height: 16px;
+  width: 16px;
   background-color: #d6d6d6;
   border-radius: 4px;
   transition: background-color 0.3s;
@@ -564,6 +605,7 @@ textarea:focus {
   display: none;
   left: 7px;
   top: 3.3px;
+  zoom: 0.88;
   width: 5px;
   height: 10px;
   border: solid white;
@@ -572,7 +614,7 @@ textarea:focus {
 }
 
 .custom-checkbox_info:checked ~ .checkmark_info {
-  background-color: #2196f3;
+  background-color: #556ee6;
   box-shadow: 0 3px 7px rgba(33, 150, 243, 0.3);
 }
 
@@ -601,7 +643,7 @@ textarea:focus {
 }
 .topButtonDiv {
   display: flex;
-  gap: 15px;
+  gap: 12px;
   align-items: end;
 }
 .buttonIcon {
@@ -637,8 +679,8 @@ textarea:focus {
   left: 0;
   height: 1.3em;
   width: 1.3em;
-  background-color: #ccc;
-  background: #e8e8e8;
+  border: 1px solid #8b8b8b6e;
+  border-radius: 50%;
   transition-duration: 0.5s;
 }
 
@@ -656,8 +698,8 @@ textarea:focus {
 .container__spec .checkmark__spec:after {
   left: 0.48em;
   top: 0.28em;
-  width: 0.3em;
-  height: 0.59em;
+  width: 0.28em;
+  height: 0.56em;
   border: solid #4790fe;
   border-width: 0 0.15em 0.15em 0;
   transform: rotate(45deg);
@@ -676,7 +718,7 @@ textarea:focus {
 .client__card{
   display: flex;
   align-items: center;
-  color: #424249;
+  color: #495057;
 }
 .card__left__side{
   display: flex;
@@ -689,7 +731,7 @@ textarea:focus {
 }
 #card__hr{
   margin: 0.2px !important;
-  color: #424249 !important;
+  color: #495057 !important;
 }
 .customerInfoButtons{
   display: flex;
@@ -703,7 +745,7 @@ textarea:focus {
 }
 .bottom__svg {
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   margin: 0 3px;
   align-items: center;
 }
