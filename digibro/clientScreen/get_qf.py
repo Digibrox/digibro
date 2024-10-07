@@ -110,7 +110,7 @@ def find_value_in_json(json_data, search_key):
 def generate_questionnsire_forms():
     #gönderilmesi gereken tüm başlıkları birleştirecek değşken oluşturuluyor
     basliklar_deneme = []
-    cevap_json = get_qfq_answers()[0]
+    cevap_json = get_qfq_answers()[-1]
     print(cevap_json)
     #db den tüm başlıklar çekiliyor be basliklar değişkenine aktarılıyor
     #from questions.models import QFSubCategory,QFQuestions

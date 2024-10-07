@@ -111,6 +111,7 @@ def generate_questionnsire_forms():
     #gönderilmesi gereken tüm başlıkları birleştirecek değşken oluşturuluyor
     basliklar_deneme = []
     cevap_json = get_qfq_answers()[-1]
+    print(cevap_json)
     #db den tüm başlıklar çekiliyor be basliklar değişkenine aktarılıyor
     #from questions.models import QFSubCategory,QFQuestions
     basliklar = QFSubCategory.objects.all()
@@ -156,26 +157,32 @@ def generate_questionnsire_forms():
                 check_answer = str(s.qsc_id) + "-" + str(s.qfq_sort_number) + "-"
                 search_key = "_radio_Q1_" + check_answer # Aranacak anahtarın bir parçası
                 value = find_value_in_json(cevap_json, search_key)
+                print(search_key)
+                print(value)
                 if value is not None:
                     basliklar_deneme_dic_item_question_item["checked"] = value
                 else:
                     print(f"{search_key} anahtarı bulunamadı.")
             if s.radio_option1 :
                 basliklar_deneme_dic_item_question_item["radio_option1"] = s.radio_option1
-                if basliklar_deneme_dic_item_question_item["checked"] == s.radio_option1:
-                    basliklar_deneme_dic_item_question_item["checked"] = "option1"
+                if "checked" in basliklar_deneme_dic_item_question_item:
+                    if basliklar_deneme_dic_item_question_item["checked"] == s.radio_option1:
+                        basliklar_deneme_dic_item_question_item["checked"] = "option1"
             if s.radio_option2 : 
                 basliklar_deneme_dic_item_question_item["radio_option2"] = s.radio_option2
-                if basliklar_deneme_dic_item_question_item["checked"] == s.radio_option2:
-                    basliklar_deneme_dic_item_question_item["checked"] = "option2"
+                if "checked" in basliklar_deneme_dic_item_question_item:
+                    if basliklar_deneme_dic_item_question_item["checked"] == s.radio_option2:
+                        basliklar_deneme_dic_item_question_item["checked"] = "option2"
             if s.radio_option3 : 
                 basliklar_deneme_dic_item_question_item["radio_option3"] = s.radio_option3
-                if basliklar_deneme_dic_item_question_item["checked"] == s.radio_option3:
-                    basliklar_deneme_dic_item_question_item["checked"] = "option3"
+                if "checked" in basliklar_deneme_dic_item_question_item:
+                    if basliklar_deneme_dic_item_question_item["checked"] == s.radio_option3:
+                        basliklar_deneme_dic_item_question_item["checked"] = "option3"
             if s.radio_option4 : 
                 basliklar_deneme_dic_item_question_item["radio_option4"] = s.radio_option4
-                if basliklar_deneme_dic_item_question_item["checked"] == s.radio_option4:
-                    basliklar_deneme_dic_item_question_item["checked"] = "option4"
+                if "checked" in basliklar_deneme_dic_item_question_item:
+                    if basliklar_deneme_dic_item_question_item["checked"] == s.radio_option4:
+                        basliklar_deneme_dic_item_question_item["checked"] = "option4"
             
             if s.inputName : basliklar_deneme_dic_item_question_item["inputName"] = s.inputName
             if s.input_type : basliklar_deneme_dic_item_question_item["input_type"] = s.input_type
@@ -184,20 +191,24 @@ def generate_questionnsire_forms():
             if s.inputName3 : basliklar_deneme_dic_item_question_item["inputName3"] = s.inputName3
             if s.input_type3 : basliklar_deneme_dic_item_question_item["input_type3"] = s.input_type3
             if s.currentSelection : 
+                total = []
                 basliklar_deneme_dic_item_question_item["currentSelection"] = " "
                 #2-1-2_current_selection
                 check_answer = str(s.qsc_id) + "-" + str(s.qfq_sort_number) + "-"
                 if  check_answer + "1_current_selection" in cevap_json:
-                    total = cevap_json[check_answer + "1_current_selection"].split(" ")
+                    if cevap_json[check_answer + "1_current_selection"]:
+                        total = cevap_json[check_answer + "1_current_selection"].split(" ")
                 elif  check_answer + "2_current_selection" in cevap_json:
-                    total = cevap_json[check_answer + "2_current_selection"].split(" ")
+                    if cevap_json[check_answer + "2_current_selection"]:
+                        total = cevap_json[check_answer + "2_current_selection"].split(" ")
                 else:
                     print("\n\n\n\n_________________________________\n\n\nOLMADI1")
                 print("\n\n\n",check_answer)
-                basliklar_deneme_dic_item_question_item["currency_answer"] = total[0]
                 if len(total) == 2:
+                    basliklar_deneme_dic_item_question_item["currency_answer"] = total[0]
                     basliklar_deneme_dic_item_question_item["ca_selection"] = total[1]
-                else:
+                elif len(total) == 1:
+                    basliklar_deneme_dic_item_question_item["currency_answer"] = total[0]
                     basliklar_deneme_dic_item_question_item["ca_selection"] = "$"
             if s.textarea :
                 #textarea_8-9-3
