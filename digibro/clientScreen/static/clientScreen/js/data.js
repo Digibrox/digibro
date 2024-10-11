@@ -162,7 +162,7 @@ document.getElementById("save_answers_placement").addEventListener("click", func
         }
     }
     console.log(dataToSend)
-    fetch("http://localhost:8000/questions/update-data/", {
+    fetch("http://185.87.252.236:5555/questions/update-data/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
