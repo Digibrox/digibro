@@ -23,7 +23,7 @@ def save_data(request):
             print("\n\n\nDataaa:\n")
             print(data)
             qfq_answer = QFQAnswer(
-                last_user = "broker",
+                last_user = data.get("last_user"),
                 input_1_1_1=data.get("input_1-1-1"),
                 input_1_2_1=data.get("input_1-2-1"),
                 input_1_3_1=data.get("input_1-3-1"),
@@ -100,23 +100,33 @@ def save_data(request):
             # Veritabanına kaydet
             qfq_answer.save()
 
-            # # #DB den çekilen bilgiler
-            # smtp_server = 'mail.digibrox.com'
-            # stmp_port = 465
-            # password = "FSO3yWZqM7qNS4C"  # Gönderici e-posta şifresi
+            # #E-posta mesajı
+            subject = data.get("popupAxaInput")  # E-posta konusu
+            if not subject: data.get("mutluAkuInput")
+            body_first = data.get("mailTextClient")
+            if not body_first: data.get("mailTextPlacement") 
+            print("Fronttan gelen data:\n",subject,body_first)
+            # DB'den çekilen bilgiler
+            smtp_server = 'mail.digibrox.com'
+            stmp_port = 465
+            password = "testdigibrox2024"  # Gönderici e-posta şifresi
 
-            # sender_email = "fatihaydin@digibrox.com"  # Gönderici e-posta adresi
-            # # receiver_emails = ['oguzhanyildirim@digibrox.com',]  # test e-posta adresleri
-            # receiver_emails = ["oguzhanyildirim@digibrox.com","ibrahimyasar@digibrox.com",]  # Alıcı e-posta adresleri
-            # # subject = 'New Questionnaire Form Notification'  # E-posta konusu
-            # # #E-posta mesajı
-            # # body = "Hello,\n\n"\
-            # #     + "I kindly request you to fill out the newly created questionnaire form.\n"\
-            # #     + "Best regards,\n"\
-            # #     + "Have a good work day."
-
-            # # send_email(sender_email, password, receiver_emails, smtp_server, stmp_port, subject, body)
-
+            sender_email = "test@digibrox.com"  # Gönderici e-posta adresi
+            receiver_emails = ['fatihaydin@digibrox.com',]  # Alıcı e-posta adresleri
+            if not subject: subject = 'Fronttan gelen başlık burada'  # E-posta konusu
+            if not body_first: body_first = 'Fronttan gelen mesaj burada'
+            image_url = "http://127.0.0.1:8000/static/questions/img/lockton.png"
+            # E-posta mesajı
+            body_last =  "Saygılarımla,\n"\
+                    +"Melis Deniz\n"\
+                    +"Broker\n"\
+                    +"Lockton | Omni\n"\
+                    +"Telefon: +90 555 444 33 22\n"\
+                    +"E-posta: example@locktonomni.com\n"\
+                    +"Web: www.locktonomni.com\n"\
+                        
+            body = "\n\n\n" +body_last
+            send_email(sender_email, password, receiver_emails, smtp_server, stmp_port, subject, body_first, body, image_url)
             return JsonResponse({'message': 'Veri başarıyla kaydedildi!'})
         except json.JSONDecodeError:
             return JsonResponse({'error': 'Invalid JSON'}, status=400)
@@ -128,14 +138,15 @@ def save_data(request):
 def update_data(request):
     if request.method == 'POST':
         try:
+            print("update mesaj çalıştı")
             cevap_json = json.loads(request.body)
             qfqa_id = cevap_json.get("qfqa_id")  # JSON'dan ID'yi alın
-            
+            last_user = cevap_json.get("last_user")
             # Belirtilen ID'ye sahip kaydı bulun
             qfq_answer = get_object_or_404(QFQAnswer, qfqa_id=qfqa_id)
 
             # JSON'dan gelen verileri model alanlarına atayın
-            qfq_answer.last_user = cevap_json.get("last_user", qfq_answer.last_user)
+            qfq_answer.last_user = last_user
             qfq_answer.input_1_1_1 = cevap_json.get("input_1-1-1", qfq_answer.input_1_1_1)
             qfq_answer.input_1_2_1 = cevap_json.get("input_1-2-1", qfq_answer.input_1_2_1)
             qfq_answer.input_1_3_1 = cevap_json.get("input_1-3-1", qfq_answer.input_1_3_1)

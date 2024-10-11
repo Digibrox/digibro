@@ -1,4 +1,78 @@
+function displayEditorContents() {
+    // #editor altındaki .ql-editor içeriğini al
+    const qlEditorContent1 = document.querySelector('#editor .ql-editor');
+    const qlEditorContent2 = document.querySelector('#editor2 .ql-editor');
+
+    let mailTextClient = '';
+    let mailTextPlacement = '';
+
+    // İlk editor içeriğini kontrol et
+    if (qlEditorContent1) {
+        const paragraphs1 = qlEditorContent1.querySelectorAll('p');
+        let texts1 = [];
+        
+        for (let i = 0; i < paragraphs1.length; i++) {
+            if (paragraphs1[i].textContent.includes("Saygılarımla,")) {
+                break;
+            }
+            const text = paragraphs1[i].textContent.trim();
+            if (text) {
+                texts1.push(text);
+            }
+        }
+        
+        // İlk editor sonuçlarını birleştir
+        const result1 = texts1.join('\n');
+        mailTextClient += result1 + '\n'; // İlk içerik ile birleştir
+    } else {
+        console.error("#editor içeriği bulunamadı.");
+    }
+
+    // İkinci editor içeriğini kontrol et
+    if (qlEditorContent2) {
+        const paragraphs2 = qlEditorContent2.querySelectorAll('p');
+        let texts2 = [];
+        
+        for (let i = 0; i < paragraphs2.length; i++) {
+            if (paragraphs2[i].textContent.includes("Saygılarımla,")) {
+                break;
+            }
+            const text = paragraphs2[i].textContent.trim();
+            if (text) {
+                texts2.push(text);
+            }
+        }
+
+        // İkinci editor sonuçlarını birleştir
+        const result2 = texts2.join('\n');
+        mailTextPlacement += result2 + '\n'; // İkinci içerik ile birleştir
+    } else {
+        console.error("#editor2 içeriği bulunamadı.");
+    }
+
+    // mailTextClient ve mailTextPlacement değerlerini p etiketine yazdır ve id'lerini ekle
+    const pClient = document.createElement('p');
+    pClient.id = 'mailTextClient';
+    pClient.textContent = mailTextClient;
+    document.body.appendChild(pClient); // pClient etiketini body'ye ekle
+
+    const pPlacement = document.createElement('p');
+    pPlacement.id = 'mailTextPlacement';
+    pPlacement.textContent = mailTextPlacement;
+    document.body.appendChild(pPlacement); // pPlacement etiketini body'ye ekle
+
+    // Konsola da yazdırmak isterseniz:
+    console.log("mailTextClient:\n", mailTextClient);
+    console.log("mailTextPlacement:\n", mailTextPlacement);
+    const mailTextClientContent = document.getElementById('mailTextClient').textContent;
+    console.log(mailTextClientContent); // mailTextClient içeriğini konsola yazdırır
+
+const mailTextPlacementContent = document.getElementById('mailTextPlacement').textContent;
+console.log(mailTextPlacementContent); // mailTextPlacement içeriğini konsola yazdırır
+}
+
 function getFormData() {
+    displayEditorContents()
     let jsonData = {};
 
     // 1. Blok: Genel Bilgiler
@@ -99,14 +173,6 @@ function getFormData() {
      jsonData["7-2-1_current_selection"] = document.getElementById('7-2_current_selection').value;  // Tutar Seçimi
      jsonData["7-3-1_current_selection"] = document.getElementById('7-3_current_selection').value;  // Tutar Seçimi
      jsonData["7-4-1_current_selection"] = document.getElementById('7-4_current_selection').value;  // Tutar Seçimi
-
-
-
-
-
-
-
-
      // 8. Blok: Hırsızlık Accordion
      let HirsizlikAccordion_radio_Q1_1 = document.querySelector('input[name="radio_8-1"]:checked');
      jsonData["HirsizlikAccordion_radio_Q1_8-1-1"] = HirsizlikAccordion_radio_Q1_1 ? HirsizlikAccordion_radio_Q1_1.value : null;  
@@ -126,7 +192,39 @@ function getFormData() {
      jsonData["HirsizlikAccordion_radio_Q1_8-8-1"] = HirsizlikAccordion_radio_Q8_1 ? HirsizlikAccordion_radio_Q8_1.value : null;  
      jsonData["textarea_8-8-2"] = document.getElementById('textarea_8-8').value;  // Olaylar açıklaması
 
+    //jsonData["qfqa_id"] = document.getElementById('qfqa_id').value;  
+    jsonData["last_user"] = "Broker";  
+    
+
+
+ 
+
+    let popupAxaInputElement = document.getElementById("popupAxaInput");
+    let mutluAkuInputElement = document.getElementById("mutluAkuInput");
+
+    let mail_text_placementElement = document.getElementById('mailTextPlacement');
+    let mailTextClientElement = document.getElementById('mailTextClient');
+
+    // Eğer mutluAkuInput mevcut ve değeri varsa, onu kullan
+    if (popupAxaInputElement && popupAxaInputElement.value) {
+        jsonData["popupAxaInput"] = popupAxaInputElement.value;
+    } else if (mutluAkuInputElement && mutluAkuInputElement.value) {
+        // Eğer mutluAkuInput yoksa, mail_text_client değerini kullan
+        jsonData["mutluAkuInput"] = mutluAkuInputElement.value;
+    }
      
+  
+   
+
+    // Eğer mutluAkuInput mevcut ve değeri varsa, onu kullan
+    if (mail_text_placementElement && mail_text_placementElement.value) {
+        jsonData["mail_text_placement"] = mail_text_placementElement.value;
+    } else if (mailTextClientElement && mailTextClientElement.value) {
+        // Eğer mutluAkuInput yoksa, mail_text_client değerini kullan
+        jsonData["mail_text_client"] = mailTextClientElement.value;
+    }
+    jsonData["mailTextClient"] = document.getElementById('mailTextClient').textContent;
+    jsonData["mailTextPlacement"] = document.getElementById('mailTextPlacement').textContent;
     return jsonData;
 }
 
@@ -161,6 +259,7 @@ document.getElementById("save_answers_placement").addEventListener("click", func
         console.error("Error:", error);
     });
 });
+
 
 // CSRF tokenini almak için bir yardımcı fonksiyon
 function getCookie(name) {

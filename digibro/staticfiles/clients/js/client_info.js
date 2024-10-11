@@ -1,60 +1,39 @@
-document.querySelectorAll(".accordion-item").forEach((item) => {
-  item.querySelector(".accordion-item-header").addEventListener("click", () => {
-    item.classList.toggle("open");
-  });
-});
+// document.querySelectorAll(".accordion-item").forEach((item) => {
+//   item.querySelector(".accordion-item-header").addEventListener("click", () => {
+//     item.classList.toggle("open");
+//   });
+// });
 
-document.querySelector('.masakButton').addEventListener('click', function() {
-  document.querySelector('.upload-area__title').textContent = "Upload Masak Document";
-  document.getElementById('masakDoc').style.display = "flex";
-  document.getElementById('generalDocumentDiv').style.display = "none";
+// document.querySelector('.masakButton').addEventListener('click', function() {
+//   document.querySelector('.upload-area__title').textContent = "Upload Masak Document";
+//   document.getElementById('masakDoc').style.display = "flex";
+//   document.getElementById('generalDocumentDiv').style.display = "none";
   
-  document.getElementById('openFilters').click();
-});
-document.getElementById('closeMasak').addEventListener('click', closeMasak);
-function closeMasak(){
-  document.getElementById('masakDoc').style.display= "none";
-  document.getElementById('generalDocumentDiv').style.display = "flex";
-}
-document.querySelector('.authorityButton').addEventListener('click', function() {
-  document.querySelector('.upload-area__title').textContent = "Upload Authority Letter Document";
-  document.getElementById('masakDoc').style.display = "flex";
-  document.getElementById('openFilters').click();
-  document.getElementById('generalDocumentDiv').style.display = "none";
-});
-document.getElementById('authAccordionItem').addEventListener('click', closeMasak);
-document.getElementById('masakAccordionItem').addEventListener('click', closeMasak);
+//   document.getElementById('openFilters').click();
+// });
+// document.getElementById('closeMasak').addEventListener('click', closeMasak);
+// function closeMasak(){
+//   document.getElementById('masakDoc').style.display= "none";
+//   document.getElementById('generalDocumentDiv').style.display = "flex";
+// }
+// document.querySelector('.authorityButton').addEventListener('click', function() {
+//   document.querySelector('.upload-area__title').textContent = "Upload Authority Letter Document";
+//   document.getElementById('masakDoc').style.display = "flex";
+//   document.getElementById('openFilters').click();
+//   document.getElementById('generalDocumentDiv').style.display = "none";
+// });
+// document.getElementById('authAccordionItem').addEventListener('click', closeMasak);
+// document.getElementById('masakAccordionItem').addEventListener('click', closeMasak);
 
-document.addEventListener('DOMContentLoaded', () => {
-  const closeFilters = document.getElementById('closeFilters');
-  const openFilters = document.getElementById('openFilters');
-  const filtersBottom = document.getElementById('filtersBottom');
-  const filtersHr = document.getElementById('filtersHr');
+// document.addEventListener('DOMContentLoaded', () => {
+//   const closeFilters = document.getElementById('closeFilters');
+//   const openFilters = document.getElementById('openFilters');
+//   const filtersBottom = document.getElementById('filtersBottom');
+//   const filtersHr = document.getElementById('filtersHr');
 
-  closeFilters.addEventListener('click', () => {
-    filtersBottom.classList.add('hidden');
-    filtersHr.classList.add('hidden');
-    setTimeout(() => {
-      filtersBottom.style.display = 'none';
-      filtersHr.style.display = 'none';
-    }, 10);
 
-    closeFilters.style.display = 'none';
-    openFilters.style.display = 'inline';
-  });
 
-  openFilters.addEventListener('click', () => {
-    filtersBottom.style.display = 'flex';
-    filtersHr.style.display = 'block';
-    setTimeout(() => {
-      filtersBottom.classList.remove('hidden');
-      filtersHr.classList.remove('hidden');
-    }, 10);
-
-    openFilters.style.display = 'none';
-    closeFilters.style.display = 'inline';
-  });
-});
+// });
 
 // Select Upload-Area
 const uploadArea = document.querySelector('#uploadArea');
@@ -200,7 +179,13 @@ $(document).ready(function() {
       }
     }
   });
-
+  new DataTable('#mainTable2', {
+    layout: {
+      topStart: {
+        buttons: ['pdf', 'excel', 'copy']
+      }
+    }
+  });
   new DataTable('#example2', {
     layout: {
       topStart: {
@@ -365,15 +350,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const commentModal = new bootstrap.Modal(document.getElementById('commentModal'));
   const modalCommentText = document.getElementById('modalCommentText');
 
-  addItemButton.addEventListener('click', function() {
-    form.style.display = 'block';
-    addItemButton.style.display = 'none';
-  });
 
-  closeAddOfferIcon.addEventListener('click', function() {
-    form.style.display = 'none';
-    addItemButton.style.display = 'flex';
-  });
 
   const statusSelect = document.getElementById('status');
   const rejectReasonWrapper = document.getElementById('rejectReasonWrapper');
@@ -600,4 +577,10 @@ $( document ).ready(function() {
     $('#foldersGroup').removeClass('d-none');
     $('#filesGroup').addClass('d-none')
   });
+});
+document.getElementById('addItemOffer').addEventListener('click', function() {
+  var modal = new bootstrap.Modal(document.getElementById('modal2'), {
+    keyboard: false
+  });
+  modal.show();
 });

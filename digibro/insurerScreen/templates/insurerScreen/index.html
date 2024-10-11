@@ -84,46 +84,46 @@
                         <span style="color: #fff">Send Questionnaire</span>
                       </a>
                     </li>
-                    <li>
+                    <li style="display:none;">
                       <a href="">
                         <i class="bi bi-layers-fill"></i>
                         <span>Policies</span>
                       </a>
                     </li>
 
-                    <li>
+                    <li style="display:none;">
                       <a href="">
                         <i class="bi bi-brilliance"></i>
                         <span>Payments</span>
                       </a>
                     </li>
-                    <li>
+                    <li style="display:none;">
                       <a href="">
                         <i class="bi bi-symmetry-horizontal"></i>
                         <span>Risk Calendar</span>
                       </a>
                     </li>
-                    <li>
+                    <li style="display:none;">
                       <a href="">
                         <i class="bi bi-award"></i>
                         <span>Claims</span>
                       </a>
                     </li>
 
-                    <li><span class="generalText">Extra</span></li>
-                    <li>
+                    <li style="display:none;"><span class="generalText">Extra</span></li>
+                    <li style="display:none;">
                       <a href="#">
                         <i class="bi bi-journal-text"></i>
                         <span>Documentation</span>
                       </a>
                     </li>
-                    <li>
+                    <li style="display:none;">
                       <a href="#">
                         <i class="bi bi-calendar-fill"></i>
                         <span>Calendar</span>
                       </a>
                     </li>
-                    <li>
+                    <li style="display:none;">
                       <a href="#">
                         <i class="bi bi-folder-fill"></i>
                         <span>Examples</span>
@@ -174,7 +174,7 @@
 
       <div class="accordion">
         <div class="accordion-item">
-          <label for="accordion1" class="accordion-item-title">
+          <label for="accordion1" class="accordion-item-title" style="background:#fff;">
             <svg width="134" height="25" id="locktonSvg" viewBox="0 0 134 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M118.906 9.04643V11.9296C122.942 11.1853 126.349 11.3177 129.088 11.8248C128.807 9.79064 127.617 8.77631 125.505 8.77631C124.259 8.77631 123.195 9.35514 122.324 10.5183V9.04091H118.906V9.04643Z" fill="white"></path>
               <path d="M129.805 9.48187V11.9681C131.255 12.2823 132.506 12.7013 133.543 13.1313V12.2768L129.805 9.48187Z" fill="white"></path>
@@ -493,7 +493,7 @@
   padding: .37rem .45rem !important;
   border-radius: 0.25rem !important;
   font-weight: 400 !important;
-  line-height: 1.5 !important;" id="{{ x.qfq_sort_number }}-{{ x.qsc_id }}_current_selection" value="{{ x.currency_answer }}" name="{{ x.qfq_sort_number }}-{{ x.qsc_id }}_current_selection" placeholder="0" size="8" oninput=" ('{{ accordion.accordion_id }}', {{ forloop.counter }})">
+  line-height: 1.5 !important;" id="{{ x.qsc_id }}-{{ x.qfq_sort_number }}_current_selection" value="{{ x.currency_answer }}" name="{{ x.qsc_id }}-{{ x.qfq_sort_number }}_current_selection" placeholder="0" size="8" oninput=" ('{{ accordion.accordion_id }}', {{ forloop.counter }})">
                                 <div style="background: #e4e4e469;" class="input-group-addon currency-addon">
                                   <!-- <select class="currency-selector" onchange=" ('{{ accordion.accordion_id }}', {{ forloop.counter }})">
                                     <option data-symbol="$" data-placeholder="0" selected>USD</option>
@@ -575,7 +575,7 @@
               
             
              
-              <button class="buttonSendForm">
+              <button id="save_answers_placement" class="buttonSendForm">
                 <span class="btn__icon">
                   <i class="bi bi-send"></i>
                 </span>
@@ -665,9 +665,13 @@ document.getElementById("input_1-11-1").addEventListener("change", function() {
         });
       });
     </script>
+    <script>
+      const denemeValue = '{{ basliklar.0.qfqa_id|escapejs }}';
+      console.log(denemeValue);
+  </script>
     <script src="{% static 'clientScreen/js/script2.js' %}"></script>
     <script src="{% static 'clientScreen/js/script.js' %}"></script>
-
+    <script src="{% static 'clientScreen/js/data.js' %}"></script>
     <script src="{% static 'questions/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'questions/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'questions/js/sidebar.js' %}"></script>

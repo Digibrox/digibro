@@ -56,22 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// tarih__input__check input alanını al
-var tarihInput = document.getElementById('tarih__input__check');
-var hasarInput = document.getElementById('hasar__input__check');
 
-
-// tarih__input__check__checkbox checkbox'unu al
-var checkbox = document.getElementById('tarih__input__check__checkbox');
-var checkbox2 = document.getElementById('tutar__input__check__checkbox');
-// tarih__input__check input alanının değerini kontrol et
-function checkTarihInput() {
-    if (tarihInput.value.trim() !== '') { // Eğer input alanı doluysa
-        checkbox.checked = true; // Checkbox'u seçili yap
-    } else {
-        checkbox.checked = false; // Checkbox'u seçimden kaldır
-    }
-}
 
 function checkHasarInput() {
   if (hasarInput.value.trim() !== '') { // Eğer input alanı doluysa
@@ -80,12 +65,7 @@ function checkHasarInput() {
       checkbox2.checked = false; // Checkbox'u seçimden kaldır
   }
 }
-// Herhangi bir değişiklik olduğunda tarih__input__check input alanını kontrol et
-tarihInput.addEventListener('input', checkTarihInput);
-hasarInput.addEventListener('input', checkHasarInput);
 
-// Sayfa yüklendiğinde tarih__input__check input alanını kontrol et
-document.addEventListener('DOMContentLoaded', checkTarihInput);
 document.addEventListener('DOMContentLoaded', checkHasarInput);
 var data = [
     {
@@ -248,6 +228,14 @@ $("#search-form").submit(function(e) {
 
 
 
+// Date input değiştiğinde checkbox'ı checked yap
+document.getElementById("input_1-1-1").addEventListener("change", function() {
+    document.getElementById("client-checkbox_informationAccordion2_11").checked = true;
+});
+// Date input değiştiğinde checkbox'ı checked yap
+document.getElementById("input_1-11-1").addEventListener("change", function() {
+    document.getElementById("client-checkbox_informationAccordion2_21").checked = true;
+});
 
 
 $(".custom-button").click(function() {

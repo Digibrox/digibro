@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 function toggleBrokerSelections() {
   var selectAllCheckbox = document.getElementById("broker-select-all");
-  var brokerCheckboxes = document.getElementsByClassName("broker-select-box");
+  var brokerCheckboxes = document.getElementsByClassName("client-select-box");
 
   for (var i = 0; i < brokerCheckboxes.length; i++) {
     brokerCheckboxes[i].checked = selectAllCheckbox.checked;
@@ -41,7 +41,7 @@ function toggleBrokerSelectionsYangin() {
     "broker-select-allYangin"
   );
   var brokerCheckboxesYangin = document.getElementsByClassName(
-    "broker-select-boxYangin"
+    "client-select-boxYangin"
   );
 
   for (var i = 0; i < brokerCheckboxesYangin.length; i++) {
@@ -64,7 +64,7 @@ function toggleClientSelectionsYangin() {
 function toggleBrokerSelectionsEC() {
   var selectAllCheckboxEC = document.getElementById("broker-select-allEC");
   var brokerCheckboxesEC = document.getElementsByClassName(
-    "broker-select-boxEC"
+    "client-select-boxEC"
   );
 
   for (var i = 0; i < brokerCheckboxesEC.length; i++) {
@@ -87,7 +87,7 @@ function toggleClientSelectionsEC() {
 function toggleBrokerSelectionsMK() {
   var selectAllCheckboxMK = document.getElementById("broker-select-allMK");
   var brokerCheckboxesMK = document.getElementsByClassName(
-    "broker-select-boxMK"
+    "client-select-boxMK"
   );
 
   for (var i = 0; i < brokerCheckboxesMK.length; i++) {
@@ -110,7 +110,7 @@ function toggleClientSelectionsMK() {
 function toggleBrokerSelectionsIMM() {
   var selectAllCheckboxIMM = document.getElementById("broker-select-allIMM");
   var brokerCheckboxesIMM = document.getElementsByClassName(
-    "broker-select-boxIMM"
+    "client-select-boxIMM"
   );
 
   for (var i = 0; i < brokerCheckboxesIMM.length; i++) {
@@ -133,7 +133,7 @@ function toggleClientSelectionsIMM() {
 function toggleBrokerSelectionsTPL() {
   var selectAllCheckboxTPL = document.getElementById("broker-select-allTPL");
   var brokerCheckboxesTPL = document.getElementsByClassName(
-    "broker-select-boxTPL"
+    "client-select-boxTPL"
   );
 
   for (var i = 0; i < brokerCheckboxesTPL.length; i++) {
@@ -161,41 +161,3 @@ function selectCheckbox() {
       checkbox.checked = true;
   });
 }
-
-document.getElementById("customerInfos").addEventListener("click", function () {
-    selectCheckbox()
-    document.getElementById("teklif__no").value = "DBX00001";
-    document.getElementById("sigortali__adi").value =
-      "Dose Gayrimenkul İşletmeleri ve Danışmanlık A.Ş.";
-    document.getElementById("vkn__input").value = "3101034522.00";
-    document.getElementById("il__input").value = "Kocaeli";
-    document.getElementById("ilce__input").value = "Gebze";
-    document.getElementById("mahalle__input").value = "Gebze OSB2";
-    document.getElementById("faaliyet__input").value = "Döküm Sektörü";
-    document.getElementById("personel__sayisi").value = "210";
-    document.getElementById("koordinat__n").value = "41.0282";
-    document.getElementById("koordinat__e").value = "58.0282";
-    document.getElementById("yetkili__kisi").value = "Oğuzhan YILDIRIM";
-    document.getElementById("vardiya__sayisi").value = "3 Vardiya (24 Saat)";
-    document.getElementById("telefon__input").value = "+90 506 999 99 99";
-    document.getElementById("email__input").value = "oguzhanyildirim@digibrox.com";
-    document.getElementById("onceki__sigorta").value = "X Sigorta";
-  });
-
-  document.getElementById("resetCustomerButton").addEventListener("click", function () {
-    document.getElementById("teklif__no").value = "";
-    document.getElementById("sigortali__adi").value = "";
-    document.getElementById("vkn__input").value = "";
-    document.getElementById("il__input").value = "";
-    document.getElementById("ilce__input").value = "";
-    document.getElementById("mahalle__input").value = "";
-    document.getElementById("faaliyet__input").value = "";
-    document.getElementById("personel__sayisi").value = "";
-    document.getElementById("koordinat__n").value = "";
-    document.getElementById("koordinat__e").value = "";
-    document.getElementById("yetkili__kisi").value = "";
-    document.getElementById("vardiya__sayisi").value = "";
-    document.getElementById("telefon__input").value = "";
-    document.getElementById("vardiya__sayisi").value = "";
-    document.getElementById("onceki__sigorta").value = "";
-  });

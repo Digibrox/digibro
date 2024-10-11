@@ -1,0 +1,145 @@
+.product {
+	margin-bottom: 30px;
+}
+.product-inner {
+	box-shadow: 0 0 10px rgba(0,0,0,.2);
+	padding: 10px;
+}
+.product img {
+	margin-bottom: 10px;
+}
+.company-card{
+	width: 22.5% !important;
+    padding: 0 !important;
+}
+.card{
+	width: 100% !important;
+}
+#users{
+	gap: 36px;
+	justify-content: center;
+	
+}
+.company-card p{
+	color: #495057;
+	font-size: 15px;
+	gap: 5px;
+    color: #74788d;
+    font-weight: 500;
+    font-size: 13px;
+    text-align: center;
+    margin: 0;
+}
+.card-body{
+	justify-content: center;
+    display: flex;
+    flex-direction: column;
+	gap: 4px;
+}
+.card-body{
+	justify-content: center;
+    display: flex;
+    flex-direction: column;
+	gap: 4px;
+}
+.card-body img{
+    width: 50px;
+    align-self: center;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+.card-body button{
+	padding: 4px;
+    border: 1px solid;
+	margin-top: auto;
+    background: #102a43 !important;
+    border-color: #102a43 !important;
+    color: #f0f4f8 !important;
+}
+.card{
+	min-height: 200px !important;
+}
+#defImg{
+	width: 140px !important;
+}
+.card-title{
+	font-weight: 600;
+}
+#digiImg{
+	width: 100px;
+	    margin-bottom: 4px;
+}
+.card-text{
+	display: flex;
+}
+.card-body button{
+    font-size: 12px;
+    padding: 2px;
+    font-weight: 400;
+    border-radius: 4px;
+    letter-spacing: 0.1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+.accordion-item2{
+	border-radius: 0px;
+    margin: 0;
+    width: 86.5%;
+    margin-left: auto;
+    background: #fff;
+
+    height: 64px;
+}
+.modal {
+    position: fixed;
+    z-index: 1050;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal İçerik */
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	padding: 11px !important;
+}
+
+.modal-header .close {
+    background: none;
+    border: none;
+    font-size: 24px;
+}
+.companiesAdd label{
+	margin: 0;
+    font-size: 13px;
+}
+.modal-title{
+	font-size: 14px;
+    text-align: center;
+    width: 100%;
+	color: #495057;
+    margin: 0;
+}

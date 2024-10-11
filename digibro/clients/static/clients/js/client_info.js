@@ -449,14 +449,14 @@ document.addEventListener('DOMContentLoaded', function() {
       <td>${company}</td>
       <td>${offerID}</td>
       <td>${policyType}</td>
-      <td class="text-center">${quoteDate}</td>
-      <td class="text-center">${quoteValidUntil}</td>
+      <td>${quoteDate}</td>
+      <td>${quoteValidUntil}</td>
       <td>${reinsurers}</td>
       <td>${shortAddress}</td>
-      <td class="text-center">${limit}$</td>
+      <td>${limit}$</td>
       <td>${premium}$</td>
       <td>${status}</td>
-      <td class="text-center">${rejectReasonContent}</td>
+      <td >${rejectReasonContent}</td>
       <td style="display:none;" id="rejectCommentData">${rejectComment}</td>
     `;
 
@@ -511,14 +511,14 @@ document.addEventListener('DOMContentLoaded', function() {
       <td>${data.company}</td>
       <td>${data.offerID}</td>
       <td>${data.policyType}</td>
-      <td class="text-center">${data.quoteDate}</td>
-      <td class="text-center">${data.quoteValidUntil}</td>
+      <td>${data.quoteDate}</td>
+      <td>${data.quoteValidUntil}</td>
       <td>${data.reinsurers}</td>
       <td>${data.shortAddress}</td>
-      <td class="text-center">${data.limit}</td>
+      <td>${data.limit}</td>
       <td>${data.premium}</td>
       <td>${data.status}</td>
-      <td class="text-center">${rejectReasonContent}</td>
+      <td>${rejectReasonContent}</td>
       <td style="display:none;" id="rejectCommentData">${data.rejectComment}</td>
     `;
 

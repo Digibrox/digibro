@@ -9,6 +9,7 @@
     <link href="{% static 'questions/css/py.css' %}" rel="stylesheet" />
     <link href="{% static 'questions/css/user.css' %}" rel="stylesheet" />
     <link href="{% static 'questions/css/dashboard.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/modal.css' %}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@1.13.12/iconfont/material-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ion-rangeslider@2.3.1/css/ion.rangeSlider.min.css"/>
 
@@ -106,33 +107,33 @@
                         <span>Insurers</span>
                       </a>
                     </li>
-                    <li>
+                    <li style="display:none;">
                       <a href="{% url 'insurers:index' %}">
                         <i class="bi bi-symmetry-horizontal"></i>
                         <span>Risk Reports</span>
                       </a>
                     </li>
-                    <li>
+                    <li style="display:none;">
                       <a href="{% url 'insurers:index' %}">
                         <i class="bi bi-award"></i>
                         <span>Claims</span>
                       </a>
                     </li>
 
-                    <li><span class="generalText">Extra</span></li>
-                    <li>
+                    <li style="display:none;"><span class="generalText">Extra</span></li>
+                    <li style="display:none;">
                       <a href="#">
                         <i class="bi bi-journal-text"></i>
                         <span>Documentation</span>
                       </a>
                     </li>
-                    <li>
+                    <li style="display:none;">
                       <a href="#">
                         <i class="bi bi-calendar-fill"></i>
                         <span>Calendar</span>
                       </a>
                     </li>
-                    <li>
+                    <li style="display:none;">
                       <a href="#">
                         <i class="bi bi-folder-fill"></i>
                         <span>Examples</span>
@@ -184,7 +185,7 @@
       <div class="accordion">
         <div class="accordion-item" style="border-radius: 0px;">
           <input type="checkbox" id="accordion1" />
-          <label for="accordion1" class="accordion-item-title">
+          <label for="accordion1" class="accordion-item-title" style="background:#fff !important;">
             <svg
               width="134"
               height="25"
@@ -294,29 +295,41 @@
                               <div class="col-xxl-2 col-lg-4">
                                   <div class="position-relative">
                                       <select class="form-select" id="idType" aria-label="Default select example">
-                                          <option value="all">Select for</option>
-                                          <option value="Freelance">Freelance</option>
-                                          <option value="Full Time">Full Time</option>
-                                          <option value="Part Time">Part Time</option>
-                                          <option value="Internship">Internship</option>
+                                          <option value="all">Industry</option>
+                                          <option value="Energy">Energy</option>
+                                          <option value="Full Time">Holding</option>
+                                          <option value="Full Time">IT/Technology Services</option>
+                                          <option value="Construction">Consultanting</option>
+                                          
+                                       
                                       </select>
                                   </div>
                               </div>
                               <!--end col-->
-                              <div class="col-xxl-2 col-lg-6">
-                                  <div class="position-relative">
-                                      <div id="datepicker1">
-                                          <input type="text" class="form-control" placeholder="Select date" data-date-format="dd M, yyyy" data-date-container="#datepicker1" data-date-autoclose="true" data-provide="datepicker">
-                                      </div><!-- input-group -->
-                                  </div>
-                              </div>
+                              <div class="col-xxl-2 col-lg-4">
+                                <div class="position-relative">
+                                    <select class="form-select" id="idType" aria-label="Default select example">
+                                        <option value="all">Region</option>
+                                        <option value="Marmara">Marmara Region
+                                        </option>
+                                        <option value="Aegean">Aegean Region</option>
+                                        <option value="Mediterranean">Mediterranean Region</option>
+                                        <option value="CentralAnatolia">Central Anatolia Region</option>
+                                        <option value="Black">Black Sea Region</option>
+                                        <option value="Eastern">Eastern Anatolia Region</option>
+                                        <option value="Southeastern">Southeastern Anatolia Region</option>
+                                        
+                                     
+                                    </select>
+                                </div>
+                            </div>
                               <!--end col-->
       
                               <div class="col-xxl-4 col-lg-6">
                                   <div class="position-relative h-100 hstack gap-3">
                                       <button type="submit" class="btn btn-primary h-100 w-100" ><i class="bx bx-search-alt align-middle"></i>Search</button>
-                                      <button type="submit" class="btn btn-primary h-100 w-100" ><i class="bx bx-search-alt align-middle"></i>Add Item</button>
-                                      <button type="submit" class="btn btn-primary h-100 w-100" ><i class="bx bx-search-alt align-middle"></i>See All</button>
+                                      <button id="addAccountButton" type="submit" class="btn btn-primary h-100 w-100" ><i class="bx bx-search-alt align-middle" ></i>Add Account</button>
+                                      <button type="submit" class="btn btn-primary h-100 w-100 seeAllAccountButton" ><i class="bx bx-search-alt align-middle"></i><a href="{% url 'clients:index' %}">See All</a></button>
                                     
                                   </div>
                               </div>
@@ -402,7 +415,8 @@
                         <p class="mb-0 text-muted"> Quote: Health</p>
                        
                     </div>
-                    <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
+                    <button type="button" class="btn btn-primary dashboardButton"><a href="{% url 'clients:index' %}" style="
+    text-decoration: none;">View Profile<i class="bi bi-arrow-right-short"></i></a></button>
                 </div>
             </div>
         </div>
@@ -420,7 +434,8 @@
                       <p class="mb-0 text-muted"> Quote: Health</p>
                      
                   </div>
-                  <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
+                  <button type="button" class="btn btn-primary dashboardButton"><a href="{% url 'clients:index' %}" style="
+                    text-decoration: none;">View Profile<i class="bi bi-arrow-right-short"></i></a></button>
               </div>
           </div>
       </div>
@@ -439,7 +454,8 @@
                     <p class="mb-0 text-muted"> Quote: Health</p>
                    
                 </div>
-                <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
+                <button type="button" class="btn btn-primary dashboardButton"><a href="{% url 'clients:index' %}" style="
+                    text-decoration: none;">View Profile<i class="bi bi-arrow-right-short"></i></a></button>
             </div>
         </div>
     </div>
@@ -457,7 +473,8 @@
                   <p class="mb-0 text-muted"> Quote: Health</p>
                  
               </div>
-              <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
+              <button type="button" class="btn btn-primary dashboardButton"><a href="{% url 'clients:index' %}" style="
+                text-decoration: none;">View Profile<i class="bi bi-arrow-right-short"></i></a></button>
           </div>
       </div>
   </div>
@@ -476,7 +493,8 @@
                 <p class="mb-0 text-muted"> Quote: Health</p>
                
             </div>
-            <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
+            <button type="button" class="btn btn-primary dashboardButton"><a href="{% url 'clients:index' %}" style="
+                text-decoration: none;">View Profile<i class="bi bi-arrow-right-short"></i></a></button>
         </div>
     </div>
 </div>
@@ -495,7 +513,8 @@
               <p class="mb-0 text-muted"> Quote: Health</p>
              
           </div>
-          <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
+          <button type="button" class="btn btn-primary dashboardButton"><a href="{% url 'clients:index' %}" style="
+            text-decoration: none;">View Profile<i class="bi bi-arrow-right-short"></i></a></button>
       </div>
   </div>
 </div>
@@ -513,7 +532,8 @@
               <p class="mb-0 text-muted"> Quote: Health</p>
              
           </div>
-          <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
+          <button type="button" class="btn btn-primary dashboardButton"><a href="{% url 'clients:index' %}" style="
+            text-decoration: none;">View Profile<i class="bi bi-arrow-right-short"></i></a></button>
       </div>
   </div>
 </div>
@@ -531,7 +551,8 @@
               <p class="mb-0 text-muted"> Quote: Health</p>
              
           </div>
-          <button type="button" class="btn btn-primary dashboardButton">View Profile<i class="bi bi-arrow-right-short"></i></button>
+          <button type="button" class="btn btn-primary dashboardButton"><a href="{% url 'clients:index' %}" style="
+            text-decoration: none;">View Profile<i class="bi bi-arrow-right-short"></i></a></button>
       </div>
   </div>
 </div>
@@ -540,7 +561,7 @@
       <div class="todoListDiv">
         <div class="todoListDivTop">
           <h6><i class="bi bi-check-all"></i>To Do List</h6>
-          <button type="submit" class="btn btn-primary" onclick=""><i class="bx bx-search-alt align-middle"></i>Add Item</button>
+          <button  id="addToDoButton"type="submit" class="btn btn-primary" onclick=""><i class="bx bx-search-alt align-middle"></i>Add Item</button>
          </div>
          <div class="col-xxl-12 col-lg-4">
           <div class="position-relative">
@@ -761,29 +782,41 @@
                               <!--end col-->
                               <div class="col-xxl-2 col-lg-4">
                                   <div class="position-relative">
-                                      <select class="form-select" id="idType" aria-label="Default select example">
-                                          <option value="all">Select for</option>
-                                          <option value="Freelance">Freelance</option>
-                                          <option value="Full Time">Full Time</option>
-                                          <option value="Part Time">Part Time</option>
-                                          <option value="Internship">Internship</option>
-                                      </select>
+                                    <select class="form-select" id="idType" aria-label="Default select example">
+                                        <option value="all">Industry</option>
+                                        <option value="Energy">Energy</option>
+                                        <option value="Full Time">Holding</option>
+                                        <option value="Full Time">IT/Technology Services</option>
+                                        <option value="Construction">Consultanting</option>
+                                        
+                                     
+                                    </select>
                                   </div>
                               </div>
                            
                               <div class="col-xxl-2 col-lg-6">
-                                  <div class="position-relative">
-                                      <div id="datepicker1">
-                                          <input type="text" class="form-control" placeholder="Select date" data-date-format="dd M, yyyy" data-date-container="#datepicker1" data-date-autoclose="true" data-provide="datepicker">
-                                      </div><!-- input-group -->
-                                  </div>
-                              </div>
+                                <div class="position-relative">
+                                  <select class="form-select" id="idType" aria-label="Default select example">
+                                      <option value="all">Region</option>
+                                      <option value="Marmara">Marmara Region
+                                      </option>
+                                      <option value="Aegean">Aegean Region</option>
+                                      <option value="Mediterranean">Mediterranean Region</option>
+                                      <option value="CentralAnatolia">Central Anatolia Region</option>
+                                      <option value="Black">Black Sea Region</option>
+                                      <option value="Eastern">Eastern Anatolia Region</option>
+                                      <option value="Southeastern">Southeastern Anatolia Region</option>
+                                      
+                                   
+                                  </select>
+                                </div>
+                            </div>
                        
       
                               <div class="col-xxl-4 col-lg-6">
                                   <div class="position-relative h-100 hstack gap-3">
                                       <button type="submit" class="btn btn-primary h-100 w-100" ><i class="bx bx-search-alt align-middle"></i>Search</button>
-                                      <button type="submit" class="btn btn-primary h-100 w-100" ><i class="bx bx-search-alt align-middle"></i>Add Item</button>
+                                      <button id="addOppButton" type="submit" class="btn btn-primary h-100 w-100" ><i class="bx bx-search-alt align-middle"></i>Add Item</button>
                                       <button type="submit" class="btn btn-primary h-100 w-100" ><i class="bx bx-search-alt align-middle"></i>See All</button>
                                     
                                   </div>
@@ -1087,49 +1120,56 @@
 
          </div>
          <div class="optionsDivToDoList" style="margin-top: 17px;">
+            <div class="col-xxl-5 col-lg-4">
+                <div class="position-relative">
+                    <select class="form-select" id="idType" aria-label="Default select example">
+                        <option value="all">Policy Type</option>
+                        <option value="Health">Health</option>
+                        <option value="PC">P&C</option>
+                    </select>
+                </div>
+            </div>
          <div class="col-xxl-5 col-lg-4">
           <div class="position-relative">
-              <select class="form-select" id="idType" aria-label="Default select example">
-                  <option value="all">Region</option>
-                  <option value="Freelance">America</option>
-                  <option value="Full Time" id="europeOpen">Europe</option>
-                  <option value="Part Time">Asia</option>
-                  <option value="Internship">Africa</option>
-              </select>
+            <select class="form-select" id="idType" aria-label="Default select example">
+                <option value="all">Region</option>
+                <option value="Marmara">Marmara Region
+                </option>
+                <option value="Aegean">Aegean Region</option>
+                <option value="Mediterranean">Mediterranean Region</option>
+                <option value="CentralAnatolia">Central Anatolia Region</option>
+                <option value="Black">Black Sea Region</option>
+                <option value="Eastern">Eastern Anatolia Region</option>
+                <option value="Southeastern">Southeastern Anatolia Region</option>
+                
+             
+            </select>
           </div>
       </div>
-      <div class="col-xxl-5 col-lg-4">
-        <div class="position-relative">
-            <select class="form-select" id="idType" aria-label="Default select example">
-                <option value="all">Policy Type</option>
-                <option value="Freelance">Freelance</option>
-                <option value="Full Time">Full Time</option>
-                <option value="Part Time">Part Time</option>
-                <option value="Internship">Internship</option>
-            </select>
-        </div>
-    </div>
+     
     </div>
     <div class="optionsDivToDoList">
       <div class="col-xxl-5 col-lg-4">
        <div class="position-relative">
-           <select class="form-select" id="idType" aria-label="Default select example">
-               <option value="all">Industry</option>
-               <option value="Freelance">Freelance</option>
-               <option value="Full Time">Full Time</option>
-               <option value="Part Time">Part Time</option>
-               <option value="Internship">Internship</option>
-           </select>
+        <select class="form-select" id="idType" aria-label="Default select example">
+            <option value="all">Industry</option>
+            <option value="Energy">Energy</option>
+            <option value="Full Time">Holding</option>
+            <option value="Full Time">IT/Technology Services</option>
+            <option value="Construction">Consultanting</option>
+            
+         
+        </select>
        </div>
    </div>
    <div class="col-xxl-5 col-lg-4">
      <div class="position-relative">
          <select class="form-select" id="idType" aria-label="Default select example">
              <option value="all">Installment</option>
-             <option value="Freelance">Freelance</option>
-             <option value="Full Time">Full Time</option>
-             <option value="Part Time">Part Time</option>
-             <option value="Internship">Internship</option>
+             <option value="Freelance">1</option>
+             <option value="Full Time">2</option>
+             <option value="Part Time">3</option>
+
          </select>
      </div>
  </div>
@@ -1176,9 +1216,121 @@
 
 
 
+          <!-- Modal HTML yapısı -->
+          <div id="addAccountModal" class="modal">
+            <div class="modal-content">
+           
+              <h2 style="    font-size: 17px;
+              margin-bottom: 15px;">Account Adding Modal</h2>
+              <div class="position-relative" style="display:flex; flex-direction:column; gap:10px;">
+                <input type="file" class="input input-alt" placeholder="Client Logo">
+                <input type="text" class="input input-alt" placeholder="Client Name">
+                <input type="text" class="input input-alt" placeholder="Industry">
+                <input type="text" class="input input-alt" placeholder="Scope">
+                <input type="text" class="input input-alt" placeholder="Policies">
+                <input type="text" class="input input-alt" placeholder="Quote">
+          
+            </div>
+          <div style="    display: flex;
+              gap: 10px;
+              margin: 10px 0;">
+          
+         
+          </div>
+          <div class="radioInputContainerDiv">
+          <!-- Radio butonlar ve inputların geleceği yer -->
+          <div id="radioContainer"></div>
+          
+          <!-- Sadece inputların geleceği yer -->
+          <div id="inputContainer"></div>
+          </div>
+          <div class="countModalButtons">
+          <button class="btn btn-primary mailModalButton">
+            Save
+          </button><button class="btn btn-primary mailModalButton" id="closeModalButtonAccount">
+            Close
+          </button>
+          </div>
+            </div>
+          </div>
+          
+          
+ <!-- Modal HTML yapısı -->
+ <div id="addOppModal" class="modal">
+    <div class="modal-content">
+   
+      <h2 style="    font-size: 17px;
+      margin-bottom: 15px;">Opportunities Adding Modal</h2>
+      <div class="position-relative" style="display:flex; flex-direction:column; gap:10px;">
+        <input type="file" class="input input-alt" placeholder="Client Logo">
+        <input type="text" class="input input-alt" placeholder="Client Name">
+        <input type="text" class="input input-alt" placeholder="Policy Type">
+        <input type="number" class="input input-alt" placeholder="Turnover">
+        <input type="text" class="input input-alt" placeholder="Website">
+        <input type="text" class="input input-alt" placeholder="Status">
+  
+    </div>
+  <div style="    display: flex;
+      gap: 10px;
+      margin: 10px 0;">
+  
+ 
+  </div>
+  <div class="radioInputContainerDiv">
+  <!-- Radio butonlar ve inputların geleceği yer -->
+  <div id="radioContainer"></div>
+  
+  <!-- Sadece inputların geleceği yer -->
+  <div id="inputContainer"></div>
+  </div>
+  <div class="countModalButtons">
+  <button class="btn btn-primary mailModalButton">
+    Save
+  </button><button class="btn btn-primary mailModalButton" id="closeModalButtonOpp">
+    Close
+  </button>
+  </div>
+    </div>
+  </div>
 
 
 
+         
+ <!-- Modal HTML yapısı -->
+ <div id="addToDoModal" class="modal">
+    <div class="modal-content">
+   
+      <h2 style="    font-size: 17px;
+      margin-bottom: 15px;">To Do List Adding Modal</h2>
+      <div class="position-relative" style="display:flex; flex-direction:column; gap:10px;">
+        <input type="text" class="input input-alt" placeholder="Title">
+        <input type="text" class="input input-alt" placeholder="Status">
+        <textarea class="input input-alt" placeholder="Type your note"></textarea>
+
+  
+    </div>
+  <div style="    display: flex;
+      gap: 10px;
+      margin: 10px 0;">
+  
+ 
+  </div>
+  <div class="radioInputContainerDiv">
+  <!-- Radio butonlar ve inputların geleceği yer -->
+  <div id="radioContainer"></div>
+  
+  <!-- Sadece inputların geleceği yer -->
+  <div id="inputContainer"></div>
+  </div>
+  <div class="countModalButtons">
+  <button class="btn btn-primary mailModalButton">
+    Save
+  </button><button class="btn btn-primary mailModalButton" id="closeModalButtonToDo">
+    Close
+  </button>
+  </div>
+    </div>
+  </div>
 
 
 
@@ -1199,6 +1351,69 @@
 
 
     <script>
+                // Modal ve butonlar için gerekli değişkenler
+const addToDoButton = document.getElementById('addToDoButton');
+const modalToDo = document.getElementById('addToDoModal');
+const closeModalButtonToDo = document.getElementById('closeModalButtonToDo');
+
+// "Add Account" butonuna tıklandığında modal açılır
+addToDoButton.addEventListener('click', () => {
+    modalToDo.style.display = 'block'; // Modal görünür hale getir
+});
+
+// Kapatma (X) butonuna tıklandığında modal kapanır
+closeModalButtonToDo.addEventListener('click', () => {
+    modalToDo.style.display = 'none'; // Modal gizlenir
+});
+
+// Kullanıcı modal dışında bir yere tıkladığında modal kapanır
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modalToDo.style.display = 'none'; // Modal gizlenir
+    }
+});
+        // Modal ve butonlar için gerekli değişkenler
+const addAccountButton = document.getElementById('addAccountButton');
+const modal = document.getElementById('addAccountModal');
+const closeModalButton = document.getElementById('closeModalButtonAccount');
+
+// "Add Account" butonuna tıklandığında modal açılır
+addAccountButton.addEventListener('click', () => {
+    modal.style.display = 'block'; // Modal görünür hale getir
+});
+
+// Kapatma (X) butonuna tıklandığında modal kapanır
+closeModalButton.addEventListener('click', () => {
+    modal.style.display = 'none'; // Modal gizlenir
+});
+
+// Kullanıcı modal dışında bir yere tıkladığında modal kapanır
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none'; // Modal gizlenir
+    }
+});
+        // Modal ve butonlar için gerekli değişkenler
+        const addOppButton = document.getElementById('addOppButton');
+        const modalOpp = document.getElementById('addOppModal');
+        const closeModalButtonOpp = document.getElementById('closeModalButtonOpp');
+        
+        // "Add Account" butonuna tıklandığında modal açılır
+        addOppButton.addEventListener('click', () => {
+            modalOpp.style.display = 'block'; // Modal görünür hale getir
+        });
+        
+        // Kapatma (X) butonuna tıklandığında modal kapanır
+        closeModalButtonOpp.addEventListener('click', () => {
+            modalOpp.style.display = 'none'; // Modal gizlenir
+        });
+        
+        // Kullanıcı modal dışında bir yere tıkladığında modal kapanır
+        window.addEventListener('click', (event) => {
+            if (event.target === modalOpp) {
+                modalOpp.style.display = 'none'; // Modal gizlenir
+            }
+        });
       window.onload = function() {
         window.scrollTo(0, 0); // Sayfanın en üst kısmında kalmasını sağlar
      

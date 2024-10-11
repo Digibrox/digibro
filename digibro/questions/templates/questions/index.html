@@ -25,10 +25,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="{% static 'questions/css/client.questions.css' %}" rel="stylesheet" />
     <link href="{% static 'questions/css/sidebar.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/modal.css' %}" rel="stylesheet" />
     <link
       href="{% static 'questions/css/bootstrap.min.css' %}"
       rel="stylesheet"
     />
+
     <title>Question Forms</title>
     <link rel="icon" href="/static/questions/img/xxx.png" >
   </head>
@@ -99,33 +101,33 @@
                         <span>Insurers</span>
                       </a>
                     </li>
-                    <li>
+                    <li style="display:none;">
                       <a href="{% url 'insurers:index' %}">
                         <i class="bi bi-symmetry-horizontal"></i>
                         <span>Risk Reports</span>
                       </a>
                     </li>
-                    <li>
+                    <li style="display:none;">
                       <a href="{% url 'insurers:index' %}">
                         <i class="bi bi-award"></i>
                         <span>Claims</span>
                       </a>
                     </li>
 
-                    <li><span class="generalText">Extra</span></li>
-                    <li>
+                    <li style="display:none;"><span class="generalText">Extra</span></li>
+                    <li style="display:none;">
                       <a href="#">
                         <i class="bi bi-journal-text"></i>
                         <span>Documentation</span>
                       </a>
                     </li>
-                    <li>
+                    <li style="display:none;">
                       <a href="#">
                         <i class="bi bi-calendar-fill"></i>
                         <span>Calendar</span>
                       </a>
                     </li>
-                    <li>
+                    <li style="display:none;">
                       <a href="#">
                         <i class="bi bi-folder-fill"></i>
                         <span>Examples</span>
@@ -177,7 +179,7 @@
       <div class="accordion">
         <div class="accordion-item" style="border-radius: 0px;background: #ededed;">
           <input type="checkbox" id="accordion1" />
-          <label for="accordion1" class="accordion-item-title">
+          <label for="accordion1" class="accordion-item-title" style="background:#fff !important;">
             <svg
               width="134"
               height="25"
@@ -453,7 +455,7 @@
                 </div>
                 
                 <textarea name="" id="client_info_p" cols="30" rows="10">Mutlu Akü, müşterilerine kapsamlı ve yenilikçi çözümleri sunarak güvenilir bir hizmet sağlar.</textarea>
-                <div class="">                    <a href="" class="btn d-block viewProfile">View Profile</a>                </div>
+                <div class="" style="">                    <a href="{% url 'clients:index' %}" class="btn d-block viewProfile" style="bottom:5px !important; ">View Profile</a>                </div>
               </div>
             </div>
             <hr id="specHrr" />
@@ -644,6 +646,7 @@
                       {% endif %}
                     {% endfor %}
                     <button type="button" class="btn wrapperButtonUpload">Upload Document</button>
+                    <input type="file" id="fileInput" style="display:none;">
                     <button type="button" class="btn wrapperButtonAddQuestion">Add a Question</button>
                   </div>
                
@@ -657,6 +660,7 @@
               <span class="icon"></span>Fotoğraflar</label>
               <div class="accordion-item-desc accordionBg">
                 <button type="button" class="btn wrapperButtonUpload">Upload Document</button>
+                <input type="file" id="fileInput" style="display:none;">
                 <button type="button" class="btn wrapperButtonAddQuestion">Add a Question</button>
                 <div class="topButtonDiv" style="    flex-direction: column;
     gap: 10px;
@@ -715,17 +719,111 @@
               </div>
             </div>
           </div>
-          
+          <!-- Modal HTML yapısı -->
+<div id="addQuestionModal" class="modal">
+  <div class="modal-content">
+ 
+    <h2 style="    font-size: 17px;
+    margin-bottom: 15px;">Question Adding Modal</h2>
+    <div class="position-relative">
+      <input type="text" class="input input-alt" placeholder="
+Write the question..">
+<!-- İlk dropdown (Radio count) -->
+
+  </div>
+<div style="    display: flex;
+    gap: 10px;
+    margin: 10px 0;">
+
+<select id="radioCount">
+  <option value="0">Select Radio Count</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+</select>
+
+<!-- İkinci dropdown (Input count) -->
+
+<select id="inputCount">
+  <option value="0">Select Input Count</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+</select>
+</div>
+<div class="radioInputContainerDiv">
+<!-- Radio butonlar ve inputların geleceği yer -->
+<div id="radioContainer"></div>
+
+<!-- Sadece inputların geleceği yer -->
+<div id="inputContainer"></div>
+</div>
+<div class="countModalButtons">
+<button class="btn btn-primary mailModalButton">
+  Save
+</button><button class="btn btn-primary mailModalButton" id="closecountModalButtons">
+  Close
+</button>
+</div>
+  </div>
+</div>
+
+
           </section>
           
     <script>
       window.onload = function() {
         window.scrollTo(0, 0); // Sayfanın en üst kısmında kalmasını sağlar
     };
-    
-    
+    // Tüm wrapperButtonUpload sınıflı butonları seç
+// .wrapperButtonUpload sınıfına sahip her buton için tıklama olayı ekle
+const uploadButtons = document.querySelectorAll('.wrapperButtonUpload');
+
+uploadButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // fileInput id'li input dosya seçimini tetikle
+        document.getElementById('fileInput').click();
+    });
+});
+
+// Modalı açma ve kapatma işlevlerini kontrol eden değişkenler
+const modal = document.getElementById('addQuestionModal');
+const openModalButtons = document.querySelectorAll('.wrapperButtonAddQuestion');
+const closeModalButton = document.getElementById('closecountModalButtons');
+
+// Her buton için tıklama olayı ekle
+openModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        modal.style.display = 'block'; // Modal görünür hale gelsin
+        centerModal(); // Modalı sayfanın ortasına yerleştir
+    });
+});
+
+// Kapatma butonuna tıklandığında modalı kapat
+closeModalButton.addEventListener('click', function() {
+    modal.style.display = 'none'; // Modalı gizle
+});
+
+// Kullanıcı modaldan başka bir yere tıkladığında modalı kapat
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        modal.style.display = 'none'; // Modal dışına tıklanırsa kapansın
+    }
+});
+
+// Modalı sayfanın ortasına yerleştiren fonksiyon
+function centerModal() {
+    const modalContent = modal.querySelector('.modal-content');
+    const windowHeight = window.innerHeight;
+    const modalHeight = modalContent.offsetHeight;
+
+
+}
+
+
     </script>
     <script src="{% static 'questions/js/data.js' %}"></script>
+    <script src="{% static 'questions/js/modal.js' %}"></script>
     <script src="{% static 'questions/js/script.js' %}"></script>      
     <script src="{% static 'questions/js/static-codes.js' %}"></script>      
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

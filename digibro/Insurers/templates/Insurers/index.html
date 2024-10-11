@@ -90,33 +90,33 @@
                       <span style="color: #fff">Insurers</span>
                     </a>
                   </li>
-                  <li>
+                  <li style="display:none;">
                     <a href="{% url 'insurers:index' %}">
                       <i class="bi bi-symmetry-horizontal"></i>
                       <span>Risk Reports</span>
                     </a>
                   </li>
-                  <li>
+                  <li style="display:none;">
                     <a href="{% url 'insurers:index' %}">
                       <i class="bi bi-award"></i>
                       <span>Claims</span>
                     </a>
                   </li>
 
-                  <li><span class="generalText">Extra</span></li>
-                  <li>
+                  <li style="display:none;"><span class="generalText">Extra</span></li>
+                  <li style="display:none;">
                     <a href="#">
                       <i class="bi bi-journal-text"></i>
                       <span>Documentation</span>
                     </a>
                   </li>
-                  <li>
+                  <li style="display:none;">
                     <a href="#">
                       <i class="bi bi-calendar-fill"></i>
                       <span>Calendar</span>
                     </a>
                   </li>
-                  <li>
+                  <li style="display:none;">
                     <a href="#">
                       <i class="bi bi-folder-fill"></i>
                       <span>Examples</span>
@@ -290,13 +290,13 @@ font-weight: 700;color: #495057;
                     <input type="text" class="inputAdd" name="quote" id="quote" placeholder="Enter quote">
                     
                     <!-- Form gönderme butonu -->
-                    <button type="submit" class="btn btn-primary" name="add_company" style="    font-size: 13px;
-    width: 30%;
-    margin-left: auto;
-    padding: 3px;
-    background: #102a43 !important;
-    border-color: #102a43 !important;
-    color: #f0f4f8 !important;">Add Insurer</button>
+                    <button class="btn btn-primary" style="color: #f0f4f8 !important;
+    font-size: 13px;
+    padding: 0px;
+    width: 100%;
+    height: 30px;
+    border-radius: 2px;
+        pointer-events: none;">Add Insurer</button>
                 </form>
                 
                 </div>

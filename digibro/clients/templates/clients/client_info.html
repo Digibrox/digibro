@@ -117,39 +117,57 @@
                     <span>Insurers</span>
                   </a>
                 </li>
-                <li>
+                <li style="display:none;">
                   <a href="{% url 'insurers:index' %}">
                     <i class="bi bi-symmetry-horizontal"></i>
                     <span>Risk Reports</span>
                   </a>
                 </li>
-                <li>
+                <li style="display:none;">
                   <a href="{% url 'insurers:index' %}">
                     <i class="bi bi-award"></i>
                     <span>Claims</span>
                   </a>
                 </li>
 
-                <li><span class="generalText">Extra</span></li>
-                <li>
+                <li style="display:none;"><span class="generalText">Extra</span></li>
+                <li style="display:none;">
                   <a href="#">
                     <i class="bi bi-journal-text"></i>
                     <span>Documentation</span>
                   </a>
                 </li>
-                <li>
+                <li style="display:none;">
                   <a href="#">
                     <i class="bi bi-calendar-fill"></i>
                     <span>Calendar</span>
                   </a>
                 </li>
-                <li>
+                <li style="display:none;">
                   <a href="#">
                     <i class="bi bi-folder-fill"></i>
                     <span>Examples</span>
                   </a>
                 </li>
-                     
+                <li><span class="generalText">Demo Links</span></li>
+                <li>
+                  <a href="{% url 'questions:dashboard' %}">
+                    <i class="bi bi-activity"></i>
+                    <span>Broker Dashboard</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'clientScreen:dashboard' %}">
+                    <i class="bi bi-activity"></i>
+                    <span>Client Home</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'insurerScreen:dashboard' %}">
+                    <i class="bi bi-activity"></i>
+                    <span>Insurer Home</span>
+                  </a>
+                </li>  
               </ul>
               
              
@@ -215,7 +233,7 @@ font-weight: 700;color: #495057;
         {% if company.name == "Mutlu Akü" %}
         <img src="{% static 'clients/img/mutlu.jpg' %}" style="width: 97px;" alt="Mutlu Akü" class="img-fluid">
     {% elif company.name == "Bera Holding" %}
-        <img src="{% static 'clients/img/bera.png' %}" style="width: 179px;" alt="Bera Holding" class="img-fluid">
+        <img src="{% static 'clients/img/bera.png' %}" style="width: 125px;" alt="Bera Holding" class="img-fluid">
     {% elif company.name == "Company" %}
         <img src="{% static 'clients/img/lockton.png' %}" alt="Lockton" class="img-fluid">
     {% elif company.name == "DigiBroX" %}
@@ -223,7 +241,7 @@ font-weight: 700;color: #495057;
     {% elif company.name == "Cosmos Yatırım Holding" %}
         <img src="{% static 'clients/img/cosmos.jpeg' %}" style="width: 105px; padding-bottom: 5px;" alt="Cosmos" class="img-fluid">
     {% elif company.name == "Iz Yatırım Holding" %}
-        <img src="{% static 'clients/img/izyatirim.jpeg' %}" style="width: 200px; margin-bottom: 6px;" alt="İz Yatırım" class="img-fluid">
+        <img src="{% static 'clients/img/izyatirim.jpeg' %}" style="width: 125px; margin-bottom: 6px;" alt="İz Yatırım" class="img-fluid">
     {% elif company.name == "EnerjiSA Enerji" %}
         <img src="{% static 'clients/img/enerjisa.png' %}" style="width: 124px;" alt="EnerjiSA" class="img-fluid">
     {% elif company.name == "Mazhar Zorlu Holding" %}
@@ -439,7 +457,7 @@ font-weight: 700;color: #495057;
                 
                   
                 </div>
-                <button  class="docButtonMasakAuth"  style="width: 278px;
+                <button  class="docButtonMasakAuth" id="docButtonMasakAuth"  style="width: 278px;
     background: #ffffff;
     color: #101010;
     font-size: 12px;
@@ -448,6 +466,7 @@ font-weight: 700;color: #495057;
     position: absolute;
     bottom: 12px;
     border: 1px solid #80808082;">Add Masak Document</button>
+    <input type="file" id="fileInput" style="display:none" webkitdirectory mozdirectory>
               </p>
           </div>
           <div class="tab-pane" id="profile-1" role="tabpanel">
@@ -507,7 +526,7 @@ font-weight: 700;color: #495057;
                   
                     
                   </div>
-                  <button  class="docButtonMasakAuth"  style="width: 278px;
+                  <button  class="docButtonMasakAuth" id="docButtonMasakAuth2"  style="width: 278px;
     background: #ffffff;
     color: #101010;
     font-size: 12px;
@@ -1342,6 +1361,12 @@ font-weight: 700;color: #495057;
 
 <script src="{% static 'clients/js/folders.js' %}"></script>
 <script>
+  document.getElementById("docButtonMasakAuth").addEventListener("click", function() {
+    document.getElementById("fileInput").click();
+});
+document.getElementById("docButtonMasakAuth2").addEventListener("click", function() {
+  document.getElementById("fileInput").click();
+});
 
   
 </script>

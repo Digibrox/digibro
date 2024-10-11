@@ -518,18 +518,24 @@ section.results .item .price {
   display: none;
 }
 .viewProfile{
-  width: 190px;
+  width: 190px !important;
   border-radius: 5px !important;
-  background: #ffffff;
+  background: #ffffff !important;
   color: #101010 !important;
   font-size: 12px !important;
-  padding: 5px;
+  padding: 5px !important;
   font-weight: 500 !important;
-  position: absolute;
-  bottom: 12px;
+  position: absolute !important;
+  bottom: 5px !important;
+  right: 5px !important;
   border: 1px solid #80808047 !important;
-  bottom: 5px;
-  right: 5px;
+  bottom: 0 !important;
+}
+
+.viewProfile:hover {
+  background: #102a43  !important;
+  color: #ffffff !important;
+  border: 1px solid #80808082 !important;
 }
 .radio-inputs .radio .name {
   display: flex;

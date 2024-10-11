@@ -1,46 +1,65 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from email.mime.base import MIMEBase
-from email import encoders
-from datetime import datetime
+from email.mime.image import MIMEImage
+import requests
 
-def send_email(sender_email, password, receiver_emails, smtp_server, stmp_port, subject, body):
+def send_email(sender_email, password, receiver_emails, smtp_server, stmp_port, subject, body_first, body_last, image_url):
     try:
-        add_url = "\n\n\n\tErişim Linki : " + "https://www.digibrox.com/clientScreen/"
-        full_message = body + add_url
-        
         # E-posta mesajını oluştur
-        message = MIMEMultipart()
+        message = MIMEMultipart('related')
         message['From'] = sender_email
         message['To'] = ", ".join(receiver_emails)
         message['Subject'] = subject
-        message.attach(MIMEText(full_message, 'plain'))
+        
+        # HTML mesajını oluştur
+        html_body = """
+        <html>
+        <body>
+            <p>{}</p>
+            <p>Erişim Linki: <a href="https://www.digibrox.com/clientScreen/">Buraya Tıklayın</a></p>
+            <p>{}</p>
+            <img src="cid:image1">
+        </body>
+        </html>
+        """.format(body_first.replace('\n', '<br>'),body_last.replace('\n', '<br>'))
+
+        message.attach(MIMEText(html_body, 'html'))
+
+        # Resmi yükle ve ekle
+        response = requests.get(image_url)
+        image = MIMEImage(response.content)
+        image.add_header('Content-ID', '<image1>')  # Resmin kimliği
+        message.attach(image)
 
         # SMTP sunucusuna bağlan ve e-postayı gönder
-        # with smtplib.SMTP('smtp.office365.com', 587) as server:
-        #     server.starttls()
         with smtplib.SMTP_SSL(smtp_server, stmp_port) as server:
             server.login(sender_email, password)
             server.sendmail(sender_email, receiver_emails, message.as_string())
-        print(f"E-posta başarılı bir şekilde gönderildi.")
+        print("E-posta başarılı bir şekilde gönderildi.")
     except smtplib.SMTPException as e:
         print(f"E-posta gönderilirken bir hata oluştu: {e}")
 
-# #DB den çekilen bilgiler
+
+
+# # DB'den çekilen bilgiler
 # smtp_server = 'mail.digibrox.com'
 # stmp_port = 465
 # password = "FSO3yWZqM7qNS4C"  # Gönderici e-posta şifresi
 
 # sender_email = "fatihaydin@digibrox.com"  # Gönderici e-posta adresi
-# receiver_emails = ['oguzhanyildirim@digibrox.com',]  # test e-posta adresleri
-# # receiver_emails = ["oguzhanyildirim@digibrox.com","oguzhanyildirim@digibrox.com","oguzhanyildirim@digibrox.com",]  # Alıcı e-posta adresleri
-# subject = 'New Questionnaire Form Notification'  # E-posta konusu
-# #E-posta mesajı
-# body = "Hello,\n\n"\
-#     + "I kindly request you to fill out the newly created questionnaire form.\n"\
-#     + "Best regards,\n"\
-#     + "Have a good work day."
+# receiver_emails = ['oguzhanyildirim@digibrox.com']  # Alıcı e-posta adresleri
+# subject = 'Fronttan gelen başlık burada'  # E-posta konusu
+# body_first = 'Fronttan gelen mesaj burada'
+# image_url = "http://127.0.0.1:8000/static/questions/img/lockton.png"
+# # E-posta mesajı
+# body_last =  "Saygılarımla,\n"\
+#         +"Melis Deniz\n"\
+#         +"Broker\n"\
+#         +"Lockton | Omni\n"\
+#         +"Telefon: +90 555 444 33 22\n"\
+#         +"E-posta: example@locktonomni.com\n"\
+#         +"Web: www.locktonomni.com\n"\
 
-
-# send_email(sender_email, password, receiver_emails, smtp_server, stmp_port, subject, body)
+# body = body_first + "\n\n\n" +body_last
+# send_email(sender_email, password, receiver_emails, smtp_server, stmp_port, subject, body, image_url)

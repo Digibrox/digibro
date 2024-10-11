@@ -2261,16 +2261,18 @@ textarea.form-control-lg {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  border: var(--bs-border-width) solid var(--bs-border-color);
   -webkit-appearance: none;
   -moz-appearance: none;
+  border-radius: 26% !important;
+  border: 1px solid #bababa !important;
   appearance: none;
   -webkit-print-color-adjust: exact;
   color-adjust: exact;
   print-color-adjust: exact;
+  
 }
 .form-check-input[type="checkbox"] {
-  border-radius: 0.25em;
+  border-radius: 26% !important;
 }
 .form-check-input[type="radio"] {
   border-radius: 50%;

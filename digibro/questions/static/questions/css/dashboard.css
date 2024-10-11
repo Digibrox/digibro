@@ -522,8 +522,14 @@ input[type="range"] {
     bottom: 10px;
     padding: 3px !important;
 }
+.dashboardButton a{
+    color: #102a43;
+}
 .dashboardButton:hover{
     background: #102a43 !important;
+    color: #fff !important;
+}
+.dashboardButton a:hover{
     color: #fff !important;
 }
 .position-relative button{
