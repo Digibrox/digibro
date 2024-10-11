@@ -115,7 +115,7 @@ def save_data(request):
             receiver_emails = ['fatihaydin@digibrox.com',]  # Alıcı e-posta adresleri
             if not subject: subject = 'Fronttan gelen başlık burada'  # E-posta konusu
             if not body_first: body_first = 'Fronttan gelen mesaj burada'
-            image_url = "http://127.0.0.1:8000/static/questions/img/lockton.png"
+            image_url = "http://185.87.252.236:5555/static/questions/img/lockton.png"
             # E-posta mesajı
             body_last =  "Saygılarımla,\n"\
                     +"Melis Deniz\n"\
