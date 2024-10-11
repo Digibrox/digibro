@@ -17,7 +17,7 @@ def send_email(sender_email, password, receiver_emails, smtp_server, stmp_port, 
         <html>
         <body>
             <p>{}</p>
-            <p>Erişim Linki: <a href="https://www.digibrox.com/clientScreen/">Buraya Tıklayın</a></p>
+            <p>Erişim Linki: <a href="http://185.87.252.236:5555/clientScreen/">Buraya Tıklayın</a></p>
             <p>{}</p>
             <img src="cid:image1">
         </body>
