@@ -14,7 +14,7 @@ PCRadio.addEventListener("click", function () {
   if (informationAccordion2 && checkboxElement) {
     informationAccordion.style.display = "block";
     informationAccordion2.style.display = "block";
-    checkboxElement.click();
+    // checkboxElement.click();
 
   }
 });

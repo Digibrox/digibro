@@ -9,6 +9,8 @@
     <link href="{% static 'clients/css/style.css' %}" rel="stylesheet" />
     <link href="{% static 'clients/css/question.css' %}" rel="stylesheet" />
     <link href="{% static 'clients/css/user.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/sidebar.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/notification.css' %}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.bootstrap5.css">
@@ -39,7 +41,7 @@
     <link href="{% static 'clients/css/client.questions.css' %}" rel="stylesheet" />
     <link href="{% static 'clients/css/tools.css' %}" rel="stylesheet" />
     <link href="{% static 'clients/css/client_info.css' %}" rel="stylesheet" />
-    <link href="{% static 'clients/css/sidebar.css' %}" rel="stylesheet" />
+
     <link href="{% static 'clients/css/bootstrap.min.css' %}" rel="stylesheet" />
     <link rel="icon" href="/static/questions/img/xxx.png" >
 </head>
@@ -57,49 +59,32 @@
               />
               <p>DIGITALIZE EVERYTHING, NOW.</p>
             </div>
-            <div class="sidebar-profile">
-              <div class="user-pic">
-                <img
-                  src="https://cdn3.pixelcut.app/1/3/profile_picture_1728ecf2bd.jpg"
-                  class="img-responsive"
-                  alt=""
-                />
-              </div>
-              <div class="user-info">
-                <span class="user-name">
-                  Melis<strong> Deniz</strong>
-                </span>
-                <span class="user-role">
-  
-                <p class="groupP">Broker<p>
-    
-                </span>
-                <span class="user-status">
-                  <i class="bi bi-circle-fill"></i>
-                  <span>Online</span>
-                </span>
-              </div>
-            </div>
+            
             <div class="sidebar-menu">
               <ul>
                 <li>
                   <a href="{% url 'questions:dashboard' %}">
-                    <i class="bi bi-layers-fill"></i>
+                    <i class="bi bi-house"></i>
                     <span>Home</span>
                   </a>
                 </li>
                 <li><span class="generalText">General</span></li>
                 
                 <li>
-                  
-                    <a href="{% url 'questions:index' %}">
-                    <i class="bi bi-ui-checks"></i>
-                    <span>Send Questionnaire</span>
+                  <a href="{% url 'questions:opportunities' %}">
+                    <i class="bi bi-briefcase"></i>
+                    <span>Opportunities</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'questions:add_records' %}">
+                    <i class="bi bi-person-plus"></i>
+                    <span>Add a Client/Insurer</span>
                   </a>
                 </li>
                 <li style="background: #3a3b3d">
                   <a href="{% url 'clients:index' %}">
-                    <i class="bi bi-layers-fill" style="color: #fff"></i>
+                    <i class="bi bi-person" style="color: #fff"></i>
                     <span style="color: #fff">Clients</span>
                   </a>
                 </li>
@@ -113,7 +98,7 @@
                 </li>
                 <li>
                   <a href="{% url 'insurers:index' %}">
-                    <i class="bi bi-brilliance"></i>
+                    <i class="bi bi-shield-check"></i>
                     <span>Insurers</span>
                   </a>
                 </li>
@@ -194,27 +179,62 @@
   <div class="accordion-item2" style="border-radius: 0px;">
     <input type="checkbox" id="accordion1">
     <label for="accordion1" class="accordion-item-title">
-      <svg width="134" height="25" id="locktonSvg" viewBox="0 0 134 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M118.906 9.04643V11.9296C122.942 11.1853 126.349 11.3177 129.088 11.8248C128.807 9.79064 127.617 8.77631 125.505 8.77631C124.259 8.77631 123.195 9.35514 122.324 10.5183V9.04091H118.906V9.04643Z" fill="#495057"></path>
-        <path d="M129.805 9.48187V11.9681C131.255 12.2823 132.506 12.7013 133.543 13.1313V12.2768L129.805 9.48187Z" fill="#495057"></path>
-        <path d="M129.805 9.04639L133.543 11.8578V9.04639H129.805Z" fill="#495057"></path>
-        <path d="M90.0419 7.0122C88.8071 8.21947 88.1896 9.84571 88.1896 11.8854C88.1896 12.7509 88.2889 13.5447 88.4818 14.2669C89.9813 14.5756 91.602 14.8181 93.3385 14.9835C93.1841 14.8181 93.0518 14.6252 92.9361 14.4047C92.5998 13.7707 92.4344 12.9438 92.4344 11.924C92.4344 10.9648 92.6053 10.1654 92.9581 9.53148C93.3881 8.74317 94.0496 8.34626 94.9372 8.34626C95.8247 8.34626 96.5138 8.73766 96.9713 9.51495C97.3407 10.1489 97.5281 10.9538 97.5281 11.924C97.5281 13.5282 97.1698 14.6142 96.4587 15.182C97.9526 15.2316 99.5127 15.2206 101.139 15.1379C101.558 14.2062 101.767 13.1368 101.767 11.924C101.767 11.5987 101.751 11.2845 101.718 10.9813C102.071 10.2261 102.451 9.85122 102.864 9.85122C103.206 9.85122 103.372 10.0993 103.372 10.5899C103.372 10.7994 103.35 10.9979 103.311 11.1908L102.49 15.0497C103.344 14.989 104.215 14.9064 105.097 14.8016C105.417 13.7597 105.759 12.8556 106.133 12.0839C106.916 10.4631 107.716 9.65276 108.526 9.65276C109.094 9.65276 109.38 9.96699 109.38 10.5899C109.38 10.8435 109.303 11.3452 109.143 12.0894L108.669 14.2889C109.59 14.1291 110.516 13.9471 111.464 13.7432C111.685 13.1368 111.911 12.5855 112.153 12.0894C112.942 10.4686 113.741 9.65828 114.546 9.65828C115.097 9.65828 115.378 9.9725 115.378 10.5954C115.378 10.8656 115.301 11.3617 115.147 12.0783L114.976 12.8832C115.224 12.817 115.472 12.7509 115.72 12.6792C116.359 12.4973 116.982 12.343 117.6 12.2051C117.677 11.731 117.721 11.3672 117.721 11.1026C117.721 10.408 117.506 9.85673 117.076 9.43777C116.652 9.01329 116.084 8.80382 115.362 8.80382C113.862 8.80382 112.605 9.95596 111.58 12.2547C111.585 12.1941 111.596 12.139 111.602 12.1004C111.674 11.6318 111.707 11.2955 111.707 11.1026C111.707 10.3915 111.497 9.82366 111.084 9.4102C110.676 8.99675 110.119 8.78728 109.413 8.78728C107.897 8.78728 106.619 9.94494 105.577 12.2603C105.659 11.7035 105.703 11.2459 105.703 10.8766C105.703 10.2261 105.544 9.71341 105.224 9.33855C104.904 8.95817 104.474 8.76522 103.934 8.76522C103.443 8.76522 102.953 8.94714 102.467 9.31649C102.131 9.56456 101.845 9.87328 101.613 10.2426C101.354 8.9692 100.786 7.90525 99.9041 7.03976C98.6582 5.80492 97.0209 5.1875 94.9868 5.1875H94.9702C92.9361 5.1875 91.2988 5.79941 90.0529 7.02322L90.0419 7.0122Z" fill="#495057"></path>
-        <path d="M129.805 18.848H133.543V13.5117C132.506 13.0817 131.255 12.6682 129.805 12.3485V18.848Z" fill="#495057"></path>
-        <path d="M99.9095 17.2989C100.422 16.7752 100.83 16.1798 101.133 15.5128C99.5071 15.5955 97.947 15.6065 96.453 15.5569C96.0671 15.8656 95.571 16.02 94.9701 16.02C94.2976 16.02 93.7518 15.7994 93.3439 15.3584C91.6074 15.1931 89.9867 14.9505 88.4872 14.6418C88.7739 15.6947 89.27 16.5878 89.9701 17.332C91.1664 18.5668 92.8367 19.1842 94.9701 19.1842C97.1035 19.1842 98.6802 18.5558 99.915 17.2989H99.9095Z" fill="#495057"></path>
-        <path d="M105.102 15.182C104.215 15.2867 103.344 15.3694 102.489 15.4301L101.706 19.107C102.181 18.8535 102.605 18.7211 102.985 18.7211C103.41 18.7211 103.801 18.8424 104.16 19.085C104.441 17.6241 104.749 16.3176 105.097 15.182H105.102Z" fill="#495057"></path>
-        <path d="M111.464 14.118C110.516 14.322 109.584 14.5039 108.669 14.6638L107.716 19.107C108.184 18.8534 108.614 18.7211 108.995 18.7211C109.419 18.7211 109.805 18.8424 110.158 19.085C110.533 17.1445 110.968 15.4907 111.464 14.118Z" fill="#495057"></path>
-        <path d="M117.423 13.4951C117.44 13.4234 117.451 13.3683 117.456 13.3297C117.511 13.0541 117.561 12.806 117.599 12.58C116.988 12.7178 116.359 12.8777 115.72 13.0596C115.472 13.1313 115.224 13.1974 114.975 13.2636L114.501 15.4907L114.452 15.7608C114.319 16.4003 114.253 16.8468 114.253 17.1004C114.253 17.7288 114.419 18.2305 114.749 18.5998C115.086 18.9692 115.532 19.1511 116.1 19.1511C117.291 19.1511 118.178 18.462 118.763 17.0839C118.818 16.9571 118.862 16.8413 118.906 16.731V18.8534H122.644V14.0519C122.644 12.7564 123.129 12.1114 124.099 12.1114C124.975 12.1114 125.411 12.7013 125.411 13.8755V18.8589H129.149V13.214C129.149 12.8611 129.127 12.5249 129.088 12.2162C126.348 11.709 122.941 11.5712 118.906 12.3209V15.5624C118.796 15.612 118.708 15.7663 118.636 16.0199C118.614 16.0916 118.603 16.1467 118.592 16.1853C118.195 17.4256 117.726 18.0486 117.181 18.0486C116.839 18.0486 116.673 17.8115 116.673 17.3319C116.673 17.1996 116.695 17.0177 116.734 16.7807L117.418 13.5061L117.423 13.4951Z" fill="#495057"></path>
-        <path d="M35.3732 6.28998L35.3842 6.29549V6.28998H35.3787H35.3732Z" fill="#495057"></path>
-        <path d="M4.46913 7.75635H0.5V17.7123H7.35777V15.2756H4.46913V7.75635Z" fill="#495057"></path>
-        <path d="M12.3579 7.54138C9.31491 7.54138 6.83972 9.65274 6.83972 12.7674C6.83972 15.8821 9.32594 17.8556 12.38 17.8556C15.434 17.8556 17.9202 15.9537 17.9202 12.7674C17.9202 9.58108 15.4009 7.54138 12.3579 7.54138ZM12.38 15.2646C11.2774 15.2646 10.9522 13.7983 10.9522 12.6682C10.9522 11.6153 11.2223 10.1158 12.38 10.1158C13.5376 10.1158 13.8077 11.6097 13.8077 12.6682C13.8077 13.7983 13.488 15.2646 12.38 15.2646Z" fill="#495057"></path>
-        <path d="M24.3641 9.95043C25.2847 9.83466 25.8966 10.1158 26.4754 10.5899V7.81151C25.6044 7.5469 24.7665 7.54138 23.8404 7.54138C20.5273 7.54138 17.9969 9.93389 17.9969 12.8336C17.9969 15.7332 20.5162 17.8666 23.7356 17.8666C24.4688 17.8666 25.8084 17.7454 26.4699 17.4697V14.8732C25.8084 15.3087 25.213 15.4245 24.3641 15.3143C23.2064 15.215 22.0598 14.0298 22.0598 12.6847C22.0598 11.3396 22.8426 10.1379 24.3586 9.94491L24.3641 9.95043Z" fill="#495057"></path>
-        <path d="M37.3136 7.74533H32.8594C32.8594 7.74533 30.7205 11.5932 30.6433 11.7365V7.74533H26.6521V17.7288H30.6433V13.6549L32.7822 17.7122H37.4184L34.1824 12.5083L37.3191 7.73981L37.3136 7.74533Z" fill="#495057"></path>
-        <path d="M45.8636 7.74536H37.3685V10.3694H39.5846L39.5957 17.7178H43.5979L43.6089 10.3694H45.8636V7.74536Z" fill="#495057"></path>
-        <path d="M63.6419 12.7233L61.2825 7.78949H56.9275V17.7509L61.0069 17.7619V12.9769L63.1954 17.7509H67.589V7.78949H63.5978L63.6419 12.7233Z" fill="#495057"></path>
-        <path d="M51.134 7.53589C48.0194 7.53589 45.4615 9.61968 45.4615 12.7399C45.4615 15.86 47.9146 17.8722 51.0458 17.8722H51.0569C54.1825 17.8722 56.8121 15.9207 56.8121 12.7399C56.8121 9.55904 54.2542 7.53589 51.1395 7.53589H51.134ZM51.134 15.2095C50.0039 15.2095 49.6732 13.7873 49.6732 12.6627C49.6732 11.6098 49.9488 10.0827 51.134 10.0827C52.3193 10.0827 52.5949 11.6042 52.5949 12.6627C52.5949 13.7928 52.2641 15.2095 51.134 15.2095Z" fill="#495057"></path>
-        <path d="M78.835 25H77.6333V0H78.835V12.4972V25Z" fill="#495057"></path>
-      </svg>
+      <div style="display:flex;    align-items: center;">
+        <div class="notifTopDiv" style="">
+        <i class="bi bi-bell" id="notificationBell" style="background-color: rgb(255, 255, 255);"></i>
+        <div id="notificationMainDiv" style="display: none;">
+          <div style="display:flex;" class="notificationsHeader">
+          <p>Notifications</p>
+          <a href="">View All</a>
+          </div>
+          <div class="notificationCardDiv">
+            <span style="background: #516efd;"><i class="bi bi-shield-check"></i></span>
+            <div class="notificationPDiv">
+              <p class="notificationTitle">An insurance profile has been added</p>
+              <p class="notificationDetail">Click here to go to the Insurance Profile page.</p>
+              <p class="notificationTimeP"><i class="bi bi-clock"></i> 3 hours ago</p>
+            </div>
+          </div>
+          <div class="notificationCardDiv">
+            <span style="background: #3bbd88;"><i class="bi bi-patch-check"></i></span>
+            <div class="notificationPDiv">
+              <p class="notificationTitle">The questionnaire form was successfully submitted</p>
+              <p class="notificationDetail">Mutlu Akü &amp; Allianz Sigorta Questionnaire Form has been delivered.</p>
+              <p class="notificationTimeP"><i class="bi bi-clock"></i> 9 hours ago</p>
+            </div>
+          </div>
+          <div class="notificationCardDiv">
+            <span style="background: #516efd;"><i class="bi bi-arrow-repeat"></i></span>
+            <div class="notificationPDiv">
+              <p class="notificationTitle">The questionnaire has been answered</p>
+              <p class="notificationDetail">The questionnaire was answered by Mert Güven - Mutlu Akü.</p>
+              <p class="notificationTimeP"><i class="bi bi-clock"></i> 2 days ago</p>
+            </div>
+          </div>
 
+        </div>
+       
+      </div>
+        <button type="button" id="fullscreenButton" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen" style="background-color: rgb(255, 255, 255);">
+          <i class="bi bi-fullscreen" id="fullscreenOpen" style="display: inline;"></i>
+          <i class="bi bi-fullscreen-exit" id="fullscreenExit" style="display: none;"></i>
+      </button>
+      
+      <div class="sidebar-profile" onclick="toggleDropdown()" id="profileDivID">
+        <div class="user-pic">
+          <img src="https://cdn3.pixelcut.app/1/3/profile_picture_1728ecf2bd.jpg" class="rounded-circle" alt="Profile Picture" width="40" height="40">
+        </div>
+
+        <div class="user-info d-flex align-items-center">
+          <span class="user-name me-2">Melis Deniz</span>
+          <i class="bi bi-chevron-right userIcon" id="userIcon"></i>
+        </div>
+        <div id="profileDropdownMenu" class="p-2 rounded">
+          <a class="dropdown-item" href="#"><i class="bi bi-person-fill"></i>Profile</a>
+          <a class="dropdown-item" id="logoutA" href="#"><i class="bi bi-door-open-fill"></i>Logout</a>
+        </div>
+      </div>
+</div>
       <span class="infoSpan" id="mainTitleP" style="    font-size: 16px !important;
 padding: 6px;
 font-weight: 700;color: #495057;
@@ -223,9 +243,11 @@ font-weight: 700;color: #495057;
   </div>
 <div class="topContainer" style="">
   <div class="topContainerBottomDiv">
-<div class="cardContainer" style=" ">
+<div class="cardContainer" style="justify-content: center;
+    display: flex;
+    width: 100%; ">
 
-  <div class="cardContainerRight" style=" ">
+  <div class="cardContainerRight" style="width: 100%; ">
 
     <div class="cardLeft">
       <div class="cardContainerLeft" style="zoom: 0.8;">
@@ -265,7 +287,7 @@ font-weight: 700;color: #495057;
     </div>
     </div>
 
-    <div class="cardRight" style="">
+    <div class="cardRight" style="width: 46%;">
       <div class="iconDivCard">
         <i class="bi bi-person-lines-fill"></i>
         <h5>Contact Person Popup</h5>
@@ -372,180 +394,106 @@ font-weight: 700;color: #495057;
 
 
 </div>
-<div class="card" id="tabDiv" style="    min-height: 236px !important;    border-radius: 5px !important;">
-  <div class="card-body">
 
-      <h4 class="card-title" style="height: 8% !important;
-    padding: 5px;">General Documents</h4>
-      
 
-      <!-- Nav tabs -->
-      <ul class="nav nav-pills nav-justified" role="tablist" style="    height: 10% !important;">
-          <li class="nav-item waves-effect waves-light" role="presentation">
-              <a class="nav-link active" data-bs-toggle="tab" style="    border-top-left-radius: 5px !important;
-    border-bottom-left-radius: 5px !important;    padding: 5px;" href="#home-1" role="tab" aria-selected="true">
-                  <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-                  <span class="d-none d-sm-block" id="masakButtonTab">Masak</span> 
-              </a>
-          </li>
-          <li class="nav-item waves-effect waves-light" role="presentation">
-              <a class="nav-link" style="border-top-right-radius: 5px !important;
-    border-bottom-right-radius: 5px !important;    padding: 5px;" data-bs-toggle="tab" href="#profile-1" role="tab" aria-selected="false" tabindex="-1">
-                  <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
-                  <span class="d-none d-sm-block" id="AuthorityButtonTab">Authority Letter</span> 
-              </a>
-          </li>
-          
-      </ul>
-
-      <!-- Tab panes -->
-      <div class="tab-content text-muted" style="  padding: 0 10px 10px 10px !important;    height: 83%;">
-          <div class="tab-pane active show" id="home-1" role="tabpanel" style="height:100%;">
-              <p class="mb-0" id="MasakTab">
-                
-                <div id="main-files" class="d-flex align-items-stretch flex-wrap foldersDetail">
-                  <div class="d-inline-flex" data-company="mutlu-aku">
-                    <button class="folder-container" style=" margin: auto !important;">
-                      <img src="/static/clients/img/pdf.svg" alt="">
-                      <div class="folder-name5">Masak Document</div>
-                      <div class="folder-name4">Mutlu Akü</div>
-                      <div class="folder-name4">P&amp;C</div>
-                      <div class="folder-name4">11-12-2023</div>
-                    </button>
-                    <div class="folderButtons">
-                      <button type="button" class="btn btn-primary" id="previewPdfButton2">Preview</button>
-                      <button type="button" class="btn btn-primary">Download</button>
-                    </div>
-                  </div>
-                  <div class="d-inline-flex">
-                    <button class="folder-container" style=" margin: auto !important;">
-                      <img src="/static/clients/img/pdf.svg" alt="">
-                      <div class="folder-name5">Masak Document</div>
-                      <div class="folder-name4">Mutlu İnşaat</div>
-                      <div class="folder-name4">P&amp;C</div>
-                      <div class="folder-name4">11-12-2023</div>
-                    </button>
-                  <div class="folderButtons">
-                    <button type="button" class="btn btn-primary" id="previewPdfButton">Preview</button>
-                    <button type="button" class="btn btn-primary">Download</button>
-                  </div>
-                  </div>
-                  <div class="d-inline-flex">
-                    <button class="folder-container" style=" margin: auto !important;">
-                      <img src="/static/clients/img/xls.svg" alt="">
-                      <div class="folder-name5">Masak Document</div>
-                      <div class="folder-name4">Mutlu Akü</div>
-                      <div class="folder-name4">P&amp;C</div>
-                      <div class="folder-name4">11-12-2023</div>
-                    </button>
-                    <div class="folderButtons">
-                      <button type="button" style="width:100%;" class="btn btn-primary">Download</button>
-                    </div>
-                  </div>
-                  <div class="d-inline-flex">
-                    <button class="folder-container" style=" margin: auto !important;">
-                      <img src="/static/clients/img/xls.svg" alt="">
-                      <div class="folder-name5">Masak Document</div>
-                      <div class="folder-name4">Mutlu Akü</div>
-                      <div class="folder-name4">P&amp;C</div>
-                      <div class="folder-name4">11-12-2023</div>
-                    </button>
-                    <div class="folderButtons">
-                      <button type="button" style="width:100%;" class="btn btn-primary">Download</button>
-                    </div>
-                  </div>
-                
-                  
-                </div>
-                <button  class="docButtonMasakAuth" id="docButtonMasakAuth"  style="width: 278px;
-    background: #ffffff;
-    color: #101010;
-    font-size: 12px;
-    padding: 5px;
-    font-weight: 500;
-    position: absolute;
-    bottom: 12px;
-    border: 1px solid #80808082;">Add Masak Document</button>
-    <input type="file" id="fileInput" style="display:none" webkitdirectory mozdirectory>
-              </p>
-          </div>
-          <div class="tab-pane" id="profile-1" role="tabpanel">
-              <p class="mb-0" id="AuthorityTab">
-                <p class="mb-0">
-                  <div id="main-files" class="d-flex align-items-stretch flex-wrap foldersDetail">
-                    <div class="d-inline-flex" data-company="mutlu-aku">
-                      <button class="folder-container" style=" margin: auto !important;">
-                        <img src="/static/clients/img/pdf.svg" alt="">
-                        <div class="folder-name5">Authority Document</div>
-                        <div class="folder-name4">Mutlu Akü</div>
-                        <div class="folder-name4">P&amp;C</div>
-                        <div class="folder-name4">11-12-2023</div>
-                      </button>
-                      <div class="folderButtons">
-                        <button type="button" class="btn btn-primary" id="previewPdfButton2">Preview</button>
-                        <button type="button" class="btn btn-primary">Download</button>
-                      </div>
-                    </div>
-                    <div class="d-inline-flex">
-                      <button class="folder-container" style=" margin: auto !important;">
-                        <img src="/static/clients/img/pdf.svg" alt="">
-                        <div class="folder-name5">Authority Document</div>
-                        <div class="folder-name4">Mutlu İnşaat</div>
-                        <div class="folder-name4">P&amp;C</div>
-                        <div class="folder-name4">11-12-2023</div>
-                      </button>
-                    <div class="folderButtons">
-                      <button type="button" class="btn btn-primary" id="previewPdfButton">Preview</button>
-                      <button type="button" class="btn btn-primary">Download</button>
-                    </div>
-                    </div>
-                    <div class="d-inline-flex">
-                      <button class="folder-container" style=" margin: auto !important;">
-                        <img src="/static/clients/img/xls.svg" alt="">
-                        <div class="folder-name5">Authority Document</div>
-                        <div class="folder-name4">Mutlu Akü</div>
-                        <div class="folder-name4">P&amp;C</div>
-                        <div class="folder-name4">11-12-2023</div>
-                      </button>
-                      <div class="folderButtons">
-                        <button type="button" style="width:100%;" class="btn btn-primary">Download</button>
-                      </div>
-                    </div>
-                    <div class="d-inline-flex">
-                      <button class="folder-container" style=" margin: auto !important;">
-                        <img src="/static/clients/img/xls.svg" alt="">
-                        <div class="folder-name5">Authority Document</div>
-                        <div class="folder-name4">Mutlu Akü</div>
-                        <div class="folder-name4">P&amp;C</div>
-                        <div class="folder-name4">11-12-2023</div>
-                      </button>
-                      <div class="folderButtons">
-                        <button type="button" style="width:100%;" class="btn btn-primary">Download</button>
-                      </div>
-                    </div>
-                  
-                    
-                  </div>
-                  <button  class="docButtonMasakAuth" id="docButtonMasakAuth2"  style="width: 278px;
-    background: #ffffff;
-    color: #101010;
-    font-size: 12px;
-    padding: 5px;
-    font-weight: 500;
-    position: absolute;
-    bottom: 12px;
-    border: 1px solid #80808082;">Add Authority Document</button>
-                </p>
-              </p>
-          </div>
-         
+  <div class="topDivRight">
+    
+  <div style="    display: flex;
+    justify-content: center;
+    gap: 26px;">
+    <div class="topDivRightCard">
+      <p class="titlePRiskRed"><i class="bi bi-exclamation-triangle-fill text-danger" style="color: #351e1e !important;
+    margin-right: 6px;"></i>Top Risks</p>
+      <div class="bgColo"></div>
+      <div class="riskBottomDivs"><p class="riskP">P&C</p> <div class="spanRedRisk"></div></div>
+      <div class="riskBottomDivs"><p class="riskP">PI</p> <div class="spanGrayRisk"></div></div>
+      <div class="riskBottomDivs"><p class="riskP">Cyber</p> <div class="spanGreenRisk"></div></div>
+    <div style="width:100%;    display: flex;">
+      <button id="" type="submit" class="riskDetailButton" style="height: 33.5px !important;" onclick=""><i class="bx bx-search-alt align-middle"></i>Detail</button>
+    </div>
+    </div>
+    <div class="topDivRightCard">
+      <p class="titlePRiskOrange"><i class="bi bi-exclamation-circle-fill text-warning"style="color: #351e1e !important;
+        margin-right: 6px;"></i>Mid Risks</p>
+      <div class="bgColo"></div>
+      <div class="riskBottomDivs"><p class="riskP">PI</p> <div class="spanGrayRisk"></div></div>
+      <div class="riskBottomDivs"><p class="riskP">P&C</p> <div class="spanGreenRisk"></div></div>
+      <div class="riskBottomDivs"><p class="riskP">Cyber</p> <div class="spanRedRisk"></div></div>
+      <div style="width:100%;    display: flex;">
+        <button id="" type="submit" class="riskDetailButton" style="height: 33.5px !important;" onclick=""><i class="bx bx-search-alt align-middle"></i>Detail</button>
       </div>
+    </div>
+    <div class="topDivRightCard">
+      <p class="titlePRiskYellow"><i class="bi bi-shield-check text-success"style="color: #351e1e !important;
+        margin-right: 6px;"></i>Low Risks</p>
+      <div class="bgColo"></div>
+      <div class="riskBottomDivs"><p class="riskP">Cyber</p> <div class="spanGreenRisk"></div></div>
+      <div class="riskBottomDivs"><p class="riskP">PI</p> <div class="spanRedRisk"></div></div>
+     
+      <div class="riskBottomDivs"><p class="riskP">P&C</p> <div class="spanGrayRisk"></div></div>
+      <div style="width:100%;    display: flex;">
+        <button id="" type="submit" class="riskDetailButton" style="height: 33.5px !important;" onclick=""><i class="bx bx-search-alt align-middle"></i>Detail</button>
+      </div>
+    </div>
+  </div>
+  <div style="    width: 100%;
+    display: flex;
+    gap: 15px;">
+  <div style="    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    width: 24.5%;">
+    <button  class="riskDetailButton2" id="createOppButton"  style="width: 172px;
+      background: #ffffff;
+      color: #101010;
+      font-size: 12px;
+      padding: 5px;
+      font-weight: 500;
+    
+      bottom: 77px;
+      right:10px;
+          height: 35px;
+      border: 1px solid #80808082;
+      ">Create an Opportunities</button>
+      
+    </div>
+    <div style="    display: flex;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    justify-content: space-evenly;
+    /* width: 775px; */
+    gap: 13px;
+    width: 54%;">
+    <div class="riskBottomDivs2"> <div class="spanGreenRisk"></div><p class="riskP2">Lockton Owns</p></div>
+      <div class="riskBottomDivs2"> <div class="spanRedRisk"></div><p class="riskP2">Rival Owns</p></div>
+      <div class="riskBottomDivs2"> <div class="spanGrayRisk"></div><p class="riskP2">Unknown</p></div>
+      
+     
+
+    </div>
+ 
+    <div style="    background: #fff;
+    border-radius: 5px;
+    padding: 10px;">
+    <button  class="riskDetailButton2" id="docModalButton"  style="width: 215px;
+    background: #ffffff;
+    color: #101010;
+    font-size: 12px;
+    padding: 5px;
+    font-weight: 500;
+
+    bottom: 12px;
+    right:10px;
+        height: 35px;
+    border: 1px solid #80808082;">Masak and Authority Documents</button>
+
     
   </div>
+</div>
+  </div>
+</div>
 
-</div>
-</div>
-</div>
 <div class="docContainerUpload" id="masakDoc" style=" ">
   <i class="bi bi-x-circle" id="closeMasak"></i>
   <!-- Upload Area -->
@@ -642,7 +590,7 @@ font-weight: 700;color: #495057;
   justify-content: space-between;">
   <div class="tableLeftUi"></div>
   
-    <p>Policies</p>
+    <p>Open Renewals</p>
   </div>
   
 </div>
@@ -663,6 +611,7 @@ font-weight: 700;color: #495057;
         <th class="">Limit</th>
         <th style="">Premium</th>
         <th style="">Day to Renewal</th>
+        <th style="">Status</th>
       </tr>
   </thead>
   <tbody>
@@ -670,7 +619,6 @@ font-weight: 700;color: #495057;
       <td><div class="checkbox-wrapper-13">
         <input type="checkbox" id="c1-13"> 
       </div></td>
-    
       <td>Mutlu Akü</td>
       <td>0957746KJLY</td>
       <td class=""><span class="healthSpan"><i class="bi bi-hospital"></i>Health</span></td>
@@ -681,6 +629,7 @@ font-weight: 700;color: #495057;
       <td >300,000,000$</td>
       <td style="">775,000$</td>
       <td class="daytoTD"><div class="span100plus"></div><p>354 Days</p></td>
+      <td class=""></div><p><button id="" type="submit" class="riskDetailButtonTd" style="height: 26.5px !important;" onclick=""><i class="bx bx-search-alt align-middle"></i>Detail</button></p></td>
   </tr>
   <tr data-year="2022" data-policy="pandc" data-company="mutlu-insaat">
     <td><div class="checkbox-wrapper-13">
@@ -696,6 +645,7 @@ font-weight: 700;color: #495057;
       <td >400,000,000$</td>
       <td style="">506,000$</td>
       <td class="daytoTD"><div class="span100plus"></div><p>198 Days</p></td>
+      <td class=""></div><p><button id="" type="submit" class="riskDetailButtonTd" style="height: 26.5px !important;" onclick=""><i class="bx bx-search-alt align-middle"></i>Detail</button></p></td>
   </tr>
   <tr data-year="2023" data-policy="health" data-company="mutlu-aku">
     <td><div class="checkbox-wrapper-13">
@@ -711,6 +661,7 @@ font-weight: 700;color: #495057;
       <td >500,000,000$</td>
       <td style="">653,000$</td>
       <td class="daytoTD"><div class="span100plus"></div><p>398 Days</p></td>
+      <td class=""></div><p><button id="" type="submit" class="riskDetailButtonTd" style="height: 26.5px !important;" onclick=""><i class="bx bx-search-alt align-middle"></i>Detail</button></p></td>
   </tr>
   <tr data-year="2023" data-policy="pandc" data-company="mutlu-aku">
     <td><div class="checkbox-wrapper-13">
@@ -726,6 +677,7 @@ font-weight: 700;color: #495057;
       <td >320,000,000$</td>
       <td style="">258,000$</td>
       <td class="daytoTD"><div class="span50"></div><p>38 Days</p></td>
+      <td class=""></div><p><button id="" type="submit" class="riskDetailButtonTd" style="height: 26.5px !important;" onclick=""><i class="bx bx-search-alt align-middle"></i>Detail</button></p></td>
   </tr>
   <tr data-year="2022" data-policy="pandc" data-company="mutlu-aku">
     <td><div class="checkbox-wrapper-13">
@@ -741,6 +693,7 @@ font-weight: 700;color: #495057;
       <td >95,000,000$</td>
       <td style="">322,000$</td>
       <td class="daytoTD"><div class="span50"></div><p>27 Days</p></td>
+      <td class=""></div><p><button id="" type="submit" class="riskDetailButtonTd" style="height: 26.5px !important;" onclick=""><i class="bx bx-search-alt align-middle"></i>Detail</button></p></td>
   </tr>
   <tr data-year="2023" data-policy="pandc" data-company="mutlu-insaat">
       <td><div class="checkbox-wrapper-13">
@@ -756,6 +709,7 @@ font-weight: 700;color: #495057;
       <td >110,000,000$</td>
       <td style="">871,000$</td>
       <td class="daytoTD"><div class="span50"></div><p>41 Days</p></td>
+      <td class=""></div><p><button id="" type="submit" class="riskDetailButtonTd" style="height: 26.5px !important;" onclick=""><i class="bx bx-search-alt align-middle"></i>Detail</button></p></td>
   </tr>
   <tr data-year="2022" data-policy="health" data-company="mutlu-insaat">
     <td><div class="checkbox-wrapper-13">
@@ -771,6 +725,7 @@ font-weight: 700;color: #495057;
       <td >125,000,000$</td>
       <td style="">751,000$</td>
       <td class="daytoTD"><div class="span100"></div><p>53 Days</p></td>
+      <td class=""></div><p><button id="" type="submit" class="riskDetailButtonTd" style="height: 26.5px !important;" onclick=""><i class="bx bx-search-alt align-middle"></i>Detail</button></p></td>
   </tr>
   <tr data-year="2023" data-policy="pandc" data-company="mutlu-insaat">
     <td><div class="checkbox-wrapper-13">
@@ -786,6 +741,7 @@ font-weight: 700;color: #495057;
       <td >260,000,000$</td>
       <td style="">344,000$</td>
       <td class="daytoTD"><div class="span100plus"></div><p>275 Days</p></td>
+      <td class=""></div><p><button id="" type="submit" class="riskDetailButtonTd" style="height: 26.5px !important;" onclick=""><i class="bx bx-search-alt align-middle"></i>Detail</button></p></td>
   </tr>
   <tr data-year="2022" data-policy="pandc" data-company="mutlu-aku">
     <td><div class="checkbox-wrapper-13">
@@ -801,6 +757,7 @@ font-weight: 700;color: #495057;
       <td >150,000,000$</td>
       <td style="">410,000$</td>
       <td class="daytoTD"><div class="span100"></div><p>72 Days</p></td>
+      <td class=""></div><p><button id="" type="submit" class="riskDetailButtonTd" style="height: 26.5px !important;" onclick=""><i class="bx bx-search-alt align-middle"></i>Detail</button></p></td>
   </tr>
   <tr data-year="2022" data-policy="pandc" data-company="mutlu-insaat">
     <td><div class="checkbox-wrapper-13">
@@ -816,6 +773,7 @@ font-weight: 700;color: #495057;
       <td >160,000,000$</td>
       <td style="">678,000$</td>
       <td class="daytoTD"><div class="span100plus"></div><p>354 Days</p></td>
+      <td class=""></div><p><button id="" type="submit" class="riskDetailButtonTd" style="height: 26.5px !important;" onclick=""><i class="bx bx-search-alt align-middle"></i>Detail</button></p></td>
   </tr>
   <tr data-year="2023" data-policy="health" data-company="mutlu-aku">
     <td><div class="checkbox-wrapper-13">
@@ -831,10 +789,212 @@ font-weight: 700;color: #495057;
     <td >80,000,000$</td>
     <td style="">356,000$</td>
     <td class="daytoTD"><div class="span100"></div><p>98 Days</p></td>
+    <td class=""></div><p><button id="" type="submit" class="riskDetailButtonTd" style="height: 26.5px !important;" onclick=""><i class="bx bx-search-alt align-middle"></i>Detail</button></p></td>
 </tr>
 
   
       
+  </tbody>
+  
+</table>
+</div>
+
+
+
+<div class="offerHistoryDiv">
+  <div class="offerHistoryTop2">
+    <div style="    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+    justify-content: space-between;">
+    <div>
+      <div class="tableLeftUi"></div>
+      <p>Opportunities</p>
+    </div>
+    <button type="button" class="btn btn-primary" id="addItemOffer">Add Item</button>
+    </div>
+ 
+
+<!-- Modal2 -->
+<div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal2Label">Add Offer History</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="addRowForm" style="display: block;">
+          <div class="row">
+            
+            <div class="col-md-3 mb-3">
+              <label for="company" class="form-label">Company</label>
+              <input type="text" class="form-control" id="company" placeholder="Company" required="">
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="offerID" class="form-label">Offer ID</label>
+              <input type="text" placeholder="Offer ID"  class="form-control" id="offerID" required="">
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="policyType" class="form-label">Policy Type</label>
+              <select class="form-select" id="policyType" required="">
+                <option value="" selected="">Select Policy Type</option>
+                <option value="P&amp;C">P&amp;C</option>
+                <option value="Health">Health</option>
+              </select>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="quoteDate" class="form-label">Quote Date</label>
+              <input type="date" placeholder="Quote Date" class="form-control" id="quoteDate" required="">
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="quoteValidUntil" class="form-label">Quote Valid Until</label>
+              <input type="date" class="form-control" id="quoteValidUntil" placeholder="Quote Valid Until" required="">
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="reinsurers" class="form-label">Reinsurers</label>
+              <select class="form-select" id="reinsurers" required="">
+                <option value="" selected="">Select Reinsurers</option>
+                <option value="Axa">Axa</option>
+                <option value="Allianz">Allianz</option>
+                <option value="Generali">Generali</option>
+              </select>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="shortAddress" class="form-label">Short Address</label>
+              <input type="text" placeholder="Short Address" class="form-control" id="shortAddress" required="">
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="limit" class="form-label">Limit</label>
+              <input type="text" placeholder="Limit" class="form-control" id="limitInput" placeholder="$">
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="premium" class="form-label">Premium</label>
+              <input type="text" placeholder="Premium" class="form-control" id="premiumInput" required="" placeholder="$">
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="status" class="form-label">Status</label>
+              <select class="form-select" id="status" required="">
+                <option value="In quotation">In quotation</option>
+                <option value="Quotation Assesment">Quotation Assesment</option>
+                <option value="Rejected">Rejected</option>
+              </select>
+            </div>
+            <div class="col-md-3 mb-3" id="rejectReasonWrapper" style="display:none;">
+              <label for="rejectReason" class="form-label">Reject Reason</label>
+              <select class="form-select" id="rejectReason">
+                <option value="" selected="">Reject Reason</option>
+                <option value="Competition">Competition</option>
+                <option value="Price">Price</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+            <div class="col-md-3 mb-3" id="otherRejectReasonWrapper" style="display:none;">
+              <label for="otherRejectReason" class="form-label">Other Reject Reason</label>
+              <input type="text" placeholder="Other Reject Reason"  class="form-control" id="otherRejectReason">
+            </div>
+            <div class="col-md-3 mb-3" id="rejectCommentWrapper" style="display:none;">
+              <label for="rejectComment" class="form-label">Comment</label>
+              <input placeholder="Comment" type="text" class="form-control" id="rejectComment">
+            </div>
+          </div>
+          <div class="offerHistoryButtons">
+          <button type="submit" id="saveOfferHistory" class="btn btn-secondary">Save</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background:#5c636a !important; color:#fff;">Close</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<table id="example2" class="table table-striped" style="width:100%">
+  <thead>
+      <tr>
+        <th>#</th>
+        <th>Company</th>
+        <th>Offer ID</th>
+        <th>Policy Type</th>
+        <th class="">Quote Date</th>
+        <th class="">Quote Valid Until</th>
+        <th>Reinsurers</th>
+        <th>Short Address</th>
+        <th class="">Limit</th>
+        <th>Premium</th>
+        <th>Status</th>
+        <th >Reject Reason </th>
+        <th class="rejectReasonTd">Reject</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <img src="https://t4.ftcdn.net/jpg/10/15/93/39/360_F_1015933916_prq63gWmjLU4niaul341hML7j1kbCDc0.jpg" style="width:32px; border-radius:50%;" class="imgOppLink" alt=""></td>
+      <td>Mutlu Akü</td>
+      <td>0957746KJLY1</td>
+      <td class=""><span class="PCSpan"><i class="bi bi-boxes"></i></i>P&C</span></td>
+      <td >2023-07-15</td>
+      <td >2024-07-25</td>
+      <td>Axa</td>
+      <td>Levent İstanbul</td>
+      <td >250,000,000$</td>
+      <td>334,000$</td>
+      <td>Rejected</td>
+      <td >Price <i class="bi bi-info-square-fill rejectIcon" data-comment="Your specific comment here" id="rejectSpecID2"></i></td>
+      <td class="rejectReasonTd" id="rejectCommentData" style="display:none;">Your specific comment here</td>
+   
+
+  </tr>
+  <tr>
+    <td> <img src="https://t4.ftcdn.net/jpg/10/15/93/39/360_F_1015933916_prq63gWmjLU4niaul341hML7j1kbCDc0.jpg" style="width:32px; border-radius:50%;" class="imgOppLink" alt=""></td>
+    <td>Mutlu Akü</td>
+    <td>0957746KJLY2</td>
+    <td class=""><span class="healthSpan"><i class="bi bi-hospital"></i>Health</span></td>
+    <td >2022-05-25</td>
+    <td >2023-07-25</td>
+    <td>Allianz</td>
+    <td>Levent İstanbul</td>
+    <td >200,000,000$</td>
+    <td>360,000$</td>
+    <td>In quotation</td>
+    <td >-</td>
+    <td class="rejectReasonTd"></td>
+
+</tr>
+<tr>
+  <td> <img src="https://t4.ftcdn.net/jpg/10/15/93/39/360_F_1015933916_prq63gWmjLU4niaul341hML7j1kbCDc0.jpg" style="width:32px; border-radius:50%;" class="imgOppLink" alt=""></td>
+  <td>Mutlu İnşaat</td>
+  <td>0957746KJLY3</td>
+  <td class=""><span class="healthSpan"><i class="bi bi-hospital"></i>Health</span></td>
+  <td >2022-05-11</td>
+  <td >2023-05-11</td>
+  <td>Allianz</td>
+  <td>Levent İstanbul</td>
+  <td >360,000,000$</td>
+  <td>775,000$</td>
+  <td>Quotation Assesment</td>
+  <td >-</td>
+  <td class="rejectReasonTd"></td>
+
+</tr>
+<tr>
+  <td> <img src="https://t4.ftcdn.net/jpg/10/15/93/39/360_F_1015933916_prq63gWmjLU4niaul341hML7j1kbCDc0.jpg" style="width:32px; border-radius:50%;" class="imgOppLink" alt=""></td>
+  <td>Mutlu İnşaat</td>
+  <td>0957746KJLY4</td>
+  <td class=""><span class="healthSpan"><i class="bi bi-hospital"></i>Health</span></td>
+  <td >2022-08-25</td>
+  <td >2023-09-25</td>
+  <td>Generali</td>
+  <td>Levent İstanbul</td>
+  <td >280,000,000$</td>
+  <td>670,000$</td>
+  <td>In quotation</td>
+  <td >-</td>
+  <td class="rejectReasonTd"></td>
+
+</tr>
+
   </tbody>
   
 </table>
@@ -1045,211 +1205,229 @@ font-weight: 700;color: #495057;
     <!-- End Files Container -->
   </div>
   
-</div>
-
-<div class="offerHistoryDiv">
-  <div class="offerHistoryTop2">
-    <div style="    display: flex;
-    align-items: center;
-    width: 100%;
-    gap: 15px;
-    justify-content: space-between;">
-    <div>
-      <div class="tableLeftUi"></div>
-      <p>Quotations</p>
-    </div>
-    <button type="button" class="btn btn-primary" id="addItemOffer">Add Item</button>
-    </div>
- 
-
-<!-- Modal2 -->
-<div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal2Label">Add Offer History</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="addRowForm" style="display: block;">
-          <div class="row">
-            
-            <div class="col-md-3 mb-3">
-              <label for="company" class="form-label">Company</label>
-              <input type="text" class="form-control" id="company" placeholder="Company" required="">
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="offerID" class="form-label">Offer ID</label>
-              <input type="text" placeholder="Offer ID"  class="form-control" id="offerID" required="">
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="policyType" class="form-label">Policy Type</label>
-              <select class="form-select" id="policyType" required="">
-                <option value="" selected="">Select Policy Type</option>
-                <option value="P&amp;C">P&amp;C</option>
-                <option value="Health">Health</option>
-              </select>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="quoteDate" class="form-label">Quote Date</label>
-              <input type="date" placeholder="Quote Date" class="form-control" id="quoteDate" required="">
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="quoteValidUntil" class="form-label">Quote Valid Until</label>
-              <input type="date" class="form-control" id="quoteValidUntil" placeholder="Quote Valid Until" required="">
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="reinsurers" class="form-label">Reinsurers</label>
-              <select class="form-select" id="reinsurers" required="">
-                <option value="" selected="">Select Reinsurers</option>
-                <option value="Axa">Axa</option>
-                <option value="Allianz">Allianz</option>
-                <option value="Generali">Generali</option>
-              </select>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="shortAddress" class="form-label">Short Address</label>
-              <input type="text" placeholder="Short Address" class="form-control" id="shortAddress" required="">
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="limit" class="form-label">Limit</label>
-              <input type="text" placeholder="Limit" class="form-control" id="limitInput" placeholder="$">
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="premium" class="form-label">Premium</label>
-              <input type="text" placeholder="Premium" class="form-control" id="premiumInput" required="" placeholder="$">
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="status" class="form-label">Status</label>
-              <select class="form-select" id="status" required="">
-                <option value="In quotation">In quotation</option>
-                <option value="Quotation Assesment">Quotation Assesment</option>
-                <option value="Rejected">Rejected</option>
-              </select>
-            </div>
-            <div class="col-md-3 mb-3" id="rejectReasonWrapper" style="display:none;">
-              <label for="rejectReason" class="form-label">Reject Reason</label>
-              <select class="form-select" id="rejectReason">
-                <option value="" selected="">Reject Reason</option>
-                <option value="Competition">Competition</option>
-                <option value="Price">Price</option>
-                <option value="Others">Others</option>
-              </select>
-            </div>
-            <div class="col-md-3 mb-3" id="otherRejectReasonWrapper" style="display:none;">
-              <label for="otherRejectReason" class="form-label">Other Reject Reason</label>
-              <input type="text" placeholder="Other Reject Reason"  class="form-control" id="otherRejectReason">
-            </div>
-            <div class="col-md-3 mb-3" id="rejectCommentWrapper" style="display:none;">
-              <label for="rejectComment" class="form-label">Comment</label>
-              <input placeholder="Comment" type="text" class="form-control" id="rejectComment">
-            </div>
-          </div>
-          <div class="offerHistoryButtons">
-          <button type="submit" id="saveOfferHistory" class="btn btn-secondary">Save</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background:#5c636a !important; color:#fff;">Close</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-</div>
-<table id="example2" class="table table-striped" style="width:100%">
-  <thead>
-      <tr>
-        <th>#</th>
-        <th>Company</th>
-        <th>Offer ID</th>
-        <th>Policy Type</th>
-        <th class="">Quote Date</th>
-        <th class="">Quote Valid Until</th>
-        <th>Reinsurers</th>
-        <th>Short Address</th>
-        <th class="">Limit</th>
-        <th>Premium</th>
-        <th>Status</th>
-        <th >Reject Reason </th>
-        <th class="rejectReasonTd">Reject</th>
-      </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><div class="checkbox-wrapper-13">
-        <input type="checkbox" id="c1-13"> 
-      </div></td>
-      <td>Mutlu Akü</td>
-      <td>0957746KJLY1</td>
-      <td class=""><span class="PCSpan"><i class="bi bi-boxes"></i></i>P&C</span></td>
-      <td >2023-07-15</td>
-      <td >2024-07-25</td>
-      <td>Axa</td>
-      <td>Levent İstanbul</td>
-      <td >250,000,000$</td>
-      <td>334,000$</td>
-      <td>Rejected</td>
-      <td >Price <i class="bi bi-info-square-fill rejectIcon" data-comment="Your specific comment here" id="rejectSpecID2"></i></td>
-      <td class="rejectReasonTd" id="rejectCommentData" style="display:none;">Your specific comment here</td>
-  </tr>
-  <tr>
-    <td><div class="checkbox-wrapper-13">
-      <input type="checkbox" id="c1-13"> 
-    </div></td>
-    <td>Mutlu Akü</td>
-    <td>0957746KJLY2</td>
-    <td class=""><span class="healthSpan"><i class="bi bi-hospital"></i>Health</span></td>
-    <td >2022-05-25</td>
-    <td >2023-07-25</td>
-    <td>Allianz</td>
-    <td>Levent İstanbul</td>
-    <td >200,000,000$</td>
-    <td>360,000$</td>
-    <td>In quotation</td>
-    <td >-</td>
-    <td class="rejectReasonTd"></td>
-</tr>
-<tr>
-  <td><div class="checkbox-wrapper-13">
-    <input type="checkbox" id="c1-13"> 
-  </div></td>
-  <td>Mutlu İnşaat</td>
-  <td>0957746KJLY3</td>
-  <td class=""><span class="healthSpan"><i class="bi bi-hospital"></i>Health</span></td>
-  <td >2022-05-11</td>
-  <td >2023-05-11</td>
-  <td>Allianz</td>
-  <td>Levent İstanbul</td>
-  <td >360,000,000$</td>
-  <td>775,000$</td>
-  <td>Quotation Assesment</td>
-  <td >-</td>
-  <td class="rejectReasonTd"></td>
-</tr>
-<tr>
-  <td><div class="checkbox-wrapper-13">
-    <input type="checkbox" id="c1-13"> 
-  </div></td>
-  <td>Mutlu İnşaat</td>
-  <td>0957746KJLY4</td>
-  <td class=""><span class="healthSpan"><i class="bi bi-hospital"></i>Health</span></td>
-  <td >2022-08-25</td>
-  <td >2023-09-25</td>
-  <td>Generali</td>
-  <td>Levent İstanbul</td>
-  <td >280,000,000$</td>
-  <td>670,000$</td>
-  <td>In quotation</td>
-  <td >-</td>
-  <td class="rejectReasonTd"></td>
-</tr>
-
-  </tbody>
-  
-</table>
-</div>
-
 <br>
+</div>
+<div class="policiesTableDiv">
+  
+  
+  <div class="offerHistoryTop">
+   <div style="display: flex;
+   align-items: center;
+   gap: 15px;
+   justify-content: space-between;">
+   <div class="tableLeftUi"></div>
+   
+     <p>Closed Renewals</p>
+   </div>
+   
+ </div>
+  <table id="mainTable33" class="table table-striped" style="width:100%">
+   
+ 
+   <thead>
+    
+       <tr>
+         <th>#</th>
+         <th>Company</th>
+         <th>Policy ID</th>
+         <th class="">Policy Type</th>
+         <th class="">Policy Begin</th>
+         <th class="">Policy End</th>
+         <th>Reinsurers</th>
+         <th>Short Address</th>
+         <th class="">Limit</th>
+         <th style="">Premium</th>
+         <th style="">Day to Renewal</th>
+         <th style="">#</th>
+       </tr>
+   </thead>
+   <tbody>
+     <tr data-year="2022" data-policy="health" data-company="mutlu-aku">
+       <td><div class="checkbox-wrapper-13">
+         <input type="checkbox" id="c1-13"> 
+       </div></td>
+       <td>Mutlu Akü</td>
+       <td>0957746KJLY</td>
+       <td class=""><span class="healthSpan"><i class="bi bi-hospital"></i>Health</span></td>
+       <td >2022-04-25</td>
+       <td >2023-04-25</td>
+       <td>Allianz</td>
+       <td>Levent İstanbul</td>
+       <td >300,000,000$</td>
+       <td style="">775,000$</td>
+       <td class="daytoTD"><div class="span100plus"></div><p>354 Days</p></td>
+       <td class="relativeTd"></div><p><img src="https://img.freepik.com/premium-vector/power-button-icon-button-flat-style_123447-256.jpg" class="imgTdRenewal" alt=""></p></td>
+   </tr>
+   <tr data-year="2022" data-policy="pandc" data-company="mutlu-insaat">
+     <td><div class="checkbox-wrapper-13">
+       <input type="checkbox" id="c1-13"> 
+     </div></td>
+       <td>Mutlu İnşaat</td>
+       <td>0457746KJLY</td>
+       <td class=""><span class="PCSpan"><i class="bi bi-boxes"></i></i>P&C</span></td>
+       <td >2022-05-22</td>
+       <td >2023-07-22</td>
+       <td>Anadolu</td>
+       <td>Tuzla İstanbul</td>
+       <td >400,000,000$</td>
+       <td style="">506,000$</td>
+       <td class="daytoTD"><div class="span100plus"></div><p>198 Days</p></td>
+       <td class="relativeTd"></div><p><img src="https://img.freepik.com/premium-vector/power-button-icon-button-flat-style_123447-256.jpg" class="imgTdRenewal" alt=""></p></td>
+   </tr>
+   <tr data-year="2023" data-policy="health" data-company="mutlu-aku">
+     <td><div class="checkbox-wrapper-13">
+       <input type="checkbox" id="c1-13"> 
+     </div></td>
+       <td>Mutlu Akü</td>
+       <td>0957746K4LY</td>
+       <td class=""><span class="healthSpan"><i class="bi bi-hospital"></i>Health</span></td>
+       <td >2023-04-02</td>
+       <td >2024-01-12</td>
+       <td>Generali</td>
+       <td>Levent İstanbul</td>
+       <td >500,000,000$</td>
+       <td style="">653,000$</td>
+       <td class="daytoTD"><div class="span100plus"></div><p>398 Days</p></td>
+       <td class="relativeTd"></div><p><img src="https://img.freepik.com/premium-vector/power-button-icon-button-flat-style_123447-256.jpg" class="imgTdRenewal" alt=""></p></td>
+   </tr>
+   <tr data-year="2023" data-policy="pandc" data-company="mutlu-aku">
+     <td><div class="checkbox-wrapper-13">
+       <input type="checkbox" id="c1-13"> 
+     </div></td>
+       <td>Mutlu Akü</td>
+       <td>0957546KJLY</td>
+       <td class=""><span class="PCSpan"><i class="bi bi-boxes"></i></i>P&C</span></td>
+       <td >2023-03-15</td>
+       <td >2024-03-29</td>
+       <td>Axa</td>
+       <td>Levent İstanbul</td>
+       <td >320,000,000$</td>
+       <td style="">258,000$</td>
+       <td class="daytoTD"><div class="span50"></div><p>38 Days</p></td>
+       <td class="relativeTd"></div><p><img src="https://img.freepik.com/premium-vector/power-button-icon-button-flat-style_123447-256.jpg" class="imgTdRenewal" alt=""></p></td>
+   </tr>
+   <tr data-year="2022" data-policy="pandc" data-company="mutlu-aku">
+     <td><div class="checkbox-wrapper-13">
+       <input type="checkbox" id="c1-13"> 
+     </div></td>
+       <td>Mutlu Akü</td>
+       <td>0957746KJ3Y</td>
+       <td class=""><span class="PCSpan"><i class="bi bi-boxes"></i></i>P&C</span></td>
+       <td >2022-04-25</td>
+       <td >2023-04-25</td>
+       <td>Axa</td>
+       <td>Levent İstanbul</td>
+       <td >95,000,000$</td>
+       <td style="">322,000$</td>
+       <td class="daytoTD"><div class="span50"></div><p>27 Days</p></td>
+       <td class="relativeTd"></div><p><img src="https://img.freepik.com/premium-vector/power-button-icon-button-flat-style_123447-256.jpg" class="imgTdRenewal" alt=""></p></td>
+   </tr>
+   <tr data-year="2023" data-policy="pandc" data-company="mutlu-insaat">
+       <td><div class="checkbox-wrapper-13">
+         <input type="checkbox" id="c1-13"> 
+       </div></td>
+       <td>Mutlu İnşaat</td>
+       <td>0957346KJLY</td>
+       <td class=""><span class="PCSpan"><i class="bi bi-boxes"></i></i>P&C</span></td>
+       <td >2023-01-21</td>
+       <td >2024-01-21</td>
+       <td>Anadolu</td>
+       <td>Tuzla İstanbul</td>
+       <td >110,000,000$</td>
+       <td style="">871,000$</td>
+       <td class="daytoTD"><div class="span50"></div><p>41 Days</p></td>
+       <td class="relativeTd"></div><p><img src="https://img.freepik.com/premium-vector/power-button-icon-button-flat-style_123447-256.jpg" class="imgTdRenewal" alt=""></p></td>
+   </tr>
+   <tr data-year="2022" data-policy="health" data-company="mutlu-insaat">
+     <td><div class="checkbox-wrapper-13">
+       <input type="checkbox" id="c1-13"> 
+     </div></td>
+       <td>Mutlu İnşaat</td>
+       <td>0157746KJLY</td>
+       <td class=""><span class="healthSpan"><i class="bi bi-hospital"></i>Health</span></td>
+       <td >2022-03-09</td>
+       <td >2023-03-09</td>
+       <td>Anadolu</td>
+       <td>Tuzla İstanbul</td>
+       <td >125,000,000$</td>
+       <td style="">751,000$</td>
+       <td class="daytoTD"><div class="span100"></div><p>53 Days</p></td>
+       <td class="relativeTd"></div><p><img src="https://img.freepik.com/premium-vector/power-button-icon-button-flat-style_123447-256.jpg" class="imgTdRenewal" alt=""></p></td>
+   </tr>
+   <tr data-year="2023" data-policy="pandc" data-company="mutlu-insaat">
+     <td><div class="checkbox-wrapper-13">
+       <input type="checkbox" id="c1-13"> 
+     </div></td>
+       <td>Mutlu İnşaat</td>
+       <td>09577462JLY</td>
+       <td class=""><span class="PCSpan"><i class="bi bi-boxes"></i></i>P&C</span></td>
+       <td >2023-05-25</td>
+       <td >2024-05-25</td>
+       <td>Anadolu</td>
+       <td>Tuzla İstanbul</td>
+       <td >260,000,000$</td>
+       <td style="">344,000$</td>
+       <td class="daytoTD"><div class="span100plus"></div><p>275 Days</p></td>
+       <td class="relativeTd"></div><p><img src="https://img.freepik.com/premium-vector/power-button-icon-button-flat-style_123447-256.jpg" class="imgTdRenewal" alt=""></p></td>
+   </tr>
+   <tr data-year="2022" data-policy="pandc" data-company="mutlu-aku">
+     <td><div class="checkbox-wrapper-13">
+       <input type="checkbox" id="c1-13"> 
+     </div></td>
+       <td>Mutlu Akü</td>
+       <td>095774644LY</td>
+       <td class=""><span class="PCSpan"><i class="bi bi-boxes"></i></i>P&C</span></td>
+       <td >2022-07-25</td>
+       <td >2023-07-25</td>
+       <td>Generali</td>
+       <td>Levent İstanbul</td>
+       <td >150,000,000$</td>
+       <td style="">410,000$</td>
+       <td class="daytoTD"><div class="span100"></div><p>72 Days</p></td>
+       <td class="relativeTd"></div><p><img src="https://img.freepik.com/premium-vector/power-button-icon-button-flat-style_123447-256.jpg" class="imgTdRenewal" alt=""></p></td>
+   </tr>
+   <tr data-year="2022" data-policy="pandc" data-company="mutlu-insaat">
+     <td><div class="checkbox-wrapper-13">
+       <input type="checkbox" id="c1-13"> 
+     </div></td>
+       <td>Mutlu İnşaat</td>
+       <td>0S5A746KJLY</td>
+       <td class=""><span class="PCSpan"><i class="bi bi-boxes"></i></i>P&C</span></td>
+       <td >2022-06-25</td>
+       <td >2024-09-15</td>
+       <td>Anadolu</td>
+       <td>Tuzla İstanbul</td>
+       <td >160,000,000$</td>
+       <td style="">678,000$</td>
+       <td class="daytoTD"><div class="span100plus"></div><p>354 Days</p></td>
+       <td class="relativeTd"></div><p><img src="https://img.freepik.com/premium-vector/power-button-icon-button-flat-style_123447-256.jpg" class="imgTdRenewal" alt=""></p></td>
+   </tr>
+   <tr data-year="2023" data-policy="health" data-company="mutlu-aku">
+     <td><div class="checkbox-wrapper-13">
+       <input type="checkbox" id="c1-13"> 
+     </div></td>
+     <td>Mutlu Akü</td>
+     <td>0917746KJLY</td>
+     <td class=""><span class="healthSpan"><i class="bi bi-hospital"></i>Health</span></td>
+     <td >2023-02-25</td>
+     <td >2024-12-19</td>
+     <td>Generali</td>
+     <td>Levent İstanbul</td>
+     <td >80,000,000$</td>
+     <td style="">356,000$</td>
+     <td class="daytoTD"><div class="span100"></div><p>98 Days</p></td>
+     <td class="relativeTd"></div><p><img src="https://img.freepik.com/premium-vector/power-button-icon-button-flat-style_123447-256.jpg" class="imgTdRenewal" alt=""></p></td>
+ </tr>
+ 
+   
+       
+   </tbody>
+   
+ </table>
+ </div>
+ 
+ 
+ 
 <!-- Modal -->
 <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -1349,29 +1527,302 @@ font-weight: 700;color: #495057;
 </div>
 
 
+<div class="modal fade" id="docModal" tabindex="-1" aria-labelledby="docModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="    min-width: 1000px;">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="docModalLabel">Document Information</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="card" id="tabDiv" style="    min-height: 436px !important;    border-radius: 5px !important; width:100% !important;">
+              <div class="card-body">
+            
+                  <h4 class="card-title" style="height: 8% !important;
+                padding: 5px;">General Documents</h4>
+                  
+            
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-pills nav-justified" role="tablist" style="    height: 10% !important;">
+                      <li class="nav-item waves-effect waves-light" role="presentation">
+                          <a class="nav-link active" data-bs-toggle="tab" style="    border-top-left-radius: 5px !important;
+                border-bottom-left-radius: 5px !important;    padding: 5px;" href="#home-1" role="tab" aria-selected="true">
+                              <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                              <span class="d-none d-sm-block" id="masakButtonTab">Masak</span> 
+                          </a>
+                      </li>
+                      <li class="nav-item waves-effect waves-light" role="presentation">
+                          <a class="nav-link" style="border-top-right-radius: 5px !important;
+                border-bottom-right-radius: 5px !important;    padding: 5px;" data-bs-toggle="tab" href="#profile-1" role="tab" aria-selected="false" tabindex="-1">
+                              <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
+                              <span class="d-none d-sm-block" id="AuthorityButtonTab">Authority Letter</span> 
+                          </a>
+                      </li>
+                      
+                  </ul>
+            
+                  <!-- Tab panes -->
+                  <div class="tab-content text-muted" style="  padding: 0 10px 10px 10px !important;    height: 83%;">
+                      <div class="tab-pane active show" id="home-1" role="tabpanel" style="height:100%;">
+                          <p class="mb-0" id="MasakTab">
+                            
+                            <div id="main-files" class="d-flex align-items-stretch flex-wrap foldersDetail">
+                              <div class="d-inline-flex" data-company="mutlu-aku">
+                                <button class="folder-container" style=" margin: auto !important;">
+                                  <img src="/static/clients/img/pdf.svg" alt="">
+                                  <div class="folder-name5">Masak Document</div>
+                                  <div class="folder-name4">Mutlu Akü</div>
+                                  <div class="folder-name4">P&amp;C</div>
+                                  <div class="folder-name4">11-12-2023</div>
+                                </button>
+                                <div class="folderButtons">
+                                  <button type="button" class="btn btn-primary" id="previewPdfButton2">Preview</button>
+                                  <button type="button" class="btn btn-primary">Download</button>
+                                </div>
+                              </div>
+                              <div class="d-inline-flex">
+                                <button class="folder-container" style=" margin: auto !important;">
+                                  <img src="/static/clients/img/pdf.svg" alt="">
+                                  <div class="folder-name5">Masak Document</div>
+                                  <div class="folder-name4">Mutlu İnşaat</div>
+                                  <div class="folder-name4">P&amp;C</div>
+                                  <div class="folder-name4">11-12-2023</div>
+                                </button>
+                              <div class="folderButtons">
+                                <button type="button" class="btn btn-primary" id="previewPdfButton">Preview</button>
+                                <button type="button" class="btn btn-primary">Download</button>
+                              </div>
+                              </div>
+                              <div class="d-inline-flex">
+                                <button class="folder-container" style=" margin: auto !important;">
+                                  <img src="/static/clients/img/xls.svg" alt="">
+                                  <div class="folder-name5">Masak Document</div>
+                                  <div class="folder-name4">Mutlu Akü</div>
+                                  <div class="folder-name4">P&amp;C</div>
+                                  <div class="folder-name4">11-12-2023</div>
+                                </button>
+                                <div class="folderButtons">
+                                  <button type="button" style="width:100%;" class="btn btn-primary">Download</button>
+                                </div>
+                              </div>
+                              <div class="d-inline-flex">
+                                <button class="folder-container" style=" margin: auto !important;">
+                                  <img src="/static/clients/img/xls.svg" alt="">
+                                  <div class="folder-name5">Masak Document</div>
+                                  <div class="folder-name4">Mutlu Akü</div>
+                                  <div class="folder-name4">P&amp;C</div>
+                                  <div class="folder-name4">11-12-2023</div>
+                                </button>
+                                <div class="folderButtons">
+                                  <button type="button" style="width:100%;" class="btn btn-primary">Download</button>
+                                </div>
+                              </div>
+                            
+                              
+                            </div>
+                            <button  class="docButtonMasakAuth" id="docButtonMasakAuth"  style="width: 278px;
+                background: #ffffff;
+                color: #101010;
+                font-size: 12px;
+                padding: 5px;
+                font-weight: 500;
+                position: absolute;
+                bottom: 12px;
+                border: 1px solid #80808082;">Add Masak Document</button>
+                <input type="file" id="fileInput" style="display:none" webkitdirectory mozdirectory>
+                          </p>
+                      </div>
+                      <div class="tab-pane" id="profile-1" role="tabpanel">
+                          <p class="mb-0" id="AuthorityTab">
+                            <p class="mb-0">
+                              <div id="main-files" class="d-flex align-items-stretch flex-wrap foldersDetail">
+                                <div class="d-inline-flex" data-company="mutlu-aku">
+                                  <button class="folder-container" style=" margin: auto !important;">
+                                    <img src="/static/clients/img/pdf.svg" alt="">
+                                    <div class="folder-name5">Authority Document</div>
+                                    <div class="folder-name4">Mutlu Akü</div>
+                                    <div class="folder-name4">P&amp;C</div>
+                                    <div class="folder-name4">11-12-2023</div>
+                                  </button>
+                                  <div class="folderButtons">
+                                    <button type="button" class="btn btn-primary" id="previewPdfButton2">Preview</button>
+                                    <button type="button" class="btn btn-primary">Download</button>
+                                  </div>
+                                </div>
+                                <div class="d-inline-flex">
+                                  <button class="folder-container" style=" margin: auto !important;">
+                                    <img src="/static/clients/img/pdf.svg" alt="">
+                                    <div class="folder-name5">Authority Document</div>
+                                    <div class="folder-name4">Mutlu İnşaat</div>
+                                    <div class="folder-name4">P&amp;C</div>
+                                    <div class="folder-name4">11-12-2023</div>
+                                  </button>
+                                <div class="folderButtons">
+                                  <button type="button" class="btn btn-primary" id="previewPdfButton">Preview</button>
+                                  <button type="button" class="btn btn-primary">Download</button>
+                                </div>
+                                </div>
+                                <div class="d-inline-flex">
+                                  <button class="folder-container" style=" margin: auto !important;">
+                                    <img src="/static/clients/img/xls.svg" alt="">
+                                    <div class="folder-name5">Authority Document</div>
+                                    <div class="folder-name4">Mutlu Akü</div>
+                                    <div class="folder-name4">P&amp;C</div>
+                                    <div class="folder-name4">11-12-2023</div>
+                                  </button>
+                                  <div class="folderButtons">
+                                    <button type="button" style="width:100%;" class="btn btn-primary">Download</button>
+                                  </div>
+                                </div>
+                                <div class="d-inline-flex">
+                                  <button class="folder-container" style=" margin: auto !important;">
+                                    <img src="/static/clients/img/xls.svg" alt="">
+                                    <div class="folder-name5">Authority Document</div>
+                                    <div class="folder-name4">Mutlu Akü</div>
+                                    <div class="folder-name4">P&amp;C</div>
+                                    <div class="folder-name4">11-12-2023</div>
+                                  </button>
+                                  <div class="folderButtons">
+                                    <button type="button" style="width:100%;" class="btn btn-primary">Download</button>
+                                  </div>
+                                </div>
+                              
+                                
+                              </div>
+                              <button  class="docButtonMasakAuth" id="docButtonMasakAuth2"  style="width: 278px;
+                background: #ffffff;
+                color: #101010;
+                font-size: 12px;
+                padding: 5px;
+                font-weight: 500;
+                position: absolute;
+                bottom: 12px;
+                border: 1px solid #80808082;">Add Authority Document</button>
+                            </p>
+                          </p>
+                      </div>
+                     
+                  </div>
+                
+              </div>
+            
+            </div>
+            </div>
+          </div>
+         
+      </div>
+  </div>
+</div>
 
-{% comment %} <div id="infoSpecDiv">
-  <p style="border-bottom: 1px solid;
-    width: 100%;
-    padding-bottom: 3px;"><i class="bi bi-chat-square-text-fill"></i> Explanation</p>
 
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel beatae natus eveniet.
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="    margin-top: 13%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmationModalLabel">Policy Type Selection</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Please select a Policy Type.
+      </div>
+      <div class="modal-footer" style="justify-content:center;">
+       
+        <button class="riskDetailButton2" id="confirmYesButton" style="width: 172px;
+      background: #ffffff;
+      color: #101010;
+      font-size: 12px;
+      padding: 5px;
+      font-weight: 500;
+    
+      bottom: 77px;
+      right:10px;
+          height: 32px;
+      border: 1px solid #80808082;
+      ">P&C</button>
+      <button class="riskDetailButton2" id="" data-bs-dismiss="modal" style="width: 172px;
+      background: #ffffff;
+      color: #101010;
+      font-size: 12px;
+      padding: 5px;
+      font-weight: 500;
+    
+      bottom: 77px;
+      right:10px;
+          height: 32px;
+      border: 1px solid #80808082;
+      ">Health</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-</div> {% endcomment %}
 
 <script src="{% static 'clients/js/folders.js' %}"></script>
 <script>
+  new DataTable('#mainTable33', {
+    layout: {
+      topStart: {
+        buttons: ['pdf', 'excel', 'copy']
+      }
+    }
+  });
   document.getElementById("docButtonMasakAuth").addEventListener("click", function() {
     document.getElementById("fileInput").click();
 });
 document.getElementById("docButtonMasakAuth2").addEventListener("click", function() {
   document.getElementById("fileInput").click();
 });
+// Event listener for the button
+document.addEventListener("DOMContentLoaded", function() {
+  // Event listener for the button
+  document.getElementById("docModalButton").addEventListener("click", function() {
+      var modal = new bootstrap.Modal(document.getElementById('docModal'));
+      modal.show();
+  });
+});
 
+  // createOppButton butonuna tıklandığında modalı aç
+  document.getElementById("createOppButton").addEventListener("click", function() {
+      var confirmationModal = new bootstrap.Modal(document.getElementById("confirmationModal"));
+      confirmationModal.show();
+  });
+
+  // confirmYesButton butonuna tıklandığında yönlendirme yap
+  document.getElementById("confirmYesButton").addEventListener("click", function() {
+      window.location.href = "{% url 'questions:opportunities' %}";
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+    // Tüm riskDetailButtonTd butonlarını seç
+    var riskButtons = document.querySelectorAll(".riskDetailButtonTd");
+    riskButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            window.location.href = "{% url 'questions:opportunities' %}";
+        });
+    });
+  
+    // Tüm imgTdRenewal butonlarını seç
+    var renewalButtons = document.querySelectorAll(".imgTdRenewal");
+    renewalButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            window.location.href = "{% url 'questions:renewal' %}";
+        });
+    });
+
+    // Tüm imgTdRenewal butonlarını seç
+    var renewalButtons = document.querySelectorAll(".imgOppLink");
+    renewalButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            window.location.href = "{% url 'questions:opportunities' %}";
+        });
+    });
+  });
   
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<script src="{% static 'questions/js/sidebar.js' %}"></script>
+<script src="{% static 'questions/js/notification.js' %}"></script>
 <script src="{% static 'clients/js/client_info.js' %}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>

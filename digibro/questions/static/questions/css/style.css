@@ -867,3 +867,52 @@ left: 120px; */
   background: #424249 !important;
   color: #fff !important;
 }
+.mailModalButtonSelect{
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.25px;
+  justify-content: center;
+  align-items: center;
+  width: 129px !important;
+  right: 10px;
+  background: #f0f4f82e ;
+  border-color: #8b8b8b6e !important;
+  color: #535353;
+  bottom: 10px;
+  padding: 5px !important;
+}
+.mailModalButtonSelect:hover{
+  background: #102a43!important;
+  border-color: #8b8b8b6e !important;
+  color: #fff !important;
+}
+#avivasaCancelButton{
+  display: none;
+}
+#avivasaSelectedP{
+  display: none;
+}
+#confirmationModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; /* Modalın genişliği */
+  background-color: rgba(0, 0, 0, 0.5); /* Arka plan karartması */
+  display: none; /* Varsayılan olarak gizli */
+  z-index: 1000; /* Modalın üstte görünmesi için yüksek z-index */
+}
+
+#confirmationModal .modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  height: 6%;
+  width: 25% !important;
+  position: absolute;
+  top: 406px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}

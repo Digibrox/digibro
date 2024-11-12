@@ -1,0 +1,413 @@
+.tabs {
+    display: flex;
+    width: 88%;
+    margin: auto;
+    background: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    -webkit-box-shadow: 0 .75rem 1.5rem rgba(18, 38, 63, .03);
+    box-shadow: 0 .75rem 1.5rem rgba(18, 38, 63, .03);
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 2px solid #cccccc66;
+    color: #535353;
+    transition: color 0.4s ease;
+    width: 29.7%;
+    height: 37px;
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 500;
+    background: #fbfbfb;
+}
+.tab:hover{
+    background: #ededed;
+}
+.tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #556ee6;
+    transition: width 0.4s ease, left 0.4s ease;
+}
+
+.tab.active {
+    border-bottom: none;
+    color: #556ee6;
+    background: #f3f7ff80;
+}
+
+.tab.active::after {
+    width: 100%;
+    left: 0;
+}
+
+.content {
+    text-align: center;
+    width: 88%;
+    margin: auto;
+    background: #fff;
+    -webkit-box-shadow: 0 .75rem 1.5rem rgba(18, 38, 63, .03);
+    box-shadow: 0 .75rem 1.5rem rgba(18, 38, 63, .03);
+}
+
+.content h2 {
+    margin-bottom: 10px;
+}
+.card-title{
+    font-size: 15px;
+    font-weight: 500;
+    color: #556ee6  !important;
+    margin: 17px !important;
+}
+.card{
+    box-shadow: none !important;
+}
+.tabSectionDiv{
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    justify-content: space-evenly;
+}
+.tabSectionDiv label{
+    font-size: 13px;
+}
+.txtLeft{
+    text-align: left;
+}
+.txtLeft input:focus {
+    outline: none;
+    box-shadow: none;
+}
+#add_records_button{
+    font-size: 12.5px !important;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    justify-content: center;
+    align-items: center;
+    width: 22%;
+    right: 10px;
+    background: #f9fbff !important;
+    border-color: #8b8b8b6e !important;
+    color: #676767 !important;
+    bottom: 10px;
+    padding: 4px !important;
+    height: 31px;
+}
+#add_records_button:hover{
+    background: #102a43!important;
+    border-color: #8b8b8b6e !important;
+    color: #fff !important;
+}
+.tabFoldersDiv{
+    width: 40%;
+    padding: 5px;
+}
+.folder-tabs {
+    display: flex;
+}
+.folder-tabs button{
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 2px solid #cccccc66;
+    color: #535353;
+    transition: color 0.4s ease;
+    width: 50%;
+    height: 37px;
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 500;
+}
+.folder-tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background-color: #fbfbfb;
+}
+
+.folder-tab:hover {
+    background-color: #e8e8e8;
+}
+
+.folder-tab.active {
+    background-color: #f9fbff;
+    border-bottom: 2px solid #556ee6;
+    color: #556ee6;
+}
+
+.folder-content {
+    padding: 20px;
+    display: none;
+    height: 280px;
+    position: relative;
+}
+
+.folder-content.active {
+    display: block;
+}
+.tabFolderMainDiv{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    padding: 1px 0px;
+}
+.folderButtonSpec{
+    font-size: 12.5px !important;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    justify-content: center;
+    align-items: center;
+    width: 22%;
+    right: 10px;
+    background: #f9fbff !important;
+    color: #676767 !important;
+    bottom: 10px;
+    padding: 4px !important;
+    height: 31px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+.folderButtonSpec:hover{
+    background: #102a43!important;
+    border-color: #8b8b8b6e !important;
+    color: #fff !important;
+}
+#masakFolders img,#authorityFolders img{
+    width: 60px;
+}
+#masakFolders .folder-icon,#authorityFolders .folder-icon{
+    height: 122px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: #6c6c6c;
+    font-size: 13.5px;
+    gap: 5px;
+}
+/* Modal genel stil */
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  #pdfPreviewModal .modal-content{
+    margin: 5% auto !important;
+    width: 70% !important;
+
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50% !important;
+    text-align: center;
+  }
+  .modal-content h2{
+    font-size: 16px;
+    color: #575757;
+    margin: 0;
+    text-align: left;
+  }
+  .modal-footer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Close button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    cursor: pointer;
+  }
+  .modal-footer button{
+    font-size: 12.5px !important;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    right: 10px;
+    background: #f9fbff !important;
+    color: #676767 !important;
+    bottom: 10px;
+    padding: 4px !important;
+    border: 1px solid #f3f7ff;
+    height: 31px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  }
+  .modal-footer button:hover{
+    background: #102a43!important;
+    border-color: #8b8b8b6e !important;
+    color: #fff !important;
+  }
+  .modal-footer-buttonsDiv{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .modal-footer .txtLeft label{
+    font-size: 14px;
+  }
+  .modal-footer .txtLeft textarea{
+    padding: 8px;
+    font-size: 13px;
+    resize: none;
+    width: 270px;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    resize: none;
+
+    border-radius: 5px;
+    width: 100%;
+    height: 63px;
+
+    box-sizing: border-box;
+    color: #40424c;
+    box-shadow: none;
+
+    font-size: 13px;
+  } 
+  .modal-footer .row{
+    width: 100%;
+  }
+.folderCard{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    width: 141px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 0 0;
+    position: relative;
+}
+.folderCard p{
+    color: #6c6c6c;
+    font-size: 12.2px;
+}
+.folderCard img{
+    width: 40px !important;
+}
+.folderCard button{
+    font-size: 12.5px !important;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    right: 10px;
+    background: #f9fbff !important;
+    color: #676767 !important;
+    bottom: 10px;
+    padding: 4px !important;
+    height: 25px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+.folderCard button:hover{
+    background: #102a43!important;
+    border-color: #8b8b8b6e !important;
+    color: #fff !important;
+}
+/* Comment icon'un sağ üst köşede yerleşimi */
+.comment-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.comment-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Tooltip (baloncuk) gizli olacak, hover olunca gösterilecek */
+.tooltip {
+    visibility: hidden;
+    background-color: #131417;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    top: -40px;
+    right: -8px;
+    z-index: 1;
+    width: 203px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 15px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+#tooltipText{
+    color: #fff !important;
+}
+/* Comment icon'a hover yapılınca baloncuğu göster */
+.comment-icon:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+#deleteMasakButton{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: red;
+    cursor: pointer;
+}
+#confirmDeleteButton,#cancelDeleteButton{
+    font-size: 12.5px !important;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    justify-content: center;
+    border: 1px solid #d5d5d5;
+    align-items: center;
+    width: 119px;
+    right: 10px;
+    background: #f9fbff !important;
+    color: #676767 !important;
+    bottom: 10px;
+    padding: 4px !important;
+    height: 31px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}    
+#confirmDeleteButton:hover,#cancelDeleteButton:hover{
+    background: #102a43!important;
+    border-color: #8b8b8b6e !important;
+    color: #fff !important;
+}
+#folderCardMasak{
+    display: none;
+}

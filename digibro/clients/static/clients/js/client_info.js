@@ -186,6 +186,7 @@ $(document).ready(function() {
       }
     }
   });
+ 
   new DataTable('#example2', {
     layout: {
       topStart: {
@@ -520,6 +521,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <td>${data.status}</td>
       <td>${rejectReasonContent}</td>
       <td style="display:none;" id="rejectCommentData">${data.rejectComment}</td>
+      
     `;
 
     // Add event listener to icon

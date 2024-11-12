@@ -2,9 +2,10 @@
 <div id="popupSigorta">
 <div id="sigortaDiv">
   
-  <div class="sigortaCard">
+  <div class="sigortaCard" id="allianzCard">
+    
     <img
-      src="{% static 'questions/img/allianz.png' %}"
+      src="{% static 'questions/img/aviva.png' %}"
       class=""
        alt=""
      />
@@ -12,32 +13,215 @@
       <p class="sigortaCardTitle">Allianz Sigorta</p>
       <hr class="sigortaCardHr" style="color: #424248 !important;" />
 
+
     
     <div class="buttonDivMail"> 
-      <button class="btn btn-primary mailModalButton" id="" style="">View Profile</button>
-    <button class="btn btn-primary mailModalButton" id="">Select</button>
+      <button class="btn mailModalButtonSelect" id="" style="">View Profile</button>
+    <button class="btn  mailModalButtonSelect" id="allianzSelectButton" onclick="allianzSelect()">Select</button>
+   
     
     </div>
      </div>
+     <div style="    display: flex;
+    flex-direction: column;
+    gap: 10px;">
+     <div class="dropdown">
+      <button  class="dropbtn btn btn-primary1" style="    width: 60px !important;
+        border-radius: 5px !important;
+        background: #ffffff !important;
+        color: #101010 !important;
+        font-size: 12px !important;
+        padding: 5px !important;
+        font-weight: 500 !important;
+        bottom: 12px !important;
+        border: 1px solid #80808047 !important;">To:</button>
+      <div id="myDropdown5allianz" class="dropdown-content">
+        <div class="dropdownSearchDiv">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search.." id="myInput5allianz" onkeyup="filterFunction5allianz()">
+        <i class="bi bi-x-circle" onclick="clearSearch5allianz()"></i>
+        </div>
+        <a href="#" id="oguzAxaallianz" onclick="openTo1axaallianz()" >oguzhanyildirim@allianz.com</a>
+        <a href="#" id="ibrahimAxaallianz" onclick="openTo2axaallianz()">ibrahimyasar@allianz.com</a>
+        <a href="#" id="aliAxaallianz" onclick="openTo3axaallianz()">fatihaydin@allianz.com</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button onclick="myFunction2allianz()" class="dropbtn btn btn-primary1" style="    width: 60px !important;
+        border-radius: 5px !important;
+        background: #ffffff !important;
+        color: #101010 !important;
+        font-size: 12px !important;
+        padding: 5px !important;
+        font-weight: 500 !important;
+        bottom: 12px !important;
+        border: 1px solid #80808047 !important;">Cc:</button>
+      <div id="myDropdown2allianz" class="dropdown-content">
+        <div class="dropdownSearchDiv">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search.." id="myInput2allianz" onkeyup="filterFunction2allianz()">
+        <i class="bi bi-x-circle" onclick="clearSearch2allianz()"></i>
+        </div>
+        <a href="#" id="oguzaxaCcallianz" onclick="openCc1axaallianz()" >oguzhanyildirim@allianz.com</a>
+        <a href="#" id="ibrahimaxaCcallianz" onclick="openCc2axaallianz()">ibrahimyasar@allianz.com</a>
+        <a href="#" id="aliaxaCcallianz" onclick="openCc3axaallianz()">fatihaydin@allianz.com</a>
+      </div>
+    </div>
+    </div>
+  <div style="    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;">
+    <div class="popupMailToDiv"> 
+
+    <div class="popupSubject2">
+      <p id="toP">To: </p>
+      <p class="popupMailItem" id="popupMailItem1axaallianz">oguzhanyildirim@allianz.com <i class="bi bi-x-circle" onclick="closeMail1axaallianz()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem2axaallianz">ibrahimyasar@allianz.com <i class="bi bi-x-circle" onclick="closeMail2axaallianz()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem3axaallianz">fatihaydin@allianz.com <i class="bi bi-x-circle" onclick="closeMail3axaallianz()"></i> </p>
+      </div>
+    </div>
+    <div class="popupMailToDiv">
+      {% comment %} <div class="dropdown" id="selectMailButtonCc">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton12" data-bs-toggle="dropdown" aria-expanded="false">
+            Cc:
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton12" >
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc1axa()" href="#" >oguzhanyildirim@axasigorta.com</a></li>
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc2axa()" href="#" >ibrahimyasar@axasigorta.com</a></li>
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc3axa()" href="#" >fatihaydin@axasigorta.com</a></li>
+        </ul>
+      </div> {% endcomment %}
+    <div class="popupSubject2">
+    
+      <p id="ccP">Cc: </p>
+      <p class="popupMailItem" id="popupMailItem11axaallianz">oguzhanyildirim@allianz.com <i class="bi bi-x-circle" onclick="closeMail11axaallianz()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem22axaallianz">ibrahimyasar@allianz.com <i class="bi bi-x-circle" onclick="closeMail22axaallianz()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem33axaallianz">fatihaydin@allianz.com <i class="bi bi-x-circle" onclick="closeMail33axaallianz()"></i> </p>
+      </div>
+    </div>
   </div>
-  <div class="sigortaCard">
+  <div id="popupSubject" style="    position: absolute;
+    bottom: 11px;
+    border: 1px solid #8080805c;
+    padding: 3px 9px;
+    width: 98%;
+    border-radius: 5px;">
+    <p id="Subject">Subject:</p>
+    <input class="" type="text" id="popupAxaInputallianz" />
+    </div>
+  </div>
+  <div class="sigortaCard" id="allianzsaCard">
+    
     <img
-      src="{% static 'questions/img/aviva.png' %}"
+      src="{% static 'questions/img/allianz.png' %}"
       class=""
        alt=""
      />
      <div id="sigortaCardP">
-      <p class="sigortaCardTitle">AVIVASA Sigorta</p>
+      <p class="sigortaCardTitle">AvivaSA Sigorta</p>
       <hr class="sigortaCardHr" style="color: #424248 !important;" />
-<div class="buttonDivMail"> 
-  <button class="btn btn-primary mailModalButton" id="" style="">View Profile</button>
-<button class="btn btn-primary mailModalButton" id="">Select</button>
 
-</div>
+
+    
+    <div class="buttonDivMail"> 
+      <button class="btn mailModalButtonSelect" id="" style="">View Profile</button>
+    <button class="btn  mailModalButtonSelect" id="avivasaSelectButton" onclick="avivasaSelect()">Select</button>
+    <button class="btn  mailModalButtonSelect" id="avivasaCancelButton" onclick="avivasaCancel()">Cancel</button>
+    
     </div>
-     
+     </div>
+     <div style="    display: flex;
+    flex-direction: column;
+    gap: 10px;">
+     <div class="dropdown">
+      <button  class="dropbtn btn btn-primary1" style="    width: 60px !important;
+        border-radius: 5px !important;
+        background: #ffffff !important;
+        color: #101010 !important;
+        font-size: 12px !important;
+        padding: 5px !important;
+        font-weight: 500 !important;
+        bottom: 12px !important;
+        border: 1px solid #80808047 !important;">To:</button>
+      <div id="myDropdown5" class="dropdown-content">
+        <div class="dropdownSearchDiv">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search.." id="myInput5" onkeyup="filterFunction5()">
+        <i class="bi bi-x-circle" onclick="clearSearch5()"></i>
+        </div>
+        <a href="#" id="oguzAxaaviva" onclick="openTo1axaaviva()" >oguzhanyildirim@avivasa.com</a>
+        <a href="#" id="ibrahimAxaaviva" onclick="openTo2axaaviva()">ibrahimyasar@avivasa.com</a>
+        <a href="#" id="aliAxaaviva" onclick="openTo3axaaviva()">fatihaydin@avivasa.com</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button onclick="myFunction2aviva()" class="dropbtn btn btn-primary1" style="    width: 60px !important;
+        border-radius: 5px !important;
+        background: #ffffff !important;
+        color: #101010 !important;
+        font-size: 12px !important;
+        padding: 5px !important;
+        font-weight: 500 !important;
+        bottom: 12px !important;
+        border: 1px solid #80808047 !important;">Cc:</button>
+      <div id="myDropdown2aviva" class="dropdown-content">
+        <div class="dropdownSearchDiv">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search.." id="myInput2aviva" onkeyup="filterFunction2aviva()">
+        <i class="bi bi-x-circle" onclick="clearSearch2aviva()"></i>
+        </div>
+        <a href="#" id="oguzaxaavivaCc" onclick="openCc1axaaviva()" >oguzhanyildirim@avivasa.com</a>
+        <a href="#" id="ibrahimaxaavivaCc" onclick="openCc2axaaviva()">ibrahimyasar@avivasa.com</a>
+        <a href="#" id="aliaxaCcaviva" onclick="openCc3axaaviva()">fatihaydin@avivasa.com</a>
+      </div>
+    </div>
+    </div>
+  <div style="    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;">
+    <div class="popupMailToDiv"> 
+
+    <div class="popupSubject2">
+      <p id="toP">To: </p>
+      <p class="popupMailItem" id="popupMailItem1axaaviva">oguzhanyildirim@avivasa.com <i class="bi bi-x-circle" onclick="closeMail1axaaviva()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem2axaaviva">ibrahimyasar@avivasa.com <i class="bi bi-x-circle" onclick="closeMail2axaaviva()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem3axaaviva">fatihaydin@avivasa.com <i class="bi bi-x-circle" onclick="closeMail3axaaviva()"></i> </p>
+      </div>
+    </div>
+    <div class="popupMailToDiv">
+      {% comment %} <div class="dropdown" id="selectMailButtonCc">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton12" data-bs-toggle="dropdown" aria-expanded="false">
+            Cc:
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton12" >
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc1axa()" href="#" >oguzhanyildirim@axasigorta.com</a></li>
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc2axa()" href="#" >ibrahimyasar@axasigorta.com</a></li>
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc3axa()" href="#" >fatihaydin@axasigorta.com</a></li>
+        </ul>
+      </div> {% endcomment %}
+    <div class="popupSubject2">
+    
+      <p id="ccP">Cc: </p>
+      <p class="popupMailItem" id="popupMailItem11axaaviva">oguzhanyildirim@avivasa.com <i class="bi bi-x-circle" onclick="closeMail11axaaviva()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem22axaaviva">ibrahimyasar@avivasa.com <i class="bi bi-x-circle" onclick="closeMail22axaaviva()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem33axaaviva">fatihaydin@avivasa.com <i class="bi bi-x-circle" onclick="closeMail33axaaviva()"></i> </p>
+      </div>
+    </div>
   </div>
-  <div class="sigortaCard" id="axaCard">
+  <div id="popupSubject" style="    position: absolute;
+    bottom: 11px;
+    border: 1px solid #8080805c;
+    padding: 3px 9px;
+    width: 98%;
+    border-radius: 5px;">
+    <p id="Subject">Subject:</p>
+    <input class="" type="text" id="popupAxaInputaviva" />
+    </div>
+  </div>
+  <div class="sigortaCard" id="allianzsaCard">
+    
     <img
       src="{% static 'questions/img/axa.jpg' %}"
       class=""
@@ -47,36 +231,215 @@
       <p class="sigortaCardTitle">AXA Sigorta</p>
       <hr class="sigortaCardHr" style="color: #424248 !important;" />
 
+
     
     <div class="buttonDivMail"> 
-      <button class="btn btn-primary mailModalButton" id="" style="">View Profile</button>
-      <button class="btn btn-primary mailModalButton" id="axaButton" onclick="axaSelect()">
-        Select
-    </button>
+      <button class="btn mailModalButtonSelect" id="" style="">View Profile</button>
+    <button class="btn  mailModalButtonSelect" id="axaSelectButton" onclick="axaSelect()">Select</button>
+
+    
+    </div>
+     </div>
+     <div style="    display: flex;
+    flex-direction: column;
+    gap: 10px;">
+     <div class="dropdown">
+      <button  class="dropbtn btn btn-primary1" style="    width: 60px !important;
+        border-radius: 5px !important;
+        background: #ffffff !important;
+        color: #101010 !important;
+        font-size: 12px !important;
+        padding: 5px !important;
+        font-weight: 500 !important;
+        bottom: 12px !important;
+        border: 1px solid #80808047 !important;">To:</button>
+      <div id="myDropdown5axa" class="dropdown-content">
+        <div class="dropdownSearchDiv">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search.." id="myInput5axa" onkeyup="filterFunction5axa()">
+        <i class="bi bi-x-circle" onclick="clearSearch5axa()"></i>
+        </div>
+        <a href="#" id="oguzAxaaxa" onclick="openTo1axaaxa()" >oguzhanyildirim@axa.com</a>
+        <a href="#" id="ibrahimAxaaxa" onclick="openTo2axaaxa()">ibrahimyasar@axa.com</a>
+        <a href="#" id="aliAxaaxa" onclick="openTo3axaaxa()">fatihaydin@axa.com</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button onclick="myFunction2axa()" class="dropbtn btn btn-primary1" style="    width: 60px !important;
+        border-radius: 5px !important;
+        background: #ffffff !important;
+        color: #101010 !important;
+        font-size: 12px !important;
+        padding: 5px !important;
+        font-weight: 500 !important;
+        bottom: 12px !important;
+        border: 1px solid #80808047 !important;">Cc:</button>
+      <div id="myDropdown2axa" class="dropdown-content">
+        <div class="dropdownSearchDiv">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search.." id="myInput2axa" onkeyup="filterFunction2axa()">
+        <i class="bi bi-x-circle" onclick="clearSearch2axa()"></i>
+        </div>
+        <a href="#" id="oguzaxaaxaCc" onclick="openCc1axaaxa()" >oguzhanyildirim@axa.com</a>
+        <a href="#" id="ibrahimAxaCc2axa" onclick="openCc2axaaxa()">ibrahimyasar@axa.com</a>
+        <a href="#" id="aliaxaCcaxa" onclick="openCc3axaaxa()">fatihaydin@axa.com</a>
+      </div>
     </div>
     </div>
-   
-     
+  <div style="    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;">
+    <div class="popupMailToDiv"> 
+
+    <div class="popupSubject2">
+      <p id="toP">To: </p>
+      <p class="popupMailItem" id="popupMailItem1axaaxa">oguzhanyildirim@axa.com <i class="bi bi-x-circle" onclick="closeMail1axaaxa()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem2axaaxa">ibrahimyasar@axa.com <i class="bi bi-x-circle" onclick="closeMail2axaaxa()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem3axaaxa">fatihaydin@axa.com <i class="bi bi-x-circle" onclick="closeMail3axaaxa()"></i> </p>
+      </div>
+    </div>
+    <div class="popupMailToDiv">
+      {% comment %} <div class="dropdown" id="selectMailButtonCc">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton12" data-bs-toggle="dropdown" aria-expanded="false">
+            Cc:
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton12" >
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc1axa()" href="#" >oguzhanyildirim@axasigorta.com</a></li>
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc2axa()" href="#" >ibrahimyasar@axasigorta.com</a></li>
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc3axa()" href="#" >fatihaydin@axasigorta.com</a></li>
+        </ul>
+      </div> {% endcomment %}
+    <div class="popupSubject2">
+    
+      <p id="ccP">Cc: </p>
+      <p class="popupMailItem" id="popupMailItem11axaaxa">oguzhanyildirim@axa.com <i class="bi bi-x-circle" onclick="closeMail11axaaxa()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem22axaaxa">ibrahimyasar@axa.com <i class="bi bi-x-circle" onclick="closeMail22axaaxa()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem33axaaxa">fatihaydin@axa.com <i class="bi bi-x-circle" onclick="closeMail33axaaxa()"></i> </p>
+      </div>
+    </div>
   </div>
-  <div class="sigortaCard">
+  <div id="popupSubject" style="    position: absolute;
+    bottom: 11px;
+    border: 1px solid #8080805c;
+    padding: 3px 9px;
+    width: 98%;
+    border-radius: 5px;">
+    <p id="Subject">Subject:</p>
+    <input class="" type="text" id="popupAxaInputaxa" />
+    </div>
+  </div>
+  <div class="sigortaCard" id="agesaCard">
+    
     <img
       src="{% static 'questions/img/agesa.png' %}"
       class=""
        alt=""
      />
      <div id="sigortaCardP">
-      <p class="sigortaCardTitle">AGESA Sigorta</p>
+      <p class="sigortaCardTitle">Agesa Sigorta</p>
       <hr class="sigortaCardHr" style="color: #424248 !important;" />
+
 
     
     <div class="buttonDivMail"> 
-      <button class="btn btn-primary mailModalButton" id="" style="">View Profile</button>
-    <button class="btn btn-primary mailModalButton" id="">Select</button>
+      <button class="btn mailModalButtonSelect" id="" style="">View Profile</button>
+    <button class="btn  mailModalButtonSelect" id="agesaSelectButton" onclick="agesaSelect()">Select</button>
+
     
     </div>
      </div>
+     <div style="    display: flex;
+    flex-direction: column;
+    gap: 10px;">
+     <div class="dropdown">
+      <button  class="dropbtn btn btn-primary1" style="    width: 60px !important;
+        border-radius: 5px !important;
+        background: #ffffff !important;
+        color: #101010 !important;
+        font-size: 12px !important;
+        padding: 5px !important;
+        font-weight: 500 !important;
+        bottom: 12px !important;
+        border: 1px solid #80808047 !important;">To:</button>
+      <div id="myDropdown5agesa" class="dropdown-content">
+        <div class="dropdownSearchDiv">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search.." id="myInput5agesa" onkeyup="filterFunction5agesa()">
+        <i class="bi bi-x-circle" onclick="clearSearch5agesa()"></i>
+        </div>
+        <a href="#" id="oguzAxaagesa" onclick="openTo1axaagesa()" >oguzhanyildirim@agesa.com</a>
+        <a href="#" id="ibrahimAxaagesa" onclick="openTo2axaagesa()">ibrahimyasar@agesa.com</a>
+        <a href="#" id="aliAxaagesa" onclick="openTo3axaagesa()">fatihaydin@agesa.com</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button onclick="myFunction2agesa()" class="dropbtn btn btn-primary1" style="    width: 60px !important;
+        border-radius: 5px !important;
+        background: #ffffff !important;
+        color: #101010 !important;
+        font-size: 12px !important;
+        padding: 5px !important;
+        font-weight: 500 !important;
+        bottom: 12px !important;
+        border: 1px solid #80808047 !important;">Cc:</button>
+      <div id="myDropdown2agesa" class="dropdown-content">
+        <div class="dropdownSearchDiv">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search.." id="myInput2agesa" onkeyup="filterFunction2agesa()">
+        <i class="bi bi-x-circle" onclick="clearSearch2agesa()"></i>
+        </div>
+        <a href="#" id="oguzaxaagesaCc" onclick="openCc1axaagesa()" >oguzhanyildirim@agesa.com</a>
+        <a href="#" id="ibrahimAxaCc2agesa" onclick="openCc2axaagesa()">ibrahimyasar@agesa.com</a>
+        <a href="#" id="aliaxaCcagesa" onclick="openCc3axaagesa()">fatihaydin@agesa.com</a>
+      </div>
+    </div>
+    </div>
+  <div style="    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;">
+    <div class="popupMailToDiv"> 
+
+    <div class="popupSubject2">
+      <p id="toP">To: </p>
+      <p class="popupMailItem" id="popupMailItem1axaagesa">oguzhanyildirim@agesa.com <i class="bi bi-x-circle" onclick="closeMail1axaagesa()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem2axaagesa">ibrahimyasar@agesa.com <i class="bi bi-x-circle" onclick="closeMail2axaagesa()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem3axaagesa">fatihaydin@agesa.com <i class="bi bi-x-circle" onclick="closeMail3axaagesa()"></i> </p>
+      </div>
+    </div>
+    <div class="popupMailToDiv">
+      {% comment %} <div class="dropdown" id="selectMailButtonCc">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton12" data-bs-toggle="dropdown" aria-expanded="false">
+            Cc:
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton12" >
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc1axa()" href="#" >oguzhanyildirim@axasigorta.com</a></li>
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc2axa()" href="#" >ibrahimyasar@axasigorta.com</a></li>
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc3axa()" href="#" >fatihaydin@axasigorta.com</a></li>
+        </ul>
+      </div> {% endcomment %}
+    <div class="popupSubject2">
+    
+      <p id="ccP">Cc: </p>
+      <p class="popupMailItem" id="popupMailItem11axaagesa">oguzhanyildirim@agesa.com <i class="bi bi-x-circle" onclick="closeMail11axaagesa()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem22axaagesa">ibrahimyasar@agesa.com <i class="bi bi-x-circle" onclick="closeMail22axaagesa()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem33axaagesa">fatihaydin@agesa.com <i class="bi bi-x-circle" onclick="closeMail33axaagesa()"></i> </p>
+      </div>
+    </div>
   </div>
-  <div class="sigortaCard">
+  <div id="popupSubject" style="    position: absolute;
+    bottom: 11px;
+    border: 1px solid #8080805c;
+    padding: 3px 9px;
+    width: 98%;
+    border-radius: 5px;">
+    <p id="Subject">Subject:</p>
+    <input class="" type="text" id="popupAxaInputagesa" />
+    </div>
+  </div>
+  <div class="sigortaCard" id="arkasCard">
+    
     <img
       src="{% static 'questions/img/arkas.png' %}"
       class=""
@@ -85,14 +448,104 @@
      <div id="sigortaCardP">
       <p class="sigortaCardTitle">Arkas Sigorta</p>
       <hr class="sigortaCardHr" style="color: #424248 !important;" />
-   
+
+
     
     <div class="buttonDivMail"> 
-      <button class="btn btn-primary mailModalButton" id="" style="">View Profile</button>
-    <button class="btn btn-primary mailModalButton" id="">Select</button>
+      <button class="btn mailModalButtonSelect" id="" style="">View Profile</button>
+    <button class="btn  mailModalButtonSelect" id="arkasSelectButton" onclick="arkasSelect()">Select</button>
+
     
     </div>
      </div>
+     <div style="    display: flex;
+    flex-direction: column;
+    gap: 10px;">
+     <div class="dropdown">
+      <button  class="dropbtn btn btn-primary1" style="    width: 60px !important;
+        border-radius: 5px !important;
+        background: #ffffff !important;
+        color: #101010 !important;
+        font-size: 12px !important;
+        padding: 5px !important;
+        font-weight: 500 !important;
+        bottom: 12px !important;
+        border: 1px solid #80808047 !important;">To:</button>
+      <div id="myDropdown5arkas" class="dropdown-content">
+        <div class="dropdownSearchDiv">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search.." id="myInput5arkas" onkeyup="filterFunction5arkas()">
+        <i class="bi bi-x-circle" onclick="clearSearch5arkas()"></i>
+        </div>
+        <a href="#" id="oguzAxaarkas" onclick="openTo1axaarkas()" >oguzhanyildirim@arkas.com</a>
+        <a href="#" id="ibrahimAxaarkas" onclick="openTo2axaarkas()">ibrahimyasar@arkas.com</a>
+        <a href="#" id="aliAxaarkas" onclick="openTo3axaarkas()">fatihaydin@arkas.com</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button onclick="myFunction2arkas()" class="dropbtn btn btn-primary1" style="    width: 60px !important;
+        border-radius: 5px !important;
+        background: #ffffff !important;
+        color: #101010 !important;
+        font-size: 12px !important;
+        padding: 5px !important;
+        font-weight: 500 !important;
+        bottom: 12px !important;
+        border: 1px solid #80808047 !important;">Cc:</button>
+      <div id="myDropdown2arkas" class="dropdown-content">
+        <div class="dropdownSearchDiv">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search.." id="myInput2arkas" onkeyup="filterFunction2arkas()">
+        <i class="bi bi-x-circle" onclick="clearSearch2arkas()"></i>
+        </div>
+        <a href="#" id="oguzaxaarkasCc" onclick="openCc1axaarkas()" >oguzhanyildirim@arkas.com</a>
+        <a href="#" id="ibrahimAxaCc2arkas" onclick="openCc2axaarkas()">ibrahimyasar@arkas.com</a>
+        <a href="#" id="aliaxaCcarkas" onclick="openCc3axaarkas()">fatihaydin@arkas.com</a>
+      </div>
+    </div>
+    </div>
+  <div style="    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;">
+    <div class="popupMailToDiv"> 
+
+    <div class="popupSubject2">
+      <p id="toP">To: </p>
+      <p class="popupMailItem" id="popupMailItem1axaarkas">oguzhanyildirim@arkas.com <i class="bi bi-x-circle" onclick="closeMail1axaarkas()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem2axaarkas">ibrahimyasar@arkas.com <i class="bi bi-x-circle" onclick="closeMail2axaarkas()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem3axaarkas">fatihaydin@arkas.com <i class="bi bi-x-circle" onclick="closeMail3axaarkas()"></i> </p>
+      </div>
+    </div>
+    <div class="popupMailToDiv">
+      {% comment %} <div class="dropdown" id="selectMailButtonCc">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton12" data-bs-toggle="dropdown" aria-expanded="false">
+            Cc:
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton12" >
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc1axa()" href="#" >oguzhanyildirim@axasigorta.com</a></li>
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc2axa()" href="#" >ibrahimyasar@axasigorta.com</a></li>
+            <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc3axa()" href="#" >fatihaydin@axasigorta.com</a></li>
+        </ul>
+      </div> {% endcomment %}
+    <div class="popupSubject2">
+    
+      <p id="ccP">Cc: </p>
+      <p class="popupMailItem" id="popupMailItem11axaarkas">oguzhanyildirim@arkas.com <i class="bi bi-x-circle" onclick="closeMail11axaarkas()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem22axaarkas">ibrahimyasar@arkas.com <i class="bi bi-x-circle" onclick="closeMail22axaarkas()"></i> </p>
+      <p class="popupMailItem" id="popupMailItem33axaarkas">fatihaydin@arkas.com <i class="bi bi-x-circle" onclick="closeMail33axaarkas()"></i> </p>
+      </div>
+    </div>
+  </div>
+  <div id="popupSubject" style="    position: absolute;
+    bottom: 11px;
+    border: 1px solid #8080805c;
+    padding: 3px 9px;
+    width: 98%;
+    border-radius: 5px;">
+    <p id="Subject">Subject:</p>
+    <input class="" type="text" id="popupAxaInputarkas" />
+    </div>
   </div>
 </div>
 
@@ -184,101 +637,23 @@
     
    
   </div>
-  
 <hr>
-<div class="dropdown">
-  <button  class="dropbtn btn btn-primary1" style="    width: 60px !important;
-    border-radius: 5px !important;
-    background: #ffffff !important;
-    color: #101010 !important;
-    font-size: 12px !important;
-    padding: 5px !important;
-    font-weight: 500 !important;
-    bottom: 12px !important;
-    border: 1px solid #80808047 !important;">To:</button>
-  <div id="myDropdown5" class="dropdown-content">
-    <div class="dropdownSearchDiv">
-    <i class="bi bi-search"></i>
-    <input type="text" placeholder="Search.." id="myInput5" onkeyup="filterFunction5()">
-    <i class="bi bi-x-circle" onclick="clearSearch5()"></i>
-    </div>
-    <a href="#" id="oguzAxa" onclick="openTo1axa()" >oguzhanyildirim@axasigorta.com</a>
-    <a href="#" id="ibrahimAxa" onclick="openTo2axa()">ibrahimyasar@axasigorta.com</a>
-    <a href="#" id="aliAxa" onclick="openTo3axa()">alifurkaninan@axasigorta.com</a>
-  </div>
-</div>
-<div class="dropdown">
-  <button onclick="myFunction2()" class="dropbtn btn btn-primary1" style="    width: 60px !important;
-    border-radius: 5px !important;
-    background: #ffffff !important;
-    color: #101010 !important;
-    font-size: 12px !important;
-    padding: 5px !important;
-    font-weight: 500 !important;
-    bottom: 12px !important;
-    border: 1px solid #80808047 !important;">Cc:</button>
-  <div id="myDropdown2" class="dropdown-content">
-    <div class="dropdownSearchDiv">
-    <i class="bi bi-search"></i>
-    <input type="text" placeholder="Search.." id="myInput2" onkeyup="filterFunction2()">
-    <i class="bi bi-x-circle" onclick="clearSearch2()"></i>
-    </div>
-    <a href="#" id="oguzAxaCc" onclick="openCc1axa()" >oguzhanyildirim@axasigorta.com</a>
-    <a href="#" id="ibrahimAxaCc" onclick="openCc2axa()">ibrahimyasar@axasigorta.com</a>
-    <a href="#" id="aliAxaCc" onclick="openCc3axa()">alifurkaninan@axasigorta.com</a>
-  </div>
-</div>
-<hr>
-<div class="popupMailToDiv"> 
-  {% comment %} <div class="dropdown" id="selectMailButton">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton112" data-bs-toggle="dropdown" aria-expanded="false">
-        To:
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton112" >
-        <li><a class="dropdown-item dropdownMenuButton11item" onclick="openTo1axa()" href="#" >oguzhanyildirim@axasigorta.com</a></li>
-        <li><a class="dropdown-item dropdownMenuButton11item" onclick="openTo2axa()" href="#" >ibrahimyasar@axasigorta.com</a></li>
-        <li><a class="dropdown-item dropdownMenuButton11item" onclick="openTo3axa()" href="#" >alifurkaninan@axasigorta.com</a></li>
-    </ul>
-  </div> {% endcomment %}
-<div class="popupSubject2">
-  <p id="toP">To: </p>
-  <p class="popupMailItem" id="popupMailItem1axa">oguzhanyildirim@axasigorta.com <i class="bi bi-x-circle" onclick="closeMail1axa()"></i> </p>
-  <p class="popupMailItem" id="popupMailItem2axa">ibrahimyasar@axasigorta.com <i class="bi bi-x-circle" onclick="closeMail2axa()"></i> </p>
-  <p class="popupMailItem" id="popupMailItem3axa">alifurkaninan@axasigorta.com <i class="bi bi-x-circle" onclick="closeMail3axa()"></i> </p>
-  </div>
-</div>
-<hr>
-<div class="popupMailToDiv">
-  {% comment %} <div class="dropdown" id="selectMailButtonCc">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton12" data-bs-toggle="dropdown" aria-expanded="false">
-        Cc:
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton12" >
-        <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc1axa()" href="#" >oguzhanyildirim@axasigorta.com</a></li>
-        <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc2axa()" href="#" >ibrahimyasar@axasigorta.com</a></li>
-        <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc3axa()" href="#" >alifurkaninan@axasigorta.com</a></li>
-    </ul>
-  </div> {% endcomment %}
-<div class="popupSubject2">
-
-  <p id="ccP">Cc: </p>
-  <p class="popupMailItem" id="popupMailItem11axa">oguzhanyildirim@axasigorta.com <i class="bi bi-x-circle" onclick="closeMail11axa()"></i> </p>
-  <p class="popupMailItem" id="popupMailItem22axa">ibrahimyasar@axasigorta.com <i class="bi bi-x-circle" onclick="closeMail22axa()"></i> </p>
-  <p class="popupMailItem" id="popupMailItem33axa">alifurkaninan@axasigorta.com <i class="bi bi-x-circle" onclick="closeMail33axa()"></i> </p>
-  </div>
-</div>
-<hr>
-<div id="popupSubject">
-<p id="Subject">Subject:</p>
-<input class="" type="text" id="popupAxaInput" />
-</div>
-<hr>
-<div id="mailDiv">
+<div id="mailDiv" style="height:86%">
   <div id="editor">
     <p id="mail_text_client"></p>
     <div  id="editorSub">
       
       
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
       <br>
       <br>
       <br>
@@ -471,7 +846,7 @@
         </div>
         <a href="#" id="oguzAxaTo2" onclick="openTo1()" >oguzhanyildirim@mutluholding.com</a>
         <a href="#" id="ibrahimAxaTo2" onclick="openTo2()">ibrahimyasar@mutluholding.com</a>
-        <a href="#" id="aliAxaTo2" onclick="openTo3()">alifurkaninan@mutluholding.com</a>
+        <a href="#" id="aliAxaTo2" onclick="openTo3()">fatihaydin@mutluholding.com</a>
       </div>
     </div>
     {% comment %} <div class="dropdown" id="selectMailButton">
@@ -481,7 +856,7 @@
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton13" >
           <li><a class="dropdown-item dropdownMenuButton11item" onclick="openTo1()" href="#" >oguzhanyildirim@digibrox.com</a></li>
           <li><a class="dropdown-item dropdownMenuButton11item" onclick="openTo2()" href="#" >ibrahimyasar@digibrox.com</a></li>
-          <li><a class="dropdown-item dropdownMenuButton11item" onclick="openTo3()" href="#" >alifurkaninan@digibrox.com</a></li>
+          <li><a class="dropdown-item dropdownMenuButton11item" onclick="openTo3()" href="#" >fatihaydin@digibrox.com</a></li>
       </ul>
     </div> {% endcomment %}
     <div class="dropdown">
@@ -502,7 +877,7 @@
         </div>
         <a href="#" id="oguzAxaCc2" onclick="openCc1()" >oguzhanyildirim@mutluholding.com</a>
         <a href="#" id="ibrahimAxaCc2" onclick="openCc2()">ibrahimyasar@mutluholding.com</a>
-        <a href="#" id="aliAxaCc2" onclick="openCc3()">alifurkaninan@mutluholding.com</a>
+        <a href="#" id="aliAxaCc2" onclick="openCc3()">fatihaydin@mutluholding.com</a>
       </div>
     </div>
     {% comment %} <div class="dropdown" id="selectMailButtonCc">
@@ -512,7 +887,7 @@
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton12" >
           <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc1()" href="#" >oguzhanyildirim@digibrox.com</a></li>
           <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc2()" href="#" >ibrahimyasar@digibrox.com</a></li>
-          <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc3()" href="#" >alifurkaninan@digibrox.com</a></li>
+          <li><a class="dropdown-item dropdownMenuButton12item" onclick="openCc3()" href="#" >fatihaydin@digibrox.com</a></li>
       </ul>
     </div> {% endcomment %}
   </div>
@@ -522,7 +897,7 @@
   <p id="toP">To: </p>
   <p class="popupMailItem" id="popupMailItem1">oguzhanyildirim@digibrox.com <i class="bi bi-x-circle" onclick="closeMail1()"></i> </p>
   <p class="popupMailItem" id="popupMailItem2">ibrahimyasar@digibrox.com <i class="bi bi-x-circle" onclick="closeMail2()"></i> </p>
-  <p class="popupMailItem" id="popupMailItem3">alifurkaninan@digibrox.com <i class="bi bi-x-circle" onclick="closeMail3()"></i> </p>
+  <p class="popupMailItem" id="popupMailItem3">fatihaydin@digibrox.com <i class="bi bi-x-circle" onclick="closeMail3()"></i> </p>
   </div>
 
 <hr>
@@ -530,7 +905,7 @@
   <p id="ccP">Cc: </p>
   <p class="popupMailItem" id="popupMailItem11">oguzhanyildirim@digibrox.com <i class="bi bi-x-circle" onclick="closeMail11()"></i> </p>
   <p class="popupMailItem" id="popupMailItem22">ibrahimyasar@digibrox.com <i class="bi bi-x-circle" onclick="closeMail22()"></i> </p>
-  <p class="popupMailItem" id="popupMailItem33">alifurkaninan@digibrox.com <i class="bi bi-x-circle" onclick="closeMail33()"></i> </p>
+  <p class="popupMailItem" id="popupMailItem33">fatihaydin@digibrox.com <i class="bi bi-x-circle" onclick="closeMail33()"></i> </p>
   </div>
 
 <hr>
@@ -604,5 +979,16 @@
 
 
 <i class="bi bi-x-circle" id="closePopup" onclick="closePopup()"></i>
+</div>
+<!-- Modal Yapısı -->
+<div id="confirmationModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <h4 style="margin:0;">Are you sure?</h4>
+    <p>Do you really want to delete?</p>
+    <div style="display:flex; gap:20px;">
+    <button id="confirmYes" class="btn mailModalButtonSelect">Yes</button>
+    <button id="confirmNo" class="btn mailModalButtonSelect">No</button>
+    </div>
+  </div>
 </div>
 

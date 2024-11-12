@@ -275,11 +275,10 @@ select {
   display: flex;
   font-weight: 600;
   width: 100%;
-  font-size: 18px;
   cursor: pointer;
   justify-content: space-between;
   flex-direction: row-reverse;
-  padding: 14px 20px;
+  padding: 0 14px;
   box-sizing: border-box;
   align-items: center;
 }

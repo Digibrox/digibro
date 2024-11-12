@@ -312,12 +312,12 @@ textarea:focus {
   border: 1px solid #ccc;
   font-size: 16px;
 }
-.seeAllAccountButton a{
+.seeAllAccountButton a,.oppoDataTableButton a{
   color: #102a43;
   text-decoration: none;
 }
-.seeAllAccountButton a:hover{
-  color: #fff;
+.seeAllAccountButton a:hover,.oppoDataTableButton a:hover{
+  color: #fff !important;
 }
 .questionInputDiv p {
   font-size: 13px;
@@ -335,7 +335,7 @@ textarea:focus {
 }
 .input-alt {
   font-size: 13px !important;
-  color: #74788d;
+  color: #484a59;
   background: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
@@ -679,11 +679,12 @@ textarea:focus {
 }
 .checkbox-container_info {
   display: flex;
-  position: relative;
+  position: absolute;
   margin-top: 4px;
   align-items: center;
   cursor: pointer;
   gap: 7px;
+  right: 28px;
   font-size: 14px;
   user-select: none;
 }
@@ -923,7 +924,7 @@ overflow: hidden;
   gap: .5rem;
   padding: 10px;
   cursor: pointer;
-  font-size: 12.5px !important;
+  font-size: 14.5px !important;
   font-weight: 500 !important;
   letter-spacing: 0.1px;
   justify-content: center;
@@ -931,13 +932,16 @@ overflow: hidden;
   background: #102a43 !important;
   border-color: #8b8b8b6e !important;
   color: #fff !important;
-  bottom: 10px;
+  bottom: 60px;
   padding: 8px 16px !important;
   position: absolute;
   border-radius: 5px;
   background: var(--bg);
   white-space: nowrap;
   border: 1px solid #fff3;
+  height: 40px;
+  width: 113px;
+  left: 50%;
 }
 
 
@@ -1064,13 +1068,65 @@ overflow: hidden;
   display: flex;
   padding: 10px 20px 10px 10px;
   align-items: center;
+  justify-content: center;
 }
 .questionCheckBottomDiv button {
-  height: 33px;
-  font-size: 13px;
+  --bg: #556ee6;
+  background-color: transparent;
+  border: none;
+  line-height: 1;
+  /* position: relative; */
+  /* display: flex; */
+  align-items: center;
+  gap: .5rem;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1px;
+  justify-content: center;
+  align-items: center;
+  background: #102a43 !important;
+  border-color: #8b8b8b6e !important;
+  color: #fff !important;
+  bottom: 60px;
+  padding: 8px 16px !important;
+  /* position: absolute; */
+  border-radius: 5px;
+  background: var(--bg);
+  white-space: nowrap;
+  border: 1px solid #fff3;
+  height: 38px;
+  margin-bottom: 5px;
 }
 #mailListButton{
-  margin-left: auto;
+  --bg: #556ee6;
+  background-color: transparent;
+  border: none;
+  line-height: 1;
+  /* position: relative; */
+  /* display: flex; */
+  align-items: center;
+  gap: .5rem;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1px;
+  justify-content: center;
+  align-items: center;
+  background: #102a43 !important;
+  border-color: #8b8b8b6e !important;
+  color: #fff !important;
+  bottom: 60px;
+  padding: 8px 16px !important;
+  /* position: absolute; */
+  border-radius: 5px;
+  background: var(--bg);
+  white-space: nowrap;
+  border: 1px solid #fff3;
+  height: 38px;
+  margin-bottom: 5px;
 }
 #topDivP__check {
   font-weight: 600;

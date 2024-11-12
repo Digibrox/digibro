@@ -88,23 +88,24 @@
 #popupSigorta {
   display: none;
   position: absolute;
-  top: 46px;
+  top: 88px;
   height: 785px;
-  left: 16.5%;
+  left: 1%;
+  width: 97%;
 }
 #sigortaDiv {
+  order: 2;
   position: relative;
-  background: #f8f8fb;
+  background: #ebebeb;
   display: flex;
   z-index: 3;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 4px;
   flex-direction: column;
-  min-width: 356px;
+  min-width: 57%;
   overflow-y: auto;
   margin-right: 0px;
   border-top: 1px solid #b1b1b1;
-  border-left: 1px solid #b1b1b1;
-
+  border-right: 1px solid #b1b1b1;
 }
 #popupMail {
   display: block;
@@ -117,7 +118,7 @@
   position: relative;
   margin: auto;
   border-top: 1px solid #b1b1b1;
-  border-right: 1px solid #b1b1b1;
+  border-left: 1px solid #b1b1b1;
 }
 #save_answers_placement{
   font-size: 13px;
@@ -277,7 +278,8 @@
   min-height: 33px;
   overflow: auto;
   align-items: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  max-width: 95%;
   position: relative;
 }
 .popupMailItem {
@@ -287,7 +289,7 @@
   border: 1px solid #80808061;
   background: #ffffff;
   border-radius: 4px;
-  font-size: 13.5px;
+  font-size: 12.5px;
   font-weight: 500;
   color: #495057;
 }
@@ -303,21 +305,24 @@
     display: flex;
     box-shadow: rgba(18, 38, 63, 0.03) 0px 0.75rem 1.5rem;
     gap: 6px;
-    padding: 9px;
-    height: 110px;
+    padding: 2px 9px 30px 9px;
+    height: 149px;
     margin: 4.6px 6px;
     background: white;
+    position: relative;
+    border-radius: 9px;
 }
 .sigortaCard img {
   width: 72px;
   border: 1px solid #8080807d;
   padding: 2px;
+  border-radius: 5px;
 }
 #sigortaCardP {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 36%;
   height: 74px;
   align-items: center;
   justify-content: space-between;
@@ -332,6 +337,9 @@
 }
 .buttonDivMail{
   width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
 }
 .buttonDivMail button{
   width: 49%;
@@ -343,14 +351,16 @@
   margin: 4px;
 }
 .sigortaCardTitle {
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 14px;
   color: #495057;
 }
 .popupMailToDiv {
   display: flex;
   gap: 10px;
   align-items: center;
+  width: 477px;
+
 }
 .bottom__svgMail {
   position: absolute;
@@ -382,7 +392,7 @@
   max-content;font-size: 13px !important;
   letter-spacing: 0px !important;
 }
-#myInput5,#myInput2,#myInput3,#myInput4  {
+#myInput5,#myInput2,#myInput3,#myInput4,#myInput5allianz,#myInput2allianz,#myInput2aviva,#myInput2axa,#myInput5axa,#myInput5agesa,#myInput2agesa,#myInput2arkas,#myInput5arkas {
   width: 100%;
   box-sizing: border-box;
   font-size: 13px;
@@ -391,7 +401,7 @@
   border-bottom: 1px solid #ddd;
 }
 
-#myInput5:focus,#myInput2:focus,#myInput3:focus,#myInput4:focus {outline: 3px solid #ddd;}
+#myInput5:focus,#myInput2:focus,#myInput3:focus,#myInput4:focus,#myInput5allianz:focus,#myInput2allianz:focus,#myInput2aviva:focus,#myInput2axa:focus,#myInput5axa:focus,#myInput5agesa:focus,#myInput2agesa:focus,#myInput2arkas:focus,#myInput5arkas:focus{outline: 3px solid #ddd;}
 
 .dropdown {
   position: relative;
@@ -747,7 +757,7 @@
   border: 1px solid #347d97;
 }
 .ql-editor{
-  height: 442px !important;
+ 
   display: flex;
   flex-direction: column;
 }

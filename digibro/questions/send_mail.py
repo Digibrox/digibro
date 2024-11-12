@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 import requests
 
-def send_email(sender_email, password, receiver_emails, smtp_server, stmp_port, subject, body_first, body_last, image_url):
+def send_email(sender_email, password, receiver_emails, smtp_server, stmp_port, subject, body, image_url):
     try:
         # E-posta mesajını oluştur
         message = MIMEMultipart('related')
@@ -17,12 +17,11 @@ def send_email(sender_email, password, receiver_emails, smtp_server, stmp_port, 
         <html>
         <body>
             <p>{}</p>
-            <p>Erişim Linki: <a href="http://185.87.252.236:5555/clientScreen/">Buraya Tıklayın</a></p>
-            <p>{}</p>
+            <p>Erişim Linki: <a href="https://www.digibrox.com/clientScreen/">Buraya Tıklayın</a></p>
             <img src="cid:image1">
         </body>
         </html>
-        """.format(body_first.replace('\n', '<br>'),body_last.replace('\n', '<br>'))
+        """.format(body.replace('\n', '<br>'))
 
         message.attach(MIMEText(html_body, 'html'))
 

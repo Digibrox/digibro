@@ -166,7 +166,7 @@ h1{
     align-items: center;
     gap: 11px;
     zoom: 0.8;
-    width: 25%;
+    width: 39%;
 }
 .cardContainerLeft h1{
   font-size: 22px !important;
@@ -187,8 +187,7 @@ h1{
 }
 .cardContainerRight{
   display: flex;
-  width: 100%;
-  /* padding-left: 112px; */
+  width: 84%;
   justify-content: space-between;
 }
 .boldSpan{
@@ -376,7 +375,7 @@ main {
   } */
 
   .cardContainer2{
-    width: 964px;
+    width: 729px;
     position: relative;
     display: flex;
     /* left: 280px; */
@@ -388,6 +387,10 @@ main {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    width: min-content;
+  }
+  .imgOppLink{
+    cursor: pointer;
   }
   h1{
     font-size: 2rem !important;
@@ -443,10 +446,10 @@ main {
     display: block;
   }
   .cardLeft{
-    width: 70%;
-    margin: 0 12px 0 0;
+    width: 67%;
     display: flex;
     justify-content: center;
+    margin-right: 12px;
     align-items: center;
     border-radius: 5px;
     position: relative;
@@ -457,7 +460,7 @@ main {
 
   }
   .cardRight{
-    width: 460px;
+    width: 383px;
     z-index: 1;
     margin: 0 0 0 12px;
     position: relative;
@@ -507,7 +510,7 @@ main {
   }
   .optionDiv2{
     display: flex;
-    gap: 16px;
+    gap: 5px;
     margin-bottom: 25px;
     justify-content: center;
     width: 100%;
@@ -892,6 +895,14 @@ main {
   border-radius: 10px !important;
   
 }
+#mainTable33_wrapper{
+  width: 100%;
+  left: 280px;
+  background: #fff;
+  padding: 19px;
+  border-radius: 10px !important;
+  
+}
 .policiesTableDiv{
   width: 83.79%;
   position: relative;
@@ -1107,6 +1118,19 @@ thead{
   display: flex;
 }
 
+#mainTable33_wrapper .btn-group button:first-child {
+  border-top-left-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+}
+#mainTable33_wrapper .btn-group button:last-child {
+  border-top-right-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
+#mainTable33_wrapper .btn-group button {
+
+  height: 30px;
+  display: flex;
+}
 tbody tr td{
   color: #495057 !important;
   box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-stripe), 0.05);
@@ -1862,7 +1886,8 @@ display: none;
   font-weight: 500 !important;
   letter-spacing: 0.5px !important;
 }
-#mainTable_wrapper > div:first-child > div:first-child,#example2_wrapper > div:first-child > div:first-child {
+#mainTable_wrapper > div:first-child > div:first-child,#example2_wrapper > div:first-child > div:first-child,
+#mainTable33_wrapper > div:first-child > div:first-child {
   order: 2;
   margin: 0 !important;
 }
@@ -1896,7 +1921,7 @@ display: none;
 }
 /* İlk div'in içindeki ikinci div için */
 #mainTable_wrapper > div:first-child > div:nth-child(2),#example2_wrapper > div:first-child > div:nth-child(2),
-#mainTable2_wrapper > div:first-child > div:nth-child(2) {
+#mainTable2_wrapper > div:first-child > div:nth-child(2),#mainTable33_wrapper > div:first-child > div:nth-child(2) {
   margin: 0 !important;
 }
 /* .folderDetailImgDiv{
@@ -1930,6 +1955,7 @@ display: none;
 
   align-items: center;
   gap: 4px;
+  margin-top: 7px;
 }
 .daytoTD p{
   width: 65px !important;
@@ -1997,6 +2023,11 @@ tr{
   font-weight: 500;
 }
 #mainTable2_info{
+  font-size: 14px;
+  color: #495057 !important;
+  font-weight: 500;
+}
+#mainTable33_info{
   font-size: 14px;
   color: #495057 !important;
   font-weight: 500;
@@ -2202,4 +2233,188 @@ tr{
 .tdInfoButton2:hover{
   background: #102a43 !important;
   color: #f0f4f8 !important;
+}
+.topDivRightCard .titlePRiskRed{
+  padding: 15px 67px;
+  background: #c94d3d;
+  font-weight: 600;
+  color: #131417cf !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 15px;
+  text-align: center;
+}
+.topDivRightCard .titlePRiskOrange{
+  padding: 15px 67px;
+  background: #dd9851;
+  font-weight: 600;
+  color: #131417cf !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 15px;
+  text-align: center;
+}
+.topDivRightCard .titlePRiskYellow{
+  padding: 15px 67px;
+  background: #eed478;
+  font-weight: 600;
+  color: #131417cf !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 15px;
+  text-align: center;
+}
+.spanRedRisk{
+  width: 14px;
+  height: 14px;
+  background: #ff443a;
+  right: 13px;
+  top: 15px;
+  border-radius: 50%;
+}
+.spanGrayRisk{
+  width: 14px;
+  height: 14px;
+  background: #acb8c0;
+  right: 13px;
+  top: 15px;
+  border-radius: 50%;
+}
+.spanGreenRisk{
+  width: 14px;
+  height: 14px;
+  background: #00bf63;
+  right: 13px;
+  top: 15px;
+  border-radius: 50%;
+}
+.riskP{
+  color: #495057 !important;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px;
+  width: 100px;
+}
+.riskP2{
+  color: #74788d;
+  font-weight: 500;
+  font-size: 13px;
+  text-align: center;
+  margin: 0;
+}
+.riskBottomDivs{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.riskBottomDivs2{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 4px;
+}
+.topDivRight{
+  display: flex;
+  justify-content: left;
+  align-items: baseline;
+  width: 49%;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  left: -23px;
+}
+.topDivRightCard{
+  -webkit-box-shadow: 0 .75rem 1.5rem rgba(18, 38, 63, .03);
+  box-shadow: 0 .75rem 1.5rem rgba(18, 38, 63, .03);
+  background: #fff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 242px;
+  height: 270px;
+}
+.bgColo {
+  background-image: url(https://i.hizliresim.com/28a4kb5.png?_gl=1*1mb7b95*_ga*NTkzNzQzNTMuMTczMDIzMDU3Mw..*_ga_M9ZRXYS2YN*MTczMDIzMDU3My4xLjEuMTczMDIzMDYwMS4zMi4wLjA.);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 20px;
+}
+.riskDetailButton{
+  font-size: 11.5px !important;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  justify-content: center;
+  align-items: center;
+  width: 22%;
+  right: 10px;
+  background: #f0f4f86e !important;
+  border-color: #8b8b8b6e !important;
+  border: 1px solid;
+  color: #676767 !important;
+  bottom: 10px;
+  padding: 3px !important;
+  border-radius: 6px;
+  width: 95px;
+  margin: 14px auto;
+}
+.riskDetailButtonTd{
+  font-size: 11.5px !important;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  justify-content: center;
+  align-items: center;
+  width: 22%;
+  right: 10px;
+  background: #f0f4f86e !important;
+  border-color: #8b8b8b6e !important;
+  border: 1px solid;
+  color: #676767 !important;
+  bottom: 10px;
+  padding: 3px !important;
+  border-radius: 6px;
+  width: 95px;
+}
+#mainTable tbody tr td{
+  vertical-align: middle;
+}
+#mainTable33 tbody tr td{
+  vertical-align: middle;
+}
+.riskDetailButton2{
+  font-size: 11.5px !important;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  justify-content: center;
+  align-items: center;
+  width: 22%;
+  right: 10px;
+  background: #f0f4f86e !important;
+  border-color: #8b8b8b6e !important;
+  border: 1px solid;
+  color: #676767 !important;
+  bottom: 10px;
+  padding: 3px !important;
+  border-radius: 6px;
+  width: 150px;
+  margin: 14px auto;
+  height: 25px;
+}
+.riskDetailButton:hover,.riskDetailButtonTd:hover{
+  background: #102a43 !important;
+  color: #f0f4f8 !important;
+}
+.riskDetailButton2:hover{
+  background: #102a43 !important;
+  color: #f0f4f8 !important;
+}
+.imgTdRenewal{
+  width: 34px;
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  cursor: pointer;
+}
+.relativeTd{
+  position: relative;
 }

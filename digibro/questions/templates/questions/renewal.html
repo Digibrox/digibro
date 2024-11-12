@@ -1,0 +1,553 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'questions/css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/question.css' %}" rel="stylesheet" />
+
+    <link href="{% static 'questions/css/dashboard.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/add_records.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/notification.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/opportunities.css' %}" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@1.13.12/iconfont/material-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ion-rangeslider@2.3.1/css/ion.rangeSlider.min.css"/>
+
+    <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.56/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.56/vfs_fonts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous" />
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="{% static 'questions/css/sidebar.css' %}" rel="stylesheet" />
+    <link
+      href="{% static 'questions/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <title>Opportunities</title>
+    <link rel="icon" href="/static/questions/img/xxx.png" >
+  </head>
+  <body>
+    
+    <div class="mainDiv">
+      <nav class="sidebar sidebar-bg" id="sidebar">
+        <div class="sidebar-content">
+          <div class="perfect-scrollbar">
+            <div class="ps">
+              <div class="ps-content">
+                <div class="sidebar-logo">
+                  <img
+                    src="{% static 'questions/img/white_logo.png' %}"
+                    class="img-responsive2"
+                    alt=""
+                  />
+                  <p>DIGITALIZE EVERYTHING, NOW.</p>
+                </div>
+              
+                <div class="sidebar-menu">
+                  <ul>
+                    <li>
+                      <a href="{% url 'questions:dashboard' %}" >
+                        <i class="bi bi-house"></i>
+                        <span>Home</span>
+                      </a>
+                    </li>
+                    
+                    <li><span class="generalText">General</span></li>
+                    <li style="background: #3a3b3d">
+                      <a href="{% url 'questions:opportunities' %}">
+                        <i class="bi bi-briefcase" style="color: #fff"></i>
+                        <span style="color: #fff">Opportunities</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'questions:add_records' %}">
+                        <i class="bi bi-person-plus"></i>
+                        <span>Add a Client/Insurer</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'clients:index' %}">
+                        <i class="bi bi-person"></i>
+                        <span>Clients</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="{% url 'insurers:index' %}">
+                        <i class="bi bi-shield-check"></i>
+                        <span>Insurers</span>
+                      </a>
+                    </li>
+                    <li style="display:none;">
+                      <a href="{% url 'insurers:index' %}">
+                        <i class="bi bi-symmetry-horizontal"></i>
+                        <span>Risk Reports</span>
+                      </a>
+                    </li>
+                    <li style="display:none;">
+                      <a href="{% url 'insurers:index' %}">
+                        <i class="bi bi-award"></i>
+                        <span>Claims</span>
+                      </a>
+                    </li>
+
+                    <li style="display:none;"><span class="generalText">Extra</span></li>
+                    <li style="display:none;">
+                      <a href="#">
+                        <i class="bi bi-journal-text"></i>
+                        <span>Documentation</span>
+                      </a>
+                    </li>
+                    <li style="display:none;">
+                      <a href="#">
+                        <i class="bi bi-calendar-fill"></i>
+                        <span>Calendar</span>
+                      </a>
+                    </li>
+                    <li style="display:none;">
+                      <a href="#">
+                        <i class="bi bi-folder-fill"></i>
+                        <span>Examples</span>
+                      </a>
+                    </li>
+                    <li><span class="generalText">Demo Links</span></li>
+                    <li>
+                      <a href="{% url 'questions:dashboard' %}">
+                        <i class="bi bi-activity"></i>
+                        <span>Broker Dashboard</span>
+                      </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'clientScreen:dashboard' %}">
+                          <i class="bi bi-activity"></i>
+                          <span>Client Home</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{% url 'insurerScreen:dashboard' %}">
+                          <i class="bi bi-activity"></i>
+                          <span>Insurer Home</span>
+                        </a>
+                      </li>  
+                  </ul>
+                  
+                 
+                <ul>
+                  <hr>
+                  <li>
+                    <a href="#">
+                      <i class="bi bi-door-open-fill"></i>
+                      <span>Logout</span>
+                    </a>
+                  </li>
+           
+                  
+                </ul>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+    
+      </nav>
+      <div class="accordion" style="gap:25px;background: #f8f8fb;">
+        <div class="accordion-item" style="border-radius: 0px;">
+          <input type="checkbox" id="accordion1" />
+          <label for="accordion1" class="accordion-item-title" style="background:#fff !important;">
+            <div style="display:flex;    align-items: center;">
+              <div class="notifTopDiv" style="">
+              <i class="bi bi-bell" id="notificationBell" style="background-color: rgb(255, 255, 255);"></i>
+              <div id="notificationMainDiv" style="display: none;">
+                <div style="display:flex;" class="notificationsHeader">
+                <p>Notifications</p>
+                <a href="">View All</a>
+                </div>
+                <div class="notificationCardDiv">
+                  <span style="background: #516efd;"><i class="bi bi-shield-check"></i></span>
+                  <div class="notificationPDiv">
+                    <p class="notificationTitle">An insurance profile has been added</p>
+                    <p class="notificationDetail">Click here to go to the Insurance Profile page.</p>
+                    <p class="notificationTimeP"><i class="bi bi-clock"></i> 3 hours ago</p>
+                  </div>
+                </div>
+                <div class="notificationCardDiv">
+                  <span style="background: #3bbd88;"><i class="bi bi-patch-check"></i></span>
+                  <div class="notificationPDiv">
+                    <p class="notificationTitle">The questionnaire form was successfully submitted</p>
+                    <p class="notificationDetail">Mutlu Akü &amp; Allianz Sigorta Questionnaire Form has been delivered.</p>
+                    <p class="notificationTimeP"><i class="bi bi-clock"></i> 9 hours ago</p>
+                  </div>
+                </div>
+                <div class="notificationCardDiv">
+                  <span style="background: #516efd;"><i class="bi bi-arrow-repeat"></i></span>
+                  <div class="notificationPDiv">
+                    <p class="notificationTitle">The questionnaire has been answered</p>
+                    <p class="notificationDetail">The questionnaire was answered by Mert Güven - Mutlu Akü.</p>
+                    <p class="notificationTimeP"><i class="bi bi-clock"></i> 2 days ago</p>
+                  </div>
+                </div>
+
+              </div>
+             
+            </div>
+              <button type="button" id="fullscreenButton" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen" style="background-color: rgb(255, 255, 255);">
+                <i class="bi bi-fullscreen" id="fullscreenOpen" style="display: inline;"></i>
+                <i class="bi bi-fullscreen-exit" id="fullscreenExit" style="display: none;"></i>
+            </button>
+            
+            <div class="sidebar-profile" onclick="toggleDropdown()" id="profileDivID">
+              <div class="user-pic">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5q9GlWCAoQHPpOiDOECuYUeXW9MQP7Ddt-Q&s" class="rounded-circle" alt="Profile Picture" width="40" height="40">
+              </div>
+
+              <div class="user-info d-flex align-items-center">
+                <span class="user-name me-2">Melis Deniz</span>
+                <i class="bi bi-chevron-right userIcon" id="userIcon"></i>
+              </div>
+              <div id="profileDropdownMenu" class="p-2 rounded">
+                <a class="dropdown-item" href="#"><i class="bi bi-person-fill"></i>Profile</a>
+                <a class="dropdown-item" id="logoutA" href="#"><i class="bi bi-door-open-fill"></i>Logout</a>
+              </div>
+            </div>
+</div>
+            <span class="infoSpan" id="mainTitleP" style="    font-size: 16px !important;
+    padding: 6px;
+    font-weight: 700;
+           ">Mutlu Akü P&C Renewal 2023</span>
+          </label>
+        </div>
+        <div class="limitLookingDiv" >
+           
+            <div style="display: flex; justify-content: space-between;">
+            <div class="col-xl-3 col-md-6 rowPadd" data-industry="Energy" data-policy="PC">
+              <div class="card" style="height:180px; border:none !important;">
+                  <div class="card-body">
+                   
+                      <div class="textLeft">
+                          <img src="/static/questions/img/mutlu.jpg" alt="" class="avatar-sm " style="height: 28px !important;">
+                          <h6 class="font-size-15 mt-1 mb-1">Mutlu Akü</h6>
+                          <p class="mb-0 text-muted">Industry: Energy</p>
+                          <p class="mb-0 text-muted">Scope: Battery Manufacturing</p>
+                          <p class="mb-0 text-muted">Policies: P&amp;C</p>
+                          <p class="mb-0 text-muted"> Quote: Health</p>
+                         
+                      </div>
+                      <button type="button" class="btn btn-primary dashboardButton"><a href="http://185.87.252.236:5555/clients/client_info/mutlu_ak%C3%BC/" style="
+      text-decoration: none;">View Profile<i class="bi bi-arrow-right-short"></i></a></button>
+                  </div>
+              </div>
+              
+            </div>
+            <canvas id="insuranceChart"  style="max-height: 320px; max-width: 500px;box-shadow: rgba(0, 0, 0, 0.04) 0px 6px 24px 0px, rgba(0, 0, 0, 0.07) 0px 0px 0px 1px; border-radius: 5px;" ></canvas>
+          </div>
+            <div class="imgDiv" id="limitLookingDiv">
+                <img
+                src="https://img.freepik.com/premium-vector/power-button-icon-button-flat-style_123447-256.jpg"
+                class=""
+                alt=""
+              />
+                <p>Send a Questionnaire</p>
+                
+            </div>
+
+        </div>
+        <div class="limitInfoDiv" >
+            <div class="containerRadio">
+                <div class="line"></div>
+                <label class="label" for="riskInfoButton">
+                  <input id="riskInfoButton" type="radio" name="future-is-here" checked>
+                  <div class="button" id="riskInfoButtonDiv">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front text"></span>
+                  </div>
+                </label>
+                <label class="label" for="offersButton">
+                  <input id="offersButton" type="radio" name="future-is-here">
+                  <div class="button" id="offersButtonDiv">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front text"></span>
+                  </div>
+                </label>
+                <label class="label" for="claimsButton">
+                  <input id="claimsButton" type="radio" name="future-is-here">
+                  <div class="button" id="claimsButtonDiv"> 
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front text"></span>
+                  </div>
+                </label>
+              </div>
+              <div class="containerButtons">
+                <button id="riskInfoButton2" type="submit" class="btn selectedButton" style="height: 33.5px !important;" ><i class="bx bx-search-alt align-middle"></i>Risk Info</button>
+                <button type="submit" class="btn " style="height: 33.5px !important;" id="offersButton2"><i class="bx bx-search-alt align-middle"></i>Offers</button>
+                <button type="submit" class="btn " style="height: 33.5px !important;" id="claimsButton2"><i class="bx bx-search-alt align-middle"></i>Claims</button>
+              </div>
+              <div class="riskInfoMainDiv" id="riskInfoMainDiv">
+                <p class="titleP">Risk Info Detail</p>
+                <div class="riskInfoTopDiv">
+                  <div style="    display: flex;    flex-direction: column;    gap: 0px;    align-items: center;    width: 25%;">
+                  <p class="topDivTitleP">Questionnaire Form</p>
+
+                  <img
+                  src="{% static 'questions/img/questionnaireImg.png' %}"
+                  class=""
+                  alt=""
+                />
+                <button type="submit" class="btn" style="height: 33.5px !important;width: 27%;    margin: 14px;" id="riskInfoImgPreviewButton"></i>Preview<i class="bi bi-eye"></i></button>
+                </div>
+              <div class="additionalQuestionDiv">
+                <p class="topDivTitleP">Additional Question</p>
+                
+              <div class="addQDiv">
+                <div class="addQDivTop">
+                   
+                    
+                  
+                    <p class="addQuetitleP" style="width:176px;">Asked By</p>
+                  
+                  <p class="addQuetitleP"style="width:366px;">Question</p>
+                  <p class="addQuetitleP"style="width:366px;">Answer</p>
+                  <p class="addQuetitleP"style="width:102px;">Status</p>
+                </div>
+                <div class="addQDivTop">
+                  <div class="addDivTopAsked">  
+                    <img
+                    src="{% static 'questions/img/allianz.png' %}"
+                    class=""
+                    alt=""
+                    />
+                  
+                    <p class="insurerP">Allianz Sigorta</p>
+                  </div>
+                  <p class="questionPP" style="border-bottom-right-radius: 0;"><span class="questionSpanP">Has the insured taken any risk mitigation measures?</span><i class="bi bi-bell questionReminder" style="" data-bs-toggle="modal" data-bs-target="#questionReminderModal"></i>
+                  </p>
+                  <p class="questionPP" style="border-bottom-right-radius: 0;"><span class="questionSpanP">Yes, security cameras and fire alarms are installed on the property.</span></p>
+                  <p class="statusP openStatus">Open</p>
+                </div>
+                <div class="addQDivTop">
+                  <div class="addDivTopAsked">
+                  <img
+                  src="{% static 'questions/img/axa.jpg' %}"
+                  class=""
+                  alt=""
+                  />
+                
+                  <p class="insurerP">Axa Sigorta</p>
+                </div>
+                <p class="questionPP" style="border-bottom-right-radius: 0;"><span class="questionSpanP">Is the property in a flood-prone area?</span><i class="bi bi-bell questionReminder" style="" data-bs-toggle="modal" data-bs-target="#questionReminderModal"></i></p>
+                <p class="questionPP"><span class="questionSpanP">No, it’s in a low-risk zone.</span></p>
+                  
+                  <p class="statusP dealBroker">Deal-Broker</p>
+                </div>
+                <div class="addQDivTop">
+                  <div class="addDivTopAsked">
+                  <img
+                  src="{% static 'questions/img/agesa.png' %}"
+                  class=""
+                  alt=""
+                  />
+                
+                  <p class="insurerP">AgeSA Sigorta</p>
+                </div>
+                  <p class="questionPP" style="border-bottom-right-radius: 0;"><span class="questionSpanP">Are there any ongoing lawsuits or potential legal risks?</span><i class="bi bi-bell questionReminder" style="" data-bs-toggle="modal" data-bs-target="#questionReminderModal"></i></p>
+                  <p class="questionPP"><span class="questionSpanP">No, there are no ongoing legal issues at this time.</span></p>
+                  <p class="statusP closedStatus">Closed</p>
+                </div>
+                <div class="addQDivTop">
+                  <div class="addDivTopAsked">
+                  <img
+                  src="{% static '/Insurers/img/arkas2.png' %}"
+                  class=""
+                  alt=""
+                  />
+                
+                  <p class="insurerP">Arkas Sigorta</p>
+                </div>
+                <p class="questionPP" style="border-bottom-right-radius: 0;"><span class="questionSpanP">Does the insured have any past claims for property damage?</span><i class="bi bi-bell questionReminder" style="" data-bs-toggle="modal" data-bs-target="#questionReminderModal"></i></p>
+                <p class="questionPP"><span class="questionSpanP">Yes, there was a claim filed for water damage in the property last year, which was resolved without further issues.</span></p>
+                  <p class="statusP openStatus">Open</p>
+                </div>
+                <div class="addQDivTop">
+                  <div class="addDivTopAsked">
+                  <img
+                  src="{% static '/Insurers/img/aviva2.png' %}"
+                  class=""
+                  alt=""
+                  />
+                
+                  <p class="insurerP">AvivaSA Sigorta</p>
+                </div>
+                  <p class="questionPP" style="border-bottom-right-radius: 0;"><span class="questionSpanP">Are there any potential structural concerns?</span><i class="bi bi-bell questionReminder" style="" data-bs-toggle="modal" data-bs-target="#questionReminderModal"></i></p>
+                  <p class="questionPP"><span class="questionSpanP">None, regular maintenance is performed.</span></p>
+                  <p class="statusP dealBroker">Deal-Broker</p>
+                </div>
+              </div>
+              </div>
+                </div>
+              </div>
+              <div class="offersMainDiv" id="offersMainDiv">
+                <p class="titleP">Offers Detail</p>
+              </div>
+              <div class="claimsMainDiv" id="claimsMainDiv">
+                <p class="titleP">Claims Detail</p>
+              </div>
+
+        </div>
+
+
+
+        <div id="imageModal" class="modal" style="display: none; overflow:hidden;">
+          <div class="modal-content" style="height: 80%; margin: 100px auto; width: 73% !important;">
+              <img src="/static/questions/img/questionnaireImg.png" alt="Image Preview" />
+              <button id="closeModalButton">Close</button>
+          </div>
+      </div>
+
+
+
+
+
+      <div class="modal fade" id="questionReminderModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="    top: 22%;">
+          <div class="modal-content" style="width: 100% !important;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Reminder</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to remember this question?
+            </div>
+            <div class="modal-footer" style="flex-direction: row;
+    margin: auto;
+    width: 100%;
+    justify-content: center;">
+             
+              <button type="button" class="btn btn-success" id="confirmButtonReminder">Yes</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+               
+              </div>
+              <script>
+            
+            </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      document.getElementById("limitLookingDiv").addEventListener("click", function() {
+        window.location.href = "{% url 'questions:index' %}";
+    });
+const ctx = document.getElementById('insuranceChart').getContext('2d');
+const insuranceChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        datasets: [
+            {
+                label: 'Total Premium ($)',
+                data: [500000, 600000, 550000, 620000, 640000, 610000, 660000, 690000, 700000, 720000, 710000, 730000],
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            },
+            {
+                label: 'Total Claims ($)',
+                data: [150000, 120000, 175000, 200000, 190000, 180000, 210000, 230000, 220000, 250000, 240000, 260000],
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            },
+            {
+                label: 'Claims/Premium Ratio (%)',
+                data: [30, 20, 32, 32.3, 29.7, 29.5, 31.8, 33.3, 31.4, 34.7, 33.8, 35.6],
+                type: 'line',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                yAxisID: 'percentage'
+            }
+        ]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Amount ($)'
+                }
+            },
+            percentage: {
+                type: 'linear',
+                position: 'right',
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Claims/Premium Ratio (%)'
+                }
+            }
+        },
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function(tooltipItem) {
+                        if (tooltipItem.dataset.label === 'Claims/Premium Ratio (%)') {
+                            return tooltipItem.dataset.label + ': ' + tooltipItem.raw + '%';
+                        } else {
+                            return tooltipItem.dataset.label + ': $' + tooltipItem.raw.toLocaleString();
+                        }
+                    }
+                }
+            }
+        }
+    }
+});
+    </script>
+        <script src="{% static 'questions/js/opportunities.js' %}"></script>
+
+        <script src="{% static 'questions/js/sidebar.js' %}"></script>
+        <script src="{% static 'questions/js/notification.js' %}"></script>
+        <script src="{% static 'questions/js/slider.js' %}"></script>

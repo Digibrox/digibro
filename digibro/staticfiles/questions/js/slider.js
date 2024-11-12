@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const COLOR_TRACK = "#CBD5E1";
-    const COLOR_RANGE = "#0EA5E9";
+    const COLOR_RANGE = "#6A78F4";
 
     // Get the sliders and tooltips
     const fromSlider = document.querySelector('#fromSlider');

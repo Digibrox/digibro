@@ -328,7 +328,7 @@ function toggleBrokerSelections() {
   }
 }
 
-function toggleInsurerselections() {
+function toggleClientSelections() {
   var selectAllCheckboxClient = document.getElementById("client-select-all");
   var clientCheckboxes = document.getElementsByClassName("client-select-box");
 
@@ -349,7 +349,7 @@ function toggleBrokerSelectionsYangin() {
     brokerCheckboxesYangin[i].checked = selectAllCheckboxYangin.checked;
   }
 }
-function toggleInsurerselectionsYangin() {
+function toggleClientSelectionsYangin() {
   var selectAllCheckboxClientYangin = document.getElementById(
     "client-select-allYangin"
   );
@@ -372,7 +372,7 @@ function toggleBrokerSelectionsEC() {
     brokerCheckboxesEC[i].checked = selectAllCheckboxEC.checked;
   }
 }
-function toggleInsurerselectionsEC() {
+function toggleClientSelectionsEC() {
   var selectAllCheckboxClientEC = document.getElementById(
     "client-select-allEC"
   );
@@ -395,7 +395,7 @@ function toggleBrokerSelectionsMK() {
     brokerCheckboxesMK[i].checked = selectAllCheckboxMK.checked;
   }
 }
-function toggleInsurerselectionsMK() {
+function toggleClientSelectionsMK() {
   var selectAllCheckboxClientMK = document.getElementById(
     "client-select-allMK"
   );
@@ -418,7 +418,7 @@ function toggleBrokerSelectionsIMM() {
     brokerCheckboxesIMM[i].checked = selectAllCheckboxIMM.checked;
   }
 }
-function toggleInsurerselectionsIMM() {
+function toggleClientSelectionsIMM() {
   var selectAllCheckboxClientIMM = document.getElementById(
     "client-select-allIMM"
   );
@@ -441,7 +441,7 @@ function toggleBrokerSelectionsTPL() {
     brokerCheckboxesTPL[i].checked = selectAllCheckboxTPL.checked;
   }
 }
-function toggleInsurerselectionsTPL() {
+function toggleClientSelectionsTPL() {
   var selectAllCheckboxClientTPL = document.getElementById(
     "client-select-allTPL"
   );

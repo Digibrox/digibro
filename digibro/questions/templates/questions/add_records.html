@@ -1,0 +1,373 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'questions/css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/question.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/notification.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/user.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/dashboard.css' %}" rel="stylesheet" />
+    <link href="{% static 'questions/css/add_records.css' %}" rel="stylesheet" />
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@1.13.12/iconfont/material-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ion-rangeslider@2.3.1/css/ion.rangeSlider.min.css"/>
+
+    <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.56/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.56/vfs_fonts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous" />
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="{% static 'questions/css/sidebar.css' %}" rel="stylesheet" />
+    <link
+      href="{% static 'questions/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <title>Add a Client / Insurer</title>
+    <link rel="icon" href="/static/questions/img/xxx.png" >
+  </head>
+  <body>
+    
+    <div class="mainDiv">
+      <nav class="sidebar sidebar-bg" id="sidebar">
+        <div class="sidebar-content">
+          <div class="perfect-scrollbar">
+            <div class="ps">
+              <div class="ps-content">
+                <div class="sidebar-logo">
+                  <img
+                    src="{% static 'questions/img/white_logo.png' %}"
+                    class="img-responsive2"
+                    alt=""
+                  />
+                  <p>DIGITALIZE EVERYTHING, NOW.</p>
+                </div>
+                
+                <div class="sidebar-menu">
+                  <ul>
+                    <li>
+                      <a href="{% url 'questions:dashboard' %}" >
+                        <i class="bi bi-house" ></i>
+                        <span>Home</span>
+                      </a>
+                    </li>
+                   
+                    <li><span class="generalText">General</span></li>
+                    <li>
+                      <a href="{% url 'questions:opportunities' %}">
+                        <i class="bi bi-briefcase"></i>
+                        <span>Opportunities</span>
+                      </a>
+                    </li>
+                    <li style="background: #3a3b3d">
+                      <a href="{% url 'questions:add_records' %}">
+                        <i class="bi bi-person-plus" style="color: #fff"></i>
+                        <span style="color: #fff">Add a Client/Insurer</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'clients:index' %}">
+                        <i class="bi bi-person"></i>
+                        <span>Clients</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="{% url 'insurers:index' %}">
+                        <i class="bi bi-shield-check"></i>
+                        <span>Insurers</span>
+                      </a>
+                    </li>
+                    <li style="display:none;">
+                      <a href="{% url 'insurers:index' %}">
+                        <i class="bi bi-symmetry-horizontal"></i>
+                        <span>Risk Reports</span>
+                      </a>
+                    </li>
+                    <li style="display:none;">
+                      <a href="{% url 'insurers:index' %}">
+                        <i class="bi bi-award"></i>
+                        <span>Claims</span>
+                      </a>
+                    </li>
+
+                    <li style="display:none;"><span class="generalText">Extra</span></li>
+                    <li style="display:none;">
+                      <a href="#">
+                        <i class="bi bi-journal-text"></i>
+                        <span>Documentation</span>
+                      </a>
+                    </li>
+                    <li style="display:none;">
+                      <a href="#">
+                        <i class="bi bi-calendar-fill"></i>
+                        <span>Calendar</span>
+                      </a>
+                    </li>
+                    <li style="display:none;">
+                      <a href="#">
+                        <i class="bi bi-folder-fill"></i>
+                        <span>Examples</span>
+                      </a>
+                    </li>
+                    <li><span class="generalText">Demo Links</span></li>
+                    <li>
+                      <a href="{% url 'questions:dashboard' %}">
+                        <i class="bi bi-activity"></i>
+                        <span>Broker Dashboard</span>
+                      </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'clientScreen:dashboard' %}">
+                          <i class="bi bi-activity"></i>
+                          <span>Client Home</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="{% url 'insurerScreen:dashboard' %}">
+                          <i class="bi bi-activity"></i>
+                          <span>Insurer Home</span>
+                        </a>
+                      </li>  
+                  </ul>
+                  
+                 
+                <ul>
+                  <hr>
+                  <li>
+                    <a href="#">
+                      <i class="bi bi-door-open-fill"></i>
+                      <span>Logout</span>
+                    </a>
+                  </li>
+           
+                  
+                </ul>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+    
+      </nav>
+      <div class="accordion" style="gap:25px;background: #f8f8fb;">
+        <div class="accordion-item" style="border-radius: 0px;">
+          <input type="checkbox" id="accordion1" />
+          <label for="accordion1" class="accordion-item-title" style="background:#fff !important;">
+            <div style="display:flex;    align-items: center;">
+              <div class="notifTopDiv" style="">
+              <i class="bi bi-bell" id="notificationBell" style="background-color: rgb(255, 255, 255);"></i>
+              <div id="notificationMainDiv" style="display: none;">
+                <div style="display:flex;" class="notificationsHeader">
+                <p>Notifications</p>
+                <a href="">View All</a>
+                </div>
+                <div class="notificationCardDiv">
+                  <span style="background: #516efd;"><i class="bi bi-shield-check"></i></span>
+                  <div class="notificationPDiv">
+                    <p class="notificationTitle">An insurance profile has been added</p>
+                    <p class="notificationDetail">Click here to go to the Insurance Profile page.</p>
+                    <p class="notificationTimeP"><i class="bi bi-clock"></i> 3 hours ago</p>
+                  </div>
+                </div>
+                <div class="notificationCardDiv">
+                  <span style="background: #3bbd88;"><i class="bi bi-patch-check"></i></span>
+                  <div class="notificationPDiv">
+                    <p class="notificationTitle">The questionnaire form was successfully submitted</p>
+                    <p class="notificationDetail">Mutlu Akü &amp; Allianz Sigorta Questionnaire Form has been delivered.</p>
+                    <p class="notificationTimeP"><i class="bi bi-clock"></i> 9 hours ago</p>
+                  </div>
+                </div>
+                <div class="notificationCardDiv">
+                  <span style="background: #516efd;"><i class="bi bi-arrow-repeat"></i></span>
+                  <div class="notificationPDiv">
+                    <p class="notificationTitle">The questionnaire has been answered</p>
+                    <p class="notificationDetail">The questionnaire was answered by Mert Güven - Mutlu Akü.</p>
+                    <p class="notificationTimeP"><i class="bi bi-clock"></i> 2 days ago</p>
+                  </div>
+                </div>
+
+              </div>
+             
+            </div>
+              <button type="button" id="fullscreenButton" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen" style="background-color: rgb(255, 255, 255);">
+                <i class="bi bi-fullscreen" id="fullscreenOpen" style="display: inline;"></i>
+                <i class="bi bi-fullscreen-exit" id="fullscreenExit" style="display: none;"></i>
+            </button>
+            
+            <div class="sidebar-profile" onclick="toggleDropdown()" id="profileDivID">
+              <div class="user-pic">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5q9GlWCAoQHPpOiDOECuYUeXW9MQP7Ddt-Q&s" class="rounded-circle" alt="Profile Picture" width="40" height="40">
+              </div>
+
+              <div class="user-info d-flex align-items-center">
+                <span class="user-name me-2">Melis Deniz</span>
+                <i class="bi bi-chevron-right userIcon" id="userIcon"></i>
+              </div>
+              <div id="profileDropdownMenu" class="p-2 rounded">
+                <a class="dropdown-item" href="#"><i class="bi bi-person-fill"></i>Profile</a>
+                <a class="dropdown-item" id="logoutA" href="#"><i class="bi bi-door-open-fill"></i>Logout</a>
+              </div>
+            </div>
+</div>
+            <span class="infoSpan" id="mainTitleP" style="    font-size: 16px !important;
+    padding: 6px;
+    font-weight: 700;
+           ">Add a Client / Insurer</span>
+          </label>
+        </div>
+        <div>
+        <div class="tabs">
+            <div class="tab active" data-tab="client">Client</div>
+            <div class="tab" data-tab="insurer">Insurer</div>
+        </div>
+    
+        <div class="content" id="client">
+           
+            <div class="tabSectionDiv">
+            <div style="display:flex;     width: 58%;">
+                <div class="card" style="box-shadow:none;">
+                    <div class="card-body">
+                        <h5 class="card-title">Client General Information</h5>
+                        <form>
+                            <div class="row mb-3">
+                                <div class="col-md-6 txtLeft" >
+                                    <label for="firstName" class="form-label">Company Logo (*)</label>
+                                    <input type="file" class="form-control" id="firstName" placeholder="">
+                                </div>
+                                <div class="col-md-6 txtLeft">
+                                    <label for="email" class="form-label">Client Name (*)</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Type client's name">
+                                </div>
+                            </div>
+            
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6 txtLeft">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="phone" class="form-control" id="phone" placeholder="Type client's phone number">
+                                </div>
+                                <div class="col-md-6 txtLeft">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Type client's email address">
+                                </div>
+                             
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6 txtLeft">
+                                    <label for="Employees" class="form-label">Number of Employees</label>
+                                    <input type="number" class="form-control" id="Employees" placeholder="Type client's number of employees">
+                                </div>
+                                <div class="col-md-6 txtLeft">
+                                    <label for="shift" class="form-label">Number of Shifts</label>
+                                    <input type="number" class="form-control" id="shift" placeholder="Type client's number of shifts">
+                                </div>
+                             
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-4 txtLeft">
+                                    <label for="address" class="form-label">Addresses, City (*)</label>
+                                    <input type="address" class="form-control" id="address" placeholder="Type client's city">
+                                </div>
+                                <div class="col-md-4 txtLeft">
+                                    <label for="district" class="form-label">District (*)</label>
+                                    <input type="district" class="form-control" id="district" placeholder="Type client's district">
+                                </div>
+                                <div class="col-md-4 txtLeft">
+                                    <label for="neighborhood" class="form-label">Neighborhood</label>
+                                    <input type="neighborhood" class="form-control" id="neighborhood" placeholder="Type client's neighborhood">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6 txtLeft">
+                                    <label for="state" class="form-label">Policy Type (*)</label>
+                                    <select id="state" class="form-select">
+                                        <option selected>Select</option>
+                                        <option>Health</option>
+                                        <option>P&C</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 txtLeft">
+                                    <label for="state" class="form-label">Industry (*)</label>
+                                    <select id="state" class="form-select">
+                                        <option selected>Select</option>
+                                        <option>Consultanting</option>
+                                        <option>Energy</option>
+                                        <option>Holding</option>
+                                        <option>IT/Technology Services</option>
+                                    </select>
+                                </div>
+                               
+                            </div>
+                            <div class="row mb-3">
+                            <div class="col-md-6 txtLeft">
+                                <label for="state" class="form-label">Scope (*)</label>
+                                <select id="state" class="form-select">
+                                    <option selected>Select</option>
+                                    <option>Battery Manufacturing</option>
+                                    <option>Construction</option>
+                                    <option>Finance</option>
+                                    <option>HR Consulting</option>
+                                    <option>Insurance</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 txtLeft">
+                                <label for="city" class="form-label">Turnover ($)</label>
+                                <input type="text" class="form-control" id="city" placeholder="Type client's turnover">
+                            </div>
+                        </div>
+                        <h5 class="card-title" style="    margin-top: 28px !important;">Client Contact Information</h5>
+                        
+                            <div class="row mb-3">
+                                <div class="col-md-6 txtLeft" >
+                                    <label for="contactName" class="form-label">Contact Name</label>
+                                    <input type="text" class="form-control" id="contactName" placeholder="Type contact's name">
+                                </div>
+                                <div class="col-md-6 txtLeft">
+                                    <label for="title" class="form-label">Contact Title</label>
+                                    <input type="text" class="form-control" id="title" placeholder="Type contact's title">
+                                </div>
+                            </div>
+            
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6 txtLeft">
+                                    <label for="phone" class="form-label">Contact Phone Number</label>
+                                    <input type="phone" class="form-control" id="phone" placeholder="Type contact's phone number">
+                                </div>
+                                <div class="col-md-6 txtLeft">
+                                    <label for="email" class="form-label">Contact Email Address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Type contact's email address">
+                                </div>
+                             
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="add_records_button">Add Client</button>
+                        </form>
+                    </div>
+                </div>
+               
+              </div>
+              
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="{% static 'questions/js/add_records.js' %}"></script>
+
+        <script src="{% static 'questions/js/sidebar.js' %}"></script>
+        <script src="{% static 'questions/js/notification.js' %}"></script>
+        <script src="{% static 'questions/js/slider.js' %}"></script>

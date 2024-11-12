@@ -24,3 +24,42 @@
         });
     });
 });
+
+
+const profileDiv = document.getElementById('profileDivID');
+const userIcon = document.getElementById('userIcon');
+
+
+let clickCount = 0; // Tıklama sayısı
+
+profileDiv.addEventListener('click', () => {
+    clickCount++; 
+
+    
+    if (clickCount % 2 === 1) { 
+        userIcon.style.transform = 'rotate(270deg)';
+        profileDiv.style.backgroundColor = "#f5f5f5"
+    } else { 
+        userIcon.style.transform = 'rotate(90deg)';
+        profileDiv.style.backgroundColor = "#fff"
+    }
+
+    if (clickCount === 6) { 
+        clickCount = 0;
+    }
+});
+
+
+
+function toggleDropdown() {
+    const dropdownMenu = document.getElementById("profileDropdownMenu");
+    const profileContainer = document.querySelector(".sidebar-profile");
+
+    // Sınıfları ekleme/kaldırma ve durumları konsola yazdırma
+    dropdownMenu.classList.toggle("show");
+    profileContainer.classList.toggle("open");
+    console.log("1");
+    console.log("Profile open:", profileContainer.classList.contains("open"));
+
+}
+

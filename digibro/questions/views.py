@@ -14,6 +14,12 @@ from .send_mail import send_email
 
 def dashboard_view(request):
     return render(request, 'questions/dashboard.html')
+def add_records_view(request):
+    return render(request, 'questions/add_records.html')
+def opportunities_view(request):
+    return render(request, 'questions/opportunities.html')
+def renewal_view(request):
+    return render(request, 'questions/renewal.html')
 
 @csrf_exempt
 def save_data(request):
@@ -109,13 +115,13 @@ def save_data(request):
             # DB'den çekilen bilgiler
             smtp_server = 'mail.digibrox.com'
             stmp_port = 465
-            password = "testdigibrox2024"  # Gönderici e-posta şifresi
+            password = "FSO3yWZqM7qNS4C"  # Gönderici e-posta şifresi
 
-            sender_email = "test@digibrox.com"  # Gönderici e-posta adresi
-            receiver_emails = ['fatihaydin@digibrox.com',]  # Alıcı e-posta adresleri
+            sender_email = "fatihaydin@digibrox.com"  # Gönderici e-posta adresi
+            receiver_emails = ['oguzhanyildirim@digibrox.com']  # Alıcı e-posta adresleri
             if not subject: subject = 'Fronttan gelen başlık burada'  # E-posta konusu
             if not body_first: body_first = 'Fronttan gelen mesaj burada'
-            image_url = "http://185.87.252.236:5555/static/questions/img/lockton.png"
+            image_url = "http://127.0.0.1:8000/static/questions/img/lockton.png"
             # E-posta mesajı
             body_last =  "Saygılarımla,\n"\
                     +"Melis Deniz\n"\
@@ -124,9 +130,9 @@ def save_data(request):
                     +"Telefon: +90 555 444 33 22\n"\
                     +"E-posta: example@locktonomni.com\n"\
                     +"Web: www.locktonomni.com\n"\
-                        
-            body = "\n\n\n" +body_last
-            send_email(sender_email, password, receiver_emails, smtp_server, stmp_port, subject, body_first, body, image_url)
+
+            body = body_first + "\n\n\n" +body_last
+            send_email(sender_email, password, receiver_emails, smtp_server, stmp_port, subject, body, image_url)
             return JsonResponse({'message': 'Veri başarıyla kaydedildi!'})
         except json.JSONDecodeError:
             return JsonResponse({'error': 'Invalid JSON'}, status=400)
